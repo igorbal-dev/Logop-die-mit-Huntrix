@@ -1,0 +1,1002 @@
+{
+ "t1_ende": {
+  "cer": 0.04,
+  "dur": 3.34,
+  "eng": "edge1",
+  "hyp": "Das war Mundtornen. Bis gleich.",
+  "mos": 3.4,
+  "text": "Das war Mund-Turnen. Bis gleich!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_frosch": {
+  "cer": 0.0,
+  "dur": 3.9,
+  "eng": "edge1",
+  "hyp": "Der Frosch lacht ganz breit.  Mach den Frosch.",
+  "mos": 2.82,
+  "text": "Der Frosch lacht ganz breit. Mach den Frosch!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_frosch2": {
+  "cer": 0.0,
+  "dur": 1.54,
+  "eng": "edge1",
+  "hyp": "Ganz breit lächeln.",
+  "mos": 3.15,
+  "text": "Ganz breit lächeln!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_hallo": {
+  "cer": 0.06,
+  "dur": 3.95,
+  "eng": "edge1",
+  "hyp": "Hallo Emily. Ich mache mit dir Mundtonen.",
+  "mos": 2.81,
+  "text": "Hallo Emily! Ich mache mit dir Mund-Turnen.",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_hallo_kurz": {
+  "cer": 0.0,
+  "dur": 0.65,
+  "eng": "edge1",
+  "hyp": "Hallo!",
+  "mos": 3.0,
+  "text": "Hallo!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_halten": {
+  "cer": 0.0,
+  "dur": 3.77,
+  "eng": "edge1",
+  "hyp": "Und halten.  Eins, zwei, drei.",
+  "mos": 3.13,
+  "text": "Und halten. Eins, zwei, drei!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_hamster": {
+  "cer": 0.0,
+  "dur": 4.41,
+  "eng": "edge1",
+  "hyp": "Der Hamster hat dicke Backen.  Puste die Backen auf.",
+  "mos": 3.27,
+  "text": "Der Hamster hat dicke Backen. Puste die Backen auf!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_hamster2": {
+  "cer": 0.0,
+  "dur": 1.68,
+  "eng": "edge1",
+  "hyp": "Backen ganz dick machen.",
+  "mos": 3.18,
+  "text": "Backen ganz dick machen!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_ich_bin": {
+  "cer": 0.0,
+  "dur": 1.79,
+  "eng": "edge1",
+  "hyp": "Hallo, ich bin Rumi.",
+  "mos": 3.03,
+  "text": "Hallo, ich bin Rumi!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_kerzen2": {
+  "cer": 0.0,
+  "dur": 2.95,
+  "eng": "edge1",
+  "hyp": "Noch eine Kerze.  Puste.",
+  "mos": 3.18,
+  "text": "Noch eine Kerze! Puste!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_kerzen_intro": {
+  "cer": 0.0,
+  "dur": 4.18,
+  "eng": "edge1",
+  "hyp": "Jetzt die Kerzen auf dem Kuchen.  Puste sie aus.",
+  "mos": 3.28,
+  "text": "Jetzt die Kerzen auf dem Kuchen. Puste sie aus!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_kuss": {
+  "cer": 0.0,
+  "dur": 3.91,
+  "eng": "edge1",
+  "hyp": "Jetzt ein Kussmund.  Lippen nach vorne.",
+  "mos": 3.06,
+  "text": "Jetzt ein Kussmund. Lippen nach vorne!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_kuss2": {
+  "cer": 0.0,
+  "dur": 2.31,
+  "eng": "edge1",
+  "hyp": "Spitze Lippen, wie ein Küsschen.",
+  "mos": 3.13,
+  "text": "Spitze Lippen, wie ein Küsschen!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_loewe": {
+  "cer": 0.0,
+  "dur": 3.62,
+  "eng": "edge1",
+  "hyp": "Der Löwe gähnt.  Mund ganz weit auf.",
+  "mos": 3.27,
+  "text": "Der Löwe gähnt. Mund ganz weit auf!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_loewe2": {
+  "cer": 0.0,
+  "dur": 2.81,
+  "eng": "edge1",
+  "hyp": "Ganz weit auf, wie ein großer Löwe.",
+  "mos": 3.36,
+  "text": "Ganz weit auf, wie ein großer Löwe!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_nochmal": {
+  "cer": 0.0,
+  "dur": 1.22,
+  "eng": "edge1",
+  "hyp": "Und noch einmal.",
+  "mos": 2.23,
+  "text": "Und noch einmal!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_ohne_kamera": {
+  "cer": 0.0,
+  "dur": 2.77,
+  "eng": "edge1",
+  "hyp": "Ich sehe dich nicht, aber mach einfach mit.",
+  "mos": 3.11,
+  "text": "Ich sehe dich nicht, aber mach einfach mit!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_puste": {
+  "cer": 0.0,
+  "dur": 1.49,
+  "eng": "edge1",
+  "hyp": "Und jetzt pusten.",
+  "mos": 2.75,
+  "text": "Und jetzt pusten!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_puste2": {
+  "cer": 0.0,
+  "dur": 2.45,
+  "eng": "edge1",
+  "hyp": "Puste ganz fest auf die Pusteblume.",
+  "mos": 2.96,
+  "text": "Puste ganz fest auf die Pusteblume!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_puste_intro": {
+  "cer": 0.0,
+  "dur": 4.43,
+  "eng": "edge1",
+  "hyp": "Zuerst pusten wir.  Schau, eine Pusteblume.",
+  "mos": 3.41,
+  "text": "Zuerst pusten wir. Schau, eine Pusteblume!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_puste_mehr": {
+  "cer": 0.0,
+  "dur": 3.79,
+  "eng": "edge1",
+  "hyp": "Da sind noch Samen.  Nochmal pusten.",
+  "mos": 2.78,
+  "text": "Da sind noch Samen. Noch mal pusten!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_riechen": {
+  "cer": 0.0,
+  "dur": 2.14,
+  "eng": "edge1",
+  "hyp": "Erst durch die Nase einatmen.",
+  "mos": 3.12,
+  "text": "Erst durch die Nase einatmen.",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_ru_frosch": {
+  "cer": 0.0,
+  "dur": 2.26,
+  "eng": "edge1",
+  "hyp": "Улыбнись широко, как лягушка.",
+  "mos": 3.25,
+  "text": "Улыбнись широко, как лягушка!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_hamster": {
+  "cer": 0.0,
+  "dur": 2.05,
+  "eng": "edge1",
+  "hyp": "Надуй щёки, как хомяк.",
+  "mos": 3.36,
+  "text": "Надуй щёки, как хомяк!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_kerzen": {
+  "cer": 0.0,
+  "dur": 1.61,
+  "eng": "edge1",
+  "hyp": "Задуй свечки на торте.",
+  "mos": 2.82,
+  "text": "Задуй свечки на торте!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_kuss": {
+  "cer": 0.0,
+  "dur": 2.46,
+  "eng": "edge1",
+  "hyp": "Губы трубочкой, как для поцелуя.",
+  "mos": 3.16,
+  "text": "Губы трубочкой, как для поцелуя!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_loewe": {
+  "cer": 0.0,
+  "dur": 2.1,
+  "eng": "edge1",
+  "hyp": "Открой рот широко, как лев.",
+  "mos": 3.09,
+  "text": "Открой рот широко, как лев!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_puste": {
+  "cer": 0.0,
+  "dur": 2.37,
+  "eng": "edge1",
+  "hyp": "Подуй на одуванчик, сильно-сильно.",
+  "mos": 3.13,
+  "text": "Подуй на одуванчик, сильно-сильно!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_spiegel": {
+  "cer": 0.0,
+  "dur": 2.38,
+  "eng": "edge1",
+  "hyp": "Смотри в зеркало и повторяй за мной.",
+  "mos": 3.17,
+  "text": "Смотри в зеркало и повторяй за мной.",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_spiegel_intro": {
+  "cer": 0.0,
+  "dur": 5.71,
+  "eng": "edge1",
+  "hyp": "Jetzt schauen wir in den Spiegel.  Da bist du.  Mach mir nach.",
+  "mos": 3.29,
+  "text": "Jetzt schauen wir in den Spiegel. Da bist du! Mach mir nach.",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_tanz": {
+  "cer": 0.0,
+  "dur": 3.43,
+  "eng": "edge1",
+  "hyp": "Tanzpause.  Komm, wir tanzen.",
+  "mos": 3.38,
+  "text": "Tanzpause! Komm, wir tanzen!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_tanz_ende": {
+  "cer": 0.0,
+  "dur": 3.31,
+  "eng": "edge1",
+  "hyp": "Super getanzt.  Weiter geht's.",
+  "mos": 3.52,
+  "text": "Super getanzt! Weiter geht's.",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t2_anders_zeig": {
+  "cer": 0.0,
+  "dur": 1.38,
+  "eng": "edge1",
+  "hyp": "Das heißt anders.",
+  "mos": 2.96,
+  "text": "Das heißt anders.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_ende": {
+  "cer": 0.0,
+  "dur": 3.19,
+  "eng": "edge1",
+  "hyp": "toll zugehört. Bis gleich.",
+  "mos": 3.15,
+  "text": "Toll zugehört! Bis gleich!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_frosch": {
+  "cer": 0.03,
+  "dur": 3.77,
+  "eng": "edge1",
+  "hyp": "Das ist der Frosch.  Der Frosch macht Quark.",
+  "mos": 3.24,
+  "text": "Das ist der Frosch. Der Frosch macht Quak!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_gleich2": {
+  "cer": 0.0,
+  "dur": 3.36,
+  "eng": "edge1",
+  "hyp": "Gleich oder anders?  Tipp drauf!",
+  "mos": 3.08,
+  "text": "Gleich oder anders? Tipp drauf!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_gleich_intro": {
+  "cer": 0.0,
+  "dur": 4.95,
+  "eng": "edge1",
+  "hyp": "Jetzt hörst du zwei Geräusche.  Sind sie gleich oder anders?",
+  "mos": 3.41,
+  "text": "Jetzt hörst du zwei Geräusche. Sind sie gleich oder anders?",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_gleich_zeig": {
+  "cer": 0.0,
+  "dur": 1.16,
+  "eng": "edge1",
+  "hyp": "Das heißt gleich.",
+  "mos": 3.16,
+  "text": "Das heißt gleich.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_hallo": {
+  "cer": 0.0,
+  "dur": 3.94,
+  "eng": "edge1",
+  "hyp": "Hallo Emily. Bei mir hörst du ganz genau hin.",
+  "mos": 3.22,
+  "text": "Hallo Emily! Bei mir hörst du ganz genau hin.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_hallo_kurz": {
+  "cer": 0.0,
+  "dur": 0.65,
+  "eng": "edge1",
+  "hyp": "Hallo!",
+  "mos": 2.69,
+  "text": "Hallo!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_hund": {
+  "cer": 0.13,
+  "dur": 3.9,
+  "eng": "edge1",
+  "hyp": "Das ist der Hund.  Der Hund macht wow wow.",
+  "mos": 3.19,
+  "text": "Das ist der Hund. Der Hund macht Wau wau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_ich_bin": {
+  "cer": 0.0,
+  "dur": 1.8,
+  "eng": "edge1",
+  "hyp": "Hallo, ich bin Mira.",
+  "mos": 3.08,
+  "text": "Hallo, ich bin Mira!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_katze": {
+  "cer": 0.0,
+  "dur": 3.86,
+  "eng": "edge1",
+  "hyp": "Das ist die Katze.  Die Katze macht miau.",
+  "mos": 3.25,
+  "text": "Das ist die Katze. Die Katze macht Miau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_kuh": {
+  "cer": 0.04,
+  "dur": 3.33,
+  "eng": "edge1",
+  "hyp": "Das ist die Kuh.  Die Kuh macht moh.",
+  "mos": 3.13,
+  "text": "Das ist die Kuh. Die Kuh macht Muh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_maeh": {
+  "cer": 0.0,
+  "dur": 0.44,
+  "eng": "edge1",
+  "hyp": "Mäh!",
+  "mos": 2.58,
+  "text": "Mäh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_miau": {
+  "cer": 0.0,
+  "dur": 0.74,
+  "eng": "edge1",
+  "hyp": "Miau!",
+  "mos": 2.86,
+  "text": "Miau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_muh": {
+  "cer": 0.0,
+  "dur": 0.45,
+  "eng": "edge1",
+  "hyp": "Muh!",
+  "mos": 2.89,
+  "text": "Muh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_nochmal": {
+  "cer": 0.0,
+  "dur": 1.95,
+  "eng": "edge1",
+  "hyp": "Hör noch einmal genau hin.",
+  "mos": 3.11,
+  "text": "Hör noch einmal genau hin.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_quak": {
+  "cer": 0.0,
+  "dur": 0.56,
+  "eng": "edge1",
+  "hyp": "Quak!",
+  "mos": 2.78,
+  "text": "Quak!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_ru_gleich": {
+  "cer": 0.0,
+  "dur": 3.76,
+  "eng": "edge1",
+  "hyp": "Одинаковые или разные.  Нажми.",
+  "mos": 2.95,
+  "text": "Одинаковые или разные? Нажми!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t2_ru_wer": {
+  "cer": 0.0,
+  "dur": 2.96,
+  "eng": "edge1",
+  "hyp": "Кто так говорит?  Покажи.",
+  "mos": 3.3,
+  "text": "Кто так говорит? Покажи!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t2_schaf": {
+  "cer": 0.0,
+  "dur": 3.58,
+  "eng": "edge1",
+  "hyp": "Das ist das Schaf.  Das Schaf macht Mäh.",
+  "mos": 3.34,
+  "text": "Das ist das Schaf. Das Schaf macht Mäh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_wau": {
+  "cer": 0.0,
+  "dur": 0.9,
+  "eng": "edge1",
+  "hyp": "Wau wau!",
+  "mos": 3.12,
+  "text": "Wau wau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_wer": {
+  "cer": 0.0,
+  "dur": 2.96,
+  "eng": "edge1",
+  "hyp": "Wer macht das? Zeig es mir.",
+  "mos": 3.4,
+  "text": "Wer macht das? Zeig es mir!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_wer2": {
+  "cer": 0.0,
+  "dur": 2.87,
+  "eng": "edge1",
+  "hyp": "Hör nochmal. Wer ist das?",
+  "mos": 3.3,
+  "text": "Hör noch mal. Wer ist das?",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_a": {
+  "cer": 0.0,
+  "dur": 1.77,
+  "eng": "edge1",
+  "hyp": "Mund weit auf, aaa.",
+  "mos": 3.11,
+  "text": "Mund weit auf: Aaa!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_a_kurz": {
+  "cer": 0.0,
+  "dur": 0.77,
+  "eng": "edge1",
+  "hyp": "Ah, ah, ah.",
+  "mos": 2.85,
+  "text": "Aaa!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_hallo_kurz": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Hallo!",
+  "mos": 2.97,
+  "text": "Hallo!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_hoer_dich": {
+  "cer": 0.0,
+  "dur": 2.35,
+  "eng": "edge1",
+  "hyp": "Hör mal, erst ich, dann du.",
+  "mos": 3.37,
+  "text": "Hör mal: erst ich, dann du!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_i": {
+  "cer": 0.08,
+  "dur": 1.73,
+  "eng": "edge1",
+  "hyp": "Breit lächeln, 3",
+  "mos": 3.41,
+  "text": "Breit lächeln: Iii!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_i_kurz": {
+  "cer": 3.0,
+  "dur": 0.55,
+  "eng": "edge1",
+  "hyp": "Drei!",
+  "mos": 2.96,
+  "text": "Iii!",
+  "tries": 2,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ich_bin": {
+  "cer": 0.08,
+  "dur": 1.32,
+  "eng": "edge1",
+  "hyp": "Und ich bin Zoe.",
+  "mos": 3.12,
+  "text": "Und ich bin Zoey!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_jetzt_du": {
+  "cer": 0.29,
+  "dur": 0.92,
+  "eng": "edge1",
+  "hyp": "Jedz du.",
+  "mos": 3.11,
+  "text": "Jetzt du!",
+  "tries": 2,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_jetzt_du2": {
+  "cer": 0.0,
+  "dur": 1.19,
+  "eng": "edge1",
+  "hyp": "Sag es mit mir.",
+  "mos": 3.43,
+  "text": "Sag es mit mir!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_maeh": {
+  "cer": 0.0,
+  "dur": 0.42,
+  "eng": "edge1",
+  "hyp": "Mäh!",
+  "mos": 2.6,
+  "text": "Mäh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_miau": {
+  "cer": 0.0,
+  "dur": 0.7,
+  "eng": "edge1",
+  "hyp": "Miau!",
+  "mos": 2.74,
+  "text": "Miau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_muh": {
+  "cer": 0.0,
+  "dur": 0.43,
+  "eng": "edge1",
+  "hyp": "Muh!",
+  "mos": 2.74,
+  "text": "Muh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_o": {
+  "cer": 0.0,
+  "dur": 1.89,
+  "eng": "edge1",
+  "hyp": "Ein runder Mund, oh oh oh.",
+  "mos": 2.9,
+  "text": "Ein runder Mund: Ooo!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_o_kurz": {
+  "cer": 3.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Whoa!",
+  "mos": 2.66,
+  "text": "Ooo!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ritual_hallo": {
+  "cer": 0.0,
+  "dur": 3.89,
+  "eng": "edge1",
+  "hyp": "Hallo Emily. Willkommen in der Sprechakademie.",
+  "mos": 3.42,
+  "text": "Hallo Emily! Willkommen in der Sprech-Akademie!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ritual_ok": {
+  "cer": 0.0,
+  "dur": 2.82,
+  "eng": "edge1",
+  "hyp": "Ich höre dich. Los geht's.",
+  "mos": 3.11,
+  "text": "Ich höre dich! Los geht's!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ritual_ruf": {
+  "cer": 0.0,
+  "dur": 1.83,
+  "eng": "edge1",
+  "hyp": "Sag ganz laut, Hallo.",
+  "mos": 3.02,
+  "text": "Sag ganz laut: Hallo!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ritual_ruf2": {
+  "cer": 0.0,
+  "dur": 2.02,
+  "eng": "edge1",
+  "hyp": "Wir rufen zusammen, hallo.",
+  "mos": 3.43,
+  "text": "Wir rufen zusammen: Hallo!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ru_jetzt_du": {
+  "cer": 0.0,
+  "dur": 2.41,
+  "eng": "edge1",
+  "hyp": "Теперь ты повтори",
+  "mos": 3.01,
+  "text": "Теперь ты! Повтори.",
+  "tries": 1,
+  "voice": "de-DE-SeraphinaMultilingualNeural"
+ },
+ "t3_ru_ritual": {
+  "cer": 0.07,
+  "dur": 1.83,
+  "eng": "edge1",
+  "hyp": "Скажи громко, Халла",
+  "mos": 2.75,
+  "text": "Скажи громко: Халло!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t3_ru_spiel": {
+  "cer": 0.0,
+  "dur": 2.5,
+  "eng": "edge1",
+  "hyp": "Скажи слово, и оно выпрыгнет.",
+  "mos": 3.28,
+  "text": "Скажи слово, и оно выпрыгнет!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t3_s_auto": {
+  "cer": 0.0,
+  "dur": 1.22,
+  "eng": "edge1",
+  "hyp": "Das ist ein Auto.",
+  "mos": 3.32,
+  "text": "Das ist ein Auto.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_s_ball": {
+  "cer": 0.0,
+  "dur": 1.06,
+  "eng": "edge1",
+  "hyp": "Das ist ein Ball.",
+  "mos": 3.09,
+  "text": "Das ist ein Ball.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_s_baum": {
+  "cer": 0.0,
+  "dur": 1.19,
+  "eng": "edge1",
+  "hyp": "Das ist ein Baum.",
+  "mos": 3.34,
+  "text": "Das ist ein Baum.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_s_ei": {
+  "cer": 0.0,
+  "dur": 1.09,
+  "eng": "edge1",
+  "hyp": "Das ist ein Ei.",
+  "mos": 3.0,
+  "text": "Das ist ein Ei.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_s_oma": {
+  "cer": 0.0,
+  "dur": 1.11,
+  "eng": "edge1",
+  "hyp": "Das ist die Oma.",
+  "mos": 3.22,
+  "text": "Das ist die Oma.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_s_puppe": {
+  "cer": 0.0,
+  "dur": 1.34,
+  "eng": "edge1",
+  "hyp": "Das ist eine Puppe.",
+  "mos": 3.32,
+  "text": "Das ist eine Puppe.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_spaeter": {
+  "cer": 0.0,
+  "dur": 1.69,
+  "eng": "edge1",
+  "hyp": "Das üben wir später nochmal.",
+  "mos": 3.22,
+  "text": "Das üben wir später noch mal.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_spiel_intro": {
+  "cer": 0.0,
+  "dur": 4.8,
+  "eng": "edge1",
+  "hyp": "Jetzt ein Spiel.  In der Zauberkiste ist etwas versteckt.",
+  "mos": 3.18,
+  "text": "Jetzt ein Spiel! In der Zauberkiste ist etwas versteckt.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_spiel_sag": {
+  "cer": 0.0,
+  "dur": 2.47,
+  "eng": "edge1",
+  "hyp": "Sag das Wort, dann springt es raus.",
+  "mos": 3.33,
+  "text": "Sag das Wort, dann springt es raus!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_spiel_sag2": {
+  "cer": 0.0,
+  "dur": 1.1,
+  "eng": "edge1",
+  "hyp": "Sag es laut.",
+  "mos": 3.12,
+  "text": "Sag es laut!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_sprechen_intro": {
+  "cer": 0.0,
+  "dur": 3.41,
+  "eng": "edge1",
+  "hyp": "Jetzt sprechen wir.  Schau auf meinen Mund.",
+  "mos": 3.37,
+  "text": "Jetzt sprechen wir. Schau auf meinen Mund!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_tanz": {
+  "cer": 0.0,
+  "dur": 3.38,
+  "eng": "edge1",
+  "hyp": "Musik an.  Wir tanzen zusammen.",
+  "mos": 3.22,
+  "text": "Musik an! Wir tanzen zusammen!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_tanz_ende": {
+  "cer": 0.0,
+  "dur": 3.12,
+  "eng": "edge1",
+  "hyp": "toll getanzt. Und jetzt weiter.",
+  "mos": 3.3,
+  "text": "Toll getanzt! Und jetzt weiter.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_tiere_intro": {
+  "cer": 0.0,
+  "dur": 1.97,
+  "eng": "edge1",
+  "hyp": "Jetzt sprechen wir wie die Tiere.",
+  "mos": 3.18,
+  "text": "Jetzt sprechen wir wie die Tiere.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_u": {
+  "cer": 0.07,
+  "dur": 2.17,
+  "eng": "edge1",
+  "hyp": "Lippen nach vorne, oh oh oh.",
+  "mos": 2.94,
+  "text": "Lippen nach vorne: Uuu!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_u_kurz": {
+  "cer": 0.0,
+  "dur": 0.67,
+  "eng": "edge1",
+  "hyp": "Uuu!",
+  "mos": 2.99,
+  "text": "Uuu!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_w_auto": {
+  "cer": 0.0,
+  "dur": 0.66,
+  "eng": "edge1",
+  "hyp": "Auto!",
+  "mos": 3.33,
+  "text": "Auto!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_w_ball": {
+  "cer": 0.0,
+  "dur": 0.44,
+  "eng": "edge1",
+  "hyp": "Ball!",
+  "mos": 3.02,
+  "text": "Ball!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_w_baum": {
+  "cer": 0.0,
+  "dur": 0.56,
+  "eng": "edge1",
+  "hyp": "Baum!",
+  "mos": 2.65,
+  "text": "Baum!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_w_ei": {
+  "cer": 0.0,
+  "dur": 0.45,
+  "eng": "edge1",
+  "hyp": "Ei!",
+  "mos": 2.89,
+  "text": "Ei!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_w_oma": {
+  "cer": 0.0,
+  "dur": 0.54,
+  "eng": "edge1",
+  "hyp": "Oma!",
+  "mos": 2.84,
+  "text": "Oma!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_w_puppe": {
+  "cer": 0.0,
+  "dur": 0.58,
+  "eng": "edge1",
+  "hyp": "Puppe!",
+  "mos": 3.28,
+  "text": "Puppe!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_wau": {
+  "cer": 0.0,
+  "dur": 0.86,
+  "eng": "edge1",
+  "hyp": "Wau wau!",
+  "mos": 3.21,
+  "text": "Wau wau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_woerter_intro": {
+  "cer": 0.0,
+  "dur": 3.79,
+  "eng": "edge1",
+  "hyp": "Und jetzt Wörter.  Ich sage es, dann du.",
+  "mos": 3.35,
+  "text": "Und jetzt Wörter. Ich sage es, dann du.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ }
+}
