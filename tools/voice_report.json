@@ -129,6 +129,86 @@
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
+ "t1_lob1": {
+  "cer": 0.0,
+  "dur": 1.03,
+  "eng": "edge1",
+  "hyp": "Toll gemacht!",
+  "mos": 3.17,
+  "text": "Toll gemacht!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_lob2": {
+  "cer": 0.0,
+  "dur": 0.64,
+  "eng": "edge1",
+  "hyp": "Super!",
+  "mos": 3.16,
+  "text": "Super!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_lob3": {
+  "cer": 0.0,
+  "dur": 1.14,
+  "eng": "edge1",
+  "hyp": "Das war stark.",
+  "mos": 3.19,
+  "text": "Das war stark!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_lob4": {
+  "cer": 0.0,
+  "dur": 0.7,
+  "eng": "edge1",
+  "hyp": "Klasse!",
+  "mos": 3.12,
+  "text": "Klasse!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_lob5": {
+  "cer": 0.0,
+  "dur": 1.94,
+  "eng": "edge1",
+  "hyp": "Du machst richtig gut mit.",
+  "mos": 2.77,
+  "text": "Du machst richtig gut mit!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_lob6": {
+  "cer": 0.15,
+  "dur": 1.52,
+  "eng": "edge1",
+  "hyp": "Klima gepustet.",
+  "mos": 3.36,
+  "text": "Prima gepustet!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_lob7": {
+  "cer": 0.0,
+  "dur": 0.97,
+  "eng": "edge1",
+  "hyp": "Genau so.",
+  "mos": 2.73,
+  "text": "Genau so!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_lob8": {
+  "cer": 0.0,
+  "dur": 2.01,
+  "eng": "edge1",
+  "hyp": "Wow, super gepustet.",
+  "mos": 3.24,
+  "text": "Wow, super gepustet!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
  "t1_loewe": {
   "cer": 0.0,
   "dur": 3.62,
@@ -149,6 +229,66 @@
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
+ "t1_los": {
+  "cer": 0.0,
+  "dur": 1.07,
+  "eng": "edge1",
+  "hyp": "Los geht's.",
+  "mos": 3.36,
+  "text": "Los geht's!",
+  "tries": 2,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_mut1": {
+  "cer": 0.0,
+  "dur": 1.1,
+  "eng": "edge1",
+  "hyp": "Gut probiert!",
+  "mos": 3.22,
+  "text": "Gut probiert!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_mut2": {
+  "cer": 0.0,
+  "dur": 2.35,
+  "eng": "edge1",
+  "hyp": "Macht nichts, wir üben das noch.",
+  "mos": 2.91,
+  "text": "Macht nichts, wir üben das noch.",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_mut3": {
+  "cer": 0.0,
+  "dur": 3.93,
+  "eng": "edge1",
+  "hyp": "Das war schwer.  Du hast es versucht, toll.",
+  "mos": 3.18,
+  "text": "Das war schwer. Du hast es versucht, toll!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_mut4": {
+  "cer": 0.0,
+  "dur": 2.57,
+  "eng": "edge1",
+  "hyp": "Das kommt noch.  Weiter.",
+  "mos": 3.15,
+  "text": "Das kommt noch. Weiter!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_naeher": {
+  "cer": 0.0,
+  "dur": 2.0,
+  "eng": "edge1",
+  "hyp": "Komm ganz nah und puste.",
+  "mos": 3.24,
+  "text": "Komm ganz nah und puste!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
  "t1_nochmal": {
   "cer": 0.0,
   "dur": 1.22,
@@ -156,6 +296,16 @@
   "hyp": "Und noch einmal.",
   "mos": 2.23,
   "text": "Und noch einmal!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_nur_pusten": {
+  "cer": 0.0,
+  "dur": 3.67,
+  "eng": "edge1",
+  "hyp": "Psst, nicht sprechen. Nur pusten.",
+  "mos": 3.14,
+  "text": "Psst, nicht sprechen. Nur pusten!",
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
@@ -206,6 +356,26 @@
   "hyp": "Da sind noch Samen.  Nochmal pusten.",
   "mos": 2.78,
   "text": "Da sind noch Samen. Noch mal pusten!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_pusten_pose": {
+  "cer": 0.0,
+  "dur": 2.49,
+  "eng": "edge1",
+  "hyp": "Lippen spitz und ganz lang pusten.",
+  "mos": 3.08,
+  "text": "Lippen spitz und ganz lang pusten!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_pusten_pose2": {
+  "cer": 0.0,
+  "dur": 2.36,
+  "eng": "edge1",
+  "hyp": "Spitze Lippen und Pusten.",
+  "mos": 3.16,
+  "text": "Spitze Lippen, und pusten!",
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
@@ -269,6 +439,16 @@
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
+ "t1_ru_nur_pusten": {
+  "cer": 0.0,
+  "dur": 2.68,
+  "eng": "edge1",
+  "hyp": "ТСС, не говори, просто подуй.",
+  "mos": 2.66,
+  "text": "Тсс, не говори — просто подуй!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
  "t1_ru_puste": {
   "cer": 0.0,
   "dur": 2.37,
@@ -279,6 +459,16 @@
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
+ "t1_ru_pusten_pose": {
+  "cer": 0.0,
+  "dur": 2.04,
+  "eng": "edge1",
+  "hyp": "Губы трубочкой и долго подуй",
+  "mos": 2.98,
+  "text": "Губы трубочкой и долго подуй!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
  "t1_ru_spiegel": {
   "cer": 0.0,
   "dur": 2.38,
@@ -286,6 +476,16 @@
   "hyp": "Смотри в зеркало и повторяй за мной.",
   "mos": 3.17,
   "text": "Смотри в зеркало и повторяй за мной.",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_wechsel": {
+  "cer": 0.0,
+  "dur": 2.78,
+  "eng": "edge1",
+  "hyp": "По очереди улыбка, потом трубочка.",
+  "mos": 2.78,
+  "text": "По очереди: улыбка, потом трубочка!",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
@@ -316,6 +516,36 @@
   "hyp": "Super getanzt.  Weiter geht's.",
   "mos": 3.52,
   "text": "Super getanzt! Weiter geht's.",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_tschuess": {
+  "cer": 0.1,
+  "dur": 2.87,
+  "eng": "edge1",
+  "hyp": "Tschüss Emmy. Bis morgen.",
+  "mos": 3.17,
+  "text": "Tschüss Emily! Bis morgen!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_wechsel": {
+  "cer": 0.0,
+  "dur": 4.73,
+  "eng": "edge1",
+  "hyp": "Jetzt abwechselnd, Frosch, Kussmund, Frosch, Kussmund.",
+  "mos": 3.07,
+  "text": "Jetzt abwechselnd: Frosch, Kussmund, Frosch, Kussmund!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_wechsel2": {
+  "cer": 0.0,
+  "dur": 3.13,
+  "eng": "edge1",
+  "hyp": "Frosch und jetzt Kussmund.",
+  "mos": 3.02,
+  "text": "Frosch! Und jetzt Kussmund!",
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
@@ -366,6 +596,16 @@
   "hyp": "Jetzt hörst du zwei Geräusche.  Sind sie gleich oder anders?",
   "mos": 3.41,
   "text": "Jetzt hörst du zwei Geräusche. Sind sie gleich oder anders?",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_gleich_silben": {
+  "cer": 0.0,
+  "dur": 3.79,
+  "eng": "edge1",
+  "hyp": "Jetzt zwei Silben. Gleich oder anders?",
+  "mos": 3.0,
+  "text": "Jetzt zwei Silben. Gleich oder anders?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -429,6 +669,26 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_klatsch2": {
+  "cer": 0.0,
+  "dur": 2.88,
+  "eng": "edge1",
+  "hyp": "Hörst du es? Dann klatschen.",
+  "mos": 3.19,
+  "text": "Hörst du es? Dann klatschen!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_klatsch_m": {
+  "cer": 0.04,
+  "dur": 2.71,
+  "eng": "edge1",
+  "hyp": "Wenn du ihm hörst, klatsch auf die Hand.",
+  "mos": 3.14,
+  "text": "Wenn du M hörst, klatsch auf die Hand!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_kuh": {
   "cer": 0.04,
   "dur": 3.33,
@@ -436,6 +696,96 @@
   "hyp": "Das ist die Kuh.  Die Kuh macht moh.",
   "mos": 3.13,
   "text": "Das ist die Kuh. Die Kuh macht Muh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob1": {
+  "cer": 0.0,
+  "dur": 1.31,
+  "eng": "edge1",
+  "hyp": "Gut zugehört.",
+  "mos": 3.17,
+  "text": "Gut zugehört!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob2": {
+  "cer": 0.0,
+  "dur": 0.69,
+  "eng": "edge1",
+  "hyp": "Genau!",
+  "mos": 3.12,
+  "text": "Genau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob3": {
+  "cer": 0.0,
+  "dur": 0.67,
+  "eng": "edge1",
+  "hyp": "Super!",
+  "mos": 3.15,
+  "text": "Super!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob4": {
+  "cer": 0.0,
+  "dur": 1.55,
+  "eng": "edge1",
+  "hyp": "Du hast feine Ohren.",
+  "mos": 2.81,
+  "text": "Du hast feine Ohren!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob5": {
+  "cer": 0.0,
+  "dur": 0.69,
+  "eng": "edge1",
+  "hyp": "Klasse!",
+  "mos": 2.7,
+  "text": "Klasse!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob6": {
+  "cer": 0.0,
+  "dur": 0.7,
+  "eng": "edge1",
+  "hyp": "Prima!",
+  "mos": 2.87,
+  "text": "Prima!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob7": {
+  "cer": 0.0,
+  "dur": 0.76,
+  "eng": "edge1",
+  "hyp": "Richtig.",
+  "mos": 2.85,
+  "text": "Richtig!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_lob8": {
+  "cer": 0.0,
+  "dur": 1.26,
+  "eng": "edge1",
+  "hyp": "Ja, genau.",
+  "mos": 3.06,
+  "text": "Ja, genau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_los": {
+  "cer": 0.0,
+  "dur": 1.01,
+  "eng": "edge1",
+  "hyp": "Los geht's.",
+  "mos": 3.08,
+  "text": "Los geht's!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -469,6 +819,46 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_mut1": {
+  "cer": 0.0,
+  "dur": 1.07,
+  "eng": "edge1",
+  "hyp": "gut probiert.",
+  "mos": 3.15,
+  "text": "Gut probiert!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_mut2": {
+  "cer": 0.0,
+  "dur": 3.41,
+  "eng": "edge1",
+  "hyp": "Macht nichts.  Wir hören es nochmal.",
+  "mos": 3.18,
+  "text": "Macht nichts. Wir hören es noch mal.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_mut3": {
+  "cer": 0.0,
+  "dur": 3.91,
+  "eng": "edge1",
+  "hyp": "Das war schwer.  Toll, dass du es versuchst.",
+  "mos": 3.16,
+  "text": "Das war schwer. Toll, dass du es versuchst!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_mut4": {
+  "cer": 0.0,
+  "dur": 2.68,
+  "eng": "edge1",
+  "hyp": "Das kommt noch.  Weiter.",
+  "mos": 3.3,
+  "text": "Das kommt noch. Weiter!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_nochmal": {
   "cer": 0.0,
   "dur": 1.95,
@@ -499,6 +889,16 @@
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
+ "t2_ru_klatsch_m": {
+  "cer": 0.0,
+  "dur": 3.04,
+  "eng": "edge1",
+  "hyp": "Услышишь «М» — хлопни по ладошке.",
+  "mos": 3.24,
+  "text": "Услышишь «М» — хлопни по ладошке!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
  "t2_ru_wer": {
   "cer": 0.0,
   "dur": 2.96,
@@ -509,6 +909,16 @@
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
+ "t2_s_ma": {
+  "cer": 0.0,
+  "dur": 0.37,
+  "eng": "edge1",
+  "hyp": "Ma.",
+  "mos": 1.88,
+  "text": "Ma.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_schaf": {
   "cer": 0.0,
   "dur": 3.58,
@@ -516,6 +926,16 @@
   "hyp": "Das ist das Schaf.  Das Schaf macht Mäh.",
   "mos": 3.34,
   "text": "Das ist das Schaf. Das Schaf macht Mäh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_tschuess": {
+  "cer": 0.04,
+  "dur": 3.0,
+  "eng": "edge1",
+  "hyp": "Tschüss. Ich freue mich auf morgen.",
+  "mos": 3.03,
+  "text": "Tschüss! Ich freu mich auf morgen!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -566,6 +986,56 @@
   "hyp": "Ah, ah, ah.",
   "mos": 2.85,
   "text": "Aaa!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ei": {
+  "cer": 0.0,
+  "dur": 1.77,
+  "eng": "edge1",
+  "hyp": "Schau, dein Ei wird voller.",
+  "mos": 3.24,
+  "text": "Schau, dein Ei wird voller!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ei_bald": {
+  "cer": 0.0,
+  "dur": 2.6,
+  "eng": "edge1",
+  "hyp": "Noch ein Training, dann ist das Ei voll.",
+  "mos": 3.2,
+  "text": "Noch ein Training, dann ist das Ei voll!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ei_voll": {
+  "cer": 0.0,
+  "dur": 4.85,
+  "eng": "edge1",
+  "hyp": "Das Ei ist voll.  Dafür bekommst du heute eine echte Überraschung.",
+  "mos": 3.44,
+  "text": "Das Ei ist voll! Dafür bekommst du heute eine echte Überraschung!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_ende": {
+  "cer": 0.0,
+  "dur": 4.35,
+  "eng": "edge1",
+  "hyp": "Das war unser Training für heute.  Du hast toll mitgemacht.",
+  "mos": 3.38,
+  "text": "Das war unser Training für heute. Du hast toll mitgemacht!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_frueh_ende": {
+  "cer": 0.0,
+  "dur": 5.15,
+  "eng": "edge1",
+  "hyp": "Für heute ist Schluss.  Du hast toll mitgemacht.  Tschüss.",
+  "mos": 3.19,
+  "text": "Für heute ist Schluss. Du hast toll mitgemacht! Tschüss!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -639,6 +1109,126 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_lektion_fertig": {
+  "cer": 0.0,
+  "dur": 3.75,
+  "eng": "edge1",
+  "hyp": "Alle fünf geschafft.  Super, Emily.",
+  "mos": 2.89,
+  "text": "Alle fünf geschafft! Super, Emily!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob1": {
+  "cer": 0.0,
+  "dur": 0.64,
+  "eng": "edge1",
+  "hyp": "Super!",
+  "mos": 3.24,
+  "text": "Super!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob10": {
+  "cer": 0.0,
+  "dur": 0.69,
+  "eng": "edge1",
+  "hyp": "Bravo!",
+  "mos": 3.11,
+  "text": "Bravo!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob2": {
+  "cer": 0.0,
+  "dur": 0.95,
+  "eng": "edge1",
+  "hyp": "Schön laut.",
+  "mos": 3.08,
+  "text": "Schön laut!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob3": {
+  "cer": 0.0,
+  "dur": 1.07,
+  "eng": "edge1",
+  "hyp": "Klasse gemacht!",
+  "mos": 3.34,
+  "text": "Klasse gemacht!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob4": {
+  "cer": 0.0,
+  "dur": 1.04,
+  "eng": "edge1",
+  "hyp": "Toll probiert!",
+  "mos": 3.19,
+  "text": "Toll probiert!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob5": {
+  "cer": 0.0,
+  "dur": 0.67,
+  "eng": "edge1",
+  "hyp": "Prima!",
+  "mos": 2.77,
+  "text": "Prima!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob6": {
+  "cer": 0.0,
+  "dur": 0.87,
+  "eng": "edge1",
+  "hyp": "Weiter so.",
+  "mos": 3.2,
+  "text": "Weiter so!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob7": {
+  "cer": 0.0,
+  "dur": 0.52,
+  "eng": "edge1",
+  "hyp": "Wow!",
+  "mos": 2.85,
+  "text": "Wow!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob8": {
+  "cer": 0.0,
+  "dur": 1.14,
+  "eng": "edge1",
+  "hyp": "Du machst das super.",
+  "mos": 3.41,
+  "text": "Du machst das super!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_lob9": {
+  "cer": 0.0,
+  "dur": 0.88,
+  "eng": "edge1",
+  "hyp": "Sehr gut!",
+  "mos": 3.14,
+  "text": "Sehr gut!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_los": {
+  "cer": 0.0,
+  "dur": 0.96,
+  "eng": "edge1",
+  "hyp": "Los geht's.",
+  "mos": 3.03,
+  "text": "Los geht's!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t3_maeh": {
   "cer": 0.0,
   "dur": 0.42,
@@ -666,6 +1256,56 @@
   "hyp": "Muh!",
   "mos": 2.74,
   "text": "Muh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_mut1": {
+  "cer": 0.0,
+  "dur": 1.0,
+  "eng": "edge1",
+  "hyp": "gut probiert.",
+  "mos": 3.06,
+  "text": "Gut probiert!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_mut2": {
+  "cer": 0.0,
+  "dur": 2.07,
+  "eng": "edge1",
+  "hyp": "Macht nichts, wir üben das noch.",
+  "mos": 3.22,
+  "text": "Macht nichts, wir üben das noch.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_mut3": {
+  "cer": 0.0,
+  "dur": 3.83,
+  "eng": "edge1",
+  "hyp": "Das war schwer.  Du hast es versucht, toll.",
+  "mos": 3.29,
+  "text": "Das war schwer. Du hast es versucht, toll!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_mut4": {
+  "cer": 0.0,
+  "dur": 2.51,
+  "eng": "edge1",
+  "hyp": "Das kommt noch.  Weiter.",
+  "mos": 3.38,
+  "text": "Das kommt noch. Weiter!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_mut5": {
+  "cer": 0.0,
+  "dur": 1.91,
+  "eng": "edge1",
+  "hyp": "Probieren ist das Wichtigste.",
+  "mos": 2.78,
+  "text": "Probieren ist das Wichtigste.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -759,6 +1399,16 @@
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
+ "t3_ru_station": {
+  "cer": 0.0,
+  "dur": 2.14,
+  "eng": "edge1",
+  "hyp": "Нажми на следующую картинку.",
+  "mos": 3.13,
+  "text": "Нажми на следующую картинку!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
  "t3_s_auto": {
   "cer": 0.0,
   "dur": 1.22,
@@ -829,6 +1479,16 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_spiel_ende": {
+  "cer": 0.0,
+  "dur": 2.88,
+  "eng": "edge1",
+  "hyp": "Alle sind draußen.  Geschafft.",
+  "mos": 3.07,
+  "text": "Alle sind draußen! Geschafft!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t3_spiel_intro": {
   "cer": 0.0,
   "dur": 4.8,
@@ -869,6 +1529,26 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_station_fertig": {
+  "cer": 0.0,
+  "dur": 2.79,
+  "eng": "edge1",
+  "hyp": "Geschafft! Ein Stern für dich!",
+  "mos": 3.44,
+  "text": "Geschafft! Ein Stern für dich!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_station_naechste": {
+  "cer": 0.0,
+  "dur": 1.65,
+  "eng": "edge1",
+  "hyp": "Tipp auf das nächste Bild.",
+  "mos": 3.19,
+  "text": "Tipp auf das nächste Bild!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t3_tanz": {
   "cer": 0.0,
   "dur": 3.38,
@@ -896,6 +1576,16 @@
   "hyp": "Jetzt sprechen wir wie die Tiere.",
   "mos": 3.18,
   "text": "Jetzt sprechen wir wie die Tiere.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_tschuess": {
+  "cer": 0.0,
+  "dur": 2.75,
+  "eng": "edge1",
+  "hyp": "Tschüss. Bis zum nächsten Mal.",
+  "mos": 3.06,
+  "text": "Tschüss! Bis zum nächsten Mal!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -986,6 +1676,16 @@
   "hyp": "Wau wau!",
   "mos": 3.21,
   "text": "Wau wau!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t3_weiter": {
+  "cer": 0.0,
+  "dur": 1.09,
+  "eng": "edge1",
+  "hyp": "Weiter geht's.",
+  "mos": 3.37,
+  "text": "Weiter geht's!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
