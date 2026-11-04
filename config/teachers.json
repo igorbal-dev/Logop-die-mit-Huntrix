@@ -2,8 +2,8 @@
   "_comment": "Учительницы — единственное место, где их менять. name — имя (видит родитель), color и hair — цвета заглушки, folder — папка картинок, voice — образец голоса для озвучки (tools/chatterbox/voices/<voice>.wav). adjust — ручная подгонка отдельной картинки, если она после автоматического выравнивания всё равно сдвинута: {\"teacher1_face_smile\": {\"dx\": 0, \"dy\": 0, \"scale\": 1}} (dx, dy — доля ширины/высоты).",
   "teachers": {
     "1": {"name": "Rumi", "role": "гимнастика для рта и дыхание", "color": "#ff7a59", "hair": "#3a2550", "folder": "assets/teachers/teacher1", "voice": "t1"},
-    "2": {"name": "Учительница 2", "role": "слушаем звуки", "color": "#5aa9ff", "hair": "#e86aa8", "folder": "assets/teachers/teacher2", "voice": "t2"},
-    "3": {"name": "Учительница 3", "role": "говорим и игра", "color": "#b06cff", "hair": "#f2c14e", "folder": "assets/teachers/teacher3", "voice": "t3"}
+    "2": {"name": "Mira", "role": "слушаем звуки", "color": "#5aa9ff", "hair": "#e86aa8", "folder": "assets/teachers/teacher2", "voice": "t2"},
+    "3": {"name": "Zoey", "role": "говорим и игра", "color": "#b06cff", "hair": "#f2c14e", "folder": "assets/teachers/teacher3", "voice": "t3"}
   },
   "adjust": {}
 }
