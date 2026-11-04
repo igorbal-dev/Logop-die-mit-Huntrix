@@ -1,17 +1,17 @@
 [
   {
-    "file": "t1_ich_bin__A__t1.wav",
+    "file": "t2_ich_bin__A__t2.wav",
     "model": "mtl",
     "lang": "de",
     "preset": "A",
-    "voice": "t1",
+    "voice": "t2",
     "params": {
       "exaggeration": 0.6,
       "cfg_weight": 0.5,
       "temperature": 0.8
     },
-    "text": "Hallo, ich bin Rumi!",
-    "audio_sec": 2.12,
-    "gen_sec": 41.9
+    "text": "Hallo, ich bin Mira!",
+    "audio_sec": 2.56,
+    "gen_sec": 46.3
   }
 ]
