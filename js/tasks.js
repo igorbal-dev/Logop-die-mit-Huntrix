@@ -52,8 +52,8 @@
     T.body(3, 'hello');
     await say('t3_ritual_hallo');
     c1.classList.add('pop'); await say(A.has('t1_ich_bin') ? 't1_ich_bin' : 't1_hallo_kurz');   /* с именем — «Hallo, ich bin Rumi!» */
-    c2.classList.add('pop'); await say('t2_hallo_kurz');
-    await say('t3_hallo_kurz');
+    c2.classList.add('pop'); await say(A.has('t2_ich_bin') ? 't2_ich_bin' : 't2_hallo_kurz');
+    await say(A.has('t3_ich_bin') ? 't3_ich_bin' : 't3_hallo_kurz');
     T.body(3, 'listen');
     let heard = false;
     for (const k of ['t3_ritual_ruf', 't3_ritual_ruf2', 't3_ru_ritual']){
