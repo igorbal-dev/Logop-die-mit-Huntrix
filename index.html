@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Speech Academy">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<title>Speech Academy</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="stage">
+  <!-- стартовый экран: три учительницы, яйцо, большая кнопка «играть» -->
+  <section id="home">
+    <div id="homeTeachers"></div>
+    <div id="homeEgg"></div>
+    <button id="go" aria-label="Начать занятие"><svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="#fff"/></svg></button>
+    <button id="gear" aria-label="Для родителей (удерживать)"><svg viewBox="0 0 24 24" fill="none" stroke="#8a6fb8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><i class="hold"></i></button>
+  </section>
+
+  <!-- занятие: слева учительница, справа «доска» с заданием -->
+  <section id="lesson" hidden>
+    <div id="tpanel"><div id="tview"></div></div>
+    <div id="board"></div>
+    <div id="camdot" hidden aria-label="Камера включена"><i></i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+    <div id="micring" hidden><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="#fff"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3.5"/></svg><span id="miclevel"></span></div>
+    <button id="ear" hidden aria-label="Послушай себя"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 3-2 4-3 5.5S14 18 12.5 19.5 8 21 7 18"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1.5 2-1.5 3"/></svg></button>
+    <!-- родительские кнопки: незаметные -->
+    <div id="pmarks" hidden><button data-m="ok" aria-label="Получилось">✓</button><button data-m="hard" aria-label="Пока трудно">~</button></div>
+    <button id="stop" aria-label="Закончить раньше (удерживать)"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg><i class="hold"></i></button>
+  </section>
+
+  <!-- родительский раздел (текст здесь можно: его читает взрослый) -->
+  <section id="parent" hidden></section>
+  <div id="pgate" hidden><form><p>Для родителей</p><p id="pq"></p><input id="pa" type="number" inputmode="numeric" autocomplete="off"><div><button type="submit">OK</button><button type="button" id="pcancel">Отмена</button></div></form></div>
+  <div id="loading" hidden><i></i></div>
+</div>
+<script src="js/util.js"></script>
+<script src="js/pics.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/mic.js"></script>
+<script src="js/teachers.js"></script>
+<script src="js/camera.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/session.js"></script>
+<script src="js/parent.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
