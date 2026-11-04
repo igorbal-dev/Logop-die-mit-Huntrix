@@ -22,6 +22,7 @@
   SA.openParent = () => {
     const box = SA.$('#parent'); box.hidden = false; SA.$('#home').hidden = true;
     render();
+    if (T.ready) T.ready.then(() => { if (!box.hidden) render(); });
   };
   function close(){ SA.$('#parent').hidden = true; SA.$('#home').hidden = false; SA.renderHome(); }
 
