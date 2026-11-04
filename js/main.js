@@ -30,5 +30,8 @@
   SA.$('#mapHome').addEventListener('click', () => SA.goHome());
   SA.holdButton(SA.$('#stop'), 2000, () => SA.stopNow());
   SA.holdButton(SA.$('#gear'), 2000, () => SA.parentGate());
-  start().catch(e => { console.error(e); SA.$('#loading').hidden = true; });
+  /* сначала — не устарела ли открытая копия; потом обычный старт */
+  SA.checkUpdate().then(reloading => { if (!reloading) start().catch(e => { console.error(e); SA.$('#loading').hidden = true; }); });
+  /* вернулись в приложение (оно долго висело в фоне) — тоже проверить, но только на стартовом экране */
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && !SA.$('#home').hidden) SA.checkUpdate(); });
 })();

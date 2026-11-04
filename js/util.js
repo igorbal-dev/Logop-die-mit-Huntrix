@@ -46,5 +46,18 @@ window.SA = window.SA || {};
     const hs = els.map((e, i) => { const h = ev => { ev.preventDefault(); done(i); }; e.addEventListener('pointerdown', h); return h; });
     function done(i){ els.forEach((e, k) => e.removeEventListener('pointerdown', hs[k])); res(i); }
   });
-  SA.fetchJSON = async url => (await fetch(url, {cache: 'no-cache'})).json();
+  SA.V = window.SA_V || '0';
+  SA.ver = url => url + (url.includes('?') ? '&' : '?') + 'v=' + SA.V;       /* у каждой публикации свои адреса — телефон не подставит старый файл */
+  SA.fetchJSON = async url => (await fetch(SA.ver(url), {cache: 'no-cache'})).json();
+  /* есть ли на сайте версия новее той, что открыта (телефон мог показать старую копию) — тогда перезагрузиться */
+  SA.checkUpdate = async () => {
+    try {
+      const j = await (await fetch('version.json?t=' + Date.now(), {cache: 'no-store'})).json();
+      if (j.v && j.v !== SA.V){
+        let tried = null; try { tried = sessionStorage.getItem('sa-upd'); sessionStorage.setItem('sa-upd', j.v); } catch(e){}
+        if (tried !== j.v){ location.replace(location.pathname + '?u=' + j.v); return true; }
+      }
+    } catch(e){}
+    return false;
+  };
 })();
