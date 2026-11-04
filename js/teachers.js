@@ -21,9 +21,11 @@
 
   T.init = async () => {
     T.cfg = await SA.fetchJSON('config/teachers.json');
+    /* сначала только то, что видно на старте (три приветствия), остальное догружается в фоне: T.ready */
+    await Promise.all([1, 2, 3].map(n => loadOne(n, 'body_hello')));
     const jobs = [];
-    for (const n of [1, 2, 3]) for (const name of [...T.NEED[n].must, ...T.NEED[n].later]) jobs.push(loadOne(n, name));
-    await Promise.all(jobs);
+    for (const n of [1, 2, 3]) for (const name of [...T.NEED[n].must, ...T.NEED[n].later]) if (name !== 'body_hello') jobs.push(loadOne(n, name));
+    T.ready = Promise.all(jobs);
   };
   T.name = n => T.cfg.teachers[n].name;
   T.src = (n, name) => T.img[`${n}_${name}`] || placeholder(n, name);

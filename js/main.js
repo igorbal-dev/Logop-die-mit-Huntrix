@@ -22,7 +22,7 @@
     try { navigator.wakeLock && navigator.wakeLock.request('screen').catch(() => {}); } catch(e){}
     try { const de = document.documentElement; if (!document.fullscreenElement && de.requestFullscreen && !/iPhone|iPad/.test(navigator.userAgent)) de.requestFullscreen().catch(() => {}); } catch(e){}
     SA.$('#loading').hidden = false;
-    await Promise.all([SA.A.loadSounds(Object.keys(SA.A.LINES)), SA.AUTO ? null : SA.M.setup()]);
+    await Promise.all([SA.A.loadSounds(Object.keys(SA.A.LINES)), SA.AUTO ? null : SA.M.setup(), T.ready]);
     SA.$('#loading').hidden = true;
     SA.$('#home').hidden = true; SA.$('#lesson').hidden = false;
     T.attach(SA.$('#tview'));

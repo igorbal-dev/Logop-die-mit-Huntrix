@@ -185,7 +185,7 @@
   X.dance = async (n, sec = 20) => {
     const b = board(), row = SA.el('div', 'cards');
     const others = [1, 2, 3].filter(k => k !== n);
-    for (const k of others){ const c = SA.el('div', 'card'); c.style.cssText = 'background:transparent;box-shadow:none;max-width:40%;aspect-ratio:2/3'; c.innerHTML = `<img class="pic" style="object-fit:contain" src="${T.src(k, 'body_dance')}" alt="">`; c.classList.add('wobble'); row.appendChild(c); }
+    for (const k of others){ const c = SA.el('div', 'card'); c.style.cssText = 'background:transparent;box-shadow:none;width:44%;max-width:44%;aspect-ratio:2/3;padding:0'; c.innerHTML = `<img class="pic" style="object-fit:contain" src="${T.src(k, 'body_dance')}" alt="">`; c.classList.add('wobble'); row.appendChild(c); }
     b.appendChild(row);
     T.body(n, 'hello'); await say(n === 1 ? 't1_tanz' : 't3_tanz');
     T.dance(n, true);
