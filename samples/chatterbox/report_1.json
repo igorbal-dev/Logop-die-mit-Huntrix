@@ -1,0 +1,272 @@
+[
+  {
+    "file": "t3_ritual_ruf__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Sag ganz laut: Hallo!",
+    "audio_sec": 1.52,
+    "gen_sec": 58.8
+  },
+  {
+    "file": "t1_puste_intro__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Zuerst pusten wir. Schau, eine Pusteblume!",
+    "audio_sec": 4.68,
+    "gen_sec": 74.6
+  },
+  {
+    "file": "t1_ru_kerzen__A__t1_ru.wav",
+    "model": "mtl",
+    "lang": "ru",
+    "preset": "A",
+    "voice": "t1_ru",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Задуй свечки на торте!",
+    "audio_sec": 3.4,
+    "gen_sec": 59.7
+  },
+  {
+    "file": "t1_ru_kuss__A__t1_ru.wav",
+    "model": "mtl",
+    "lang": "ru",
+    "preset": "A",
+    "voice": "t1_ru",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Губы трубочкой, как для поцелуя!",
+    "audio_sec": 3.32,
+    "gen_sec": 59.9
+  },
+  {
+    "file": "t1_nochmal__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Und noch einmal!",
+    "audio_sec": 1.28,
+    "gen_sec": 38.1
+  },
+  {
+    "file": "t2_kuh__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das ist die Kuh. Die Kuh macht Muh!",
+    "audio_sec": 2.6,
+    "gen_sec": 50.9
+  },
+  {
+    "file": "t2_maeh__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Mäh!",
+    "audio_sec": 0.88,
+    "gen_sec": 33.4
+  },
+  {
+    "file": "t2_anders_zeig__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das heißt anders.",
+    "audio_sec": 1.8,
+    "gen_sec": 41.9
+  },
+  {
+    "file": "t3_u__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Lippen nach vorne: Uuu!",
+    "audio_sec": 1.76,
+    "gen_sec": 43.1
+  },
+  {
+    "file": "t3_wau__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Wau wau!",
+    "audio_sec": 1.24,
+    "gen_sec": 38.1
+  },
+  {
+    "file": "t3_s_puppe__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das ist eine Puppe.",
+    "audio_sec": 3.04,
+    "gen_sec": 56.2
+  },
+  {
+    "file": "t3_jetzt_du2__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Sag es mit mir!",
+    "audio_sec": 1.92,
+    "gen_sec": 44.9
+  },
+  {
+    "file": "t3_spiel_ende__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Alle sind draußen! Geschafft!",
+    "audio_sec": 3.28,
+    "gen_sec": 58.7
+  },
+  {
+    "file": "t2_lob2__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Genau!",
+    "audio_sec": 1.0,
+    "gen_sec": 34.5
+  },
+  {
+    "file": "t3_lob4__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Toll probiert!",
+    "audio_sec": 2.28,
+    "gen_sec": 49.4
+  },
+  {
+    "file": "t1_mut4__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das kommt noch. Weiter!",
+    "audio_sec": 2.68,
+    "gen_sec": 52.2
+  },
+  {
+    "file": "t3_mut4__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das kommt noch. Weiter!",
+    "audio_sec": 2.72,
+    "gen_sec": 53.9
+  },
+  {
+    "file": "t3_tschuess__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Tschüss! Bis zum nächsten Mal!",
+    "audio_sec": 2.92,
+    "gen_sec": 55.0
+  }
+]
