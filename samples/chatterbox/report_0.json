@@ -1,0 +1,272 @@
+[
+  {
+    "file": "t3_ritual_hallo__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Hallo Emily! Willkommen in der Sprech-Akademie!",
+    "audio_sec": 3.52,
+    "gen_sec": 77.0
+  },
+  {
+    "file": "t1_hallo__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Hallo Emily! Ich mache mit dir Mund-Turnen.",
+    "audio_sec": 5.56,
+    "gen_sec": 73.3
+  },
+  {
+    "file": "t1_kerzen2__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Noch eine Kerze! Puste!",
+    "audio_sec": 2.24,
+    "gen_sec": 42.7
+  },
+  {
+    "file": "t1_kuss2__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Spitze Lippen, wie ein Küsschen!",
+    "audio_sec": 2.68,
+    "gen_sec": 47.5
+  },
+  {
+    "file": "t1_halten__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Und halten. Eins, zwei, drei!",
+    "audio_sec": 3.08,
+    "gen_sec": 51.2
+  },
+  {
+    "file": "t2_hallo__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Hallo Emily! Bei mir hörst du ganz genau hin.",
+    "audio_sec": 3.64,
+    "gen_sec": 55.1
+  },
+  {
+    "file": "t2_wau__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Wau wau!",
+    "audio_sec": 0.92,
+    "gen_sec": 30.5
+  },
+  {
+    "file": "t2_gleich_zeig__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das heißt gleich.",
+    "audio_sec": 1.88,
+    "gen_sec": 39.2
+  },
+  {
+    "file": "t3_i__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Breit lächeln: Iii!",
+    "audio_sec": 2.16,
+    "gen_sec": 41.7
+  },
+  {
+    "file": "t3_maeh__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Mäh!",
+    "audio_sec": 1.36,
+    "gen_sec": 36.3
+  },
+  {
+    "file": "t3_s_oma__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das ist die Oma.",
+    "audio_sec": 2.48,
+    "gen_sec": 45.7
+  },
+  {
+    "file": "t3_jetzt_du__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Jetzt du!",
+    "audio_sec": 0.96,
+    "gen_sec": 32.8
+  },
+  {
+    "file": "t3_ru_spiel__A__t3_ru.wav",
+    "model": "mtl",
+    "lang": "ru",
+    "preset": "A",
+    "voice": "t3_ru",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Скажи слово, и оно выпрыгнет!",
+    "audio_sec": 3.8,
+    "gen_sec": 59.0
+  },
+  {
+    "file": "t2_lob1__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Gut zugehört!",
+    "audio_sec": 1.4,
+    "gen_sec": 36.2
+  },
+  {
+    "file": "t3_lob3__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Klasse gemacht!",
+    "audio_sec": 2.28,
+    "gen_sec": 44.7
+  },
+  {
+    "file": "t1_mut3__A__t1.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t1",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das war schwer. Du hast es versucht, toll!",
+    "audio_sec": 3.92,
+    "gen_sec": 61.1
+  },
+  {
+    "file": "t3_mut3__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Das war schwer. Du hast es versucht, toll!",
+    "audio_sec": 3.76,
+    "gen_sec": 58.1
+  },
+  {
+    "file": "t2_tschuess__A__t2.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t2",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Tschüss! Ich freu mich auf morgen!",
+    "audio_sec": 3.24,
+    "gen_sec": 53.0
+  }
+]
