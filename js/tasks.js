@@ -47,11 +47,11 @@
     const b = board();
     const row = SA.el('div', 'cards');
     const c1 = SA.el('div', 'card'), c2 = SA.el('div', 'card');
-    for (const [c, n] of [[c1, 1], [c2, 2]]){ c.style.background = 'transparent'; c.style.boxShadow = 'none'; c.innerHTML = `<img class="pic" src="${T.src(n, 'body_hello')}" alt="">`; row.appendChild(c); }
+    for (const [c, n] of [[c1, 1], [c2, 2]]){ c.style.cssText = 'background:transparent;box-shadow:none;width:42%;max-width:42%;aspect-ratio:2/3;padding:0'; c.innerHTML = `<img class="pic" style="object-fit:contain" src="${T.src(n, 'body_hello')}" alt="">`; row.appendChild(c); }
     b.appendChild(row);
     T.body(3, 'hello');
     await say('t3_ritual_hallo');
-    c1.classList.add('pop'); await say('t1_hallo_kurz');
+    c1.classList.add('pop'); await say(A.LINES.t1_ich_bin ? 't1_ich_bin' : 't1_hallo_kurz');   /* с именем — «Hallo, ich bin Rumi!» */
     c2.classList.add('pop'); await say('t2_hallo_kurz');
     await say('t3_hallo_kurz');
     T.body(3, 'listen');
