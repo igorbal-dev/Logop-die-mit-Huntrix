@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "file": "t3_ich_bin__A__t3.wav",
+    "model": "mtl",
+    "lang": "de",
+    "preset": "A",
+    "voice": "t3",
+    "params": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.5,
+      "temperature": 0.8
+    },
+    "text": "Und ich bin Sohi!",
+    "audio_sec": 2.0,
+    "gen_sec": 46.1
+  }
+]
