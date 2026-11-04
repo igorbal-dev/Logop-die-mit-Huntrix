@@ -8,6 +8,8 @@
     "t3_ritual_ok": {"t": 3, "lang": "de", "text": "Ich höre dich! Los geht's!"},
     "t1_hallo_kurz": {"t": 1, "lang": "de", "text": "Hallo!"},
     "t1_ich_bin": {"t": 1, "lang": "de", "text": "Hallo, ich bin Rumi!"},
+    "t2_ich_bin": {"t": 2, "lang": "de", "text": "Hallo, ich bin Mira!"},
+    "t3_ich_bin": {"t": 3, "lang": "de", "text": "Und ich bin Sohi!"},
     "t2_hallo_kurz": {"t": 2, "lang": "de", "text": "Hallo!"},
     "t3_hallo_kurz": {"t": 3, "lang": "de", "text": "Hallo!"},
 

@@ -9,14 +9,24 @@
  },
  "probes": [
   {
-   "id": "t1_ich_bin",
+   "id": "t2_ich_bin",
    "model": "mtl",
    "lang": "de",
    "presets": [
     "A"
    ],
-   "voice": "t1",
-   "text": "Hallo, ich bin Rumi!"
+   "voice": "t2",
+   "text": "Hallo, ich bin Mira!"
+  },
+  {
+   "id": "t3_ich_bin",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Und ich bin Sohi!"
   }
  ]
 }
