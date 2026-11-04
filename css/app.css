@@ -162,3 +162,15 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
   #stations .path.on{background:repeating-linear-gradient(180deg,#9ad7b4 0 10px,transparent 10px 18px)}
 }
 #help{position:absolute;left:8px;bottom:10px;z-index:84;width:52px;height:52px;border-radius:50%;background:#fff;color:#8a6fb8;font:800 30px/1 "Trebuchet MS",system-ui,sans-serif;box-shadow:0 4px 0 var(--shadow)}
+
+/* ---------- дыхательные игры ---------- */
+.blowcam{position:absolute;left:3%;bottom:4%;width:22%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid #fff;box-shadow:0 4px 0 var(--shadow);z-index:6;background:#dfe9f5}
+.blowcam video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+.wind{position:absolute;left:24%;bottom:14%;width:30%;height:22%;z-index:5;pointer-events:none;opacity:0;transition:opacity .15s}
+.wind.on{opacity:1}
+.wind i{position:absolute;left:0;height:6px;border-radius:3px;background:#9fd3ff;animation:gust .5s linear infinite}
+.wind i:nth-child(1){top:10%;width:60%}.wind i:nth-child(2){top:45%;width:80%;animation-delay:.15s}.wind i:nth-child(3){top:80%;width:50%;animation-delay:.3s}
+@keyframes gust{from{transform:translateX(0);opacity:.9}to{transform:translateX(120%);opacity:0}}
+.notes b{position:absolute;bottom:52%;font:800 44px/1 sans-serif;color:#b06cff;animation:note 1.5s ease-out forwards}
+@keyframes note{from{transform:translateY(0);opacity:1}to{transform:translateY(-140px) rotate(20deg);opacity:0}}
+.bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff 0 12%,rgba(200,230,255,.35) 40%,rgba(180,140,255,.35) 100%);border:2px solid rgba(150,170,255,.7)}

@@ -17,12 +17,15 @@
   const animalPairs = () => { const v = Object.values(X.ANIMALS); return [0, 1, 2, 3, 4, 5].map(k => () => { const a = SA.pick(v), b = k % 2 ? a : SA.pick(v.filter(x => x !== a)); return X.sameRound(a, b, 'tiere'); }); };
 
   /* ---------- шаблоны упражнений ---------- */
+  /* breath — имена дыхательных игр (X.BREATH) или функции; на втором круге игры другие (X.pickBreath) */
   const warmup = (breath, mirror) => async E => {
     T.body(1, 'hello'); await say(X.once('hallo1') && E.first ? 't1_hallo' : 't1_los');
-    await fill(E, E.sec*0.4, breath);
+    const names = breath.filter(b => typeof b === 'string');
+    const fns = names.length === breath.length ? X.pickBreath(names, E.level).map(k => o => X.BREATH[k](o)) : breath;
+    try { await fill(E, E.sec*0.45, fns); } finally { if (!fns.length) SA.C.stop(); }
     await SA.M.breathClose();                 /* дальше снова обычный микрофон */
     await X.mirrorStart();
-    try { await fill(E, E.sec*0.6 - 10, mirror.map(id => o => X.exercise(id, o))); }
+    try { await fill(E, E.sec*0.55 - 10, mirror.map(id => o => X.exercise(id, o))); }
     finally { X.mirrorStop(); }
     T.body(1, 'bye'); await say('t1_ende');
   };
@@ -60,14 +63,14 @@
 
   SA.LESSONS = [
     {n: 1, name: 'Гласные и голоса животных', ex: [
-      {id: 'warmup', t: 1, icon: 'pusteblume', name: 'Дыхание и рот', run: warmup([o => X.dandelion(o), o => X.candles(o)], ['frosch', 'kuss', 'loewe', 'hamster'])},
+      {id: 'warmup', t: 1, icon: 'pusteblume', name: 'Одуванчик, шарик, рот', run: warmup(['pusteblume', 'ballon'], ['frosch', 'kuss', 'loewe', 'hamster'])},
       {id: 'listen', t: 2, icon: 'ohr', name: 'Кто так говорит? Одинаковые или разные?', run: listen([[X.animalsIntro, [o => X.whoRound(o)]], [null, animalPairs()]])},
       {id: 'sounds', t: 3, icon: 'mund', name: 'Гласные А-О-И-У, Muh, Mäh', run: sounds([() => X.vowel('a'), () => X.vowel('o'), () => X.vowel('i'), () => X.vowel('u'),
         () => X.tier('muh'), () => X.tier('maeh', true), () => X.tier('wau'), () => X.tier('miau')])},
       {id: 'words', t: 3, icon: 'ball', name: 'Слова: Auto, Ei, Ball…', run: words(['auto', 'ei', 'ball', 'baum', 'oma', 'puppe'])},
       {id: 'game', t: 3, icon: 'kiste', name: 'Волшебный сундучок', run: game('kiste', ['auto', 'ei', 'ball', 'baum', 'oma', 'puppe'])}]},
     {n: 2, name: 'Губы: M, B, P', ex: [
-      {id: 'warmup', t: 1, icon: 'kuchen', name: 'Свечки, улыбка ↔ трубочка', run: warmup([o => X.candles({level: 1})], ['wechsel', 'pusten', 'kuss'])},
+      {id: 'warmup', t: 1, icon: 'flamme', name: 'Свечки, дудочка, улыбка ↔ трубочка', run: warmup(['kerzen', 'floete'], ['wechsel', 'pusten', 'kuss'])},
       {id: 'listen', t: 2, icon: 'ohr', name: 'Хлопни на «М», одинаковые слоги', run: listen([[null, [() => X.klatsch('m', SA.shuffle(['ma', 'sa', 'mo', 'ta', 'mu', 'ka', 'mi', 'la', 'ma']).map(s => 't2_s_' + s))]],
         [null, pairs([['ma', 'ma'], ['ma', 'pa'], ['pa', 'pa'], ['ba', 'pa'], ['ma', 'na'], ['ba', 'ba']])]])},
       {id: 'sounds', t: 3, icon: 'baer', name: 'Ммм, ma-mo-mu, ba-bo-bu, pa-po-pu', run: sounds([() => X.syll('t3_mmm', {pic: 'baer', intro: 't3_mmm_intro'}),
@@ -75,7 +78,7 @@
       {id: 'words', t: 3, icon: 'banane', name: 'Mama, Papa, Maus, Mond…', run: words(['mama', 'papa', 'maus', 'mond', 'banane', 'ball'])},
       {id: 'game', t: 3, icon: 'rakete', name: 'Ракета', run: game('rakete', ['mama', 'papa', 'maus', 'mond', 'banane', 'ball'])}]},
     {n: 3, name: 'Кончик языка: T, D, N, L', ex: [
-      {id: 'warmup', t: 1, icon: 'schiff', name: 'Кораблик, язык', run: warmup([o => X.boat(o)], ['zunge_raus', 'nase', 'uhr', 'marmelade'])},
+      {id: 'warmup', t: 1, icon: 'schiff', name: 'Гонка корабликов, вертушка, язык', run: warmup(['rennen', 'windrad'], ['zunge_raus', 'nase', 'uhr', 'marmelade'])},
       {id: 'listen', t: 2, icon: 'trommel', name: 'Прохлопать слоги, одинаковые слоги', run: listen([[null, [['banane', 3], ['auto', 2], ['ball', 1], ['teddy', 2], ['lampe', 2], ['nudel', 2]].map(([w, n]) => () => X.trommel(w, n))],
         [null, pairs([['ta', 'ta'], ['ta', 'ka'], ['da', 'ga'], ['na', 'na'], ['la', 'na'], ['da', 'da']])]])},
       {id: 'sounds', t: 3, icon: 'trommel', name: 'ta-ta-ta, na-na, la-la, da-do-du', run: sounds([() => X.syll('t3_r_ta', {pic: 'trommel', intro: 't3_trommel_sil'}),
@@ -83,14 +86,14 @@
       {id: 'words', t: 3, icon: 'teddy', name: 'Tür, Teddy, Nase, Nudel…', run: words(['tuer', 'teddy', 'nase', 'nudel', 'loeffel', 'lampe'])},
       {id: 'game', t: 3, icon: 'keks', name: 'Покорми зверька', run: game('fuettern', ['tuer', 'teddy', 'nase', 'nudel', 'loeffel', 'lampe'])}]},
     {n: 4, name: 'Задний язык: K, G', ex: [
-      {id: 'warmup', t: 1, icon: 'pusteblume', name: 'Одуванчик, язык вниз', run: warmup([o => X.dandelion({level: 1})], ['loewe', 'kinn', 'hamster'])},
+      {id: 'warmup', t: 1, icon: 'tasse', name: 'Горячий суп, мыльные пузыри, язык вниз', run: warmup(['suppe', 'blasen'], ['loewe', 'kinn', 'hamster'])},
       {id: 'listen', t: 2, icon: 'ohr', name: 'ka–ta, Kopf или Topf?', run: listen([[null, pairs([['ka', 'ta'], ['ga', 'da'], ['ka', 'ka'], ['ta', 'ta'], ['ga', 'ga'], ['ka', 'ga']])],
         [null, [() => X.zeig(['kopf', 'topf']), () => X.zeig(['kanne', 'tanne'])]]])},
       {id: 'sounds', t: 3, icon: 'specht', name: 'Дятел: ka-ko-ku, ga-go-gu', run: sounds([() => X.syll('t3_r_ka', {pic: 'specht', intro: 't3_specht'}), () => X.syll('t3_r_ga', {face: 'talk_open', hear: true})])},
       {id: 'words', t: 3, icon: 'kuchen', name: 'Kuh, Katze, Keks, Kuchen…', run: words(['kuh', 'katze', 'keks', 'kuchen', 'gabel', 'gurke'])},
       {id: 'game', t: 3, icon: 'kiste', name: 'Волшебный сундучок', run: game('kiste', ['kuh', 'katze', 'keks', 'kuchen', 'gabel', 'gurke'])}]},
     {n: 5, name: 'Шипящие на слух: S и Sch', ex: [
-      {id: 'warmup', t: 1, icon: 'schlange', name: 'Змея ссс, поезд шшш', run: warmup([() => X.hiss('schlange'), () => X.hiss('zug')], ['frosch', 'kuss'])},
+      {id: 'warmup', t: 1, icon: 'schlange', name: 'Змея ссс, поезд шшш, листики', run: warmup([() => X.hiss('schlange'), () => X.hiss('zug'), () => X.leaves()], ['frosch', 'kuss'])},
       {id: 'listen', t: 2, icon: 'zug', name: 'Змея или поезд? Хлопни на «Ш»', run: listen([[null, [() => X.schlangeZug()]],
         [null, [() => X.klatsch('sch', SA.shuffle(['scha', 'sa', 'schu', 'su', 'ma', 'scho', 'so', 'scha']).map(s => 't2_s_' + s))]],
         [null, [() => X.zeig(['tasche', 'tasse']), () => X.zeig(['fisch', 'tisch'])]]])},

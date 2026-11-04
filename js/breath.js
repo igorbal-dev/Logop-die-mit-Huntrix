@@ -48,24 +48,24 @@
 
   /* детектор: кормим кадрами, он считает «чистый» выдох. sens: 0 — строже, 1 — обычно, 2 — чувствительнее */
   class Blow {
-    constructor(sr, sens = 1){ this.sr = sr; this.floor = -70; this.run = 0; this.voiced = 0; this.sinceVoice = 1e9; this.sens = sens; this.last = null; }
+    constructor(sr, sens = 1){ this.sr = sr; this.hist = []; this.floor = -75; this.run = 0; this.sinceVoice = 1e9; this.sens = sens; this.last = null; }
     frame(x, dtMs){
       const f = this.last = features(x, this.sr);
-      const margin = [16, 12, 8][this.sens] ?? 12;
-      const loud = f.db > this.floor + margin && f.db > -62;
-      const voice = loud && f.per > 0.55;
-      /* «с», «ш» в словах — шипение высоко (> 3,5 кГц); выдох губами и «ветер» — ниже */
-      /* flat > 0.08 — не чистый тон (свист, писк) */
-      const air = loud && f.per < 0.42 && f.hi < 0.45 && (f.low > 0.4 || f.flat > 0.08);
-      /* фон: подстраивается только в тишине (быстро вниз, медленно вверх) */
-      if (!loud){ this.floor += (f.db - this.floor)*(f.db < this.floor ? 0.2 : 0.02); }
-      if (voice){ this.voiced += dtMs; this.run = 0; this.sinceVoice = 0; }
+      /* фон комнаты: 15-й перцентиль громкости за последние ~4 с — подстраивается всегда (раньше застревал, если в комнате шумно) */
+      this.hist.push(f.db); if (this.hist.length > 130) this.hist.shift();
+      if (this.hist.length >= 10){ const h = this.hist.slice().sort((a, b) => a - b); this.floor = h[Math.floor(h.length*0.15)]; }
+      const margin = [14, 10, 7][this.sens] ?? 10;
+      const loud = f.db > this.floor + margin && f.db > -72;
+      /* голос — есть тон (периодичность). Только он и отбрасывается */
+      const voice = loud && f.per > 0.6;
+      /* выдох — громкий шум без тона. Чистое «ссс» (почти вся энергия выше 3,5 кГц) — не выдох.
+         Раньше порог был 45 % и отсекал настоящий выдох прямо в микрофон — в нём тоже много высоких частот */
+      const air = loud && f.per < 0.5 && f.hi < 0.75;
+      if (voice){ this.run = 0; this.sinceVoice = 0; }
       else this.sinceVoice += dtMs;
-      /* шум сразу рядом с голосом (≤ 0,3 с) — часть слова, а не выдох */
-      if (!voice && air && this.sinceVoice > 300){ this.run += dtMs; this.voiced = Math.max(0, this.voiced - dtMs); }
+      if (!voice && air && this.sinceVoice > 200) this.run += dtMs;
       else this.run = Math.max(0, this.run - dtMs*2);
-      /* выдох засчитывается после 180 мс «чистого» воздуха подряд (кусочки «ш», «ф» в словах короче) */
-      return {air: air && this.run >= 180, voice, loud, f};
+      return {air: air && this.run >= 120, voice, loud, f, floor: this.floor};
     }
   }
   const api = {features, Blow, N};

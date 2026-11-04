@@ -96,69 +96,153 @@
     P.item({block: 'ritual', id: 'hallo', kind: 'speak', result: heard ? 'heard' : (M.ok ? 'none' : 'nomic')});
   };
 
-  /* ========== ДЫХАНИЕ (Rumi) — микрофон ловит именно выдох (js/breath.js) ========== */
-  /* общий цикл: до 3 попыток; молчит — подсказки; говорит вместо выдоха — «Psst, nur pusten!» (один раз) */
-  async function breathLoop({prompts, done, onAir, onPuff, ms = 6000, block = 'breath', id}){
-    let attempts = 0, saidPsst = false, seenPuffs = 0;
-    for (let a = 0; a < 3 && !done(); a++){
+  /* ========== ДЫХАНИЕ (Rumi): 10 разных игр на один «движок» ==========
+     Засчитывается выдох (js/breath.js: шум без тона). Подстраховка — камера: если она видит «губы трубочкой» (поза выдоха),
+     игра тоже идёт (медленнее), даже когда микрофон выдох не поймал (iPhone может «съедать» шум выдоха).
+     Игра никогда не проигрывается: после 3 попыток всё равно доходит до конца (похвала за старание). */
+  /* камера для дыхания и зеркала — одна на всю разминку; видео переносится в нужное окошко */
+  X.camInto = async host => {
+    if (SA.AUTO) return false;
+    if (SA.C.on && SA.C.video){ host.appendChild(SA.C.video); SA.C.video.play().catch(() => {}); return true; }
+    return await SA.C.start(host);
+  };
+  const W = () => SA.$('#board').clientWidth, H = () => SA.$('#board').clientHeight;
+  async function breathGame({id, intro, again, ru, scene, demo}){
+    const b = board();
+    const g = scene(b);                       /* {tick(ms, air), done(), puff?(), end?()} */
+    const cam = SA.el('div', 'blowcam'); b.appendChild(cam);
+    const camOk = await X.camInto(cam);
+    if (!camOk) cam.remove();
+    const wind = SA.el('div', 'wind', '<i></i><i></i><i></i>'); b.appendChild(wind);
+    X.help(1, [intro]);
+    if (X.once('b_' + id)){ T.body(1, 'explain'); await say(intro); if (demo !== false){ T.face(1, 'blow'); A.sfx.whoosh(); await sleep(500); } }
+    T.face(1);
+    let attempts = 0, saidPsst = false, prevBlow = 0, camWas = false, camOff = SA.now();
+    for (let a = 0; a < 3 && !g.done(); a++){
       attempts++;
       T.face(1, 'blow');
-      const st = await M.blow({ms, onTick(air, s){ if (air) onAir && onAir(); while (s.puffs > seenPuffs){ seenPuffs++; onPuff && onPuff(); } }, until: () => done()});
-      T.face(1);
-      if (done()) break;
-      if (!st.any && st.voiceMs > 700 && !saidPsst){ saidPsst = true; await say('t1_nur_pusten'); continue; }
-      if (!st.any){ if (prompts[a + 1]) await say(prompts[a + 1]); else if (a === 1) await say('t1_naeher'); }
+      let last = SA.now(), moved = 0;
+      const st = await M.blow({ms: 6500, onTick(air, s){
+        const now = SA.now(), dt = Math.min(100, now - last); last = now;
+        const pose = camOk && SA.C.sees('blow');
+        if (pose && !camWas && now - camOff > 250 && g.puff && !air) g.puff();      /* «пф» губами — тоже свечка */
+        if (!pose && camWas) camOff = now; camWas = pose;
+        const ms = air ? dt : pose ? dt*0.6 : 0;
+        wind.classList.toggle('on', ms > 0);
+        if (ms > 0){ moved += ms; g.tick(ms, air); }
+        while (g.puff && s.puffs > prevBlow){ prevBlow++; g.puff(); }
+      }, until: () => g.done()});
+      prevBlow = 0;
+      wind.classList.remove('on'); T.face(1);
+      if (g.done()) break;
+      if (!moved && st.voiceMs > 700 && !saidPsst){ saidPsst = true; await say('t1_nur_pusten'); a--; continue; }
+      if (a < 2) await say(moved ? again : (a === 0 ? again : ru));
     }
-    const ok = done();
-    P.item({block, id, kind: 'blow', result: ok ? 'done' : 'tried', attempts});
-    return ok;
+    const ok = g.done();
+    if (g.finish) await g.finish(ok);
+    P.item({block: 'breath', id, kind: 'blow', result: ok ? 'done' : 'tried', attempts});
+    await (ok ? X.praise(1, b, true) : X.support(1));
   }
-  /* Pusteblume — длинный плавный выдох. Проще: пушинка за 80 мс; сложнее: за 200 мс */
-  X.dandelion = async (o = {}) => {
-    const n = 14, per = o.level > 0 ? 200 : o.level < 0 ? 80 : 130;
-    const b = board(), w = SA.el('div', 'full center'); w.innerHTML = SA.dandelionSVG(n); b.appendChild(w);
+  const svgEl = html => { const d = SA.el('div', ''); d.innerHTML = html; return d; };
+  const place = (el, css) => { el.style.cssText = 'position:absolute;' + css; return el; };
+
+  /* 1. Pusteblume — длинный плавный выдох: пушинки улетают */
+  X.dandelion = (o = {}) => { const per = o.level > 0 ? 200 : 130; return breathGame({id: 'pusteblume', intro: 't1_puste_intro', again: 't1_puste2', ru: 't1_ru_puste', scene(b){
+    const w = place(svgEl(SA.dandelionSVG(14)), 'inset:4% 20% 4% 20%'); b.appendChild(w); w.firstChild.style.cssText = 'width:100%;height:100%';
     const seeds = [...w.querySelectorAll('.seed')]; let gone = 0, acc = 0;
-    const fly = () => { const s = seeds[gone++]; if (!s) return; const a = Math.random()*60 - 30;
-      s.animate([{transform: 'none', opacity: 1}, {transform: `translate(${120 + Math.random()*160}px,${-80 - Math.random()*140}px) rotate(${a}deg)`, opacity: 0}], {duration: 1600, easing: 'ease-out', fill: 'forwards'}); };
-    X.help(1, ['t1_puste_intro', 't1_riechen', 't1_puste']);
-    if (X.once('pusteblume')){
-      T.body(1, 'explain'); await say('t1_puste_intro');
-      T.face(1, 'smell'); await say('t1_riechen');
-      T.face(1, 'blow'); A.sfx.whoosh(); fly(); await sleep(200); fly(); await sleep(400);
-      T.face(1); await say('t1_puste');
-    } else { T.face(1, 'blow'); await sleep(300); }
-    const ok = await breathLoop({id: 'pusteblume', prompts: [null, 't1_puste2', 't1_ru_puste'], done: () => gone >= n,
-      onAir(){ acc += 30; if (acc >= per){ acc = 0; fly(); } }});
-    while (gone < n){ fly(); await sleep(50); }
-    await (ok ? X.praise(1, b) : X.support(1));
-  };
-  /* Kerzen — короткие сильные выдохи: каждое «пф» гасит свечку. Проще 3, сложнее 5 */
-  X.candles = async (o = {}) => {
-    const n = o.level > 0 ? 5 : 3;
-    const b = board(), w = SA.el('div', 'full center'); w.innerHTML = SA.cakeSVG(n); b.appendChild(w);
-    const fl = [...w.querySelectorAll('.flame')]; let out = 0;
+    const fly = () => { const s = seeds[gone++]; if (!s) return; s.animate([{transform: 'none', opacity: 1}, {transform: `translate(${120 + Math.random()*160}px,${-80 - Math.random()*140}px) rotate(${Math.random()*60 - 30}deg)`, opacity: 0}], {duration: 1600, easing: 'ease-out', fill: 'forwards'}); };
+    return {tick(ms){ acc += ms; while (acc >= per){ acc -= per; fly(); } }, done: () => gone >= seeds.length, async finish(){ while (gone < seeds.length){ fly(); await sleep(40); } }};
+  }}); };
+  /* 2. Kerzen — короткие сильные «пф»: каждое гасит свечку (или 0,4 с непрерывного выдоха) */
+  X.candles = (o = {}) => { const n = o.level > 0 ? 5 : 3; return breathGame({id: 'kerzen', intro: 't1_kerzen_intro', again: 't1_kerzen2', ru: 't1_ru_kerzen', scene(b){
+    const w = place(svgEl(SA.cakeSVG(n)), 'inset:6% 18%'); b.appendChild(w); w.firstChild.style.cssText = 'width:100%;height:100%';
+    const fl = [...w.querySelectorAll('.flame')]; let out = 0, acc = 0;
     fl.forEach(f => f.animate([{transform: 'scaleY(1)'}, {transform: 'scaleY(1.15)'}], {duration: 300, iterations: Infinity, direction: 'alternate'}));
-    const blowOut = () => { const f = fl[out++]; if (!f) return; A.sfx.puff(); f.animate([{opacity: 1, transform: 'scale(1)'}, {opacity: 0, transform: 'scale(.3) translateY(-20px)'}], {duration: 300, fill: 'forwards'}); };
-    X.help(1, ['t1_kerzen_intro']);
-    if (X.once('kerzen')){ T.body(1, 'explain'); await say('t1_kerzen_intro'); T.face(1, 'blow'); A.sfx.puff(); await sleep(400); T.face(1); }
-    const ok = await breathLoop({id: 'kerzen', ms: 7000, prompts: [null, 't1_kerzen2', 't1_ru_kerzen'], done: () => out >= n, onPuff: blowOut});
-    while (out < n){ blowOut(); await sleep(150); }
-    await (ok ? X.praise(1, b) : X.support(1));
+    const blowOut = () => { const f = fl[out++]; if (!f) return; A.sfx.puff(); f.animate([{opacity: 1}, {opacity: 0, transform: 'scale(.3) translateY(-20px)'}], {duration: 300, fill: 'forwards'}); };
+    return {tick(ms){ acc += ms; if (acc >= 400){ acc = 0; blowOut(); } }, puff(){ acc = 0; blowOut(); }, done: () => out >= n, async finish(){ while (out < n){ blowOut(); await sleep(150); } }};
+  }}); };
+  /* 3. Ballon — надуть шарик; полный — улетает с конфетти */
+  X.balloon = () => breathGame({id: 'ballon', intro: 't1_ballon_intro', again: 't1_ballon2', ru: 't1_ru_ballon', scene(b){
+    const col = SA.pick(['#ff5a5a', '#5aa9ff', '#ffb020', '#7bd36a', '#b06cff']);
+    const w = place(svgEl(`<svg viewBox="0 0 200 260"><path d="M100 196 q-6 30 10 60" fill="none" stroke="#4a3550" stroke-width="3"/><g class="bl" style="transform-origin:100px 196px"><ellipse cx="100" cy="110" rx="70" ry="86" fill="${col}" stroke="#4a3550" stroke-width="5"/><ellipse cx="74" cy="76" rx="12" ry="22" fill="#fff" opacity=".5"/><path d="M92 194 h16 l-8 10 z" fill="${col}" stroke="#4a3550" stroke-width="4"/></g></svg>`), 'inset:4% 25% 2% 25%'); b.appendChild(w);
+    const bl = w.querySelector('.bl'); let f = 0; const need = 3000;
+    const draw = () => { bl.style.transform = `scale(${0.25 + 0.75*f/need})`; }; draw();
+    return {tick(ms){ f = Math.min(need, f + ms); draw(); }, done: () => f >= need, async finish(){ f = need; draw(); A.sfx.pop(); A.sfx.sparkle(); w.animate([{transform: 'none'}, {transform: 'translateY(-130%) rotate(8deg)'}], {duration: 1400, easing: 'ease-in', fill: 'forwards'}); await say('t1_ballon_ende'); }};
+  }});
+  /* 4. Zauberflöte — дудочка играет мелодию, пока Эмили дует (каждые 0,28 с выдоха — следующая нота) */
+  const MEL = [60, 62, 64, 65, 67, 67, 69, 69, 69, 69, 67, 65, 65, 64, 64, 62, 62, 60];      /* «Alle meine Entchen» — народная песенка */
+  X.flute = () => breathGame({id: 'floete', intro: 't1_floete_intro', again: 't1_floete2', ru: 't1_ru_floete', scene(b){
+    const w = place(svgEl(`<svg viewBox="0 0 260 120"><rect x="10" y="44" width="240" height="30" rx="15" fill="#e8b02e" stroke="#4a3550" stroke-width="5"/>${[60, 95, 130, 165, 200].map(x => `<circle cx="${x}" cy="59" r="7" fill="#4a3550"/>`).join('')}<rect x="10" y="44" width="34" height="30" rx="12" fill="#c98a1e" stroke="#4a3550" stroke-width="5"/></svg>`), 'left:8%;right:8%;top:46%;'); b.appendChild(w);
+    const notes = SA.el('div', 'notes'); b.appendChild(notes);
+    let k = 0, acc = 0;
+    const note = () => { const m = MEL[k++]; const hz = 440*Math.pow(2, (m - 69)/12); A.sfx.tone(hz, hz, 300, 'sine', .22); A.sfx.tone(hz*2, hz*2, 260, 'triangle', .05);
+      const n = SA.el('b', '', '♪'); n.style.left = (10 + Math.random()*75) + '%'; notes.appendChild(n); setTimeout(() => n.remove(), 1500); };
+    return {tick(ms){ acc += ms; while (acc >= 280 && k < MEL.length){ acc -= 280; note(); } }, done: () => k >= MEL.length, async finish(){ while (k < MEL.length){ note(); await sleep(220); } }};
+  }});
+  /* 5. Suppe — остудить горячий суп: пар уходит, потом мишка ест */
+  X.soup = () => breathGame({id: 'suppe', intro: 't1_suppe_intro', again: 't1_suppe2', ru: 't1_ru_suppe', scene(b){
+    const w = place(svgEl(`<svg viewBox="0 0 200 200"><g class="steam"><path d="M70 80 q-12 -20 0 -40 q12 -20 0 -40" /><path d="M100 80 q-12 -20 0 -40 q12 -20 0 -40"/><path d="M130 80 q-12 -20 0 -40 q12 -20 0 -40"/></g><ellipse cx="100" cy="100" rx="80" ry="18" fill="#ff9a4d" stroke="#4a3550" stroke-width="5"/><path d="M20 100 q0 80 80 80 q80 0 80 -80" fill="#5aa9ff" stroke="#4a3550" stroke-width="5"/><circle cx="76" cy="98" r="6" fill="#ffd84d"/><circle cx="120" cy="96" r="5" fill="#7bd36a"/></svg>`), 'left:34%;width:34%;top:20%;aspect-ratio:1'); b.appendChild(w);
+    const bear = place(svgEl(SA.pic('baer')), 'left:4%;width:26%;top:30%;aspect-ratio:1'); b.appendChild(bear);
+    const steam = w.querySelector('.steam'); steam.setAttribute('fill', 'none'); steam.setAttribute('stroke', '#c9c3cf'); steam.setAttribute('stroke-width', '8'); steam.setAttribute('stroke-linecap', 'round');
+    steam.animate([{transform: 'translateY(0)'}, {transform: 'translateY(-8px)'}], {duration: 700, iterations: Infinity, direction: 'alternate'});
+    let f = 0; const need = 3000;
+    return {tick(ms){ f = Math.min(need, f + ms); steam.style.opacity = 1 - f/need; }, done: () => f >= need, async finish(){ steam.style.opacity = 0; bear.animate([{transform: 'none'}, {transform: 'translateX(40%) rotate(-6deg)'}, {transform: 'none'}], {duration: 900}); A.sfx.tone(500, 300, 200, 'triangle', .2); await say('t1_suppe_ende'); }};
+  }});
+  /* 6. Seifenblasen — мягкий выдох: из колечка летят пузыри */
+  X.bubbles = () => breathGame({id: 'seifenblasen', intro: 't1_blasen_intro', again: 't1_blasen2', ru: 't1_ru_blasen', scene(b){
+    const ring = place(svgEl(`<svg viewBox="0 0 120 200"><circle cx="60" cy="50" r="36" fill="none" stroke="#b06cff" stroke-width="10"/><rect x="54" y="86" width="12" height="100" rx="6" fill="#b06cff" stroke="#4a3550" stroke-width="3"/></svg>`), 'left:10%;width:18%;top:30%;aspect-ratio:120/200'); b.appendChild(ring);
+    let n = 0, acc = 0; const need = 14;
+    const bubble = () => { n++; const r = 30 + Math.random()*50, x = 20 + Math.random()*60; const e = place(SA.el('i', 'bubble'), `left:${x}%;bottom:30%;width:${r}px;height:${r}px`); b.appendChild(e);
+      e.animate([{transform: 'translate(0,0) scale(.3)', opacity: 1}, {transform: `translate(${Math.random()*80 - 40}px,${-H()*0.7}px) scale(1)`, opacity: .9}], {duration: 2600 + Math.random()*900, easing: 'ease-out', fill: 'forwards'}).finished.then(() => { A.sfx.tone(1600, 2200, 60, 'sine', .05); e.remove(); }).catch(() => {}); };
+    return {tick(ms){ acc += ms; while (acc >= 200){ acc -= 200; bubble(); } }, done: () => n >= need, async finish(){ while (n < need){ bubble(); await sleep(80); } await sleep(600); }};
+  }});
+  /* 7. Windrad — вертушка крутится, пока дуешь */
+  X.pinwheel = () => breathGame({id: 'windrad', intro: 't1_windrad_intro', again: 't1_windrad2', ru: 't1_ru_windrad', scene(b){
+    const cols = ['#ff5a5a', '#ffd84d', '#5aa9ff', '#7bd36a'];
+    const w = place(svgEl(`<svg viewBox="0 0 200 260"><rect x="94" y="100" width="12" height="150" rx="6" fill="#a8774b" stroke="#4a3550" stroke-width="3"/><g class="pw" style="transform-origin:100px 100px">${cols.map((c, i) => `<path d="M100 100 L100 20 Q150 30 100 100" fill="${c}" stroke="#4a3550" stroke-width="4" transform="rotate(${i*90} 100 100)"/>`).join('')}<circle cx="100" cy="100" r="9" fill="#fff" stroke="#4a3550" stroke-width="4"/></g></svg>`), 'left:30%;width:40%;top:4%;bottom:4%'); b.appendChild(w);
+    const pw = w.querySelector('.pw'); let f = 0, ang = 0; const need = 3500;
+    return {tick(ms){ f = Math.min(need, f + ms); ang += ms*0.9; pw.style.transform = `rotate(${ang}deg)`; if (Math.random() < 0.05) A.sfx.noise(80, 2000, .05); }, done: () => f >= need,
+      async finish(){ for (let i = 0; i < 20; i++){ ang += 30 - i; pw.style.transform = `rotate(${ang}deg)`; await sleep(40); } }};
+  }});
+  /* 8. Blätter — сдуть листья, а под ними картинка-сюрприз */
+  X.leaves = () => breathGame({id: 'blaetter', intro: 't1_blaetter_intro', again: 't1_blaetter2', ru: 't1_ru_blaetter', scene(b){
+    const pic = place(svgEl(SA.pic(SA.pick(['teddy', 'ball', 'auto', 'puppe', 'maus', 'kuchen']))), 'left:30%;width:40%;top:12%;aspect-ratio:1'); b.appendChild(pic);
+    const ls = []; for (let i = 0; i < 9; i++){ const c = SA.pick(['#e8752e', '#ffb020', '#c9462b', '#8a5a2b']); const l = place(svgEl(`<svg viewBox="0 0 100 100"><path d="M50 8 q40 30 0 84 q-40 -54 0 -84 z" fill="${c}" stroke="#4a3550" stroke-width="4"/><path d="M50 14 v76" stroke="#4a3550" stroke-width="3"/></svg>`), `left:${28 + (i % 3)*15}%;top:${10 + Math.floor(i/3)*24}%;width:20%;aspect-ratio:1;transform:rotate(${Math.random()*80 - 40}deg)`); b.appendChild(l); ls.push(l); }
+    let k = 0, acc = 0;
+    const off = () => { const l = ls[k++]; if (!l) return; l.animate([{}, {transform: `translate(${W()*0.6}px,${-H()*0.3 + Math.random()*H()*0.6}px) rotate(${400 + Math.random()*300}deg)`, opacity: 0}], {duration: 1300, easing: 'ease-in', fill: 'forwards'}); };
+    return {tick(ms){ acc += ms; while (acc >= 300){ acc -= 300; off(); } }, done: () => k >= ls.length, async finish(){ while (k < ls.length){ off(); await sleep(60); } pic.classList.add('pop'); A.sfx.sparkle(); await sleep(500); }};
+  }});
+  /* 9. Wolke — сдуть тучку, выглядывает солнце */
+  X.cloud = () => breathGame({id: 'wolke', intro: 't1_wolke_intro', again: 't1_wolke2', ru: 't1_ru_wolke', scene(b){
+    const sun = place(svgEl(`<svg viewBox="0 0 200 200"><g stroke="#ffb020" stroke-width="10" stroke-linecap="round">${[...Array(8)].map((_, i) => `<path d="M100 20 v-16" transform="rotate(${i*45} 100 100)"/>`).join('')}</g><circle cx="100" cy="100" r="62" fill="#ffd84d" stroke="#4a3550" stroke-width="5"/><circle cx="80" cy="92" r="7" fill="#2a1f33"/><circle cx="120" cy="92" r="7" fill="#2a1f33"/><path d="M76 118 q24 22 48 0" fill="none" stroke="#4a3550" stroke-width="5" stroke-linecap="round"/></svg>`), 'left:36%;width:30%;top:12%;aspect-ratio:1'); b.appendChild(sun);
+    const cl = place(svgEl(`<svg viewBox="0 0 240 150"><path d="M50 130 q-46 0 -40 -40 q6 -34 46 -30 q10 -44 60 -44 q52 0 62 46 q46 -6 52 34 q4 34 -40 34 z" fill="#c9cfe0" stroke="#4a3550" stroke-width="5"/></svg>`), 'left:22%;width:56%;top:10%'); b.appendChild(cl);
+    let f = 0; const need = 3000;
+    return {tick(ms){ f = Math.min(need, f + ms); cl.style.transform = `translateX(${f/need*W()*0.7}px)`; }, done: () => f >= need, async finish(){ cl.style.transform = `translateX(${W()}px)`; sun.classList.add('pop'); A.sfx.sparkle(); await sleep(400); }};
+  }});
+  /* 10. Bootrennen — гонка корабликов: кораблик Rumi плывёт сам, кораблик Эмили — от её выдоха. Эмили всегда успевает выиграть */
+  X.boat = (o = {}) => breathGame({id: 'bootrennen', intro: 't1_rennen_intro', again: 't1_rennen2', ru: 't1_ru_rennen', scene(b){
+    const sea = place(SA.el('div', ''), 'inset:0;background:linear-gradient(#0000 30%, #bfe6ff 30%)'); b.appendChild(sea);
+    const flag = place(svgEl(`<svg viewBox="0 0 40 120"><rect x="6" y="6" width="5" height="110" fill="#4a3550"/><path d="M11 8 h24 v20 h-24 z" fill="#ff5a5a"/></svg>`), 'right:6%;top:24%;height:70%'); b.appendChild(flag);
+    const mk = (top, col) => place(svgEl(SA.pic('schiff').replace('#ff7a59', col)), `left:2%;top:${top};width:20%;aspect-ratio:1;transition:transform .2s linear`);
+    const mine = mk('58%', '#ff7a59'), hers = mk('26%', '#b06cff'); b.append(hers, mine);
+    const need = o.level > 0 ? 4000 : 3000, track = () => W()*0.66;
+    let me = 0, her = 0, t0 = SA.now();
+    const draw = () => { mine.style.transform = `translateX(${me/need*track()}px)`; hers.style.transform = `translateX(${Math.min(her, 0.9)*track()}px)`; };
+    const iv = setInterval(() => { her = Math.min(0.9, her + 0.004 + (me/need > her ? 0.003 : 0)); draw(); }, 100);      /* соперница чуть отстаёт, но не стоит на месте */
+    return {tick(ms){ me = Math.min(need, me + ms); draw(); }, done: () => me >= need, async finish(ok){ clearInterval(iv); me = need; draw(); A.sfx.fanfare(); await sleep(300); await say(ok ? 't1_rennen_sieg' : 't1_rennen_ende'); }};
+  }});
+
+  /* набор дыхательных игр урока; на втором круге — случайные, но не те же, что в прошлом уроке */
+  X.BREATH = {pusteblume: X.dandelion, kerzen: X.candles, ballon: X.balloon, floete: X.flute, suppe: X.soup, blasen: X.bubbles, windrad: X.pinwheel, blaetter: X.leaves, wolke: X.cloud, rennen: X.boat};
+  X.pickBreath = (planned, level) => {
+    if (!level) return planned;
+    let last = []; try { last = JSON.parse(localStorage.getItem('sa-breath-last') || '[]'); } catch(e){}
+    const pool = SA.shuffle(Object.keys(X.BREATH).filter(k => !last.includes(k)));
+    const pick = pool.slice(0, planned.length);
+    try { localStorage.setItem('sa-breath-last', JSON.stringify(pick)); } catch(e){}
+    return pick;
   };
-  /* Schiffchen — долгий равномерный выдох: пока дует, кораблик плывёт к острову */
-  X.boat = async (o = {}) => {
-    const b = board(), sea = SA.el('div', 'full'); sea.style.background = 'linear-gradient(#0000 55%, #bfe6ff 55%)'; b.appendChild(sea);
-    const isl = SA.el('div', ''); isl.style.cssText = 'position:absolute;right:4%;bottom:26%;width:26%;aspect-ratio:1'; isl.innerHTML = SA.pic('insel'); b.appendChild(isl);
-    const boat = SA.el('div', 'boat'); boat.style.cssText = 'position:absolute;left:4%;bottom:30%;width:22%;aspect-ratio:1'; boat.innerHTML = SA.pic('schiff'); b.appendChild(boat);
-    let pos = 0; const need = o.level > 0 ? 4000 : 2500;
-    const move = () => { boat.style.transform = `translateX(${pos/need*(b.clientWidth*0.56)}px) rotate(${Math.sin(SA.now()/200)*4}deg)`; };
-    X.help(1, ['t1_schiff_intro']);
-    if (X.once('schiff')){ T.body(1, 'explain'); await say('t1_schiff_intro'); }
-    const ok = await breathLoop({id: 'schiff', ms: 7000, prompts: [null, 't1_schiff2', 't1_ru_schiff'], done: () => pos >= need, onAir(){ pos = Math.min(need, pos + 30); move(); }});
-    pos = need; move();
-    await (ok ? X.praise(1, b) : X.support(1));
-  };
-  /* Schlange / Zug — долгий выдох СО звуком «ссс» / «шшш» (тут шипение и нужно — считаем любой звук ≥ 1,2 с) */
+
   X.hiss = async (kind) => {
     const b = board(), c = X.bigCard(b, SA.pic(kind === 'zug' ? 'zug' : 'schlange'));
     const k = kind === 'zug' ? 'zug' : 'schlange';
@@ -196,7 +280,7 @@
   X.mirrorStart = async () => {
     const b = board(); mirrorEl = SA.el('div', 'mirror'); b.appendChild(mirrorEl);
     T.face(1);
-    const cam = SA.AUTO ? false : await SA.C.start(mirrorEl);
+    const cam = await X.camInto(mirrorEl);
     if (!cam){ mirrorEl.appendChild(SA.el('div', 'nocam', SA.pic('kind'))); }
     if (X.once('spiegel')){ await say('t1_spiegel_intro'); if (!cam) await say('t1_ohne_kamera'); }
     P.item({block: 'mirror', id: 'kamera', kind: 'info', result: cam ? (SA.C.ready ? 'camera' : 'camera-noface') : 'nocamera'});

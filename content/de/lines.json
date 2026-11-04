@@ -1681,6 +1681,146 @@
    "lang": "de",
    "text": "шшшш (звук)",
    "synth": "sch"
+  },
+  "t1_ballon_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Wir blasen einen Luftballon auf. Puste hinein!"
+  },
+  "t1_ballon2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Noch mehr Luft!"
+  },
+  "t1_ru_ballon": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Надуй шарик! Дуй сильнее!"
+  },
+  "t1_ballon_ende": {
+   "t": 1,
+   "lang": "de",
+   "text": "Huiii, der Ballon fliegt weg!"
+  },
+  "t1_floete_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das ist eine Zauberflöte. Wenn du pustest, spielt sie ein Lied!"
+  },
+  "t1_floete2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Weiter pusten, die Musik spielt!"
+  },
+  "t1_ru_floete": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Подуй в дудочку — она заиграет песенку!"
+  },
+  "t1_suppe_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Suppe ist noch heiß! Puste, damit sie kalt wird."
+  },
+  "t1_suppe2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Noch ein bisschen pusten!"
+  },
+  "t1_ru_suppe": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Суп горячий! Подуй, чтобы он остыл."
+  },
+  "t1_suppe_ende": {
+   "t": 1,
+   "lang": "de",
+   "text": "Jetzt kann der Bär essen. Lecker!"
+  },
+  "t1_blasen_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Seifenblasen! Puste ganz sanft und lang."
+  },
+  "t1_blasen2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Noch mehr Seifenblasen!"
+  },
+  "t1_ru_blasen": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Подуй тихонько — полетят мыльные пузыри!"
+  },
+  "t1_windrad_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das Windrad dreht sich, wenn du pustest!"
+  },
+  "t1_windrad2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Weiter pusten, es dreht sich!"
+  },
+  "t1_ru_windrad": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Подуй на вертушку, чтобы она крутилась!"
+  },
+  "t1_blaetter_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Unter den Blättern ist etwas versteckt. Puste sie weg!"
+  },
+  "t1_blaetter2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Weiter pusten, gleich siehst du es!"
+  },
+  "t1_ru_blaetter": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Сдуй листики — под ними сюрприз!"
+  },
+  "t1_wolke_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Wolke versteckt die Sonne. Puste sie weg!"
+  },
+  "t1_wolke2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Weiter pusten!"
+  },
+  "t1_ru_wolke": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Сдуй тучку, чтобы выглянуло солнышко!"
+  },
+  "t1_rennen_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Wettrennen! Mein Boot gegen dein Boot. Puste dein Boot ins Ziel!"
+  },
+  "t1_rennen2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Schneller pusten, du schaffst es!"
+  },
+  "t1_ru_rennen": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Гонка! Дуй на свой кораблик, чтобы он приплыл первым!"
+  },
+  "t1_rennen_sieg": {
+   "t": 1,
+   "lang": "de",
+   "text": "Du hast gewonnen! Super gepustet!"
+  },
+  "t1_rennen_ende": {
+   "t": 1,
+   "lang": "de",
+   "text": "Wir sind beide im Ziel!"
   }
  }
 }
