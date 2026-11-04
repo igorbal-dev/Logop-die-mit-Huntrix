@@ -1,4 +1,74 @@
 {
+ "t1_ballon2": {
+  "cer": 0.0,
+  "dur": 1.16,
+  "eng": "edge1",
+  "hyp": "Noch mehr Luft.",
+  "mos": 2.88,
+  "text": "Noch mehr Luft!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_ballon_ende": {
+  "cer": 0.0,
+  "dur": 2.25,
+  "eng": "edge1",
+  "hyp": "Hui, der Ballon fliegt weg.",
+  "mos": 3.31,
+  "text": "Huiii, der Ballon fliegt weg!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_ballon_intro": {
+  "cer": 0.0,
+  "dur": 4.38,
+  "eng": "edge1",
+  "hyp": "Wir blasen einen Luftballon auf.  Puste hinein.",
+  "mos": 3.14,
+  "text": "Wir blasen einen Luftballon auf. Puste hinein!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_blaetter2": {
+  "cer": 0.0,
+  "dur": 2.5,
+  "eng": "edge1",
+  "hyp": "Weiter pusten, gleich siehst du es.",
+  "mos": 3.36,
+  "text": "Weiter pusten, gleich siehst du es!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_blaetter_intro": {
+  "cer": 0.0,
+  "dur": 4.43,
+  "eng": "edge1",
+  "hyp": "Unter den Blättern ist etwas versteckt.  Puste sie weg.",
+  "mos": 3.19,
+  "text": "Unter den Blättern ist etwas versteckt. Puste sie weg!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_blasen2": {
+  "cer": 0.0,
+  "dur": 1.81,
+  "eng": "edge1",
+  "hyp": "Noch mehr Seifenblasen.",
+  "mos": 3.29,
+  "text": "Noch mehr Seifenblasen!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_blasen_intro": {
+  "cer": 0.0,
+  "dur": 4.63,
+  "eng": "edge1",
+  "hyp": "Seifenblasen  Puste ganz sanft und lang.",
+  "mos": 3.24,
+  "text": "Seifenblasen! Puste ganz sanft und lang.",
+  "tries": 2,
+  "voice": "de-DE-AmalaNeural"
+ },
  "t1_ende": {
   "cer": 0.04,
   "dur": 3.34,
@@ -6,6 +76,26 @@
   "hyp": "Das war Mundtornen. Bis gleich.",
   "mos": 3.4,
   "text": "Das war Mund-Turnen. Bis gleich!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_floete2": {
+  "cer": 0.0,
+  "dur": 2.59,
+  "eng": "edge1",
+  "hyp": "Weiter pusten, die Musik spielt.",
+  "mos": 3.15,
+  "text": "Weiter pusten, die Musik spielt!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_floete_intro": {
+  "cer": 0.0,
+  "dur": 5.33,
+  "eng": "edge1",
+  "hyp": "Das ist eine Zauberflöte.  Wenn du pustest, spielt sie ein Lied.",
+  "mos": 3.18,
+  "text": "Das ist eine Zauberflöte. Wenn du pustest, spielt sie ein Lied!",
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
@@ -449,6 +539,46 @@
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
+ "t1_rennen2": {
+  "cer": 0.0,
+  "dur": 2.56,
+  "eng": "edge1",
+  "hyp": "Schneller pusten, du schaffst es.",
+  "mos": 3.29,
+  "text": "Schneller pusten, du schaffst es!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_rennen_ende": {
+  "cer": 0.0,
+  "dur": 1.6,
+  "eng": "edge1",
+  "hyp": "Wir sind beide im Ziel.",
+  "mos": 3.23,
+  "text": "Wir sind beide im Ziel!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_rennen_intro": {
+  "cer": 0.0,
+  "dur": 5.93,
+  "eng": "edge1",
+  "hyp": "Wettrennen  Mein Boot gegen dein Boot  Puste dein Boot ins Ziel",
+  "mos": 3.08,
+  "text": "Wettrennen! Mein Boot gegen dein Boot. Puste dein Boot ins Ziel!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_rennen_sieg": {
+  "cer": 0.0,
+  "dur": 3.64,
+  "eng": "edge1",
+  "hyp": "Du hast gewonnen.  Super gepustet.",
+  "mos": 3.4,
+  "text": "Du hast gewonnen! Super gepustet!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
  "t1_riechen": {
   "cer": 0.0,
   "dur": 2.14,
@@ -458,6 +588,46 @@
   "text": "Erst durch die Nase einatmen.",
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
+ },
+ "t1_ru_ballon": {
+  "cer": 0.0,
+  "dur": 3.38,
+  "eng": "edge1",
+  "hyp": "Надуй шарик  Дуй сильнее",
+  "mos": 2.99,
+  "text": "Надуй шарик! Дуй сильнее!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_blaetter": {
+  "cer": 0.04,
+  "dur": 2.45,
+  "eng": "edge1",
+  "hyp": "С дуэлистики, подними сюрприз.",
+  "mos": 3.11,
+  "text": "Сдуй листики — под ними сюрприз!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_blasen": {
+  "cer": 0.0,
+  "dur": 2.73,
+  "eng": "edge1",
+  "hyp": "Подуй тихонько, полетят мыльные пузыри.",
+  "mos": 3.22,
+  "text": "Подуй тихонько — полетят мыльные пузыри!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_floete": {
+  "cer": 0.0,
+  "dur": 2.79,
+  "eng": "edge1",
+  "hyp": "Подуй в дудочку, она заиграет песенку.",
+  "mos": 3.21,
+  "text": "Подуй в дудочку — она заиграет песенку!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
  },
  "t1_ru_frosch": {
   "cer": 0.0,
@@ -569,6 +739,16 @@
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
+ "t1_ru_rennen": {
+  "cer": 0.0,
+  "dur": 4.74,
+  "eng": "edge1",
+  "hyp": "Гонка  Дуй на свой кораблик, чтобы он приплыл первым",
+  "mos": 3.11,
+  "text": "Гонка! Дуй на свой кораблик, чтобы он приплыл первым!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
  "t1_ru_schiff": {
   "cer": 0.0,
   "dur": 3.81,
@@ -599,6 +779,16 @@
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
+ "t1_ru_suppe": {
+  "cer": 0.0,
+  "dur": 3.9,
+  "eng": "edge1",
+  "hyp": "Суп горячий.  Подуй, чтобы он остыл.",
+  "mos": 3.23,
+  "text": "Суп горячий! Подуй, чтобы он остыл.",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
  "t1_ru_uhr": {
   "cer": 0.0,
   "dur": 3.7,
@@ -616,6 +806,26 @@
   "hyp": "По очереди улыбка, потом трубочка.",
   "mos": 2.78,
   "text": "По очереди: улыбка, потом трубочка!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_windrad": {
+  "cer": 0.0,
+  "dur": 2.54,
+  "eng": "edge1",
+  "hyp": "Подуй на вертушку, чтобы она крутилась.",
+  "mos": 3.16,
+  "text": "Подуй на вертушку, чтобы она крутилась!",
+  "tries": 1,
+  "voice": "ru-RU-SvetlanaNeural"
+ },
+ "t1_ru_wolke": {
+  "cer": 0.0,
+  "dur": 2.89,
+  "eng": "edge1",
+  "hyp": "Сдуй тучку, чтобы выглянуло солнышко.",
+  "mos": 2.89,
+  "text": "Сдуй тучку, чтобы выглянуло солнышко!",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
@@ -703,6 +913,36 @@
   "mos": null,
   "text": "ssss (звук)"
  },
+ "t1_suppe2": {
+  "cer": 0.0,
+  "dur": 1.68,
+  "eng": "edge1",
+  "hyp": "Noch ein bisschen pusten.",
+  "mos": 2.89,
+  "text": "Noch ein bisschen pusten!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_suppe_ende": {
+  "cer": 0.0,
+  "dur": 3.34,
+  "eng": "edge1",
+  "hyp": "Jetzt kann der Bär essen.  Lecker!",
+  "mos": 3.27,
+  "text": "Jetzt kann der Bär essen. Lecker!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_suppe_intro": {
+  "cer": 0.0,
+  "dur": 4.81,
+  "eng": "edge1",
+  "hyp": "Die Suppe ist noch heiß.  Puste, damit sie kalt wird.",
+  "mos": 3.26,
+  "text": "Die Suppe ist noch heiß! Puste, damit sie kalt wird.",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
  "t1_tanz": {
   "cer": 0.0,
   "dur": 3.43,
@@ -770,6 +1010,46 @@
   "hyp": "Frosch und jetzt Kussmund.",
   "mos": 3.02,
   "text": "Frosch! Und jetzt Kussmund!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_windrad2": {
+  "cer": 0.0,
+  "dur": 2.28,
+  "eng": "edge1",
+  "hyp": "Weiter pusten, es dreht sich.",
+  "mos": 3.34,
+  "text": "Weiter pusten, es dreht sich!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_windrad_intro": {
+  "cer": 0.0,
+  "dur": 3.27,
+  "eng": "edge1",
+  "hyp": "Das Windrad dreht sich, wenn du pustest.",
+  "mos": 3.24,
+  "text": "Das Windrad dreht sich, wenn du pustest!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_wolke2": {
+  "cer": 0.0,
+  "dur": 1.24,
+  "eng": "edge1",
+  "hyp": "Weiter pusten.",
+  "mos": 3.27,
+  "text": "Weiter pusten!",
+  "tries": 1,
+  "voice": "de-DE-AmalaNeural"
+ },
+ "t1_wolke_intro": {
+  "cer": 0.0,
+  "dur": 4.04,
+  "eng": "edge1",
+  "hyp": "Die Wolke versteckt die Sonne.  Puste sie weg.",
+  "mos": 3.1,
+  "text": "Die Wolke versteckt die Sonne. Puste sie weg!",
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },

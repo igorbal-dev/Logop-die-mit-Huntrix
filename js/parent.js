@@ -69,7 +69,7 @@
         <label>Чувствительность выдоха: <select id="sBreath"><option value="0" ${st.breathSens == 0 ? 'selected' : ''}>строже (шумная комната)</option><option value="1" ${st.breathSens == 1 ? 'selected' : ''}>обычная</option><option value="2" ${st.breathSens == 2 ? 'selected' : ''}>чувствительнее (тихий выдох, планшет далеко)</option></select></label>
         <button class="btn light" id="tBreath">проверить дыхание</button> <button class="btn light" id="tCam">проверить камеру</button>
         <div id="tOut" class="muted"></div>
-        <p class="muted">Дыхание: подуйте на экран с разного расстояния и скажите что-нибудь — «выдох» должен загораться только от дуновения, «голос» — от речи. Ловится лучше, если дуть в сторону микрофона (низ телефона) с 10–30 см. Камера: покажите улыбку, трубочку, широко открытый рот и надутые щёки — должны загораться соответствующие значки.</p>
+        <p class="muted">Если выдох не ловится: нажмите «проверить дыхание», 5 секунд дуйте, нажмите «остановить» и пришлите Claude скриншот с цифрами. Дыхание: подуйте на экран с разного расстояния и скажите что-нибудь — «выдох» должен загораться только от дуновения, «голос» — от речи. Ловится лучше, если дуть в сторону микрофона (низ телефона) с 10–30 см. Камера: покажите улыбку, трубочку, широко открытый рот и надутые щёки — должны загораться соответствующие значки.</p>
       </div>
       <h2>Награда</h2>
       <div class="box">
@@ -119,12 +119,16 @@
     const out = SA.$('#tOut'); if (testOn){ testOn(); return; }
     if (!SA.A.ctx) SA.A.unlock();
     if (!(await SA.M.breathOpen())){ out.textContent = 'Микрофон не открылся — разрешите доступ к микрофону.'; return; }
-    let air = 0, voice = 0, on = true, last = SA.now();
-    testOn = () => { on = false; testOn = null; SA.M.breathClose(); out.innerHTML = `Итог: выдох ${(air/1000).toFixed(1)} с, голос ${(voice/1000).toFixed(1)} с.`; SA.$('#tBreath').textContent = 'проверить дыхание'; };
+    let air = 0, voice = 0, loudMs = 0, on = true, last = SA.now(); const sum = {n: 0, per: 0, hi: 0, low: 0, lift: 0};
+    testOn = () => { on = false; testOn = null; SA.M.breathClose(); out.innerHTML = `Итог: выдох ${(air/1000).toFixed(1)} с, голос ${(voice/1000).toFixed(1)} с, громко ${(loudMs/1000).toFixed(1)} с.` + (sum.n ? `<br><span class="muted">для Claude: тон ${(sum.per/sum.n).toFixed(2)}, верх ${(sum.hi/sum.n).toFixed(2)}, низ ${(sum.low/sum.n).toFixed(2)}, над фоном ${(sum.lift/sum.n).toFixed(0)} дБ</span>` : ''); SA.$('#tBreath').textContent = 'проверить дыхание'; };
     SA.$('#tBreath').textContent = 'остановить';
     const loop = () => { if (!on) return; requestAnimationFrame(loop); const now = SA.now(), dt = now - last; last = now; const f = SA.M.breathFrame();
       if (f.air) air += dt; if (f.voice) voice += dt;
-      out.innerHTML = `<b style="color:${f.air ? '#1f8a5a' : '#bbb'}">● выдох</b> &nbsp; <b style="color:${f.voice ? '#2f80ed' : '#bbb'}">● голос</b> &nbsp; громкость ${Math.round(f.db)} дБ · всего: выдох ${(air/1000).toFixed(1)} с, голос ${(voice/1000).toFixed(1)} с`; };
+      const ff = f.f || {}; if (f.loud) loudMs += dt;
+      if (f.loud && ff.per !== undefined){ sum.n++; sum.per += ff.per; sum.hi += ff.hi; sum.low += ff.low; sum.lift += f.db - f.floor; }
+      out.innerHTML = `<b style="color:${f.air ? '#1f8a5a' : '#bbb'}">● выдох</b> &nbsp; <b style="color:${f.voice ? '#2f80ed' : '#bbb'}">● голос</b> &nbsp; громкость ${Math.round(f.db)} дБ (фон ${Math.round(f.floor ?? 0)})
+        · всего: выдох ${(air/1000).toFixed(1)} с, голос ${(voice/1000).toFixed(1)} с, громко ${(loudMs/1000).toFixed(1)} с
+        <br><span class="muted">для Claude: тон ${(ff.per ?? 0).toFixed(2)} · верх ${(ff.hi ?? 0).toFixed(2)} · низ ${(ff.low ?? 0).toFixed(2)}${sum.n ? ` · в среднем пока громко: тон ${(sum.per/sum.n).toFixed(2)}, верх ${(sum.hi/sum.n).toFixed(2)}, низ ${(sum.low/sum.n).toFixed(2)}, над фоном ${(sum.lift/sum.n).toFixed(0)} дБ` : ''}</span>`; };
     loop();
   }
   /* живая проверка камеры: какие позы видит (только для взрослого) */

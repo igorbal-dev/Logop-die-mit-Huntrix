@@ -113,7 +113,7 @@
     raw.an.getFloatTimeDomainData(raw.buf);
     if (SA.A.speaking > 0){ raw.det.run = 0; return {air: false, voice: false, loud: false, db: -99}; }      /* учительница говорит — не слушаем */
     const r = raw.det.frame(raw.buf, dt);
-    return {air: r.air, voice: r.voice, loud: r.loud, db: r.f.db};
+    return {air: r.air, voice: r.voice, loud: r.loud, db: r.f.db, f: r.f, floor: r.floor};
   };
 
   /* Выдох: следим ms миллисекунд. onTick(air, st) каждый кадр; вернёт {blowMs, puffs, any, voiceMs}.
