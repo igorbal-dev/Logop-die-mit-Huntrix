@@ -48,8 +48,10 @@
         const ws = X.WORDS;
         for (let i = 0; i < ws.length; i++){ if (b.left() < -45 && i >= 3) break; await X.word(ws[i], i === 2); }
         /* время осталось — ещё круг слов вперемешку */
-        let extra = SA.shuffle(ws), e = 0;
-        while (b.left() > 25 && e < extra.length){ await X.word(extra[e], false); e++; }
+        for (let round = 0; round < 3 && b.left() > 25; round++){
+          const extra = SA.shuffle(ws);
+          for (let e = 0; e < extra.length && b.left() > 25; e++) await X.word(extra[e], false);
+        }
       }),
       B('dance2', 20, () => X.dance(3, 20), true),
       B('game', 120, async b => {
