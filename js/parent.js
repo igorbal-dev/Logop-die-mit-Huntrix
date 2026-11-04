@@ -67,6 +67,10 @@
       <h2>Картинки учительниц</h2>
       <p class="muted">Имена учительниц и папки меняются в файле config/teachers.json. Картинки выравниваются сами при загрузке. Если картинка не появилась — проверьте имя файла и обновите страницу.</p>
       ${sprites}
+      <h2>Озвучка</h2>
+      <details class="box"><summary>Все реплики занятия (${Object.keys(SA.A.LINES).length}) — прослушать</summary>
+        <p class="muted">Если какая-то реплика звучит неправильно (обрывается, лишние звуки, неверное слово) — напишите мне её номер или текст, я переозвучу.</p>
+        <table>${Object.entries(SA.A.LINES).map(([k, v], i) => `<tr><td>${i + 1}</td><td><button class="btn light" data-line="${k}">▶</button></td><td>${esc(T.name(v.t))}</td><td>${esc(v.text)}</td></tr>`).join('')}</table></details>
       <h2>Данные</h2>
       <div class="box"><p class="muted">Всё хранится только на этом устройстве (телефон и планшет — отдельно). Камера работает только в «зеркале», видео никуда не отправляется и не записывается. Записи «послушай себя» живут в памяти до конца занятия и потом стираются.</p>
         <button class="btn warn" id="sReset">Сбросить весь прогресс</button></div>`;
@@ -79,6 +83,7 @@
     const del = SA.$('#sImgDel'); if (del) del.onclick = () => { P.setSetting('rewardImg', null); render(); };
     SA.$('#sReset').onclick = () => { if (confirm('Удалить все занятия, отметки и яйцо на этом устройстве?')){ P.reset(); render(); } };
     box.querySelectorAll('[data-mouth]').forEach(b => b.onclick = () => testMouth(+b.dataset.mouth));
+    box.querySelectorAll('[data-line]').forEach(b => b.onclick = async () => { if (!SA.A.ctx) SA.A.unlock(); await SA.A.loadSounds([b.dataset.line]); SA.A.say(b.dataset.line, {always: true}).catch(() => {}); });
   }
   /* картинка награды: уменьшаем до 480 px, чтобы поместилась в память браузера */
   function shrink(file){
