@@ -1,155 +1,1686 @@
 {
-  "_comment": "Реплики учительниц. Ключ = имя файла assets/snd/<ключ>.mp3. t — номер учительницы (её голос), lang — язык. Одна реплика переиспользуется везде. Русские подсказки — ключи *_ru_*, тем же голосом.",
-  "lines": {
-    "t3_ritual_hallo": {"t": 3, "lang": "de", "text": "Hallo Emily! Willkommen in der Sprech-Akademie!"},
-    "t3_ritual_ruf": {"t": 3, "lang": "de", "text": "Sag ganz laut: Hallo!"},
-    "t3_ritual_ruf2": {"t": 3, "lang": "de", "text": "Wir rufen zusammen: Hallo!"},
-    "t3_ru_ritual": {"t": 3, "lang": "ru", "text": "Скажи громко: Халло!"},
-    "t3_ritual_ok": {"t": 3, "lang": "de", "text": "Ich höre dich! Los geht's!"},
-    "t1_hallo_kurz": {"t": 1, "lang": "de", "text": "Hallo!"},
-    "t1_ich_bin": {"t": 1, "lang": "de", "text": "Hallo, ich bin Rumi!"},
-    "t2_ich_bin": {"t": 2, "lang": "de", "text": "Hallo, ich bin Mira!"},
-    "t3_ich_bin": {"t": 3, "lang": "de", "text": "Und ich bin Sohi!"},
-    "t2_hallo_kurz": {"t": 2, "lang": "de", "text": "Hallo!"},
-    "t3_hallo_kurz": {"t": 3, "lang": "de", "text": "Hallo!"},
-
-    "t1_hallo": {"t": 1, "lang": "de", "text": "Hallo Emily! Ich mache mit dir Mund-Turnen."},
-    "t1_puste_intro": {"t": 1, "lang": "de", "text": "Zuerst pusten wir. Schau, eine Pusteblume!"},
-    "t1_riechen": {"t": 1, "lang": "de", "text": "Erst durch die Nase einatmen."},
-    "t1_puste": {"t": 1, "lang": "de", "text": "Und jetzt pusten!"},
-    "t1_puste2": {"t": 1, "lang": "de", "text": "Puste ganz fest auf die Pusteblume!"},
-    "t1_ru_puste": {"t": 1, "lang": "ru", "text": "Подуй на одуванчик, сильно-сильно!"},
-    "t1_puste_mehr": {"t": 1, "lang": "de", "text": "Da sind noch Samen. Noch mal pusten!"},
-    "t1_kerzen_intro": {"t": 1, "lang": "de", "text": "Jetzt die Kerzen auf dem Kuchen. Puste sie aus!"},
-    "t1_kerzen2": {"t": 1, "lang": "de", "text": "Noch eine Kerze! Puste!"},
-    "t1_ru_kerzen": {"t": 1, "lang": "ru", "text": "Задуй свечки на торте!"},
-
-    "t1_spiegel_intro": {"t": 1, "lang": "de", "text": "Jetzt schauen wir in den Spiegel. Da bist du! Mach mir nach."},
-    "t1_ru_spiegel": {"t": 1, "lang": "ru", "text": "Смотри в зеркало и повторяй за мной."},
-    "t1_frosch": {"t": 1, "lang": "de", "text": "Der Frosch lacht ganz breit. Mach den Frosch!"},
-    "t1_frosch2": {"t": 1, "lang": "de", "text": "Ganz breit lächeln!"},
-    "t1_ru_frosch": {"t": 1, "lang": "ru", "text": "Улыбнись широко, как лягушка!"},
-    "t1_kuss": {"t": 1, "lang": "de", "text": "Jetzt ein Kussmund. Lippen nach vorne!"},
-    "t1_kuss2": {"t": 1, "lang": "de", "text": "Spitze Lippen, wie ein Küsschen!"},
-    "t1_ru_kuss": {"t": 1, "lang": "ru", "text": "Губы трубочкой, как для поцелуя!"},
-    "t1_loewe": {"t": 1, "lang": "de", "text": "Der Löwe gähnt. Mund ganz weit auf!"},
-    "t1_loewe2": {"t": 1, "lang": "de", "text": "Ganz weit auf, wie ein großer Löwe!"},
-    "t1_ru_loewe": {"t": 1, "lang": "ru", "text": "Открой рот широко, как лев!"},
-    "t1_hamster": {"t": 1, "lang": "de", "text": "Der Hamster hat dicke Backen. Puste die Backen auf!"},
-    "t1_hamster2": {"t": 1, "lang": "de", "text": "Backen ganz dick machen!"},
-    "t1_ru_hamster": {"t": 1, "lang": "ru", "text": "Надуй щёки, как хомяк!"},
-    "t1_halten": {"t": 1, "lang": "de", "text": "Und halten. Eins, zwei, drei!"},
-    "t1_nochmal": {"t": 1, "lang": "de", "text": "Und noch einmal!"},
-    "t1_ohne_kamera": {"t": 1, "lang": "de", "text": "Ich sehe dich nicht, aber mach einfach mit!"},
-    "t1_ende": {"t": 1, "lang": "de", "text": "Das war Mund-Turnen. Bis gleich!"},
-
-    "t1_tanz": {"t": 1, "lang": "de", "text": "Tanzpause! Komm, wir tanzen!"},
-    "t1_tanz_ende": {"t": 1, "lang": "de", "text": "Super getanzt! Weiter geht's."},
-    "t3_tanz": {"t": 3, "lang": "de", "text": "Musik an! Wir tanzen zusammen!"},
-    "t3_tanz_ende": {"t": 3, "lang": "de", "text": "Toll getanzt! Und jetzt weiter."},
-
-    "t2_hallo": {"t": 2, "lang": "de", "text": "Hallo Emily! Bei mir hörst du ganz genau hin."},
-    "t2_kuh": {"t": 2, "lang": "de", "text": "Das ist die Kuh. Die Kuh macht Muh!"},
-    "t2_katze": {"t": 2, "lang": "de", "text": "Das ist die Katze. Die Katze macht Miau!"},
-    "t2_hund": {"t": 2, "lang": "de", "text": "Das ist der Hund. Der Hund macht Wau wau!"},
-    "t2_schaf": {"t": 2, "lang": "de", "text": "Das ist das Schaf. Das Schaf macht Mäh!"},
-    "t2_frosch": {"t": 2, "lang": "de", "text": "Das ist der Frosch. Der Frosch macht Quak!"},
-    "t2_muh": {"t": 2, "lang": "de", "text": "Muh!"},
-    "t2_miau": {"t": 2, "lang": "de", "text": "Miau!"},
-    "t2_wau": {"t": 2, "lang": "de", "text": "Wau wau!"},
-    "t2_maeh": {"t": 2, "lang": "de", "text": "Mäh!"},
-    "t2_quak": {"t": 2, "lang": "de", "text": "Quak!"},
-    "t2_wer": {"t": 2, "lang": "de", "text": "Wer macht das? Zeig es mir!"},
-    "t2_wer2": {"t": 2, "lang": "de", "text": "Hör noch mal. Wer ist das?"},
-    "t2_ru_wer": {"t": 2, "lang": "ru", "text": "Кто так говорит? Покажи!"},
-    "t2_nochmal": {"t": 2, "lang": "de", "text": "Hör noch einmal genau hin."},
-    "t2_gleich_intro": {"t": 2, "lang": "de", "text": "Jetzt hörst du zwei Geräusche. Sind sie gleich oder anders?"},
-    "t2_gleich_zeig": {"t": 2, "lang": "de", "text": "Das heißt gleich."},
-    "t2_anders_zeig": {"t": 2, "lang": "de", "text": "Das heißt anders."},
-    "t2_gleich2": {"t": 2, "lang": "de", "text": "Gleich oder anders? Tipp drauf!"},
-    "t2_ru_gleich": {"t": 2, "lang": "ru", "text": "Одинаковые или разные? Нажми!"},
-    "t2_ende": {"t": 2, "lang": "de", "text": "Toll zugehört! Bis gleich!"},
-
-    "t3_sprechen_intro": {"t": 3, "lang": "de", "text": "Jetzt sprechen wir. Schau auf meinen Mund!"},
-    "t3_a": {"t": 3, "lang": "de", "text": "Mund weit auf: Aaa!"},
-    "t3_o": {"t": 3, "lang": "de", "text": "Ein runder Mund: Ooo!"},
-    "t3_i": {"t": 3, "lang": "de", "text": "Breit lächeln: Iii!"},
-    "t3_u": {"t": 3, "lang": "de", "text": "Lippen nach vorne: Uuu!"},
-    "t3_a_kurz": {"t": 3, "lang": "de", "text": "Aaa!"},
-    "t3_o_kurz": {"t": 3, "lang": "de", "text": "Ooo!"},
-    "t3_i_kurz": {"t": 3, "lang": "de", "text": "Iii!"},
-    "t3_u_kurz": {"t": 3, "lang": "de", "text": "Uuu!"},
-    "t3_tiere_intro": {"t": 3, "lang": "de", "text": "Jetzt sprechen wir wie die Tiere."},
-    "t3_muh": {"t": 3, "lang": "de", "text": "Muh!"},
-    "t3_maeh": {"t": 3, "lang": "de", "text": "Mäh!"},
-    "t3_wau": {"t": 3, "lang": "de", "text": "Wau wau!"},
-    "t3_miau": {"t": 3, "lang": "de", "text": "Miau!"},
-    "t3_woerter_intro": {"t": 3, "lang": "de", "text": "Und jetzt Wörter. Ich sage es, dann du."},
-    "t3_s_auto": {"t": 3, "lang": "de", "text": "Das ist ein Auto."},
-    "t3_s_ei": {"t": 3, "lang": "de", "text": "Das ist ein Ei."},
-    "t3_s_ball": {"t": 3, "lang": "de", "text": "Das ist ein Ball."},
-    "t3_s_baum": {"t": 3, "lang": "de", "text": "Das ist ein Baum."},
-    "t3_s_oma": {"t": 3, "lang": "de", "text": "Das ist die Oma."},
-    "t3_s_puppe": {"t": 3, "lang": "de", "text": "Das ist eine Puppe."},
-    "t3_w_auto": {"t": 3, "lang": "de", "text": "Auto!"},
-    "t3_w_ei": {"t": 3, "lang": "de", "text": "Ei!"},
-    "t3_w_ball": {"t": 3, "lang": "de", "text": "Ball!"},
-    "t3_w_baum": {"t": 3, "lang": "de", "text": "Baum!"},
-    "t3_w_oma": {"t": 3, "lang": "de", "text": "Oma!"},
-    "t3_w_puppe": {"t": 3, "lang": "de", "text": "Puppe!"},
-    "t3_jetzt_du": {"t": 3, "lang": "de", "text": "Jetzt du!"},
-    "t3_jetzt_du2": {"t": 3, "lang": "de", "text": "Sag es mit mir!"},
-    "t3_ru_jetzt_du": {"t": 3, "lang": "ru", "text": "Теперь ты! Повтори."},
-    "t3_hoer_dich": {"t": 3, "lang": "de", "text": "Hör mal: erst ich, dann du!"},
-    "t3_spaeter": {"t": 3, "lang": "de", "text": "Das üben wir später noch mal."},
-
-    "t3_spiel_intro": {"t": 3, "lang": "de", "text": "Jetzt ein Spiel! In der Zauberkiste ist etwas versteckt."},
-    "t3_spiel_sag": {"t": 3, "lang": "de", "text": "Sag das Wort, dann springt es raus!"},
-    "t3_spiel_sag2": {"t": 3, "lang": "de", "text": "Sag es laut!"},
-    "t3_ru_spiel": {"t": 3, "lang": "ru", "text": "Скажи слово, и оно выпрыгнет!"},
-    "t3_spiel_ende": {"t": 3, "lang": "de", "text": "Alle sind draußen! Geschafft!"},
-
-    "t1_lob1": {"t": 1, "lang": "de", "text": "Toll gemacht!"},
-    "t1_lob2": {"t": 1, "lang": "de", "text": "Super!"},
-    "t1_lob3": {"t": 1, "lang": "de", "text": "Das war stark!"},
-    "t1_lob4": {"t": 1, "lang": "de", "text": "Klasse!"},
-    "t1_lob5": {"t": 1, "lang": "de", "text": "Du machst richtig gut mit!"},
-    "t1_lob6": {"t": 1, "lang": "de", "text": "Prima gepustet!"},
-    "t2_lob1": {"t": 2, "lang": "de", "text": "Gut zugehört!"},
-    "t2_lob2": {"t": 2, "lang": "de", "text": "Genau!"},
-    "t2_lob3": {"t": 2, "lang": "de", "text": "Super!"},
-    "t2_lob4": {"t": 2, "lang": "de", "text": "Du hast feine Ohren!"},
-    "t2_lob5": {"t": 2, "lang": "de", "text": "Klasse!"},
-    "t2_lob6": {"t": 2, "lang": "de", "text": "Prima!"},
-    "t3_lob1": {"t": 3, "lang": "de", "text": "Super!"},
-    "t3_lob2": {"t": 3, "lang": "de", "text": "Schön laut!"},
-    "t3_lob3": {"t": 3, "lang": "de", "text": "Klasse gemacht!"},
-    "t3_lob4": {"t": 3, "lang": "de", "text": "Toll probiert!"},
-    "t3_lob5": {"t": 3, "lang": "de", "text": "Prima!"},
-    "t3_lob6": {"t": 3, "lang": "de", "text": "Weiter so!"},
-    "t3_lob7": {"t": 3, "lang": "de", "text": "Wow!"},
-    "t3_lob8": {"t": 3, "lang": "de", "text": "Du machst das super!"},
-    "t1_mut1": {"t": 1, "lang": "de", "text": "Gut probiert!"},
-    "t1_mut2": {"t": 1, "lang": "de", "text": "Macht nichts, wir üben das noch."},
-    "t1_mut3": {"t": 1, "lang": "de", "text": "Das war schwer. Du hast es versucht, toll!"},
-    "t1_mut4": {"t": 1, "lang": "de", "text": "Das kommt noch. Weiter!"},
-    "t2_mut1": {"t": 2, "lang": "de", "text": "Gut probiert!"},
-    "t2_mut2": {"t": 2, "lang": "de", "text": "Macht nichts. Wir hören es noch mal."},
-    "t2_mut3": {"t": 2, "lang": "de", "text": "Das war schwer. Toll, dass du es versuchst!"},
-    "t2_mut4": {"t": 2, "lang": "de", "text": "Das kommt noch. Weiter!"},
-    "t3_mut1": {"t": 3, "lang": "de", "text": "Gut probiert!"},
-    "t3_mut2": {"t": 3, "lang": "de", "text": "Macht nichts, wir üben das noch."},
-    "t3_mut3": {"t": 3, "lang": "de", "text": "Das war schwer. Du hast es versucht, toll!"},
-    "t3_mut4": {"t": 3, "lang": "de", "text": "Das kommt noch. Weiter!"},
-    "t3_mut5": {"t": 3, "lang": "de", "text": "Probieren ist das Wichtigste."},
-
-    "t3_ende": {"t": 3, "lang": "de", "text": "Das war unser Training für heute. Du hast toll mitgemacht!"},
-    "t3_ei": {"t": 3, "lang": "de", "text": "Schau, dein Ei wird voller!"},
-    "t3_ei_bald": {"t": 3, "lang": "de", "text": "Noch ein Training, dann ist das Ei voll!"},
-    "t3_ei_voll": {"t": 3, "lang": "de", "text": "Das Ei ist voll! Dafür bekommst du heute eine echte Überraschung!"},
-    "t1_tschuess": {"t": 1, "lang": "de", "text": "Tschüss Emily! Bis morgen!"},
-    "t2_tschuess": {"t": 2, "lang": "de", "text": "Tschüss! Ich freu mich auf morgen!"},
-    "t3_tschuess": {"t": 3, "lang": "de", "text": "Tschüss! Bis zum nächsten Mal!"},
-    "t3_frueh_ende": {"t": 3, "lang": "de", "text": "Für heute ist Schluss. Du hast toll mitgemacht! Tschüss!"}
+ "_comment": "Реплики учительниц. Ключ = имя файла assets/snd/<ключ>.mp3. t — номер учительницы (её голос), lang — язык. Одна реплика переиспользуется везде. Русские подсказки — ключи *_ru_*, тем же голосом.",
+ "lines": {
+  "t3_ritual_hallo": {
+   "t": 3,
+   "lang": "de",
+   "text": "Hallo Emily! Willkommen in der Sprech-Akademie!"
+  },
+  "t3_ritual_ruf": {
+   "t": 3,
+   "lang": "de",
+   "text": "Sag ganz laut: Hallo!"
+  },
+  "t3_ritual_ruf2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wir rufen zusammen: Hallo!"
+  },
+  "t3_ru_ritual": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи громко: Халло!"
+  },
+  "t3_ritual_ok": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich höre dich! Los geht's!"
+  },
+  "t1_hallo_kurz": {
+   "t": 1,
+   "lang": "de",
+   "text": "Hallo!"
+  },
+  "t1_ich_bin": {
+   "t": 1,
+   "lang": "de",
+   "text": "Hallo, ich bin Rumi!"
+  },
+  "t2_ich_bin": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hallo, ich bin Mira!"
+  },
+  "t3_ich_bin": {
+   "t": 3,
+   "lang": "de",
+   "text": "Und ich bin Zoey!"
+  },
+  "t2_hallo_kurz": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hallo!"
+  },
+  "t3_hallo_kurz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Hallo!"
+  },
+  "t1_hallo": {
+   "t": 1,
+   "lang": "de",
+   "text": "Hallo Emily! Ich mache mit dir Mund-Turnen."
+  },
+  "t1_puste_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Zuerst pusten wir. Schau, eine Pusteblume!"
+  },
+  "t1_riechen": {
+   "t": 1,
+   "lang": "de",
+   "text": "Erst durch die Nase einatmen."
+  },
+  "t1_puste": {
+   "t": 1,
+   "lang": "de",
+   "text": "Und jetzt pusten!"
+  },
+  "t1_puste2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Puste ganz fest auf die Pusteblume!"
+  },
+  "t1_ru_puste": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Подуй на одуванчик, сильно-сильно!"
+  },
+  "t1_puste_mehr": {
+   "t": 1,
+   "lang": "de",
+   "text": "Da sind noch Samen. Noch mal pusten!"
+  },
+  "t1_kerzen_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Jetzt die Kerzen auf dem Kuchen. Puste sie aus!"
+  },
+  "t1_kerzen2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Noch eine Kerze! Puste!"
+  },
+  "t1_ru_kerzen": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Задуй свечки на торте!"
+  },
+  "t1_spiegel_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Jetzt schauen wir in den Spiegel. Da bist du! Mach mir nach."
+  },
+  "t1_ru_spiegel": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Смотри в зеркало и повторяй за мной."
+  },
+  "t1_frosch": {
+   "t": 1,
+   "lang": "de",
+   "text": "Der Frosch lacht ganz breit. Mach den Frosch!"
+  },
+  "t1_frosch2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz breit lächeln!"
+  },
+  "t1_ru_frosch": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Улыбнись широко, как лягушка!"
+  },
+  "t1_kuss": {
+   "t": 1,
+   "lang": "de",
+   "text": "Jetzt ein Kussmund. Lippen nach vorne!"
+  },
+  "t1_kuss2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Spitze Lippen, wie ein Küsschen!"
+  },
+  "t1_ru_kuss": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Губы трубочкой, как для поцелуя!"
+  },
+  "t1_loewe": {
+   "t": 1,
+   "lang": "de",
+   "text": "Der Löwe gähnt. Mund ganz weit auf!"
+  },
+  "t1_loewe2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz weit auf, wie ein großer Löwe!"
+  },
+  "t1_ru_loewe": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Открой рот широко, как лев!"
+  },
+  "t1_hamster": {
+   "t": 1,
+   "lang": "de",
+   "text": "Der Hamster hat dicke Backen. Puste die Backen auf!"
+  },
+  "t1_hamster2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Backen ganz dick machen!"
+  },
+  "t1_ru_hamster": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Надуй щёки, как хомяк!"
+  },
+  "t1_halten": {
+   "t": 1,
+   "lang": "de",
+   "text": "Und halten. Eins, zwei, drei!"
+  },
+  "t1_nochmal": {
+   "t": 1,
+   "lang": "de",
+   "text": "Und noch einmal!"
+  },
+  "t1_ohne_kamera": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ich sehe dich nicht, aber mach einfach mit!"
+  },
+  "t1_ende": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das war Mund-Turnen. Bis gleich!"
+  },
+  "t1_tanz": {
+   "t": 1,
+   "lang": "de",
+   "text": "Tanzpause! Komm, wir tanzen!"
+  },
+  "t1_tanz_ende": {
+   "t": 1,
+   "lang": "de",
+   "text": "Super getanzt! Weiter geht's."
+  },
+  "t3_tanz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Musik an! Wir tanzen zusammen!"
+  },
+  "t3_tanz_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Toll getanzt! Und jetzt weiter."
+  },
+  "t2_hallo": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hallo Emily! Bei mir hörst du ganz genau hin."
+  },
+  "t2_kuh": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist die Kuh. Die Kuh macht Muh!"
+  },
+  "t2_katze": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist die Katze. Die Katze macht Miau!"
+  },
+  "t2_hund": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist der Hund. Der Hund macht Wau wau!"
+  },
+  "t2_schaf": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist das Schaf. Das Schaf macht Mäh!"
+  },
+  "t2_frosch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist der Frosch. Der Frosch macht Quak!"
+  },
+  "t2_muh": {
+   "t": 2,
+   "lang": "de",
+   "text": "Muh!"
+  },
+  "t2_miau": {
+   "t": 2,
+   "lang": "de",
+   "text": "Miau!"
+  },
+  "t2_wau": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wau wau!"
+  },
+  "t2_maeh": {
+   "t": 2,
+   "lang": "de",
+   "text": "Mäh!"
+  },
+  "t2_quak": {
+   "t": 2,
+   "lang": "de",
+   "text": "Quak!"
+  },
+  "t2_wer": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wer macht das? Zeig es mir!"
+  },
+  "t2_wer2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hör noch mal. Wer ist das?"
+  },
+  "t2_ru_wer": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Кто так говорит? Покажи!"
+  },
+  "t2_nochmal": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hör noch einmal genau hin."
+  },
+  "t2_gleich_intro": {
+   "t": 2,
+   "lang": "de",
+   "text": "Jetzt hörst du zwei Geräusche. Sind sie gleich oder anders?"
+  },
+  "t2_gleich_zeig": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das heißt gleich."
+  },
+  "t2_anders_zeig": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das heißt anders."
+  },
+  "t2_gleich2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Gleich oder anders? Tipp drauf!"
+  },
+  "t2_ru_gleich": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Одинаковые или разные? Нажми!"
+  },
+  "t2_ende": {
+   "t": 2,
+   "lang": "de",
+   "text": "Toll zugehört! Bis gleich!"
+  },
+  "t3_sprechen_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jetzt sprechen wir. Schau auf meinen Mund!"
+  },
+  "t3_a": {
+   "t": 3,
+   "lang": "de",
+   "text": "Mund weit auf: Aah!"
+  },
+  "t3_o": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ein runder Mund: Ooh!"
+  },
+  "t3_i": {
+   "t": 3,
+   "lang": "de",
+   "text": "Breit lächeln: Iih!"
+  },
+  "t3_u": {
+   "t": 3,
+   "lang": "de",
+   "text": "Lippen nach vorne: Uuh!"
+  },
+  "t3_a_kurz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Aah!"
+  },
+  "t3_o_kurz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ooh!"
+  },
+  "t3_i_kurz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Iih!"
+  },
+  "t3_u_kurz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Uuh!"
+  },
+  "t3_tiere_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jetzt sprechen wir wie die Tiere."
+  },
+  "t3_muh": {
+   "t": 3,
+   "lang": "de",
+   "text": "Muh!"
+  },
+  "t3_maeh": {
+   "t": 3,
+   "lang": "de",
+   "text": "Mäh!"
+  },
+  "t3_wau": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wau wau!"
+  },
+  "t3_miau": {
+   "t": 3,
+   "lang": "de",
+   "text": "Miau!"
+  },
+  "t3_woerter_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Und jetzt Wörter. Ich sage es, dann du."
+  },
+  "t3_s_auto": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Auto."
+  },
+  "t3_s_ei": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Ei."
+  },
+  "t3_s_ball": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Ball."
+  },
+  "t3_s_baum": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Baum."
+  },
+  "t3_s_oma": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist die Oma."
+  },
+  "t3_s_puppe": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Puppe."
+  },
+  "t3_w_auto": {
+   "t": 3,
+   "lang": "de",
+   "text": "Auto!"
+  },
+  "t3_w_ei": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ei!"
+  },
+  "t3_w_ball": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ball!"
+  },
+  "t3_w_baum": {
+   "t": 3,
+   "lang": "de",
+   "text": "Baum!"
+  },
+  "t3_w_oma": {
+   "t": 3,
+   "lang": "de",
+   "text": "Oma!"
+  },
+  "t3_w_puppe": {
+   "t": 3,
+   "lang": "de",
+   "text": "Puppe!"
+  },
+  "t3_jetzt_du": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jetzt du!"
+  },
+  "t3_jetzt_du2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Sag es mit mir!"
+  },
+  "t3_ru_jetzt_du": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Теперь ты! Повтори."
+  },
+  "t3_hoer_dich": {
+   "t": 3,
+   "lang": "de",
+   "text": "Hör mal: erst ich, dann du!"
+  },
+  "t3_spaeter": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das üben wir später noch mal."
+  },
+  "t3_spiel_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jetzt ein Spiel! In der Zauberkiste ist etwas versteckt."
+  },
+  "t3_spiel_sag": {
+   "t": 3,
+   "lang": "de",
+   "text": "Sag das Wort, dann springt es raus!"
+  },
+  "t3_spiel_sag2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Sag es laut!"
+  },
+  "t3_ru_spiel": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово, и оно выпрыгнет!"
+  },
+  "t3_spiel_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Alle sind draußen! Geschafft!"
+  },
+  "t1_lob1": {
+   "t": 1,
+   "lang": "de",
+   "text": "Toll gemacht!"
+  },
+  "t1_lob2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Super!"
+  },
+  "t1_lob3": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das war stark!"
+  },
+  "t1_lob4": {
+   "t": 1,
+   "lang": "de",
+   "text": "Klasse!"
+  },
+  "t1_lob5": {
+   "t": 1,
+   "lang": "de",
+   "text": "Du machst richtig gut mit!"
+  },
+  "t1_lob6": {
+   "t": 1,
+   "lang": "de",
+   "text": "Prima gepustet!"
+  },
+  "t2_lob1": {
+   "t": 2,
+   "lang": "de",
+   "text": "Gut zugehört!"
+  },
+  "t2_lob2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Genau!"
+  },
+  "t2_lob3": {
+   "t": 2,
+   "lang": "de",
+   "text": "Super!"
+  },
+  "t2_lob4": {
+   "t": 2,
+   "lang": "de",
+   "text": "Du hast feine Ohren!"
+  },
+  "t2_lob5": {
+   "t": 2,
+   "lang": "de",
+   "text": "Klasse!"
+  },
+  "t2_lob6": {
+   "t": 2,
+   "lang": "de",
+   "text": "Prima!"
+  },
+  "t3_lob1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Super!"
+  },
+  "t3_lob2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schön laut!"
+  },
+  "t3_lob3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Klasse gemacht!"
+  },
+  "t3_lob4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Toll probiert!"
+  },
+  "t3_lob5": {
+   "t": 3,
+   "lang": "de",
+   "text": "Prima!"
+  },
+  "t3_lob6": {
+   "t": 3,
+   "lang": "de",
+   "text": "Weiter so!"
+  },
+  "t3_lob7": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wow!"
+  },
+  "t3_lob8": {
+   "t": 3,
+   "lang": "de",
+   "text": "Du machst das super!"
+  },
+  "t1_mut1": {
+   "t": 1,
+   "lang": "de",
+   "text": "Gut probiert!"
+  },
+  "t1_mut2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Macht nichts, wir üben das noch."
+  },
+  "t1_mut3": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das war schwer. Du hast es versucht, toll!"
+  },
+  "t1_mut4": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das kommt noch. Weiter!"
+  },
+  "t2_mut1": {
+   "t": 2,
+   "lang": "de",
+   "text": "Gut probiert!"
+  },
+  "t2_mut2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Macht nichts. Wir hören es noch mal."
+  },
+  "t2_mut3": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das war schwer. Toll, dass du es versuchst!"
+  },
+  "t2_mut4": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das kommt noch. Weiter!"
+  },
+  "t3_mut1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Gut probiert!"
+  },
+  "t3_mut2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Macht nichts, wir üben das noch."
+  },
+  "t3_mut3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das war schwer. Du hast es versucht, toll!"
+  },
+  "t3_mut4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das kommt noch. Weiter!"
+  },
+  "t3_mut5": {
+   "t": 3,
+   "lang": "de",
+   "text": "Probieren ist das Wichtigste."
+  },
+  "t3_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das war unser Training für heute. Du hast toll mitgemacht!"
+  },
+  "t3_ei": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schau, dein Ei wird voller!"
+  },
+  "t3_ei_bald": {
+   "t": 3,
+   "lang": "de",
+   "text": "Noch ein Training, dann ist das Ei voll!"
+  },
+  "t3_ei_voll": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das Ei ist voll! Dafür bekommst du heute eine echte Überraschung!"
+  },
+  "t1_tschuess": {
+   "t": 1,
+   "lang": "de",
+   "text": "Tschüss Emily! Bis morgen!"
+  },
+  "t2_tschuess": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tschüss! Ich freu mich auf morgen!"
+  },
+  "t3_tschuess": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tschüss! Bis zum nächsten Mal!"
+  },
+  "t3_frueh_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Für heute ist Schluss. Du hast toll mitgemacht! Tschüss!"
+  },
+  "t3_weiter": {
+   "t": 3,
+   "lang": "de",
+   "text": "Weiter geht's!"
+  },
+  "t1_los": {
+   "t": 1,
+   "lang": "de",
+   "text": "Los geht's!"
+  },
+  "t2_los": {
+   "t": 2,
+   "lang": "de",
+   "text": "Los geht's!"
+  },
+  "t3_los": {
+   "t": 3,
+   "lang": "de",
+   "text": "Los geht's!"
+  },
+  "t1_lob7": {
+   "t": 1,
+   "lang": "de",
+   "text": "Genau so!"
+  },
+  "t1_lob8": {
+   "t": 1,
+   "lang": "de",
+   "text": "Wow, super gepustet!"
+  },
+  "t2_lob7": {
+   "t": 2,
+   "lang": "de",
+   "text": "Richtig!"
+  },
+  "t2_lob8": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ja, genau!"
+  },
+  "t3_lob9": {
+   "t": 3,
+   "lang": "de",
+   "text": "Sehr gut!"
+  },
+  "t3_lob10": {
+   "t": 3,
+   "lang": "de",
+   "text": "Bravo!"
+  },
+  "t3_station_fertig": {
+   "t": 3,
+   "lang": "de",
+   "text": "Geschafft! Ein Stern für dich!"
+  },
+  "t3_station_naechste": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tipp auf das nächste Bild!"
+  },
+  "t3_ru_station": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Нажми на следующую картинку!"
+  },
+  "t3_lektion_fertig": {
+   "t": 3,
+   "lang": "de",
+   "text": "Alle fünf geschafft! Super, Emily!"
+  },
+  "t1_nur_pusten": {
+   "t": 1,
+   "lang": "de",
+   "text": "Psst, nicht sprechen. Nur pusten!"
+  },
+  "t1_ru_nur_pusten": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Тсс, не говори — просто подуй!"
+  },
+  "t1_naeher": {
+   "t": 1,
+   "lang": "de",
+   "text": "Komm ganz nah und puste!"
+  },
+  "t1_wechsel": {
+   "t": 1,
+   "lang": "de",
+   "text": "Jetzt abwechselnd: Frosch, Kussmund, Frosch, Kussmund!"
+  },
+  "t1_wechsel2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Frosch! Und jetzt Kussmund!"
+  },
+  "t1_ru_wechsel": {
+   "t": 1,
+   "lang": "ru",
+   "text": "По очереди: улыбка, потом трубочка!"
+  },
+  "t1_pusten_pose": {
+   "t": 1,
+   "lang": "de",
+   "text": "Lippen spitz und ganz lang pusten!"
+  },
+  "t1_pusten_pose2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Spitze Lippen, und pusten!"
+  },
+  "t1_ru_pusten_pose": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Губы трубочкой и долго подуй!"
+  },
+  "t2_klatsch_m": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wenn du M hörst, klatsch auf die Hand!"
+  },
+  "t2_klatsch2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du es? Dann klatschen!"
+  },
+  "t2_ru_klatsch_m": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Услышишь «М» — хлопни по ладошке!"
+  },
+  "t2_gleich_silben": {
+   "t": 2,
+   "lang": "de",
+   "text": "Jetzt zwei Silben. Gleich oder anders?"
+  },
+  "t2_s_ma": {
+   "t": 2,
+   "lang": "de",
+   "text": "Maa!",
+   "alts": [
+    "Ma!",
+    "Mah."
+   ],
+   "expect": "Ma"
+  },
+  "t2_s_mo": {
+   "t": 2,
+   "lang": "de",
+   "text": "Moh!"
+  },
+  "t2_s_mu": {
+   "t": 2,
+   "lang": "de",
+   "text": "Muh!"
+  },
+  "t2_s_mi": {
+   "t": 2,
+   "lang": "de",
+   "text": "Mie!",
+   "alts": [
+    "Mii!"
+   ],
+   "expect": "Mi"
+  },
+  "t2_s_pa": {
+   "t": 2,
+   "lang": "de",
+   "text": "Pah!"
+  },
+  "t2_s_ba": {
+   "t": 2,
+   "lang": "de",
+   "text": "Bah!"
+  },
+  "t2_s_na": {
+   "t": 2,
+   "lang": "de",
+   "text": "Nah!"
+  },
+  "t2_s_sa": {
+   "t": 2,
+   "lang": "de",
+   "text": "Saa!",
+   "alts": [
+    "Sa!"
+   ],
+   "expect": "Sa"
+  },
+  "t2_s_so": {
+   "t": 2,
+   "lang": "de",
+   "text": "Soh!"
+  },
+  "t2_s_ta": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tah!"
+  },
+  "t2_s_ka": {
+   "t": 2,
+   "lang": "de",
+   "text": "Kah!"
+  },
+  "t2_s_ga": {
+   "t": 2,
+   "lang": "de",
+   "text": "Gah!"
+  },
+  "t2_s_da": {
+   "t": 2,
+   "lang": "de",
+   "text": "Dah!"
+  },
+  "t2_s_la": {
+   "t": 2,
+   "lang": "de",
+   "text": "Lah!"
+  },
+  "t2_s_scha": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schah!"
+  },
+  "t2_s_schu": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schuh!"
+  },
+  "t2_s_scho": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schoh!"
+  },
+  "t2_s_su": {
+   "t": 2,
+   "lang": "de",
+   "text": "Suh!"
+  },
+  "t2_s_si": {
+   "t": 2,
+   "lang": "de",
+   "text": "Sie!",
+   "alts": [
+    "Sii!"
+   ],
+   "expect": "Si"
+  },
+  "t3_mmm": {
+   "t": 3,
+   "lang": "de",
+   "text": "Mmmmm, lecker!"
+  },
+  "t3_mmm_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Bär brummt: Mmmmm! Lippen zu und brummen."
+  },
+  "t3_r_ma": {
+   "t": 3,
+   "lang": "de",
+   "text": "Maa, moo, muu, mie.",
+   "alts": [
+    "Ma, mo, mu, mi!"
+   ],
+   "expect": "Ma mo mu mi"
+  },
+  "t3_r_ba": {
+   "t": 3,
+   "lang": "de",
+   "text": "Bah, boh, buh, bih."
+  },
+  "t3_r_pa": {
+   "t": 3,
+   "lang": "de",
+   "text": "Pah, poh, puh, pih."
+  },
+  "t3_silben_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jetzt Silben. Hör gut zu und sag es nach."
+  },
+  "t3_s_mama": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist die Mama."
+  },
+  "t3_w_mama": {
+   "t": 3,
+   "lang": "de",
+   "text": "Mama!"
+  },
+  "t3_s_papa": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist der Papa."
+  },
+  "t3_w_papa": {
+   "t": 3,
+   "lang": "de",
+   "text": "Papa!"
+  },
+  "t3_s_maus": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Maus."
+  },
+  "t3_w_maus": {
+   "t": 3,
+   "lang": "de",
+   "text": "Maus!"
+  },
+  "t3_s_mond": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist der Mond."
+  },
+  "t3_w_mond": {
+   "t": 3,
+   "lang": "de",
+   "text": "Mond!"
+  },
+  "t3_s_banane": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Banane."
+  },
+  "t3_w_banane": {
+   "t": 3,
+   "lang": "de",
+   "text": "Banane!"
+  },
+  "t3_s_tuer": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Tür."
+  },
+  "t3_w_tuer": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tür!"
+  },
+  "t3_s_teddy": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Teddy."
+  },
+  "t3_w_teddy": {
+   "t": 3,
+   "lang": "de",
+   "text": "Teddy!"
+  },
+  "t3_s_nase": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Nase."
+  },
+  "t3_w_nase": {
+   "t": 3,
+   "lang": "de",
+   "text": "Nase!"
+  },
+  "t3_s_nudel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Nudel."
+  },
+  "t3_w_nudel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Nudel!"
+  },
+  "t3_s_loeffel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Löffel."
+  },
+  "t3_w_loeffel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Löffel!"
+  },
+  "t3_s_lampe": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Lampe."
+  },
+  "t3_w_lampe": {
+   "t": 3,
+   "lang": "de",
+   "text": "Lampe!"
+  },
+  "t3_s_kuh": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Kuh."
+  },
+  "t3_w_kuh": {
+   "t": 3,
+   "lang": "de",
+   "text": "Kuh!",
+   "alts": [
+    "Kuh.",
+    "Die Kuh!"
+   ],
+   "expect": "Kuh"
+  },
+  "t3_s_katze": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Katze."
+  },
+  "t3_w_katze": {
+   "t": 3,
+   "lang": "de",
+   "text": "Katze!"
+  },
+  "t3_s_keks": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Keks."
+  },
+  "t3_w_keks": {
+   "t": 3,
+   "lang": "de",
+   "text": "Keks!"
+  },
+  "t3_s_kuchen": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Kuchen."
+  },
+  "t3_w_kuchen": {
+   "t": 3,
+   "lang": "de",
+   "text": "Kuchen!"
+  },
+  "t3_s_gabel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Gabel."
+  },
+  "t3_w_gabel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Gabel!"
+  },
+  "t3_s_gurke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Gurke."
+  },
+  "t3_w_gurke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Gurke!"
+  },
+  "t3_s_kopf": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Kopf."
+  },
+  "t3_w_kopf": {
+   "t": 3,
+   "lang": "de",
+   "text": "Kopf!"
+  },
+  "t3_s_topf": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Topf."
+  },
+  "t3_w_topf": {
+   "t": 3,
+   "lang": "de",
+   "text": "Topf!"
+  },
+  "t3_s_kanne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Kanne."
+  },
+  "t3_w_kanne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Kanne!"
+  },
+  "t3_s_tanne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Tanne."
+  },
+  "t3_w_tanne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tanne!"
+  },
+  "t3_s_tasche": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Tasche."
+  },
+  "t3_w_tasche": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tasche!"
+  },
+  "t3_s_tasse": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Tasse."
+  },
+  "t3_w_tasse": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tasse!"
+  },
+  "t3_s_schlange": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Schlange."
+  },
+  "t3_w_schlange": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schlange!"
+  },
+  "t3_s_zug": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Zug."
+  },
+  "t3_w_zug": {
+   "t": 3,
+   "lang": "de",
+   "text": "Zug!"
+  },
+  "t3_rakete_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jedes Wort gibt der Rakete Kraft!"
+  },
+  "t3_rakete_start": {
+   "t": 3,
+   "lang": "de",
+   "text": "Drei, zwei, eins, Start!",
+   "expect": "3, 2, 1, Start"
+  },
+  "t3_ru_rakete": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — ракета заправится!"
+  },
+  "t1_schiff_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Puste das Schiffchen zur Insel!"
+  },
+  "t1_schiff2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Weiter pusten, das Schiff fährt!"
+  },
+  "t1_ru_schiff": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Подуй на кораблик, чтобы он доплыл до острова!"
+  },
+  "t1_zunge_raus": {
+   "t": 1,
+   "lang": "de",
+   "text": "Streck die Zunge raus, ganz lang!"
+  },
+  "t1_zunge_raus2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Zunge raus!"
+  },
+  "t1_ru_zunge_raus": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Высуни язык, длинный-длинный!"
+  },
+  "t1_nase": {
+   "t": 1,
+   "lang": "de",
+   "text": "Zunge hoch, bis zur Nase!"
+  },
+  "t1_nase2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz hoch zur Nase!"
+  },
+  "t1_ru_nase": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Язык вверх, к носу!"
+  },
+  "t1_uhr": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Zunge ist eine Uhr: links, rechts, links, rechts!"
+  },
+  "t1_uhr2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Tick, tack, tick, tack!"
+  },
+  "t1_ru_uhr": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Язык как часики: влево, вправо!"
+  },
+  "t1_marmelade": {
+   "t": 1,
+   "lang": "de",
+   "text": "Marmelade auf den Lippen! Leck sie rundherum ab!"
+  },
+  "t1_marmelade2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Rundherum ablecken!"
+  },
+  "t1_ru_marmelade": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Оближи губы, как будто там варенье!"
+  },
+  "t2_trommel_intro": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wir trommeln Silben. Hör mal: Bah, nah, neh. Drei Mal!"
+  },
+  "t2_trommel2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Trommel mit!"
+  },
+  "t2_ru_trommel": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Стучи по барабану на каждый слог!"
+  },
+  "t2_sil_banane": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ba, na, ne.",
+   "alts": [
+    "Bah, nah, nee."
+   ],
+   "expect": "Ba na ne"
+  },
+  "t2_sil_auto": {
+   "t": 2,
+   "lang": "de",
+   "text": "Au, to."
+  },
+  "t2_sil_ball": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ball."
+  },
+  "t2_sil_teddy": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ted, dy."
+  },
+  "t2_sil_lampe": {
+   "t": 2,
+   "lang": "de",
+   "text": "Lam, pe."
+  },
+  "t2_sil_nudel": {
+   "t": 2,
+   "lang": "de",
+   "text": "Nu, del."
+  },
+  "t2_sil_ei": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ei."
+  },
+  "t2_sil_tomate": {
+   "t": 2,
+   "lang": "de",
+   "text": "To, ma, te."
+  },
+  "t3_r_ta": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tah, tah, tah."
+  },
+  "t3_r_na": {
+   "t": 3,
+   "lang": "de",
+   "text": "Nah, nah, nah."
+  },
+  "t3_r_la": {
+   "t": 3,
+   "lang": "de",
+   "text": "Lah, lah, lah."
+  },
+  "t3_r_da": {
+   "t": 3,
+   "lang": "de",
+   "text": "Dah, doh, duh."
+  },
+  "t3_trommel_sil": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wie eine Trommel: Tah, tah, tah!"
+  },
+  "t3_fuettern_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Tiere haben Hunger! Jedes Wort ist ein Happen."
+  },
+  "t3_fuettern_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Alle sind satt! Danke, Emily!"
+  },
+  "t3_ru_fuettern": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и покорми зверька!"
+  },
+  "t1_kinn": {
+   "t": 1,
+   "lang": "de",
+   "text": "Zunge runter, bis zum Kinn!"
+  },
+  "t1_kinn2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz weit runter!"
+  },
+  "t1_ru_kinn": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Язык вниз, к подбородку!"
+  },
+  "t2_zeig_intro": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ich sage ein Wort. Zeig mir das Bild!"
+  },
+  "t2_zeig2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wo ist das? Zeig es mir!"
+  },
+  "t2_ru_zeig": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Покажи картинку, которую я назову!"
+  },
+  "t2_n_kopf": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist ein Kopf."
+  },
+  "t2_w_kopf": {
+   "t": 2,
+   "lang": "de",
+   "text": "Kopf!"
+  },
+  "t2_n_topf": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist ein Topf."
+  },
+  "t2_w_topf": {
+   "t": 2,
+   "lang": "de",
+   "text": "Topf!"
+  },
+  "t2_n_kanne": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist eine Kanne."
+  },
+  "t2_w_kanne": {
+   "t": 2,
+   "lang": "de",
+   "text": "Kanne!"
+  },
+  "t2_n_tanne": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist eine Tanne."
+  },
+  "t2_w_tanne": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tanne!"
+  },
+  "t2_n_tasche": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist eine Tasche."
+  },
+  "t2_w_tasche": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tasche!"
+  },
+  "t2_n_tasse": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist eine Tasse."
+  },
+  "t2_w_tasse": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tasse!"
+  },
+  "t2_n_fisch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist ein Fisch."
+  },
+  "t2_w_fisch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Fisch!"
+  },
+  "t2_n_tisch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Das ist ein Tisch."
+  },
+  "t2_w_tisch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tisch!"
+  },
+  "t3_r_ka": {
+   "t": 3,
+   "lang": "de",
+   "text": "Kah, koh, kuh, kih."
+  },
+  "t3_r_ga": {
+   "t": 3,
+   "lang": "de",
+   "text": "Gah, goh, guh, gih."
+  },
+  "t3_specht": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Specht klopft: Kaa, kaa, kaa!",
+   "alts": [
+    "Der Specht klopft: Ka! Ka! Ka!"
+   ],
+   "expect": "Der Specht klopft ka ka ka"
+  },
+  "t1_schlange": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Schlange zischt so:"
+  },
+  "t1_schlange2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz lang zischen!"
+  },
+  "t1_ru_schlange": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Шипи, как змея!"
+  },
+  "t1_zug": {
+   "t": 1,
+   "lang": "de",
+   "text": "Der Zug macht so:"
+  },
+  "t1_zug2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz lang, wie ein Zug!"
+  },
+  "t1_ru_zug": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Шипи, как поезд!"
+  },
+  "t2_schlange_zug": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wer ist das: die Schlange oder der Zug? Tipp drauf!"
+  },
+  "t2_schlange_zug2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schlange oder Zug?"
+  },
+  "t2_ru_schlange_zug": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Это змея или поезд? Нажми!"
+  },
+  "t2_n_schlange": {
+   "t": 2,
+   "lang": "de",
+   "text": "Die Schlange macht so:"
+  },
+  "t2_n_zug": {
+   "t": 2,
+   "lang": "de",
+   "text": "Der Zug macht so:"
+  },
+  "t2_klatsch_sch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wenn du Sch hörst, klatsch auf die Hand!"
+  },
+  "t2_ru_klatsch_sch": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Услышишь «Ш» — хлопни по ладошке!"
+  },
+  "t3_sss": {
+   "t": 3,
+   "lang": "de",
+   "text": "ssss (звук)",
+   "synth": "s"
+  },
+  "t3_schsch": {
+   "t": 3,
+   "lang": "de",
+   "text": "шшшш (звук)",
+   "synth": "sch"
+  },
+  "t3_zisch_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jetzt zischen wir: wie die Schlange und wie der Zug."
+  },
+  "t3_wiederholen": {
+   "t": 3,
+   "lang": "de",
+   "text": "Und jetzt Wörter, die wir schon kennen."
+  },
+  "t2_sss": {
+   "t": 2,
+   "lang": "de",
+   "text": "ssss (звук)",
+   "synth": "s"
+  },
+  "t2_schsch": {
+   "t": 2,
+   "lang": "de",
+   "text": "шшшш (звук)",
+   "synth": "sch"
+  },
+  "t1_mach_mit": {
+   "t": 1,
+   "lang": "de",
+   "text": "Mach mit!"
+  },
+  "t1_sss": {
+   "t": 1,
+   "lang": "de",
+   "text": "ssss (звук)",
+   "synth": "s"
+  },
+  "t1_schsch": {
+   "t": 1,
+   "lang": "de",
+   "text": "шшшш (звук)",
+   "synth": "sch"
   }
+ }
 }

@@ -22,9 +22,17 @@
     <button id="gear" aria-label="Для родителей (удерживать)"><svg viewBox="0 0 24 24" fill="none" stroke="#8a6fb8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><i class="hold"></i></button>
   </section>
 
+  <!-- карта урока: 5 станций-упражнений -->
+  <section id="map" hidden>
+    <button id="mapHome" aria-label="На старт"><svg viewBox="0 0 24 24" fill="none" stroke="#8a6fb8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></button>
+    <div id="lessonDots"></div>
+    <div id="mapEgg"></div>
+    <div id="stations"></div>
+  </section>
+
   <!-- занятие: слева учительница, справа «доска» с заданием -->
   <section id="lesson" hidden>
-    <div id="tpanel"><div id="tview"></div></div>
+    <div id="tpanel"><div id="tview"></div><button id="help" hidden aria-label="Объяснить ещё раз">?</button></div>
     <div id="board"></div>
     <div id="camdot" hidden aria-label="Камера включена"><i></i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
     <div id="micring" hidden><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="12" rx="3" fill="#fff"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3.5"/></svg><span id="miclevel"></span></div>
@@ -43,10 +51,12 @@
 <script src="js/pics.js"></script>
 <script src="js/progress.js"></script>
 <script src="js/audio.js"></script>
+<script src="js/breath.js"></script>
 <script src="js/mic.js"></script>
 <script src="js/teachers.js"></script>
 <script src="js/camera.js"></script>
 <script src="js/tasks.js"></script>
+<script src="js/lessons.js"></script>
 <script src="js/session.js"></script>
 <script src="js/parent.js"></script>
 <script src="js/main.js"></script>

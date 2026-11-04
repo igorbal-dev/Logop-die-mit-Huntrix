@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8"><title>face test</title><body><script type="module">
+/* Проверка признаков лица на картинках (tools/test/face_test.html?img=a.png,b.png): для каждой — blendshapes и геометрия щёк */
+import * as vision from '../../vendor/mediapipe/vision_bundle.mjs';
+const files = await vision.FilesetResolver.forVisionTasks(new URL('../../vendor/mediapipe/wasm', location.href).href);
+const lm = await vision.FaceLandmarker.createFromOptions(files, {baseOptions: {modelAssetPath: new URL('../../vendor/mediapipe/face_landmarker.task', location.href).href, delegate: 'CPU'}, runningMode: 'IMAGE', numFaces: 1, outputFaceBlendshapes: true});
+const out = {};
+for (const src of new URLSearchParams(location.search).get('img').split(',')){
+  const im = new Image(); im.src = src; await im.decode();
+  const c = document.createElement('canvas'); c.width = im.width; c.height = im.height; const g = c.getContext('2d'); g.fillStyle = '#ddd'; g.fillRect(0, 0, c.width, c.height); g.drawImage(im, 0, 0);
+  const r = lm.detect(c);
+  if (!r.faceLandmarks.length){ out[src] = null; continue; }
+  const s = {}; for (const x of r.faceBlendshapes[0].categories) s[x.categoryName] = +x.score.toFixed(3);
+  out[src] = {bs: {cheekPuff: s.cheekPuff, jawOpen: s.jawOpen, mouthPucker: s.mouthPucker, mouthSmile: +((s.mouthSmileLeft + s.mouthSmileRight)/2).toFixed(3), mouthClose: s.mouthClose, mouthRollLower: s.mouthRollLower, mouthPressLeft: s.mouthPressLeft}, geo: window.SA_GEO ? window.SA_GEO(r.faceLandmarks[0]) : null, lm: r.faceLandmarks[0].map(p => [+p.x.toFixed(4), +p.y.toFixed(4), +p.z.toFixed(4)])};
+}
+window.RESULT = out;
+</script></body>

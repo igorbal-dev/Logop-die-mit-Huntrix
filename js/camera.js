@@ -4,7 +4,7 @@
    их засчитываем сами. Язык камера не видит: его засчитывает таймер («старалась») или кнопка родителя. */
 (function(){
   const C = SA.C = {on: false, ready: false, video: null, stream: null, lm: null, scores: {}, face: false};
-  let raf = 0, lastT = -1, base = null;
+  let raf = 0, lastT = -1, base = null, calmW = [];
 
   C.start = async (host) => {
     C.video = SA.el('video'); C.video.setAttribute('playsinline', ''); C.video.muted = true; C.video.autoplay = true;
@@ -25,7 +25,7 @@
         try { C.lm = await vision.FaceLandmarker.createFromOptions(files, opts('GPU')); }
         catch(e){ C.lm = await vision.FaceLandmarker.createFromOptions(files, opts('CPU')); }
       }
-      C.ready = true; base = null; loop();
+      C.ready = true; calmW = []; loop();
     } catch(e){ console.warn('face', e); C.ready = false; }
     return true;
   };
@@ -45,11 +45,16 @@
     C.face = !!bs;
     if (!bs) return;
     const s = {}; for (const c of bs.categories) s[c.categoryName] = c.score;
-    /* ширина щёк относительно расстояния между глазами — для «хомяка» в дополнение к cheekPuff */
-    const lm = r.faceLandmarks[0], d = (a, b) => Math.hypot(lm[a].x - lm[b].x, lm[a].y - lm[b].y);
-    s._cheek = d(234, 454)/d(33, 263);
-    s._lipsClosed = d(13, 14)/d(33, 263) < 0.06;
-    if (!base && s.jawOpen < 0.2 && (s.mouthSmileLeft + s.mouthSmileRight)/2 < 0.3) base = {cheek: s._cheek};
+    /* «Хомяк»: cheekPuff у MediaPipe почти всегда 0 (проверено — даже на нарисованных надутых щеках), поэтому меряем сами:
+       надутые щёки расширяют НИЖНЮЮ часть лица (точки 58–288, 172–397, 136–365, 150–379) на 4–6 % относительно
+       расстояния между глазами; при трубочке и улыбке она почти не меняется (±1 %), при открытом рте — сужается.
+       Сравниваем с этим же ребёнком в спокойном лице: «спокойные» кадры копятся всё время, пока работает зеркало. */
+    const lm = r.faceLandmarks[0], d = (a, b) => Math.hypot(lm[a].x - lm[b].x, lm[a].y - lm[b].y), iod = d(33, 263);
+    s._w = (d(58, 288) + d(172, 397) + d(136, 365) + d(150, 379))/4/iod;
+    const calm = s.jawOpen < 0.15 && (s.mouthSmileLeft + s.mouthSmileRight)/2 < 0.3 && s.mouthPucker < 0.35;
+    if (calm){ calmW.push(s._w); if (calmW.length > 240) calmW.shift(); }
+    s._base = calmW.length >= 8 ? calmW.slice().sort((a, b) => a - b)[Math.floor(calmW.length*0.4)] : null;
+    s._ratio = s._base ? s._w/s._base : null;
     C.scores = s;
   }
   /* поза поймана? (только надёжные позы) */
@@ -58,7 +63,8 @@
     kiss: s => s.mouthPucker > 0.55 && s.jawOpen < 0.4,
     blow: s => s.mouthPucker > 0.45 || s.mouthFunnel > 0.4,
     open_wide: s => s.jawOpen > 0.5,
-    cheeks: s => s.cheekPuff > 0.35 || (base && s._lipsClosed && s._cheek > base.cheek*1.035)
+    cheeks: s => s.cheekPuff > 0.35 || (s._ratio !== null && s.jawOpen < 0.25 && s._ratio > 1 + C.cheekThr)
   };
+  C.cheekThr = 0.03;        /* на сколько шире спокойного лица (3 %); родитель может проверить в «Проверка камеры» */
   C.sees = pose => C.ready && C.face && C.POSES[pose] ? C.POSES[pose](C.scores) : false;
 })();

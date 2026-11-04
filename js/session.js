@@ -1,94 +1,86 @@
-/* Занятие: блоки по порядку, у каждого своя доля времени. Длительность из настроек (10–30 мин, по умолчанию 15):
-   доли растягиваются, в блок набирается столько заданий, сколько влезает. Активность меняется каждые 2–4 минуты.
-   Структура (15 мин): ритуал 0:45 · дыхание 2:00 · зеркало 2:00 · танец 0:20 · слушаем 3:00 · говорим 4:00 · танец 0:20 · игра 2:00 · итог 0:45.
-   Гимнастика — разминка; больше всего времени — слушание и произнесение настоящих звуков и слов. */
+/* Карта урока: 5 станций (упражнений) по порядку. Сделанная — со звездой, следующая — светится, остальные ждут.
+   Ребёнок нажимает светящуюся станцию → упражнение (~3 мин) → звезда → снова карта. Можно закончить на любой станции
+   и продолжить потом с неё же. После 3-й станции — танцпауза. Все 5 → яйцо и следующий урок. */
 (function(){
-  const X = SA.X, P = SA.P;
+  const X = SA.X, P = SA.P, T = SA.T, A = SA.A;
+  const lessonDef = n => SA.LESSONS[(n - 1) % SA.LESSONS.length];
+  const icon = name => name === 'pusteblume' ? SA.dandelionSVG(10) : SA.pic(name);
+  let busy = false, tipsSaid = 0, idleTimer = null;
 
-  /* Занятие 1 «Hallo, Speech Academy!»: знакомство, ритуал, все форматы; гласные и звукоподражания (доступно без знания немецкого) */
-  function plan1(min){
-    const k = min/15;
-    const B = (id, sec, run, fixed) => ({id, sec: fixed ? sec : Math.round(sec*k), run});
-    const blocks = [
-      B('ritual', 45, () => X.ritual(), true),
-      B('breath', 120, async b => {
-        await X.breathHello();
-        const seq = [X.dandelion, X.candles]; let i = 0;
-        do { await seq[i % 2]({level: i >= 2 ? 1 : 0}); i++; } while (i < 2 || b.left() > 35);
-      }),
-      B('mirror', 120, async b => {
-        await X.mirrorStart();
-        try {
-          const ex = ['frosch', 'kuss', 'loewe', 'hamster']; let i = 0;
-          do { await X.exercise(ex[i % 4], {level: i >= 4 ? 1 : 0}); i++; } while (i < 2 || (i < 4 ? b.left() > 15 : b.left() > 30));
-        } finally { await X.mirrorStop(); }
-      }),
-      B('dance1', 20, () => X.dance(1, 20), true),
-      B('listen', 180, async b => {
-        await X.listenHello();
-        await X.animalsIntro();
-        let r = 0; while (r < 2 || (b.left() > b.sec*0.5 && r < 8)){ await X.whoRound({level: r >= 4 ? 1 : 0}); r++; }
-        await X.sameIntro();
-        const pairs = SA.shuffle([true, false, true, false, false, true, true, false]);
-        let j = 0; while (j < 2 || (b.left() > 20 && j < pairs.length)){ await X.sameRound(pairs[j]); j++; }
-        await X.listenBye();
-      })
-    ];
-    if (min >= 20) blocks.push(B('dance3', 20, () => X.dance(3, 20), true));
-    blocks.push(
-      B('speak', 240, async b => {
-        await X.speakIntro();
-        const big = b.sec >= 200;
-        /* если Эмили молчит и всё идёт медленно — время блока соблюдаем: гласные ≤ 40 %, звери ≤ 25 %, слова — главное */
-        for (const v of (big ? ['a', 'o', 'i', 'u'] : ['a', 'i', 'u'])){ if (b.left() < b.sec*0.6 && v !== 'a') break; await X.vowel(v); }
-        await X.tiereIntro();
-        const tiere = big ? ['muh', 'maeh', 'wau', 'miau'] : ['muh', 'wau'];
-        for (let i = 0; i < tiere.length; i++){ if (b.left() < b.sec*0.35 && i > 0) break; await X.tier(tiere[i], i === 1); }   /* «послушай себя» — один раз сам */
-        await X.wordsIntro();
-        const ws = X.WORDS;
-        for (let i = 0; i < ws.length; i++){ if (b.left() < -45 && i >= 3) break; await X.word(ws[i], i === 2); }
-        /* время осталось — ещё круг слов вперемешку */
-        for (let round = 0; round < 3 && b.left() > 25; round++){
-          const extra = SA.shuffle(ws);
-          for (let e = 0; e < extra.length && b.left() > 25; e++) await X.word(extra[e], false);
-        }
-      }),
-      B('dance2', 20, () => X.dance(3, 20), true),
-      B('game', 120, async b => {
-        await X.game(SA.shuffle(X.WORDS));
-        if (b.left() > 70) await X.game(SA.shuffle(X.WORDS));
-      })
-    );
-    return blocks;
-  }
-  SA.PLANS = {1: plan1};
-
-  SA.runSession = async () => {
-    const st = P.settings(), min = SA.clamp(+st.minutes || 15, 10, 30);
-    const num = 1;                          /* этап 2: готово занятие 1; программа по звукам — этап 3 */
-    const plan = SA.PLANS[num](min);
-    SA.stopped = false;
-    P.begin(num, min*60);
-    let early = false;
-    try {
-      for (const b of plan){
-        const t0 = SA.now();
-        b.left = () => b.sec - (SA.now() - t0)/1000*SA.SPEED;
-        SA.timeLeft = b.left;
-        SA.curBlock = b.id;
-        await b.run(b);
-        X.marks(null); X.earOff();
-      }
-    } catch(e){
-      if (!(e instanceof SA.Stop)) console.error(e);
-      early = true;
-    }
-    SA.stopped = false; SA.timeLeft = null;
-    try { SA.C.stop(); } catch(e){}
-    X.marks(null); X.earOff(); SA.$('#micring').hidden = true;
-    const res = P.finish(early);
-    try { await X.finale(res, early); } catch(e){ console.error(e); }
-    SA.M.clearRecordings();
-    return res;
+  SA.openMap = () => {
+    const pr = P.prog(), L = lessonDef(pr.lesson), next = pr.done.indexOf(false);
+    SA.$('#home').hidden = true; SA.$('#lesson').hidden = true; SA.$('#map').hidden = false;
+    const st = SA.$('#stations'); st.innerHTML = '';
+    L.ex.forEach((e, i) => {
+      const b = SA.el('button', 'st' + (pr.done[i] ? ' done' : i === next ? ' cur' : ' wait'));
+      b.setAttribute('aria-label', `Упражнение ${i + 1}`);
+      b.innerHTML = `<span class="ico">${icon(e.icon)}</span><img class="tf" src="${T.src(e.t, 'face_neutral')}" alt=""><span class="badge">${pr.done[i] ? SA.pic('star') : ''}</span>`;
+      b.addEventListener('click', () => tapStation(i));
+      st.appendChild(b);
+      if (i < 4){ const path = SA.el('i', 'path' + (pr.done[i] ? ' on' : '')); st.appendChild(path); }
+    });
+    /* какой по счёту урок — точками (ребёнок не читает) */
+    const total = SA.LESSONS.length, dots = SA.$('#lessonDots'); dots.innerHTML = '';
+    for (let i = 1; i <= total; i++) dots.appendChild(SA.el('i', i < pr.lesson ? 'on' : i === pr.lesson ? 'now' : ''));
+    const d = P.load(); SA.$('#mapEgg').innerHTML = SA.eggSVG(Math.min(d.egg.filled, d.settings.eggTarget)/d.settings.eggTarget, d.settings.eggTarget, d.settings.rewardImg);
+    /* подсказка: «нажми на следующую картинку» — первые разы и если ребёнок ничего не нажимает */
+    clearTimeout(idleTimer);
+    if (A.ctx && next > 0 && tipsSaid < 2){ tipsSaid++; A.say('t3_station_naechste', {always: true}).catch(() => {}); }
+    idleTimer = setTimeout(() => { if (!SA.$('#map').hidden && !busy) A.say('t3_ru_station', {always: true}).catch(() => {}); }, 12000);
   };
+
+  async function tapStation(i){
+    if (busy) return;
+    const pr = P.prog(), next = pr.done.indexOf(false);
+    /* порядок методический: можно повторить сделанное или начать следующее, но не перескакивать */
+    if (!pr.done[i] && i !== next){ A.sfx.soft(); const b = SA.$('#stations').querySelectorAll('.st')[next]; if (b){ b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); } return; }
+    clearTimeout(idleTimer); A.cut();
+    busy = true;
+    try { await runExercise(pr.lesson, i, !pr.done.some(Boolean) && i === 0); }
+    finally { busy = false; }
+  }
+
+  async function runExercise(lessonN, i, first){
+    const L = lessonDef(lessonN), e = L.ex[i], pr = P.prog();
+    const min = SA.clamp(+P.settings().minutes || 15, 10, 30), sec = Math.round(min*60/5);
+    SA.$('#map').hidden = true; SA.$('#lesson').hidden = false;
+    T.attach(SA.$('#tview')); X.board(); X.help(0, null);
+    SA.stopped = false;
+    const t0 = SA.now();
+    SA.E = {sec, t0, level: pr.cycle > 0 ? 1 : 0, told: new Set(), first: lessonN === 1 && pr.cycle === 0, left: () => sec - (SA.now() - t0)/1000*SA.SPEED};
+    SA.curBlock = `${lessonN}.${e.id}`;
+    P.begin(lessonN, e.id, sec);
+    let completed = false;
+    try {
+      if (first) await X.ritual();
+      await e.run(SA.E);
+      completed = true;
+    } catch(err){ if (!(err instanceof SA.Stop)) console.error(err); }
+    SA.stopped = false;
+    try { SA.C.stop(); } catch(err){}
+    await SA.M.breathClose();
+    X.marks(null); X.earOff(); X.help(0, null); SA.$('#micring').hidden = true;
+    P.end(completed, i);
+    SA.M.clearRecordings();
+    SA.E = null;
+    if (completed){
+      try {
+        /* звезда за станцию; после 3-й — танцпауза */
+        A.sfx.fanfare(); T.body(3, 'praise'); SA.starEl(SA.$('#board'));
+        if (i === 2) await X.dance(3, 20);
+        else await A.say('t3_station_fertig');
+        const now = P.prog();
+        if (now.done.every(Boolean)){
+          const res = P.lessonDone(SA.LESSONS.length);
+          await X.finale(res);
+        }
+      } catch(err){ if (!(err instanceof SA.Stop)) console.error(err); SA.stopped = false; }
+    }
+    window.__exDone = (window.__exDone || 0) + 1;      /* для автопроверки */
+    SA.openMap();
+  }
+  SA.runExercise = runExercise;
+
+  /* «на старт»: с карты — домой */
+  SA.goHome = () => { clearTimeout(idleTimer); A.cut(); SA.$('#map').hidden = true; SA.$('#lesson').hidden = true; SA.$('#home').hidden = false; SA.renderHome(); };
 })();

@@ -1,0 +1,8 @@
+{
+  "_comment": "Голоса учительниц (нейронные голоса Microsoft, бесплатный сервис «Читать вслух»). Генерация и проверка — tools/tts.py. rate/pitch — темп и высота. Zoey (3) — образец для повторения: самый точный немецкий (Katja, без изменений). Mira (2) — тот же точный голос, ниже и медленнее. Rumi (1) — бодрый голос Amala (только инструкции). Русские подсказки — родной русский голос Svetlana.",
+  "teachers": {
+    "1": {"de": {"voice": "de-DE-AmalaNeural", "rate": "-6%", "pitch": "+0Hz"}, "ru": {"voice": "ru-RU-SvetlanaNeural", "rate": "-4%", "pitch": "+12Hz"}},
+    "2": {"de": {"voice": "de-DE-KatjaNeural", "rate": "-14%", "pitch": "-12Hz"}, "ru": {"voice": "ru-RU-SvetlanaNeural", "rate": "-8%", "pitch": "-8Hz"}},
+    "3": {"de": {"voice": "de-DE-KatjaNeural", "rate": "-8%", "pitch": "+0Hz"}, "ru": {"voice": "ru-RU-SvetlanaNeural", "rate": "-4%", "pitch": "+0Hz"}}
+  }
+}
