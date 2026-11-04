@@ -1,0 +1,1402 @@
+{
+ "_comment": "Создаётся tools/voice_queue.py из content/*/lines.json. Руками не править.",
+ "presets": {
+  "A": {
+   "exaggeration": 0.6,
+   "cfg_weight": 0.5,
+   "temperature": 0.8
+  }
+ },
+ "probes": [
+  {
+   "id": "t3_ritual_hallo",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Hallo Emily! Willkommen in der Sprech-Akademie!"
+  },
+  {
+   "id": "t3_ritual_ruf",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Sag ganz laut: Hallo!"
+  },
+  {
+   "id": "t3_ritual_ruf2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Wir rufen zusammen: Hallo!"
+  },
+  {
+   "id": "t3_ru_ritual",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3_ru",
+   "text": "Скажи громко: Халло!"
+  },
+  {
+   "id": "t3_ritual_ok",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Ich höre dich! Los geht's!"
+  },
+  {
+   "id": "t1_hallo_kurz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Hallo!"
+  },
+  {
+   "id": "t2_hallo_kurz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Hallo!"
+  },
+  {
+   "id": "t3_hallo_kurz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Hallo!"
+  },
+  {
+   "id": "t1_hallo",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Hallo Emily! Ich mache mit dir Mund-Turnen."
+  },
+  {
+   "id": "t1_puste_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Zuerst pusten wir. Schau, eine Pusteblume!"
+  },
+  {
+   "id": "t1_riechen",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Erst durch die Nase einatmen."
+  },
+  {
+   "id": "t1_puste",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Und jetzt pusten!"
+  },
+  {
+   "id": "t1_puste2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Puste ganz fest auf die Pusteblume!"
+  },
+  {
+   "id": "t1_ru_puste",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1_ru",
+   "text": "Подуй на одуванчик, сильно-сильно!"
+  },
+  {
+   "id": "t1_puste_mehr",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Da sind noch Samen. Noch mal pusten!"
+  },
+  {
+   "id": "t1_kerzen_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Jetzt die Kerzen auf dem Kuchen. Puste sie aus!"
+  },
+  {
+   "id": "t1_kerzen2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Noch eine Kerze! Puste!"
+  },
+  {
+   "id": "t1_ru_kerzen",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1_ru",
+   "text": "Задуй свечки на торте!"
+  },
+  {
+   "id": "t1_spiegel_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Jetzt schauen wir in den Spiegel. Da bist du! Mach mir nach."
+  },
+  {
+   "id": "t1_ru_spiegel",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1_ru",
+   "text": "Смотри в зеркало и повторяй за мной."
+  },
+  {
+   "id": "t1_frosch",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Der Frosch lacht ganz breit. Mach den Frosch!"
+  },
+  {
+   "id": "t1_frosch2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Ganz breit lächeln!"
+  },
+  {
+   "id": "t1_ru_frosch",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1_ru",
+   "text": "Улыбнись широко, как лягушка!"
+  },
+  {
+   "id": "t1_kuss",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Jetzt ein Kussmund. Lippen nach vorne!"
+  },
+  {
+   "id": "t1_kuss2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Spitze Lippen, wie ein Küsschen!"
+  },
+  {
+   "id": "t1_ru_kuss",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1_ru",
+   "text": "Губы трубочкой, как для поцелуя!"
+  },
+  {
+   "id": "t1_loewe",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Der Löwe gähnt. Mund ganz weit auf!"
+  },
+  {
+   "id": "t1_loewe2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Ganz weit auf, wie ein großer Löwe!"
+  },
+  {
+   "id": "t1_ru_loewe",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1_ru",
+   "text": "Открой рот широко, как лев!"
+  },
+  {
+   "id": "t1_hamster",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Der Hamster hat dicke Backen. Puste die Backen auf!"
+  },
+  {
+   "id": "t1_hamster2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Backen ganz dick machen!"
+  },
+  {
+   "id": "t1_ru_hamster",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1_ru",
+   "text": "Надуй щёки, как хомяк!"
+  },
+  {
+   "id": "t1_halten",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Und halten. Eins, zwei, drei!"
+  },
+  {
+   "id": "t1_nochmal",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Und noch einmal!"
+  },
+  {
+   "id": "t1_ohne_kamera",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Ich sehe dich nicht, aber mach einfach mit!"
+  },
+  {
+   "id": "t1_ende",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Das war Mund-Turnen. Bis gleich!"
+  },
+  {
+   "id": "t1_tanz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Tanzpause! Komm, wir tanzen!"
+  },
+  {
+   "id": "t1_tanz_ende",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Super getanzt! Weiter geht's."
+  },
+  {
+   "id": "t3_tanz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Musik an! Wir tanzen zusammen!"
+  },
+  {
+   "id": "t3_tanz_ende",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Toll getanzt! Und jetzt weiter."
+  },
+  {
+   "id": "t2_hallo",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Hallo Emily! Bei mir hörst du ganz genau hin."
+  },
+  {
+   "id": "t2_kuh",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das ist die Kuh. Die Kuh macht Muh!"
+  },
+  {
+   "id": "t2_katze",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das ist die Katze. Die Katze macht Miau!"
+  },
+  {
+   "id": "t2_hund",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das ist der Hund. Der Hund macht Wau wau!"
+  },
+  {
+   "id": "t2_schaf",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das ist das Schaf. Das Schaf macht Mäh!"
+  },
+  {
+   "id": "t2_frosch",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das ist der Frosch. Der Frosch macht Quak!"
+  },
+  {
+   "id": "t2_muh",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Muh!"
+  },
+  {
+   "id": "t2_miau",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Miau!"
+  },
+  {
+   "id": "t2_wau",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Wau wau!"
+  },
+  {
+   "id": "t2_maeh",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Mäh!"
+  },
+  {
+   "id": "t2_quak",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Quak!"
+  },
+  {
+   "id": "t2_wer",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Wer macht das? Zeig es mir!"
+  },
+  {
+   "id": "t2_wer2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Hör noch mal. Wer ist das?"
+  },
+  {
+   "id": "t2_ru_wer",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2_ru",
+   "text": "Кто так говорит? Покажи!"
+  },
+  {
+   "id": "t2_nochmal",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Hör noch einmal genau hin."
+  },
+  {
+   "id": "t2_gleich_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Jetzt hörst du zwei Geräusche. Sind sie gleich oder anders?"
+  },
+  {
+   "id": "t2_gleich_zeig",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das heißt gleich."
+  },
+  {
+   "id": "t2_anders_zeig",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das heißt anders."
+  },
+  {
+   "id": "t2_gleich2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Gleich oder anders? Tipp drauf!"
+  },
+  {
+   "id": "t2_ru_gleich",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2_ru",
+   "text": "Одинаковые или разные? Нажми!"
+  },
+  {
+   "id": "t2_ende",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Toll zugehört! Bis gleich!"
+  },
+  {
+   "id": "t3_sprechen_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Jetzt sprechen wir. Schau auf meinen Mund!"
+  },
+  {
+   "id": "t3_a",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Mund weit auf: Aaa!"
+  },
+  {
+   "id": "t3_o",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Ein runder Mund: Ooo!"
+  },
+  {
+   "id": "t3_i",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Breit lächeln: Iii!"
+  },
+  {
+   "id": "t3_u",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Lippen nach vorne: Uuu!"
+  },
+  {
+   "id": "t3_a_kurz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Aaa!"
+  },
+  {
+   "id": "t3_o_kurz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Ooo!"
+  },
+  {
+   "id": "t3_i_kurz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Iii!"
+  },
+  {
+   "id": "t3_u_kurz",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Uuu!"
+  },
+  {
+   "id": "t3_tiere_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Jetzt sprechen wir wie die Tiere."
+  },
+  {
+   "id": "t3_muh",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Muh!"
+  },
+  {
+   "id": "t3_maeh",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Mäh!"
+  },
+  {
+   "id": "t3_wau",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Wau wau!"
+  },
+  {
+   "id": "t3_miau",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Miau!"
+  },
+  {
+   "id": "t3_woerter_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Und jetzt Wörter. Ich sage es, dann du."
+  },
+  {
+   "id": "t3_s_auto",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das ist ein Auto."
+  },
+  {
+   "id": "t3_s_ei",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das ist ein Ei."
+  },
+  {
+   "id": "t3_s_ball",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das ist ein Ball."
+  },
+  {
+   "id": "t3_s_baum",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das ist ein Baum."
+  },
+  {
+   "id": "t3_s_oma",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das ist die Oma."
+  },
+  {
+   "id": "t3_s_puppe",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das ist eine Puppe."
+  },
+  {
+   "id": "t3_w_auto",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Auto!"
+  },
+  {
+   "id": "t3_w_ei",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Ei!"
+  },
+  {
+   "id": "t3_w_ball",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Ball!"
+  },
+  {
+   "id": "t3_w_baum",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Baum!"
+  },
+  {
+   "id": "t3_w_oma",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Oma!"
+  },
+  {
+   "id": "t3_w_puppe",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Puppe!"
+  },
+  {
+   "id": "t3_jetzt_du",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Jetzt du!"
+  },
+  {
+   "id": "t3_jetzt_du2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Sag es mit mir!"
+  },
+  {
+   "id": "t3_ru_jetzt_du",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3_ru",
+   "text": "Теперь ты! Повтори."
+  },
+  {
+   "id": "t3_hoer_dich",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Hör mal: erst ich, dann du!"
+  },
+  {
+   "id": "t3_spaeter",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das üben wir später noch mal."
+  },
+  {
+   "id": "t3_spiel_intro",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Jetzt ein Spiel! In der Zauberkiste ist etwas versteckt."
+  },
+  {
+   "id": "t3_spiel_sag",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Sag das Wort, dann springt es raus!"
+  },
+  {
+   "id": "t3_spiel_sag2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Sag es laut!"
+  },
+  {
+   "id": "t3_ru_spiel",
+   "model": "mtl",
+   "lang": "ru",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3_ru",
+   "text": "Скажи слово, и оно выпрыгнет!"
+  },
+  {
+   "id": "t3_spiel_ende",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Alle sind draußen! Geschafft!"
+  },
+  {
+   "id": "t1_lob1",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Toll gemacht!"
+  },
+  {
+   "id": "t1_lob2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Super!"
+  },
+  {
+   "id": "t1_lob3",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Das war stark!"
+  },
+  {
+   "id": "t1_lob4",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Klasse!"
+  },
+  {
+   "id": "t1_lob5",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Du machst richtig gut mit!"
+  },
+  {
+   "id": "t1_lob6",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Prima gepustet!"
+  },
+  {
+   "id": "t2_lob1",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Gut zugehört!"
+  },
+  {
+   "id": "t2_lob2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Genau!"
+  },
+  {
+   "id": "t2_lob3",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Super!"
+  },
+  {
+   "id": "t2_lob4",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Du hast feine Ohren!"
+  },
+  {
+   "id": "t2_lob5",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Klasse!"
+  },
+  {
+   "id": "t2_lob6",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Prima!"
+  },
+  {
+   "id": "t3_lob1",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Super!"
+  },
+  {
+   "id": "t3_lob2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Schön laut!"
+  },
+  {
+   "id": "t3_lob3",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Klasse gemacht!"
+  },
+  {
+   "id": "t3_lob4",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Toll probiert!"
+  },
+  {
+   "id": "t3_lob5",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Prima!"
+  },
+  {
+   "id": "t3_lob6",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Weiter so!"
+  },
+  {
+   "id": "t3_lob7",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Wow!"
+  },
+  {
+   "id": "t3_lob8",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Du machst das super!"
+  },
+  {
+   "id": "t1_mut1",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Gut probiert!"
+  },
+  {
+   "id": "t1_mut2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Macht nichts, wir üben das noch."
+  },
+  {
+   "id": "t1_mut3",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Das war schwer. Du hast es versucht, toll!"
+  },
+  {
+   "id": "t1_mut4",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Das kommt noch. Weiter!"
+  },
+  {
+   "id": "t2_mut1",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Gut probiert!"
+  },
+  {
+   "id": "t2_mut2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Macht nichts. Wir hören es noch mal."
+  },
+  {
+   "id": "t2_mut3",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das war schwer. Toll, dass du es versuchst!"
+  },
+  {
+   "id": "t2_mut4",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Das kommt noch. Weiter!"
+  },
+  {
+   "id": "t3_mut1",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Gut probiert!"
+  },
+  {
+   "id": "t3_mut2",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Macht nichts, wir üben das noch."
+  },
+  {
+   "id": "t3_mut3",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das war schwer. Du hast es versucht, toll!"
+  },
+  {
+   "id": "t3_mut4",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das kommt noch. Weiter!"
+  },
+  {
+   "id": "t3_mut5",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Probieren ist das Wichtigste."
+  },
+  {
+   "id": "t3_ende",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das war unser Training für heute. Du hast toll mitgemacht!"
+  },
+  {
+   "id": "t3_ei",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Schau, dein Ei wird voller!"
+  },
+  {
+   "id": "t3_ei_bald",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Noch ein Training, dann ist das Ei voll!"
+  },
+  {
+   "id": "t3_ei_voll",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Das Ei ist voll! Dafür bekommst du heute eine echte Überraschung!"
+  },
+  {
+   "id": "t1_tschuess",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t1",
+   "text": "Tschüss Emily! Bis morgen!"
+  },
+  {
+   "id": "t2_tschuess",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t2",
+   "text": "Tschüss! Ich freu mich auf morgen!"
+  },
+  {
+   "id": "t3_tschuess",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Tschüss! Bis zum nächsten Mal!"
+  },
+  {
+   "id": "t3_frueh_ende",
+   "model": "mtl",
+   "lang": "de",
+   "presets": [
+    "A"
+   ],
+   "voice": "t3",
+   "text": "Für heute ist Schluss. Du hast toll mitgemacht! Tschüss!"
+  }
+ ]
+}
