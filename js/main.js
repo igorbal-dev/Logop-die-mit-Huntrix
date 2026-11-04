@@ -24,15 +24,10 @@
     SA.$('#loading').hidden = false;
     await Promise.all([SA.A.loadSounds(Object.keys(SA.A.LINES)), SA.AUTO ? null : SA.M.setup(), T.ready]);
     SA.$('#loading').hidden = true;
-    SA.$('#home').hidden = true; SA.$('#lesson').hidden = false;
-    T.attach(SA.$('#tview'));
-    try { await SA.runSession(); }
-    finally {
-      SA.$('#lesson').hidden = true; SA.$('#home').hidden = false; SA.$('#board').innerHTML = '';
-      SA.renderHome(); running = false;
-      window.__done = true;                              /* для автопроверки */
-    }
+    running = false;
+    SA.openMap();
   });
+  SA.$('#mapHome').addEventListener('click', () => SA.goHome());
   SA.holdButton(SA.$('#stop'), 2000, () => SA.stopNow());
   SA.holdButton(SA.$('#gear'), 2000, () => SA.parentGate());
   start().catch(e => { console.error(e); SA.$('#loading').hidden = true; });

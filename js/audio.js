@@ -5,7 +5,9 @@
    - реплики идут строго по очереди; пока говорит учительница, микрофон не слушает (SA.A.speaking). */
 (function(){
   const A = SA.A = {ctx: null, BUF: {}, LINES: {}, speaking: 0, level: 0, onSpeak: null, lang: 'de'};
-  let chain = Promise.resolve();
+  let chain = Promise.resolve(), curStop = null, gen = 0;
+  /* ребёнок уже ответил — учительница замолкает: обрывается текущая реплика и всё, что стояло в очереди */
+  A.cut = () => { gen++; if (curStop) curStop(); try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch(e){} };
 
   A.unlock = () => {
     /* iPhone: звук и речь включаются только из нажатия */
@@ -79,7 +81,8 @@
         if (A.ctx.state !== 'running') A.ctx.resume();
         await new Promise(resolve => {
           const s = A.ctx.createBufferSource(); s.buffer = b; s.playbackRate.value = opt.rate || 1; s.connect(A.out);
-          let done = false; const fin = () => { if (!done){ done = true; resolve(); } };
+          let done = false; const fin = () => { if (!done){ done = true; if (curStop === stopIt) curStop = null; resolve(); } };
+          const stopIt = () => { try { s.stop(); } catch(e){} fin(); }; curStop = stopIt;
           s.onended = fin; setTimeout(fin, b.duration*1000/(opt.rate || 1) + 400); s.start();
         });
       } else { fakeTalk = true; await tts(line); fakeTalk = false; }
@@ -91,7 +94,8 @@
   }
   /* реплика: ждёт свою очередь; прерывается кнопкой «закончить» (сама реплика договаривается) */
   A.say = (key, opt = {}) => {
-    const p = chain.then(() => SA.stopped && !opt.always ? null : playNow(key, opt));
+    const g = gen;
+    const p = chain.then(() => (SA.stopped && !opt.always) || g !== gen ? null : playNow(key, opt));
     chain = p.catch(() => {});
     return opt.always ? p : SA.guard(p);
   };

@@ -33,11 +33,12 @@
       const marks = s.items.filter(x => x.mark), ok = marks.filter(x => x.mark === 'ok').length, hard = marks.length - ok;
       const taps = s.items.filter(x => x.kind === 'tap'), tapOk = taps.filter(x => x.result === 'ok').length;
       const det = s.items.filter(x => x.kind !== 'info' && x.kind !== 'dance').map(x => `<tr><td>${esc(itemName(x))}</td><td>${esc(RES_RU[x.result] ?? x.result ?? '')}${x.reps ? ' (' + x.reps.map(r => RES_RU[r] || r).join(', ') + ')' : ''}</td><td>${x.mark === 'ok' ? '✓ получилось' : x.mark === 'hard' ? '~ пока трудно' : ''}</td></tr>`).join('');
-      return `<details class="box"><summary><b>Занятие ${s.n}</b> · ${new Date(s.date).toLocaleString('ru-RU', {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'})} · ${fmtDur(s.durSec)}
-        · ${s.completed ? 'до конца' : s.early ? 'закончили раньше' : 'прервано'}${s.egg ? ' · 🥚 засчитано' : ''}
+      const L = SA.LESSONS[(s.n - 1) % SA.LESSONS.length], ex = s.ex && L ? L.ex.find(e => e.id === s.ex) : null;
+      return `<details class="box"><summary><b>Урок ${s.n}${ex ? ' · ' + esc(ex.name) : ''}</b> · ${new Date(s.date).toLocaleString('ru-RU', {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'})} · ${fmtDur(s.durSec)}
+        · ${s.completed ? 'сделано' : 'прервано'}
         · отметки: ✓ ${ok} / ~ ${hard} · слушание: верно сразу ${tapOk} из ${taps.length}</summary>
         <table><tr><th>Задание</th><th>Что было</th><th>Отметка родителя</th></tr>${det}</table></details>`;
-    }).join('') || '<p class="muted">Занятий пока не было.</p>';
+    }).join('') || '<p class="muted">Упражнений пока не было.</p>';
 
     const sprites = [1, 2, 3].map(n => {
       const all = [...T.NEED[n].must.map(x => [x, true]), ...T.NEED[n].later.map(x => [x, false])];
@@ -53,6 +54,22 @@
       <div class="box">
         <label>Длительность занятия: <input type="range" id="sMin" min="10" max="30" step="5" value="${st.minutes}"> <b id="sMinV">${st.minutes} мин</b></label>
         <p class="muted">Для 5 лет лучше 10–15 минут каждый день, чем одно длинное занятие. Задания подстраиваются под время сами.</p>
+      </div>
+      <h2>Программа</h2>
+      <div class="box">
+        ${(() => { const pr = d.prog, L = SA.LESSONS[(pr.lesson - 1) % SA.LESSONS.length];
+          return `<p>Сейчас: <b>урок ${pr.lesson} из ${SA.LESSONS.length}</b> — ${esc(L.name)}${pr.cycle ? ` (круг ${pr.cycle + 1}, задания сложнее)` : ''}</p>
+          <ol>${L.ex.map((e, i) => `<li>${pr.done[i] ? '⭐' : '⬜'} ${esc(e.name)}</li>`).join('')}</ol>`; })()}
+        <label>Перейти к уроку: <select id="sLesson">${SA.LESSONS.map(L => `<option value="${L.n}" ${L.n === d.prog.lesson ? 'selected' : ''}>${L.n}. ${esc(L.name)}</option>`).join('')}</select>
+          <button class="btn light" id="sLessonGo">перейти</button></label>
+        <p class="muted">Урок — 5 упражнений по ~${Math.round(st.minutes/5)} мин. Каждое сделанное упражнение сохраняется: можно остановиться и продолжить с того же места. Порядок упражнений — методический (слушаем → звук → слово → игра), перескакивать вперёд нельзя, повторить сделанное — можно.</p>
+      </div>
+      <h2>Проверка микрофона и камеры</h2>
+      <div class="box">
+        <label>Чувствительность выдоха: <select id="sBreath"><option value="0" ${st.breathSens == 0 ? 'selected' : ''}>строже (шумная комната)</option><option value="1" ${st.breathSens == 1 ? 'selected' : ''}>обычная</option><option value="2" ${st.breathSens == 2 ? 'selected' : ''}>чувствительнее (тихий выдох, планшет далеко)</option></select></label>
+        <button class="btn light" id="tBreath">проверить дыхание</button> <button class="btn light" id="tCam">проверить камеру</button>
+        <div id="tOut" class="muted"></div>
+        <p class="muted">Дыхание: подуйте на экран с разного расстояния и скажите что-нибудь — «выдох» должен загораться только от дуновения, «голос» — от речи. Ловится лучше, если дуть в сторону микрофона (низ телефона) с 10–30 см. Камера: покажите улыбку, трубочку, широко открытый рот и надутые щёки — должны загораться соответствующие значки.</p>
       </div>
       <h2>Награда</h2>
       <div class="box">
@@ -84,6 +101,10 @@
     const del = SA.$('#sImgDel'); if (del) del.onclick = () => { P.setSetting('rewardImg', null); render(); };
     SA.$('#sReset').onclick = () => { if (confirm('Удалить все занятия, отметки и яйцо на этом устройстве?')){ P.reset(); render(); } };
     box.querySelectorAll('[data-mouth]').forEach(b => b.onclick = () => testMouth(+b.dataset.mouth));
+    SA.$('#sLessonGo').onclick = () => { const n = +SA.$('#sLesson').value; if (confirm(`Перейти к уроку ${n}? Звёзды текущего урока обнулятся.`)){ P.setLesson(n); render(); } };
+    SA.$('#sBreath').onchange = e => P.setSetting('breathSens', +e.target.value);
+    SA.$('#tBreath').onclick = () => testBreath();
+    SA.$('#tCam').onclick = () => testCam();
     box.querySelectorAll('[data-line]').forEach(b => b.onclick = async () => { if (!SA.A.ctx) SA.A.unlock(); await SA.A.loadSounds([b.dataset.line]); SA.A.say(b.dataset.line, {always: true}).catch(() => {}); });
   }
   /* картинка награды: уменьшаем до 480 px, чтобы поместилась в память браузера */
@@ -91,6 +112,36 @@
     return new Promise(res => { const im = new Image(); im.onload = () => { const s = Math.min(1, 480/Math.max(im.width, im.height)), c = document.createElement('canvas');
       c.width = Math.round(im.width*s); c.height = Math.round(im.height*s); c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); res(c.toDataURL('image/jpeg', 0.82)); URL.revokeObjectURL(im.src); };
       im.src = URL.createObjectURL(file); });
+  }
+  /* живая проверка выдоха: «выдох» / «голос» / громкость */
+  let testOn = null;
+  async function testBreath(){
+    const out = SA.$('#tOut'); if (testOn){ testOn(); return; }
+    if (!SA.A.ctx) SA.A.unlock();
+    if (!(await SA.M.breathOpen())){ out.textContent = 'Микрофон не открылся — разрешите доступ к микрофону.'; return; }
+    let air = 0, voice = 0, on = true, last = SA.now();
+    testOn = () => { on = false; testOn = null; SA.M.breathClose(); out.innerHTML = `Итог: выдох ${(air/1000).toFixed(1)} с, голос ${(voice/1000).toFixed(1)} с.`; SA.$('#tBreath').textContent = 'проверить дыхание'; };
+    SA.$('#tBreath').textContent = 'остановить';
+    const loop = () => { if (!on) return; requestAnimationFrame(loop); const now = SA.now(), dt = now - last; last = now; const f = SA.M.breathFrame();
+      if (f.air) air += dt; if (f.voice) voice += dt;
+      out.innerHTML = `<b style="color:${f.air ? '#1f8a5a' : '#bbb'}">● выдох</b> &nbsp; <b style="color:${f.voice ? '#2f80ed' : '#bbb'}">● голос</b> &nbsp; громкость ${Math.round(f.db)} дБ · всего: выдох ${(air/1000).toFixed(1)} с, голос ${(voice/1000).toFixed(1)} с`; };
+    loop();
+  }
+  /* живая проверка камеры: какие позы видит (только для взрослого) */
+  async function testCam(){
+    const out = SA.$('#tOut');
+    if (SA.C.on){ SA.C.stop(); out.textContent = ''; SA.$('#tCam').textContent = 'проверить камеру'; return; }
+    const host = SA.el('div', ''); host.style.cssText = 'width:240px;height:180px;position:relative;border-radius:12px;overflow:hidden;margin:8px 0;transform:scaleX(-1)'; out.innerHTML = ''; out.appendChild(host);
+    const info = SA.el('div', ''); out.appendChild(info);
+    if (!(await SA.C.start(host))){ info.textContent = 'Камера не включилась — разрешите доступ к камере.'; return; }
+    host.querySelector('video').style.cssText = 'width:100%;height:100%;object-fit:cover';
+    SA.$('#tCam').textContent = 'выключить камеру';
+    const names = {smile: 'улыбка', kiss: 'трубочка', open_wide: 'рот широко', cheeks: 'щёки'};
+    const loop = () => { if (!SA.C.on) return; requestAnimationFrame(loop); const s = SA.C.scores || {};
+      info.innerHTML = !SA.C.ready ? 'распознавание загружается…' : !SA.C.face ? 'лица не видно' :
+        Object.entries(names).map(([k, n]) => `<b style="color:${SA.C.sees(k) ? '#1f8a5a' : '#bbb'}">● ${n}</b>`).join(' &nbsp; ') +
+        `<br><span class="muted">щёки: ${s._ratio ? Math.round((s._ratio - 1)*100) + ' % шире спокойного лица (порог ' + Math.round(SA.C.cheekThr*100) + ' %)' : 'запоминаю спокойное лицо…'}</span>`; };
+    loop();
   }
   /* «проверить рот»: учительница говорит реплику, видно, не прыгает ли лицо между кадрами */
   async function testMouth(n){
