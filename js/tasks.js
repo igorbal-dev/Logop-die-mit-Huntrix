@@ -51,7 +51,7 @@
     b.appendChild(row);
     T.body(3, 'hello');
     await say('t3_ritual_hallo');
-    c1.classList.add('pop'); await say(A.LINES.t1_ich_bin ? 't1_ich_bin' : 't1_hallo_kurz');   /* с именем — «Hallo, ich bin Rumi!» */
+    c1.classList.add('pop'); await say(A.has('t1_ich_bin') ? 't1_ich_bin' : 't1_hallo_kurz');   /* с именем — «Hallo, ich bin Rumi!» */
     c2.classList.add('pop'); await say('t2_hallo_kurz');
     await say('t3_hallo_kurz');
     T.body(3, 'listen');
