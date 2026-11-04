@@ -4,7 +4,7 @@ const {Blow, N} = require('../../js/breath.js');
 const {execFileSync} = require('child_process');
 const fs = require('fs'), path = require('path');
 const SR = 48000;
-const dec = f => { const b = execFileSync('ffmpeg', ['-v', 'error', '-i', f, '-f', 'f32le', '-ac', '1', '-ar', String(SR), '-']); return new Float32Array(b.buffer, b.byteOffset, b.length/4); };
+const dec = f => { const b = execFileSync('ffmpeg', ['-v', 'error', '-i', f, '-f', 'f32le', '-ac', '1', '-ar', String(SR), '-'], {maxBuffer: 64 << 20}); return new Float32Array(b.buffer, b.byteOffset, b.length/4); };
 const gain = (x, db) => { const g = Math.pow(10, db/20); let p = 0; for (const v of x) p = Math.max(p, Math.abs(v)); const k = g/(p || 1); return x.map(v => Math.max(-1, Math.min(1, v*k))); };
 let seed = 7; const rnd = () => { seed = (seed*1103515245 + 12345) & 0x7fffffff; return seed/0x7fffffff*2 - 1; };
 function room(sec, db = -66){ const n = SR*sec, x = new Float32Array(n), g = Math.pow(10, db/20); for (let i = 0; i < n; i++) x[i] = rnd()*g; return x; }
@@ -28,7 +28,9 @@ function run(sig, sens = 1){
   return {air: Math.round(airMs), voice: Math.round(voiceMs)};
 }
 const snd = path.join(__dirname, '../../assets/snd');
-const speech = fs.readdirSync(snd).filter(f => f.endsWith('.mp3') && !f.includes('_ru_')).sort();
+const LINES = JSON.parse(fs.readFileSync(path.join(__dirname, '../../content/de/lines.json'), 'utf8')).lines;
+/* синтезированные «ссс/шшш» — это и есть шум, не речь, их не считаем */
+const speech = fs.readdirSync(snd).filter(f => f.endsWith('.mp3') && !f.includes('_ru_') && !(LINES[f.slice(0, -4)] || {}).synth).sort();
 let worst = [], fp = 0, tot = 0;
 for (const db of [-30, -12, -3]) for (const f of speech){ const r = run(gain(dec(path.join(snd, f)), db)); tot++; if (r.air > 0){ fp++; worst.push([r.air, db, f]); } }
 worst.sort((a, b) => b[0] - a[0]);

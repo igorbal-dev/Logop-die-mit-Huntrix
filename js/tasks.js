@@ -162,8 +162,8 @@
   X.hiss = async (kind) => {
     const b = board(), c = X.bigCard(b, SA.pic(kind === 'zug' ? 'zug' : 'schlange'));
     const k = kind === 'zug' ? 'zug' : 'schlange';
-    X.help(1, [`t1_${k}`]);
-    T.face(1, kind === 'zug' ? 'kiss' : 'smile'); await say(`t1_${k}`);
+    X.help(1, [`t1_${k}`, kind === 'zug' ? 't1_schsch' : 't1_sss', 't1_mach_mit']);
+    T.face(1, kind === 'zug' ? 'kiss' : 'smile'); await say(`t1_${k}`); await say(kind === 'zug' ? 't1_schsch' : 't1_sss'); await say('t1_mach_mit');
     let ok = false, attempts = 0;
     for (let a = 0; a < 3 && !ok; a++){
       attempts++;
@@ -401,7 +401,7 @@
   X.schlangeZug = async () => {
     const b = board(), cards = row(b, [SA.pic('schlange'), SA.pic('zug')]);
     X.help(2, ['t2_schlange_zug']);
-    if (X.once('schlangezug')){ for (const [i, k] of [[0, 't2_n_schlange'], [1, 't2_n_zug']]){ cards[i].classList.add('glow'); await say(k); cards[i].classList.remove('glow'); } }
+    if (X.once('schlangezug')){ for (const [i, k, z] of [[0, 't2_n_schlange', 't2_sss'], [1, 't2_n_zug', 't2_schsch']]){ cards[i].classList.add('glow'); await say(k); await say(z); cards[i].classList.remove('glow'); } }
     const t = SA.pick([0, 1]);
     T.body(2, 'listen');
     await answer(cards, t, {cue: () => say(t ? 't2_schsch' : 't2_sss'), prompts: [X.once('sz_q') ? 't2_schlange_zug' : null, 't2_schlange_zug2', 't2_ru_schlange_zug']}, {block: 'listen', id: 'schlangezug:' + (t ? 'sch' : 's')});

@@ -849,97 +849,114 @@
   "t2_s_ma": {
    "t": 2,
    "lang": "de",
-   "text": "Ma."
+   "text": "Maa!",
+   "alts": [
+    "Ma!",
+    "Mah."
+   ],
+   "expect": "Ma"
   },
   "t2_s_mo": {
    "t": 2,
    "lang": "de",
-   "text": "Mo."
+   "text": "Moh!"
   },
   "t2_s_mu": {
    "t": 2,
    "lang": "de",
-   "text": "Mu."
+   "text": "Muh!"
   },
   "t2_s_mi": {
    "t": 2,
    "lang": "de",
-   "text": "Mi."
+   "text": "Mie!",
+   "alts": [
+    "Mii!"
+   ],
+   "expect": "Mi"
   },
   "t2_s_pa": {
    "t": 2,
    "lang": "de",
-   "text": "Pa."
+   "text": "Pah!"
   },
   "t2_s_ba": {
    "t": 2,
    "lang": "de",
-   "text": "Ba."
+   "text": "Bah!"
   },
   "t2_s_na": {
    "t": 2,
    "lang": "de",
-   "text": "Na."
+   "text": "Nah!"
   },
   "t2_s_sa": {
    "t": 2,
    "lang": "de",
-   "text": "Sa."
+   "text": "Saa!",
+   "alts": [
+    "Sa!"
+   ],
+   "expect": "Sa"
   },
   "t2_s_so": {
    "t": 2,
    "lang": "de",
-   "text": "So."
+   "text": "Soh!"
   },
   "t2_s_ta": {
    "t": 2,
    "lang": "de",
-   "text": "Ta."
+   "text": "Tah!"
   },
   "t2_s_ka": {
    "t": 2,
    "lang": "de",
-   "text": "Ka."
+   "text": "Kah!"
   },
   "t2_s_ga": {
    "t": 2,
    "lang": "de",
-   "text": "Ga."
+   "text": "Gah!"
   },
   "t2_s_da": {
    "t": 2,
    "lang": "de",
-   "text": "Da."
+   "text": "Dah!"
   },
   "t2_s_la": {
    "t": 2,
    "lang": "de",
-   "text": "La."
+   "text": "Lah!"
   },
   "t2_s_scha": {
    "t": 2,
    "lang": "de",
-   "text": "Scha."
+   "text": "Schah!"
   },
   "t2_s_schu": {
    "t": 2,
    "lang": "de",
-   "text": "Schu."
+   "text": "Schuh!"
   },
   "t2_s_scho": {
    "t": 2,
    "lang": "de",
-   "text": "Scho."
+   "text": "Schoh!"
   },
   "t2_s_su": {
    "t": 2,
    "lang": "de",
-   "text": "Su."
+   "text": "Suh!"
   },
   "t2_s_si": {
    "t": 2,
    "lang": "de",
-   "text": "Si."
+   "text": "Sie!",
+   "alts": [
+    "Sii!"
+   ],
+   "expect": "Si"
   },
   "t3_mmm": {
    "t": 3,
@@ -954,17 +971,21 @@
   "t3_r_ma": {
    "t": 3,
    "lang": "de",
-   "text": "Ma, mo, mu, mi."
+   "text": "Maa, moo, muu, mie.",
+   "alts": [
+    "Ma, mo, mu, mi!"
+   ],
+   "expect": "Ma mo mu mi"
   },
   "t3_r_ba": {
    "t": 3,
    "lang": "de",
-   "text": "Ba, bo, bu, bi."
+   "text": "Bah, boh, buh, bih."
   },
   "t3_r_pa": {
    "t": 3,
    "lang": "de",
-   "text": "Pa, po, pu, pi."
+   "text": "Pah, poh, puh, pih."
   },
   "t3_silben_intro": {
    "t": 3,
@@ -1089,7 +1110,12 @@
   "t3_w_kuh": {
    "t": 3,
    "lang": "de",
-   "text": "Kuh!"
+   "text": "Kuh!",
+   "alts": [
+    "Kuh.",
+    "Die Kuh!"
+   ],
+   "expect": "Kuh"
   },
   "t3_s_katze": {
    "t": 3,
@@ -1229,7 +1255,8 @@
   "t3_rakete_start": {
    "t": 3,
    "lang": "de",
-   "text": "Drei, zwei, eins, Start!"
+   "text": "Drei, zwei, eins, Start!",
+   "expect": "3, 2, 1, Start"
   },
   "t3_ru_rakete": {
    "t": 3,
@@ -1314,7 +1341,7 @@
   "t2_trommel_intro": {
    "t": 2,
    "lang": "de",
-   "text": "Wir trommeln Silben. Hör mal: Ba, na, ne. Drei Mal!"
+   "text": "Wir trommeln Silben. Hör mal: Bah, nah, neh. Drei Mal!"
   },
   "t2_trommel2": {
    "t": 2,
@@ -1329,7 +1356,11 @@
   "t2_sil_banane": {
    "t": 2,
    "lang": "de",
-   "text": "Ba, na, ne."
+   "text": "Ba, na, ne.",
+   "alts": [
+    "Bah, nah, nee."
+   ],
+   "expect": "Ba na ne"
   },
   "t2_sil_auto": {
    "t": 2,
@@ -1369,27 +1400,27 @@
   "t3_r_ta": {
    "t": 3,
    "lang": "de",
-   "text": "Ta, ta, ta."
+   "text": "Tah, tah, tah."
   },
   "t3_r_na": {
    "t": 3,
    "lang": "de",
-   "text": "Na, na, na."
+   "text": "Nah, nah, nah."
   },
   "t3_r_la": {
    "t": 3,
    "lang": "de",
-   "text": "La, la, la."
+   "text": "Lah, lah, lah."
   },
   "t3_r_da": {
    "t": 3,
    "lang": "de",
-   "text": "Da, do, du."
+   "text": "Dah, doh, duh."
   },
   "t3_trommel_sil": {
    "t": 3,
    "lang": "de",
-   "text": "Wie eine Trommel: Ta, ta, ta!"
+   "text": "Wie eine Trommel: Tah, tah, tah!"
   },
   "t3_fuettern_intro": {
    "t": 3,
@@ -1519,22 +1550,26 @@
   "t3_r_ka": {
    "t": 3,
    "lang": "de",
-   "text": "Ka, ko, ku, ki."
+   "text": "Kah, koh, kuh, kih."
   },
   "t3_r_ga": {
    "t": 3,
    "lang": "de",
-   "text": "Ga, go, gu, gi."
+   "text": "Gah, goh, guh, gih."
   },
   "t3_specht": {
    "t": 3,
    "lang": "de",
-   "text": "Der Specht klopft: Ka, ka, ka!"
+   "text": "Der Specht klopft: Kaa, kaa, kaa!",
+   "alts": [
+    "Der Specht klopft: Ka! Ka! Ka!"
+   ],
+   "expect": "Der Specht klopft ka ka ka"
   },
   "t1_schlange": {
    "t": 1,
    "lang": "de",
-   "text": "Die Schlange zischt: Ssssss! Mach mit!"
+   "text": "Die Schlange zischt so:"
   },
   "t1_schlange2": {
    "t": 1,
@@ -1544,12 +1579,12 @@
   "t1_ru_schlange": {
    "t": 1,
    "lang": "ru",
-   "text": "Шипи, как змея: с-с-с-с!"
+   "text": "Шипи, как змея!"
   },
   "t1_zug": {
    "t": 1,
    "lang": "de",
-   "text": "Der Zug macht: Schschsch! Mach mit!"
+   "text": "Der Zug macht so:"
   },
   "t1_zug2": {
    "t": 1,
@@ -1559,7 +1594,7 @@
   "t1_ru_zug": {
    "t": 1,
    "lang": "ru",
-   "text": "Шипи, как поезд: ш-ш-ш-ш!"
+   "text": "Шипи, как поезд!"
   },
   "t2_schlange_zug": {
    "t": 2,
@@ -1579,12 +1614,12 @@
   "t2_n_schlange": {
    "t": 2,
    "lang": "de",
-   "text": "Die Schlange macht: Ssss."
+   "text": "Die Schlange macht so:"
   },
   "t2_n_zug": {
    "t": 2,
    "lang": "de",
-   "text": "Der Zug macht: Schsch."
+   "text": "Der Zug macht so:"
   },
   "t2_klatsch_sch": {
    "t": 2,
@@ -1599,12 +1634,14 @@
   "t3_sss": {
    "t": 3,
    "lang": "de",
-   "text": "Sssss."
+   "text": "ssss (звук)",
+   "synth": "s"
   },
   "t3_schsch": {
    "t": 3,
    "lang": "de",
-   "text": "Schschsch."
+   "text": "шшшш (звук)",
+   "synth": "sch"
   },
   "t3_zisch_intro": {
    "t": 3,
@@ -1619,12 +1656,31 @@
   "t2_sss": {
    "t": 2,
    "lang": "de",
-   "text": "Sssss."
+   "text": "ssss (звук)",
+   "synth": "s"
   },
   "t2_schsch": {
    "t": 2,
    "lang": "de",
-   "text": "Schschsch."
+   "text": "шшшш (звук)",
+   "synth": "sch"
+  },
+  "t1_mach_mit": {
+   "t": 1,
+   "lang": "de",
+   "text": "Mach mit!"
+  },
+  "t1_sss": {
+   "t": 1,
+   "lang": "de",
+   "text": "ssss (звук)",
+   "synth": "s"
+  },
+  "t1_schsch": {
+   "t": 1,
+   "lang": "de",
+   "text": "шшшш (звук)",
+   "synth": "sch"
   }
  }
 }

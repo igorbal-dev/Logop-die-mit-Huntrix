@@ -130,12 +130,24 @@ async def main():
     for i, k in enumerate(todo):
         line = L[k]; v = V[str(line['t'])][line['lang']]
         text = line.get('say', line['text'])           # say — как произносить (например «Sohi» для Zoey), text — что должно прозвучать
+        if line.get('synth'):
+            # «ссс» / «шшш»: синтезатор речи читает их по буквам, поэтому делаем сам звук — шум нужной полосы
+            # (с: 4–9 кГц, ш: 1,8–5 кГц, пик ~2,8 кГц), 1,2 с, плавно начинается и затихает
+            band = 'highpass=f=4200,lowpass=f=9500' if line['synth'] == 's' else 'highpass=f=1700,lowpass=f=5200,equalizer=f=2800:t=q:w=1:g=6'
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'anoisesrc=d=1.3:c=pink:a=0.6:r=24000', '-af',
+                            f'{band},afade=t=in:d=0.15,afade=t=out:st=1.0:d=0.3,loudnorm=I=-20:TP=-2', '-ar', '24000', '-ac', '1', '-b:a', '48k', snd(k)], check=True)
+            rep[k] = {'text': line['text'], 'hyp': '(звук)', 'cer': 0.0, 'mos': None, 'eng': 'synth'}
+            print(f'[{i + 1}/{len(todo)}] {k}: звук «{line["synth"]}» синтезирован', flush=True)
+            continue
         if a.check:
             if os.path.exists(snd(k)) and chk: rep[k] = dict(chk(snd(k), line.get('expect', line['text']), line['lang']), text=line['text'], tries=rep.get(k, {}).get('tries', 1))
             continue
         best = None
         try:
-          for t, rate in enumerate([v.get('rate', '+0%'), bump(v.get('rate', '+0%'), -10), bump(v.get('rate', '+0%'), +6)]):
+          # варианты: темп ± и альтернативные написания (alts) — берём тот, что распознаётся правильно
+          r0 = v.get('rate', '+0%')
+          variants = [(text, r0), (text, bump(r0, -10)), (text, bump(r0, +6))] + [(alt, r0) for alt in line.get('alts', [])] + [(alt, bump(r0, -10)) for alt in line.get('alts', [])]
+          for t, (text, rate) in enumerate(variants):
               raw, out = os.path.join(tmp, f'{k}_{t}_raw.mp3'), os.path.join(tmp, f'{k}_{t}.mp3')
               try: await synth(text, v['voice'], rate, v.get('pitch', '+0Hz'), raw); used = v['voice']
               except RuntimeError:
@@ -158,7 +170,7 @@ async def main():
         print(f'[{i + 1}/{len(todo)}] {k}: «{line["text"]}» -> «{best["hyp"]}» cer {best["cer"]} mos {best["mos"]}{flag}', flush=True)
     json.dump(rep, open(rep_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     # что послушать человеку
-    bad = [(k, r) for k, r in rep.items() if not ok(L[k], r)]
+    bad = [(k, r) for k, r in rep.items() if not L[k].get('synth') and not ok(L[k], r)]
     low = [(k, r) for k, r in rep.items() if (r.get('mos') or 5) < 2.6 and ok(L[k], r)]
     md = ['# Проверка озвучки', '', 'Создаётся `tools/tts.py`. Распознавание речи сравнивает запись с текстом; DNSMOS — оценка чистоты звука (1–5).',
           'Распознавание не гарантирует естественность — сомнительное надо послушать (родительский раздел → Озвучка).', '',
