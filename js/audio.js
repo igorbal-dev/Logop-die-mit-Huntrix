@@ -32,7 +32,7 @@
     if (!A.ctx) return;
     await Promise.all(keys.map(async k => {
       if (A.BUF[k]) return;
-      try { const r = await fetch(`assets/snd/${k}.mp3`); if (!r.ok) return; A.BUF[k] = await decode(await r.arrayBuffer()); } catch(e){}
+      try { const r = await fetch(SA.ver(`assets/snd/${k}.mp3`)); if (!r.ok) return; A.BUF[k] = await decode(await r.arrayBuffer()); } catch(e){}
     }));
   };
   A.has = k => !!A.BUF[k];

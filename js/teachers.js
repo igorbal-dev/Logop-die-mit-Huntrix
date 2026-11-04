@@ -31,7 +31,7 @@
   T.src = (n, name) => T.img[`${n}_${name}`] || placeholder(n, name);
 
   function tryLoad(url){
-    return new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = url; });
+    return new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = SA.ver(url); });
   }
   async function loadOne(n, name){
     const t = T.cfg.teachers[n], base = `${t.folder}/teacher${n}_${name}`;
