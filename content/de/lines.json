@@ -2061,6 +2061,181 @@
    "t": 3,
    "lang": "de",
    "text": "Tisch!"
+  },
+  "t1_pfannkuchen": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Zunge ist ein Pfannkuchen! Leg sie breit und weich auf die Unterlippe."
+  },
+  "t1_pfannkuchen2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz breit und ruhig liegen lassen!"
+  },
+  "t1_ru_pfannkuchen": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Положи широкий язычок на нижнюю губу, как блинчик. И подержи спокойно."
+  },
+  "t1_nadel": {
+   "t": 1,
+   "lang": "de",
+   "text": "Jetzt wird die Zunge spitz wie eine Nadel! Streck sie raus."
+  },
+  "t1_nadel2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Ganz spitz und dünn!"
+  },
+  "t1_ru_nadel": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Высуни язычок узким и острым, как иголочка."
+  },
+  "t1_tasse": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Zunge ist eine Tasse! Zunge raus und die Ränder hoch."
+  },
+  "t1_tasse2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Mach eine kleine Tasse!"
+  },
+  "t1_ru_tasse": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Высуни широкий язычок и подними края — получится чашечка."
+  },
+  "t1_zaun": {
+   "t": 1,
+   "lang": "de",
+   "text": "Zeig deine Zähne wie einen Zaun! Lächeln, die Zähne bleiben zusammen."
+  },
+  "t1_zaun2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Großes Lächeln mit Zähnen!"
+  },
+  "t1_ru_zaun": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Улыбнись широко, чтобы были видны зубки, — заборчик."
+  },
+  "t1_berg": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Zunge macht einen Berg! Mund auf, die Spitze unten an die Zähne, und die Zunge hoch."
+  },
+  "t1_berg2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Spitze unten, der Berg geht hoch!"
+  },
+  "t1_ru_berg": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Открой рот, кончик языка упри в нижние зубки, а спинку подними горкой."
+  },
+  "t1_pilz": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Zunge ist ein Pilz! Saug sie oben fest und mach den Mund auf."
+  },
+  "t1_pilz2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Zunge oben festkleben, Mund auf!"
+  },
+  "t1_ru_pilz": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Присоси язычок к нёбу и открой рот — получится грибок."
+  },
+  "t1_schaukel": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Zunge schaukelt! Hoch zu den oberen Zähnen, runter zu den unteren."
+  },
+  "t1_schaukel2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Hoch, runter, hoch, runter!"
+  },
+  "t1_ru_schaukel": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Рот открыт, язычок качается: вверх к верхним зубкам, вниз к нижним."
+  },
+  "t1_maler": {
+   "t": 1,
+   "lang": "de",
+   "text": "Die Zunge ist ein Pinsel. Mal oben den Gaumen an, von vorne nach hinten!"
+  },
+  "t1_maler2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Langsam malen, von vorne nach hinten!"
+  },
+  "t1_ru_maler": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Язычок — кисточка. Погладь им нёбо от зубов назад."
+  },
+  "t1_zaehne": {
+   "t": 1,
+   "lang": "de",
+   "text": "Wir putzen die Zähne mit der Zunge! Erst oben, dann unten."
+  },
+  "t1_zaehne2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Putz, putz, putz!"
+  },
+  "t1_ru_zaehne": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Почисти зубки язычком изнутри: сначала верхние, потом нижние."
+  },
+  "t1_pferd_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das Pferdchen läuft, wenn du mit der Zunge klickst! Zunge oben ansaugen und klack!"
+  },
+  "t1_pferd2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Klick mit der Zunge! Klack, klack!"
+  },
+  "t1_ru_pferd": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Пощёлкай язычком, как лошадка цокает копытами!"
+  },
+  "t1_pferd_ende": {
+   "t": 1,
+   "lang": "de",
+   "text": "Das Pferdchen ist im Stall. Danke!"
+  },
+  "t1_fussball_intro": {
+   "t": 1,
+   "lang": "de",
+   "text": "Fußball! Leg die breite Zunge auf die Unterlippe und puste den Ball ins Tor."
+  },
+  "t1_fussball2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Zunge vorne, und puste!"
+  },
+  "t1_ru_fussball": {
+   "t": 1,
+   "lang": "ru",
+   "text": "Положи широкий язычок на нижнюю губу и подуй — загони мяч в ворота!"
+  },
+  "t1_fussball_tor": {
+   "t": 1,
+   "lang": "de",
+   "text": "Tor! Super!"
   }
  }
 }

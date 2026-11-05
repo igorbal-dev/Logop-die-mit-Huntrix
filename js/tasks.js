@@ -232,8 +232,53 @@
     return {tick(ms){ me = Math.min(need, me + ms); draw(); }, done: () => me >= need, async finish(ok){ clearInterval(iv); me = need; draw(); A.sfx.fanfare(); await sleep(300); await say(ok ? 't1_rennen_sieg' : 't1_rennen_ende'); }};
   }});
 
+  /* 11. Fußball — широкий язык на нижней губе и подуть: мяч катится в ворота. Направленная струя воздуха по середине языка — основа для S */
+  X.football = (o = {}) => breathGame({id: 'fussball', intro: 't1_fussball_intro', again: 't1_fussball2', ru: 't1_ru_fussball', demo: false, scene(b){
+    b.appendChild(place(svgEl(''), 'left:0;right:0;bottom:0;height:40%;background:#7bd36a;border-top:5px solid #4a8f3e'));
+    const goal = place(svgEl(`<svg viewBox="0 0 120 100"><path d="M10 96 V10 H110 V96" fill="none" stroke="#fff" stroke-width="8"/><path d="M10 10 L30 30 H90 L110 10 M30 30 V96 M90 30 V96 M30 50 H90 M30 70 H90 M50 30 V96 M70 30 V96" stroke="#fff" stroke-width="2" opacity=".7" fill="none"/></svg>`), 'right:3%;bottom:20%;height:40%;aspect-ratio:1.2'); b.appendChild(goal);
+    const ball = place(svgEl(SA.pic('ball')), 'left:6%;bottom:22%;height:20%;aspect-ratio:1'); b.appendChild(ball);
+    const hint = place(svgEl(SA.tonguePic('fussball')), 'left:4%;top:4%;height:34%;aspect-ratio:1'); b.appendChild(hint);
+    const need = o.level > 0 ? 3200 : 2200; let got = 0;
+    const draw = () => { const k = got/need; ball.style.transform = `translateX(${k*W()*0.68}px) rotate(${k*720}deg)`; };
+    return {tick(ms){ got = Math.min(need, got + ms); draw(); }, done: () => got >= need, async finish(){ got = need; draw(); goal.classList.add('wobble'); A.sfx.fanfare(); await say('t1_fussball_tor'); }};
+  }});
+  /* Pferdchen («лошадка»): цокать языком — присосать к нёбу и щёлкнуть. Растягивает уздечку, поднимает язык вверх (нужно для Sch, R, L).
+     Каждый щелчок (микрофон, js/breath.js Click) — лошадка скачет на шаг к конюшне. Игра не проигрывается. */
+  X.pferd = async (o = {}) => {
+    const need = o.level > 0 ? 12 : 8, b = board();
+    b.appendChild(place(svgEl(''), 'left:0;right:0;bottom:0;height:34%;background:#9bd97a;border-top:5px solid #4a8f3e'));
+    const stall = place(svgEl(`<svg viewBox="0 0 120 110"><path d="M10 50 L60 10 L110 50 V106 H10 Z" fill="#c9462b" stroke="#4a3550" stroke-width="5" stroke-linejoin="round"/><rect x="40" y="56" width="40" height="50" fill="#8a3a22" stroke="#4a3550" stroke-width="4"/><path d="M40 56 L80 106 M80 56 L40 106" stroke="#ffd84d" stroke-width="4"/></svg>`), 'right:2%;bottom:24%;height:36%;aspect-ratio:1.1'); b.appendChild(stall);
+    const horse = place(svgEl(`<svg viewBox="0 0 140 120"><g stroke="#4a3550" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M30 60 q0 -18 24 -18 h40 q18 0 18 18 v8 q0 10 -12 10 h-56 q-14 0 -14 -18 z" fill="#c9843e"/>
+      <path d="M94 50 l14 -32 q4 -8 12 -4 l10 10 q4 6 -2 12 l-12 10 z" fill="#c9843e"/><path d="M110 16 l2 -10 l6 8" fill="#c9843e"/>
+      <path d="M94 46 q8 -20 18 -30" fill="none" stroke="#6b3a1e" stroke-width="8"/><path d="M30 60 q-14 4 -16 22" fill="none" stroke="#6b3a1e" stroke-width="7"/>
+      <path class="lg" d="M44 76 v30 M60 76 v30 M84 76 v30 M98 76 v30" fill="none"/></g><circle cx="118" cy="26" r="3" fill="#2a1f33"/></svg>`), 'left:2%;bottom:24%;height:34%;aspect-ratio:1.17'); b.appendChild(horse);
+    const hint = place(svgEl(SA.tonguePic('klick')), 'left:4%;top:4%;height:34%;aspect-ratio:1'); b.appendChild(hint);
+    const dots = SA.el('div', 'dots', '<i></i>'.repeat(need)); dots.style.top = '6%'; b.appendChild(dots);
+    const clop = () => { A.sfx.tone(900, 500, 50, 'square', .12); A.sfx.noise(30, 2500, .15); };
+    let n = 0;
+    const step = () => { n = Math.min(need, n + 1); dots.children[n - 1] && dots.children[n - 1].classList.add('on'); clop();
+      horse.style.transition = 'left .25s'; horse.style.left = (2 + n/need*62) + '%';
+      horse.animate([{transform: 'none'}, {transform: 'translateY(-12%)'}, {transform: 'none'}], {duration: 250/SA.SPEED}); };
+    X.help(1, ['t1_pferd_intro']);
+    if (X.once('b_pferd')){ T.body(1, 'explain'); await say('t1_pferd_intro'); T.face(1, 'click'); for (let i = 0; i < 3; i++){ clop(); await sleep(380); } }
+    let attempts = 0;
+    for (let a = 0; a < 3 && n < need; a++){
+      attempts++; T.face(1, 'click');
+      await M.clicks({ms: 7000, onClick: step, until: () => n >= need});
+      T.face(1);
+      if (n >= need) break;
+      if (a < 2) await say(n ? 't1_pferd2' : (a === 0 ? 't1_pferd2' : 't1_ru_pferd'));
+    }
+    const ok = n >= need, got = n;
+    while (n < need){ step(); await sleep(150); }
+    A.sfx.fanfare(); await say('t1_pferd_ende');
+    P.item({block: 'breath', id: 'pferd', kind: 'click', result: ok ? 'done' : 'tried', attempts, clicks: got});
+    await (ok ? X.praise(1, b, true) : X.support(1));
+  };
+
   /* набор дыхательных игр урока; на втором круге — случайные, но не те же, что в прошлом уроке */
-  X.BREATH = {pusteblume: X.dandelion, kerzen: X.candles, ballon: X.balloon, floete: X.flute, suppe: X.soup, blasen: X.bubbles, windrad: X.pinwheel, blaetter: X.leaves, wolke: X.cloud, rennen: X.boat};
+  X.BREATH = {pusteblume: X.dandelion, kerzen: X.candles, ballon: X.balloon, floete: X.flute, suppe: X.soup, blasen: X.bubbles, windrad: X.pinwheel, blaetter: X.leaves, wolke: X.cloud, rennen: X.boat, fussball: X.football};
   /* общий выбор «свежих» игр: на первом круге — план урока; дальше — случайные из всех, но не те, что были в прошлый раз.
      Запоминается всегда, что сыграно, — чтобы первый урок второго круга не повторил последний урок первого. */
   X.pickFresh = (store, all, planned, level) => {
@@ -281,7 +326,18 @@
     nase: {pose: 'tongue_up', say: ['t1_nase', 't1_nase2', 't1_ru_nase']},
     kinn: {pose: 'tongue_down', say: ['t1_kinn', 't1_kinn2', 't1_ru_kinn']},
     uhr: {pose: 'tongue_left', alt: 'tongue_right', say: ['t1_uhr', 't1_uhr2', 't1_ru_uhr']},
-    marmelade: {pose: 'tongue_left', seq: ['tongue_left', 'lick', 'tongue_right'], say: ['t1_marmelade', 't1_marmelade2', 't1_ru_marmelade']}
+    marmelade: {pose: 'tongue_left', seq: ['tongue_left', 'lick', 'tongue_right'], say: ['t1_marmelade', 't1_marmelade2', 't1_ru_marmelade']},
+    /* классическая артикуляционная гимнастика (с 5.11): статичные позы держим, динамичные — под счёт (тик метронома).
+       hint — схема-карточка (SA.tonguePic). Камера язык не видит — засчитывает таймер или ✓ родителя */
+    pfannkuchen: {pose: 'tongue_out', hint: 'pfannkuchen', say: ['t1_pfannkuchen', 't1_pfannkuchen2', 't1_ru_pfannkuchen']},
+    nadel: {pose: 'tongue_out', hint: 'nadel', say: ['t1_nadel', 't1_nadel2', 't1_ru_nadel']},
+    tasse: {pose: 'tongue_out', hint: 'tasse', say: ['t1_tasse', 't1_tasse2', 't1_ru_tasse']},
+    zaun: {pose: 'smile', hint: 'zaun', say: ['t1_zaun', 't1_zaun2', 't1_ru_zaun'], cam: true},
+    berg: {pose: 'open_wide', hint: 'berg', say: ['t1_berg', 't1_berg2', 't1_ru_berg']},
+    pilz: {pose: 'open_wide', hint: 'pilz', say: ['t1_pilz', 't1_pilz2', 't1_ru_pilz']},
+    schaukel: {pose: 'tongue_up', alt: 'tongue_down', tick: true, hint: 'schaukel', say: ['t1_schaukel', 't1_schaukel2', 't1_ru_schaukel']},
+    maler: {pose: 'tongue_up', seq: ['tongue_up', 'open_wide'], tick: true, hint: 'maler', say: ['t1_maler', 't1_maler2', 't1_ru_maler']},
+    zaehne: {pose: 'tongue_up', seq: ['tongue_up', 'tongue_left', 'tongue_up', 'tongue_right'], tick: true, hint: 'zaehne', say: ['t1_zaehne', 't1_zaehne2', 't1_ru_zaehne']}
   };
   X.EX = EX;
   let mirrorEl = null, demoTimer = null;
@@ -297,15 +353,19 @@
   /* учительница «двигается»: для чередований и Marmelade кадры сменяются */
   function demo(e){
     clearInterval(demoTimer);
-    const frames = e.seq || (e.alt ? [e.pose, e.alt] : [e.pose]);
+    /* своя картинка Rumi для позы (teacher1_face_<имя схемы>), если Игорь её положил; иначе — похожая из имеющихся */
+    const own = e.hint && !e.seq && !e.alt && T.img['1_face_' + e.hint] ? e.hint : null;
+    const frames = own ? [own] : e.seq || (e.alt ? [e.pose, e.alt] : [e.pose]);
     let i = 0; T.face(1, frames[0]);
-    if (frames.length > 1) demoTimer = setInterval(() => { i = (i + 1) % frames.length; T.face(1, frames[i]); }, 700);
+    if (frames.length > 1) demoTimer = setInterval(() => { i = (i + 1) % frames.length; T.face(1, frames[i]); if (e.tick) A.sfx.tone(i % 2 ? 1200 : 900, i % 2 ? 1200 : 900, 60, 'square', .05); }, 700);
   }
   /* одно упражнение: объяснение (один раз) + показ → ребёнок держит позу. Камера: держать ~1 с (смена позы — для чередований);
      без камеры/язык: старание 3,5 с засчитывается таймером. Повторов: проще 1, обычно 2, сложнее 3 */
   X.exercise = async (id, o = {}) => {
     const e = EX[id], reps = SA.quick() ? 1 : o.level > 0 ? 3 : o.level < 0 ? 1 : 2, holdMs = o.level > 0 ? 1500 : 900;
     X.help(1, [e.say[0]]);
+    const hint = e.hint && mirrorEl ? SA.el('div', 'hint tg pop', SA.tonguePic(e.hint)) : null;
+    if (hint){ mirrorEl.querySelectorAll('.hint').forEach(h => h.remove()); mirrorEl.appendChild(hint); }
     T.face(1); await say(e.say[0]);
     demo(e);
     const rec = P.item({block: 'mirror', id, kind: 'pose', result: null, reps: []});
@@ -334,7 +394,7 @@
             else { how = 'timer'; break; }
           }
         } else {
-          const f = (now - t0)/3500;
+          const f = (now - t0)/(e.hint && !e.tick && o.level > 0 ? 5000 : 3500);       /* позы языка на втором круге держим дольше */
           dots.forEach((d, i) => d.classList.toggle('on', f > i/4));
           if (f >= 1){ how = 'timer'; break; }
         }
@@ -343,7 +403,7 @@
       rec.reps.push(how); P._flush();
       if (how === 'camera' || how === 'parent') SA.starEl(mirrorEl); else A.sfx.soft();
     }
-    clearInterval(demoTimer); X.marks(null);
+    clearInterval(demoTimer); X.marks(null); if (hint) hint.remove();
     rec.result = rec.reps.includes('camera') ? 'camera' : rec.reps.includes('parent') ? 'parent' : 'timer'; P._flush();
     T.face(1); await X.praise(1, null);
   };

@@ -68,6 +68,38 @@
       return {air: air && this.run >= 120, voice, loud, f, floor: this.floor};
     }
   }
-  const api = {features, Blow, N};
+  /* Щелчок языком («лошадка цокает»): очень короткий резкий звук (5–20 мс) в тишине — не голос, не выдох.
+     В буфере ищем кусочек ≥ 18 дБ над фоном с резким началом, вокруг которого (±80 мс) почти нет звука.
+     Вызовы перекрываются (браузер даёт последние N сэмплов), поэтому событие получает время, и повторы < 110 мс отбрасываются. */
+  class Click {
+    constructor(sr){ this.sr = sr; this.c = Math.max(32, Math.round(sr*0.0025)); this.env = []; this.pend = []; this.lastNow = null; this.done = 0; this.floor = 1e-7; this.fl = []; this.lastT = -1e9; }
+    /* x — последние N сэмплов микрофона, nowMs — время конца буфера. Берём только новые сэмплы (по прошедшему времени) */
+    frame(x, nowMs){
+      const nNew = this.lastNow === null ? x.length : Math.max(0, Math.min(x.length, Math.round((nowMs - this.lastNow)*this.sr/1000)));
+      this.lastNow = nowMs;
+      for (let i = x.length - nNew; i < x.length; i++) this.pend.push(x[i]);
+      const c = this.c, out = [];
+      while (this.pend.length >= c){ let s = 0; for (let i = 0; i < c; i++) s += this.pend[i]*this.pend[i]; this.pend.splice(0, c); this.env.push(s/c); }
+      /* время конца последнего полного кусочка */
+      const tEnd = nowMs - this.pend.length/this.sr*1000, dtc = c/this.sr*1000, W = 30;
+      const e = this.env;
+      for (let k = Math.max(this.done, W); k < e.length - W; k++){
+        this.done = k + 1;
+        this.fl.push(e[k]); if (this.fl.length > 800) this.fl.shift();
+        if (this.fl.length % 40 === 0){ const h = this.fl.slice().sort((a, b) => a - b); this.floor = Math.max(1e-9, h[Math.floor(h.length*0.2)]); }
+        if (e[k] < this.floor*Math.pow(10, 1.8) || e[k] < 2e-6 || e[k] < e[k - 1] || e[k] < e[k + 1]) continue;
+        if (e[k] < 8*e[k - 3]) continue;                                           /* резкое начало */
+        let near = 0, wide = 0;
+        for (let j = k - 2; j <= k + 6; j++) near += e[j];
+        for (let j = k - W; j <= k + W; j++) wide += e[j];
+        if (near < 0.75*wide) continue;                                            /* ±75 мс вокруг тихо — не слог, не выдох */
+        const t = tEnd - (e.length - k)*dtc;
+        if (t - this.lastT > 110){ this.lastT = t; out.push(t); }
+      }
+      if (e.length > 400){ const cut = e.length - 200; e.splice(0, cut); this.done = Math.max(0, this.done - cut); }
+      return out;
+    }
+  }
+  const api = {features, Blow, Click, N};
   if (typeof module !== 'undefined') module.exports = api; else root.SA.Breath = api;
 })(typeof window !== 'undefined' ? window : globalThis);

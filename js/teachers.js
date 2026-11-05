@@ -11,7 +11,7 @@
   T.NEED = {   /* какие картинки нужны каждой учительнице: обязательные для занятия 1 и позже */
     1: {must: ['face_neutral', 'face_talk_half', 'face_talk_open', 'face_smell', 'face_blow', 'face_smile', 'face_kiss', 'face_open_wide', 'face_cheeks',
                'body_hello', 'body_explain', 'body_praise', 'body_support', 'body_dance', 'body_bye'],
-        later: ['face_tongue_out', 'face_tongue_up', 'face_tongue_down', 'face_tongue_left', 'face_tongue_right', 'face_lick', 'face_click', 'body_point', 'body_listen', 'body_dance2']},
+        later: ['face_tongue_out', 'face_tongue_up', 'face_tongue_down', 'face_tongue_left', 'face_tongue_right', 'face_lick', 'face_click', 'face_pfannkuchen', 'face_nadel', 'face_tasse', 'face_berg', 'face_pilz', 'body_point', 'body_listen', 'body_dance2']},
     2: {must: ['face_neutral', 'face_talk_half', 'face_talk_open', 'body_hello', 'body_listen', 'body_point', 'body_praise', 'body_support', 'body_dance', 'body_bye'],
         later: ['body_clap', 'body_think', 'body_explain', 'body_dance2']},
     3: {must: ['face_neutral', 'face_talk_half', 'face_talk_open', 'face_talk_o', 'face_talk_i', 'face_talk_u',

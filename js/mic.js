@@ -146,4 +146,28 @@
     } finally { showRing(false); }
     return st;
   };
+  /* Щелчки языком («лошадка»): следим ms миллисекунд, onClick(st) на каждый щелчок. Тот же «сырой» микрофон, что для выдоха */
+  M.clicks = async ({ms = 7000, onClick, until} = {}) => {
+    const st = {clicks: 0};
+    if (SA.AUTO){
+      const t0 = SA.now();
+      while (SA.now() - t0 < Math.min(ms, 4000)/SA.SPEED){ await SA.sleep(400); st.clicks++; onClick && onClick(st); if (until && until(st)) break; }
+      return st;
+    }
+    const ok = M.rawOk = await M.breathOpen();
+    showRing(true);
+    const det = ok ? new SA.Breath.Click(SA.A.ctx.sampleRate) : null, t0 = SA.now();
+    try {
+      while (SA.now() - t0 < ms){
+        await SA.sleep(25);
+        if (!det || !raw) continue;
+        raw.an.getFloatTimeDomainData(raw.buf);
+        if (SA.A.speaking > 0){ det.lastNow = SA.now(); continue; }          /* учительница говорит — не слушаем */
+        const ev = det.frame(raw.buf, SA.now());
+        for (const t of ev){ st.clicks++; const l = lvl(); l.style.opacity = 1; l.style.transform = 'scale(1.3)'; setTimeout(() => { l.style.opacity = .15; l.style.transform = 'scale(.95)'; }, 120); onClick && onClick(st); }
+        if (until && until(st)) break;
+      }
+    } finally { showRing(false); }
+    return st;
+  };
 })();

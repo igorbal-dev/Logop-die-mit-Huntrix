@@ -151,4 +151,46 @@
   };
   /* кораблик (для занятий 3+) и солнышко-звёздочка для похвалы */
   SA.starEl = (host) => { const s = SA.el('div', 'star', SA.pic('star')); host.appendChild(s); setTimeout(() => s.remove(), 1000); SA.A.sfx.sparkle(); };
+  /* Схемы артикуляционной гимнастики (как карточки у логопеда): спереди — язык снаружи; сбоку (разрез) — язык во рту.
+     Сбоку: лицо смотрит влево, верхние зубы и нёбо сверху, нижние зубы и дно рта снизу. */
+  SA.tonguePic = kind => {
+    const T = '#ff7a9a', TS = 'stroke="#d94f73" stroke-width="4" stroke-linejoin="round"', A = 'stroke="#4a3550" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"';
+    const arrow = (d, end) => `<path d="${d}" ${A}/><path d="${end}" ${A}/>`;
+    const front = (open, body) => `<ellipse cx="100" cy="100" rx="88" ry="88" fill="#ffe0c8"/>
+      <path d="M40 ${100 - open} q60 -26 120 0 q-4 ${open*2 + 30} -60 ${open*2 + 34} q-56 -4 -60 -${open*2 + 34} z" fill="#6b2440" stroke="#e8667f" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M50 ${98 - open} q50 -18 100 0 v10 q-50 -14 -100 0 z" fill="#fff"/>${body}`;
+    const side = (jaw, tongue, extra = '') => `<rect width="200" height="200" rx="40" fill="#ffe0c8"/>
+      <path d="M58 84 Q105 34 178 76 L178 46 L40 46 L40 78 Z" fill="#f2c4aa"/><path d="M58 84 Q105 34 178 76" ${A}/>
+      <path d="M30 70 q14 4 22 12" ${A}/><rect x="50" y="80" width="12" height="20" rx="4" fill="#fff" stroke="#4a3550" stroke-width="3"/>
+      <g transform="translate(0 ${jaw})"><path d="M30 144 q14 -4 22 -12" ${A}/><rect x="52" y="114" width="12" height="20" rx="4" fill="#fff" stroke="#4a3550" stroke-width="3"/>
+      <path d="M64 136 Q120 168 178 128" ${A}/></g>${tongue}${extra}`;
+    const P = {
+      /* лопатка: широкий спокойный язык лежит на нижней губе */
+      pfannkuchen: front(14, `<path d="M48 112 q52 -10 104 0 q10 54 -52 60 q-62 -6 -52 -60 z" fill="${T}" ${TS}/><path d="M100 118 v36" stroke="#d94f73" stroke-width="3"/>`),
+      /* иголочка: узкий острый язык вперёд */
+      nadel: front(10, `<path d="M86 106 q14 -4 28 0 q-2 40 -14 66 q-12 -26 -14 -66 z" fill="${T}" ${TS}/>`),
+      /* чашечка: широкий язык снаружи, края и кончик подняты */
+      tasse: front(16, `<path d="M48 100 q8 40 52 40 q44 0 52 -40 q10 66 -52 72 q-62 -6 -52 -72 z" fill="${T}" ${TS}/><ellipse cx="100" cy="132" rx="36" ry="15" fill="#c93a62"/><path d="M62 124 q38 24 76 0" fill="none" stroke="#fff" stroke-width="3" opacity=".7"/>`),
+      /* заборчик: улыбка, зубы сомкнуты и видны */
+      zaun: `<ellipse cx="100" cy="100" rx="88" ry="88" fill="#ffe0c8"/><path d="M30 92 q70 18 140 0 q-14 44 -70 44 q-56 0 -70 -44 z" fill="#6b2440" stroke="#e8667f" stroke-width="8" stroke-linejoin="round"/>
+        <path d="M40 96 q60 14 120 0 v16 q-60 14 -120 0 z" fill="#fff"/><path d="M42 112 q58 12 116 0 v14 q-58 12 -116 0 z" fill="#fff"/><path d="M42 112 q58 12 116 0" stroke="#bbb" stroke-width="2" fill="none"/>
+        ${[60, 80, 100, 120, 140].map(x => `<path d="M${x} 98 v26" stroke="#ddd" stroke-width="2"/>`).join('')}`,
+      /* горка: рот открыт, кончик упирается в нижние зубы, спинка выгнута */
+      berg: side(14, `<path d="M66 140 Q70 126 92 108 Q118 82 142 92 Q166 104 176 140 Q120 158 66 140 z" fill="${T}" ${TS}/>`, arrow('M118 120 v-26', 'M110 102 l8 -10 l8 10')),
+      /* грибок: язык присосан к нёбу, рот открыт */
+      pilz: side(26, `<path d="M64 88 Q105 48 176 80 L176 104 Q122 96 70 104 Q60 98 64 88 z" fill="${T}" ${TS}/><path d="M80 104 v40 M150 100 v46" stroke="#d94f73" stroke-width="4" stroke-dasharray="4 5"/>`),
+      /* качели: кончик вверх к верхним зубам — вниз к нижним */
+      schaukel: side(22, `<path d="M64 130 Q80 120 108 120 Q150 118 176 140 Q120 166 70 150 z" fill="${T}" opacity=".35"/><path d="M62 98 Q78 110 104 122 Q150 116 176 140 Q120 160 72 136 Q58 116 62 98 z" fill="${T}" ${TS}/>`,
+        arrow('M40 104 v34', 'M32 112 l8 -10 l8 10 M32 130 l8 10 l8 -10')),
+      /* маляр: кончик гладит нёбо от зубов назад */
+      maler: side(22, `<path d="M66 86 Q86 76 108 88 Q150 112 176 140 Q120 160 72 140 Q58 110 66 86 z" fill="${T}" ${TS}/>`, arrow('M80 64 Q110 48 150 60', 'M140 52 l12 8 l-12 8')),
+      /* чистим зубки: кончик за верхними зубами, влево-вправо */
+      zaehne: front(24, `<path d="M70 112 q30 -30 60 0 q4 28 -30 30 q-34 -2 -30 -30 z" fill="${T}" ${TS}/>`) + arrow('M60 72 h80', 'M70 64 l-10 8 l10 8 M130 64 l10 8 l-10 8'),
+      /* лошадка: язык присасывается и щёлкает */
+      klick: side(18, `<path d="M64 90 Q105 50 176 82 L176 110 Q122 100 70 108 Q60 100 64 90 z" fill="${T}" ${TS}/>`, `<g fill="#ffd84d" stroke="#4a3550" stroke-width="3"><path d="M150 150 l8 -14 l6 14 l14 -6 l-8 14 l14 6 l-16 4 l4 14 l-12 -10 l-10 10 l2 -14 l-14 -2 l14 -8 z"/></g>`),
+      /* футбол: широкий язык на нижней губе, воздух по середине */
+      fussball: front(14, `<path d="M48 112 q52 -10 104 0 q10 54 -52 60 q-62 -6 -52 -60 z" fill="${T}" ${TS}/><circle cx="100" cy="186" r="10" fill="#fff" stroke="#4a3550" stroke-width="3"/>`) + arrow('M100 118 v44', 'M92 154 l8 10 l8 -10')
+    };
+    return svg(P[kind] || '');
+  };
 })();

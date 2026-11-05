@@ -91,6 +91,11 @@
 | teacher1_face_tongue_right.png | язык в правом уголке рта (справа для зрителя) | зеркало: часики; Marmelade | 1024×1024, лицо крупно | да |
 | teacher1_face_lick.png | кончик языка облизывает верхнюю губу посередине | зеркало: Marmelade (чередуется: влево → вверх → вправо) | 1024×1024, лицо крупно | да |
 | teacher1_face_click.png | рот открыт, кончик языка прижат к нёбу за верхними зубами | зеркало: Pferdchen (чередуется с talk_open + звук цоканья) | 1024×1024, лицо крупно | да |
+| teacher1_face_pfannkuchen.png | рот открыт, широкий плоский язык спокойно лежит на нижней губе («блинчик») | зеркало: Pfannkuchen (по желанию; без неё — tongue_out + схема) | 1024×1024, лицо крупно | да |
+| teacher1_face_nadel.png | узкий острый язык вытянут вперёд («иголочка») | зеркало: Nadel (по желанию) | 1024×1024, лицо крупно | да |
+| teacher1_face_tasse.png | широкий язык высунут, боковые края и кончик подняты («чашечка») | зеркало: Tasse (по желанию) | 1024×1024, лицо крупно | да |
+| teacher1_face_berg.png | рот открыт, кончик языка за нижними зубами, спинка языка выгнута вверх («горка») | зеркало: Berg (по желанию) | 1024×1024, лицо крупно | да |
+| teacher1_face_pilz.png | рот широко открыт, язык целиком присосан к нёбу, видна натянутая уздечка («грибок») | зеркало: Pilz (по желанию) | 1024×1024, лицо крупно | да |
 | teacher1_body_point.png | показывает рукой в сторону (вправо от зрителя) | показывает на свечки, кораблик | 1024×1536, по пояс | да |
 | teacher1_body_listen.png | ладонь у уха | ждёт, когда Эмили подует или поцокает | 1024×1536, по пояс | да |
 | teacher1_body_dance2.png | второй кадр танца: другая поза, руки в стороны | танцпауза (кадры чередуются) | 1024×1536, полный рост | да |
@@ -261,6 +266,31 @@ Same character as in the attached reference image, exact same style, face, hair 
 **`teacher1_face_click.png`**
 ```
 Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "little horse" (tongue clicking): mouth open, the tip of the tongue pressed up against the roof of the mouth just behind the upper front teeth, the underside of the tongue clearly visible, playful eyes. Draw the mouth and tongue large, simple and very clear, so a 5-year-old child can see exactly what to copy. Friendly, child-appropriate expression like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up). Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_pfannkuchen.png`** (по желанию)
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "pancake": mouth open, the wide, flat, relaxed tongue lying calmly on the lower lip, its edges touching the corners of the mouth. Draw the mouth and tongue large, simple and very clear, so a 5-year-old child can see exactly what to copy. Friendly, child-appropriate expression like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up). Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_nadel.png`** (по желанию)
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "needle": the tongue stuck far out, made narrow, thin and pointed like a needle, mouth slightly open. Draw the mouth and tongue large, simple and very clear, so a 5-year-old child can see exactly what to copy. Friendly, child-appropriate expression like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up). Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_tasse.png`** (по желанию)
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "little cup": the wide tongue stuck out with its side edges and tip curled upwards, forming a small cup shape, mouth open. Draw the mouth and tongue large, simple and very clear, so a 5-year-old child can see exactly what to copy. Friendly, child-appropriate expression like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up). Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_berg.png`** (по желанию)
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "hill": mouth open, the tip of the tongue resting behind the lower front teeth, the middle of the tongue arched upwards like a hill. Draw the mouth and tongue large, simple and very clear, so a 5-year-old child can see exactly what to copy. Friendly, child-appropriate expression like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up). Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_pilz.png`** (по желанию)
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "mushroom": mouth opened wide, the whole tongue sucked flat against the roof of the mouth, the thin band under the tongue visible and stretched like a mushroom stem. Draw the mouth and tongue large, simple and very clear, so a 5-year-old child can see exactly what to copy. Friendly, child-appropriate expression like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up). Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
 ```
 
 ### 3.4. Позже — тело
