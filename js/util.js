@@ -46,6 +46,8 @@ window.SA = window.SA || {};
     const hs = els.map((e, i) => { const h = ev => { ev.preventDefault(); done(i); }; e.addEventListener('pointerdown', h); return h; });
     function done(i){ els.forEach((e, k) => e.removeEventListener('pointerdown', hs[k])); res(i); }
   });
+  /* быстрый режим проверки (родительский раздел): каждое задание по одному разу, станции в любом порядке */
+  SA.quick = () => { try { return !!(SA.P && SA.P.settings().quick); } catch(e){ return false; } };
   SA.V = window.SA_V || '0';
   SA.ver = url => url + (url.includes('?') ? '&' : '?') + 'v=' + SA.V;       /* у каждой публикации свои адреса — телефон не подставит старый файл */
   SA.fetchJSON = async url => (await fetch(SA.ver(url), {cache: 'no-cache'})).json();

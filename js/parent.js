@@ -57,6 +57,8 @@
       </div>
       <h2>Программа</h2>
       <div class="box">
+        <label><input type="checkbox" id="sQuick" ${st.quick ? 'checked' : ''}> <b>⚡ Быстрый режим проверки</b></label>
+        <p class="muted">Для взрослого: каждое задание звучит по одному разу, без повторов, танец 5 с, станции можно нажимать в любом порядке. Урок проходится за 3–4 минуты. На карте виден значок ⚡. Для Эмили выключите.</p>
         ${(() => { const pr = d.prog, L = SA.LESSONS[(pr.lesson - 1) % SA.LESSONS.length];
           return `<p>Сейчас: <b>урок ${pr.lesson} из ${SA.LESSONS.length}</b> — ${esc(L.name)}${pr.cycle ? ` (круг ${pr.cycle + 1}, задания сложнее)` : ''}</p>
           <ol>${L.ex.map((e, i) => `<li>${pr.done[i] ? '⭐' : '⬜'} ${esc(e.name)}</li>`).join('')}</ol>`; })()}
@@ -103,6 +105,7 @@
     box.querySelectorAll('[data-mouth]').forEach(b => b.onclick = () => testMouth(+b.dataset.mouth));
     SA.$('#sLessonGo').onclick = () => { const n = +SA.$('#sLesson').value; if (confirm(`Перейти к уроку ${n}? Звёзды текущего урока обнулятся.`)){ P.setLesson(n); render(); } };
     SA.$('#sBreath').onchange = e => P.setSetting('breathSens', +e.target.value);
+    SA.$('#sQuick').onchange = e => P.setSetting('quick', e.target.checked);
     SA.$('#tBreath').onclick = () => testBreath();
     SA.$('#tCam').onclick = () => testCam();
     box.querySelectorAll('[data-line]').forEach(b => b.onclick = async () => { if (!SA.A.ctx) SA.A.unlock(); await SA.A.loadSounds([b.dataset.line]); SA.A.say(b.dataset.line, {always: true}).catch(() => {}); });

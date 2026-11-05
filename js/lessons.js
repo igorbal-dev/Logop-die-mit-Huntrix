@@ -8,7 +8,13 @@
   const say = k => A.say(k);
   const spent = E => E.sec - E.left();
   /* сделать каждое задание хотя бы раз, потом повторять (сложнее), пока есть время доли */
-  async function fill(E, share, fns, {min = fns.length, again = true} = {}){
+  async function fill(E, share, fns, {min = fns.length, again = true, cap = 2} = {}){
+    /* быстрый режим проверки: каждое задание один раз, без повторов (из длинного списка — равномерно cap штук) */
+    if (SA.quick()){
+      const n = Math.min(fns.length, cap), step = fns.length/n;
+      for (let i = 0; i < n; i++) await fns[Math.floor(i*step)]({level: E.level});
+      return;
+    }
     const t0 = SA.now(), used = () => (SA.now() - t0)/1000*SA.SPEED;
     let i = 0;
     while (i < min || (again && used() < share && E.left() > 15)){ await fns[i % fns.length]({level: E.level + (i >= fns.length ? 1 : 0)}); i++; if (!again && i >= fns.length) break; }
@@ -25,7 +31,7 @@
     try { await fill(E, E.sec*0.45, fns); } finally { if (!fns.length) SA.C.stop(); }
     await SA.M.breathClose();                 /* дальше снова обычный микрофон */
     await X.mirrorStart();
-    try { await fill(E, E.sec*0.55 - 10, mirror.map(id => o => X.exercise(id, o))); }
+    try { await fill(E, E.sec*0.55 - 10, mirror.map(id => o => X.exercise(id, o)), {cap: 99}); }
     finally { X.mirrorStop(); }
     T.body(1, 'bye'); await say('t1_ende');
   };
@@ -34,7 +40,7 @@
     for (let i = 0; i < parts.length; i++){
       const [pre, fns] = parts[i];
       if (pre) await pre();
-      await fill(E, (E.left() - 10)/(parts.length - i), fns, {min: Math.min(2, fns.length)});
+      await fill(E, (E.left() - 10)/(parts.length - i), fns, {min: Math.min(2, fns.length), cap: 1});
     }
     await X.listenBye();
   };
@@ -45,10 +51,11 @@
   const words = list => async E => {
     T.face(3); await say('t3_los');
     const ws = typeof list === 'function' ? list() : list;
-    await fill(E, E.sec - 12, ws.map((w, i) => () => X.word(w, i === 2)));
+    await fill(E, E.sec - 12, ws.map((w, i) => () => X.word(w, SA.quick() ? i === 0 : i === 2)));
   };
   const game = (kind, list) => async E => {
     const ws = typeof list === 'function' ? list() : list;
+    if (SA.quick()) return X.game(kind, SA.shuffle(ws).slice(0, 2));
     await X.game(kind, SA.shuffle(ws));
     if (E.left() > 70) await X.game(kind, SA.shuffle(ws));
   };
