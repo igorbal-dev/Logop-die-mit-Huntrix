@@ -133,7 +133,9 @@ async def main():
         if line.get('synth'):
             # «ссс» / «шшш»: синтезатор речи читает их по буквам, поэтому делаем сам звук — шум нужной полосы
             # (с: 4–9 кГц, ш: 1,8–5 кГц, пик ~2,8 кГц), 1,2 с, плавно начинается и затихает
-            band = 'highpass=f=4200,lowpass=f=9500' if line['synth'] == 's' else 'highpass=f=1700,lowpass=f=5200,equalizer=f=2800:t=q:w=1:g=6'
+            # f: широкий мягкий шум 1–7 кГц; ch (ich): 2,8–7 кГц с пиком ~4 кГц
+            band = {'s': 'highpass=f=4200,lowpass=f=9500', 'sch': 'highpass=f=1700,lowpass=f=5200,equalizer=f=2800:t=q:w=1:g=6',
+                    'f': 'highpass=f=1000,lowpass=f=7000,volume=0.7', 'ch': 'highpass=f=2800,lowpass=f=7000,equalizer=f=4000:t=q:w=1:g=6'}[line['synth']]
             subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'anoisesrc=d=1.3:c=pink:a=0.6:r=24000', '-af',
                             f'{band},afade=t=in:d=0.15,afade=t=out:st=1.0:d=0.3,loudnorm=I=-20:TP=-2', '-ar', '24000', '-ac', '1', '-b:a', '48k', snd(k)], check=True)
             rep[k] = {'text': line['text'], 'hyp': '(звук)', 'cer': 0.0, 'mos': None, 'eng': 'synth'}

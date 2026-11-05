@@ -584,6 +584,21 @@
     T.body(2, 'listen');
     await answer(cards, t, {cue: () => say(t ? 't2_schsch' : 't2_sss'), prompts: [X.once('sz_q') ? 't2_schlange_zug' : null, 't2_schlange_zug2', 't2_ru_schlange_zug']}, {block: 'listen', id: 'schlangezug:' + (t ? 'sch' : 's')});
   };
+  /* Hörst du Sch? — Mira говорит слово, Эмили нажимает символ звука (есть) или пустой кружок (нет). Фонематический слух — основа:
+     ребёнок, который не слышит разницу, не сможет её сказать. Ответ объективный (нажатие) — этап «слушаем» засчитывается сам */
+  X.hoer = async (code, w, has, tag) => {
+    const S = SA.SOUNDS[code], b = board();
+    const pic = SA.el('div', 'card pop', SA.pic(w)); pic.style.cssText = 'position:absolute;left:50%;top:3%;transform:translateX(-50%);width:auto;height:36%;max-width:none;aspect-ratio:1'; b.appendChild(pic);
+    const symHtml = S.face && T.img['3_face_' + S.face] ? `<img class="pic" style="object-fit:contain" src="${T.src(3, 'face_' + S.face)}" alt="">` : SA.pic(S.sym);
+    const cards = row(b, [symHtml, SA.pic('nein')], '46%');
+    X.help(2, ['t2_hoer_' + code]);
+    if (X.once('hoer_' + code)){
+      T.body(2, 'point'); await say('t2_hoer_' + code);
+      cards[0].classList.add('glow'); if (S.iso) await say(S.iso.replace('t3_', 't3_')); else await say(S.syl); cards[0].classList.remove('glow');
+    }
+    T.body(2, 'listen');
+    await answer(cards, has ? 0 : 1, {cue: () => say('t3_w_' + w), prompts: [null, 't2_hoer2_' + code, 't2_ru_hoer_' + code]}, Object.assign({block: 'listen', id: `hoer:${code}:${w}`}, tag || {}));
+  };
   X.listenBye = async () => { T.body(2, 'praise'); await say('t2_ende'); };
 
   /* ========== ГОВОРИМ (Zoey) — микрофон = попытка; правильность отмечает родитель ========== */
@@ -601,9 +616,10 @@
 
   /* повтор за учительницей. Первые два раза в упражнении: образец → «Jetzt du!»; дальше — образец и сразу микрофон.
      Молчит: «Sag es mit mir!» + образец, потом русская подсказка + образец. Говорит — сразу дальше. */
-  X.repeatItem = async ({id, model, vis, words = 1, block = 'speak', showPic, hear, prompts = ['t3_jetzt_du', 't3_jetzt_du2', 't3_ru_jetzt_du']}) => {
+  X.repeatItem = async ({id, model, vis, words = 1, block = 'speak', showPic, hear, tag, prompts = ['t3_jetzt_du', 't3_jetzt_du2', 't3_ru_jetzt_du']}) => {
     X.earOff();
-    const rec = P.item({block, id, kind: 'speak', result: null, attempts: 0, mark: null});
+    /* tag — {snd, stage}: попытка идёт в «паспорт звука»; model — чтобы родитель потом послушал образец и запись */
+    const rec = P.item(Object.assign({block, id, kind: 'speak', result: null, attempts: 0, mark: null, model}, tag || {}));
     X.marks(rec);
     const E = SA.E; if (E) E.repeats = (E.repeats || 0) + 1;
     const tell = !E || E.repeats <= 2;
@@ -616,7 +632,7 @@
       if (a === 0 && tell) await say(prompts[0]);
       T.body(3, 'listen');
       const r = await M.listen({words, record: true, noVoiceMs: 6000});
-      if (r.ok){ ok = true; url = r.url; }
+      if (r.ok){ ok = true; url = r.url; if (r.blob && rec.at && P.settings().keepRec !== false){ rec.audio = rec.at.join(':'); SA.Rec.put(rec.audio, r.blob); } }
       else if (r.nomic){ ok = true; rec.result = 'nomic'; }
     }
     rec.result = rec.result || (ok ? 'heard' : 'none'); P._flush();
@@ -641,22 +657,22 @@
     await X.repeatItem({id: 'tier:' + k, model: 't3_' + k, vis, showPic: b, hear});
   };
   /* слоговые ряды (ma-mo-mu-mi), звуки (mmm, sss, schsch) — с картинкой-подсказкой */
-  X.syll = async (key, {pic, face, intro, hear} = {}) => {
+  X.syll = async (key, {pic, face, intro, hear, tag, prompts} = {}) => {
     const b = board(); if (face) faceCard(b, face); else X.bigCard(b, SA.pic(pic || 'mund'));
     if (intro && X.once(intro)){ T.face(3); await say(intro); }
     X.help(3, intro ? [intro] : null);
-    await X.repeatItem({id: 'silbe:' + key.replace('t3_', ''), model: key, vis: face || 'talk_open', words: 3, showPic: b, hear});
+    await X.repeatItem({id: 'silbe:' + key.replace('t3_', ''), model: key, vis: face || 'talk_open', words: 3, showPic: b, hear, tag, prompts});
   };
   const WVIS = X.WVIS = {auto: 'talk_open', ei: 'talk_open', ball: 'talk_open', baum: 'talk_open', oma: 'talk_o', puppe: 'talk_u', mama: 'talk_open', papa: 'talk_open', maus: 'talk_open', mond: 'talk_o',
     banane: 'talk_open', tuer: 'talk_u', teddy: 'talk_half', nase: 'talk_open', nudel: 'talk_u', loeffel: 'talk_half', lampe: 'talk_open', kuh: 'talk_u', katze: 'talk_open',
     keks: 'talk_i', kuchen: 'talk_u', gabel: 'talk_open', gurke: 'talk_u', kopf: 'talk_o', topf: 'talk_o', kanne: 'talk_open', tanne: 'talk_open', tasche: 'talk_open', tasse: 'talk_open', tomate: 'talk_o', tisch: 'talk_i', schlange: 'talk_open', zug: 'talk_u'};
   /* слово: учительница называет картинку (учим слово, раз за упражнение), потом образец и повтор */
-  X.word = async (w, hear) => {
+  X.word = async (w, hear, tag) => {
     const b = board(); X.bigCard(b, SA.pic(w));
     if (X.once('woerter')){ T.face(3); await say('t3_woerter_intro'); }
     X.help(3, ['t3_s_' + w]);
     if (X.once('wort_' + w)){ T.body(3, 'point'); await say('t3_s_' + w); }
-    await X.repeatItem({id: 'wort:' + w, model: 't3_w_' + w, vis: WVIS[w], showPic: b, hear});
+    await X.repeatItem({id: 'wort:' + w, model: 't3_w_' + w, vis: WVIS[w], showPic: b, hear, tag});
   };
 
   /* игры-закрепление — js/games.js */
@@ -674,6 +690,7 @@
     while (SA.now() - t0 < 1200){ const k = (SA.now() - t0)/1200; eggBox.innerHTML = SA.eggSVG(before + (to - before)*k, res.target, img); await new Promise(r => requestAnimationFrame(r)); }
     eggBox.innerHTML = SA.eggSVG(to, res.target, img);
     T.body(3, 'point');
+    if (res.stageUp){ A.sfx.sparkle(); SA.starEl(b); await say('t3_level_up'); }
     if (res.full){ A.sfx.fanfare(); eggBox.classList.add('wobble'); SA.starEl(b); await say('t3_ei_voll'); SA.P.emptyEgg(); }
     else if (res.target - res.filled === 1) await say('t3_ei_bald');
     else await say('t3_ei');

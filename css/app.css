@@ -178,3 +178,8 @@ button:focus-visible{outline:4px solid #fff;outline-offset:4px}
 .bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff 0 12%,rgba(200,230,255,.35) 40%,rgba(180,140,255,.35) 100%);border:2px solid rgba(150,170,255,.7)}
 
 #quickBadge{position:absolute;left:calc(70px + env(safe-area-inset-left));top:calc(14px + env(safe-area-inset-top));width:40px;height:40px;border-radius:50%;background:#ffd84d;display:grid;place-items:center;font:800 22px/1 sans-serif;box-shadow:0 3px 0 #e2b23a}
+#parent .btn.sel{background:#6b5a7a;color:#fff}
+#parent .stp{display:inline-block;padding:2px 8px;border-radius:10px;background:#f2eef6;margin:2px 0;font-size:.92em}
+#parent .stp.ok{background:#e6f6ee}
+#parent .stp.cur{background:#fff3c4;font-weight:700}
+#parent label.spr{display:block;cursor:pointer}

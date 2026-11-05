@@ -111,6 +111,9 @@
       <rect x="88" y="${open ? 106 : 80}" width="24" height="28" rx="5" fill="#ffd84d" ${S} stroke-width="4"/>
       <g fill="#fff36b"><circle cx="48" cy="40" r="4"/><circle cx="160" cy="30" r="5"/><circle cx="178" cy="70" r="3"/></g>`)
   };
+  /* добавить картинки из других файлов (js/pics2.js — слова программы по звукам) */
+  SA.addPics = (o, mk) => Object.assign(P, mk({S, eye, svg}, o));
+  SA.hasPic = name => !!P[name];
   SA.pic = (name, arg) => (P[name] ? P[name](arg) : svg(`<rect x="20" y="20" width="160" height="160" rx="30" fill="#eee" ${S}/>`));
 
   /* одуванчик: n пушинок; SA.dandelion.blow(k) — улетает k штук */

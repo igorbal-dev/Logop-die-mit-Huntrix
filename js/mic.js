@@ -50,7 +50,7 @@
   function heard(){ const r = ring(); r.classList.add('heard'); V.busyUntil = SA.now() + 500; SA.A.sfx.ding(); setTimeout(() => { r.hidden = true; r.classList.remove('heard'); }, 600); }
 
   /* запись попытки */
-  let rec = null, chunks = [];
+  let rec = null, chunks = [], lastBlob = null;
   function recStart(){
     if (!M.stream || !window.MediaRecorder) return;
     try { chunks = []; rec = new MediaRecorder(M.stream); rec.ondataavailable = e => e.data && e.data.size && chunks.push(e.data); rec.start(); } catch(e){ rec = null; }
@@ -59,7 +59,7 @@
     return new Promise(res => {
       if (!rec) return res(null);
       const r = rec; rec = null;
-      r.onstop = () => { res(keep && chunks.length ? URL.createObjectURL(new Blob(chunks, {type: r.mimeType || 'audio/webm'})) : null); };
+      r.onstop = () => { if (!(keep && chunks.length)) return res(null); const blob = new Blob(chunks, {type: r.mimeType || 'audio/webm'}); lastBlob = blob; res(URL.createObjectURL(blob)); };
       try { r.stop(); } catch(e){ res(null); }
     });
   }
@@ -85,10 +85,10 @@
         if (!spoke && now - t0 > noVoiceMs) break;
       }
     } catch(e){ showRing(false); await recStop(false); throw e; }
-    let url = null;
-    if (ok){ V.usedAt = SA.now(); heard(); url = await recStop(record); if (url) M.recordings.push(url); }
+    let url = null, blob = null;
+    if (ok){ V.usedAt = SA.now(); heard(); lastBlob = null; url = await recStop(record); if (url){ M.recordings.push(url); blob = lastBlob; } }
     else { showRing(false); await recStop(false); }
-    return {ok, url};
+    return {ok, url, blob};
   };
 
   /* ---------- выдох: отдельный микрофон БЕЗ шумоподавления + js/breath.js (выдох = шум без тона) ---------- */

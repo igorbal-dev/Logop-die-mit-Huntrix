@@ -2236,6 +2236,982 @@
    "t": 1,
    "lang": "de",
    "text": "Tor! Super!"
+  },
+  "t3_w_schaf": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schaf!"
+  },
+  "t3_s_schaf": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Schaf."
+  },
+  "t3_w_schiff": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schiff!"
+  },
+  "t3_s_schiff": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Schiff."
+  },
+  "t3_w_schuh": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schuh!"
+  },
+  "t3_s_schuh": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Schuh."
+  },
+  "t3_w_schwein": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schwein!"
+  },
+  "t3_s_schwein": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Schwein."
+  },
+  "t3_w_schere": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schere!"
+  },
+  "t3_s_schere": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Schere."
+  },
+  "t3_w_fisch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Fisch!"
+  },
+  "t3_s_fisch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Fisch."
+  },
+  "t3_w_flasche": {
+   "t": 3,
+   "lang": "de",
+   "text": "Flasche!"
+  },
+  "t3_s_flasche": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Flasche."
+  },
+  "t3_w_sonne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Sonne!"
+  },
+  "t3_s_sonne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Sonne."
+  },
+  "t3_w_socke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Socke!"
+  },
+  "t3_s_socke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Socke."
+  },
+  "t3_w_saft": {
+   "t": 3,
+   "lang": "de",
+   "text": "Saft!"
+  },
+  "t3_s_saft": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Saft."
+  },
+  "t3_w_seife": {
+   "t": 3,
+   "lang": "de",
+   "text": "Seife!"
+  },
+  "t3_s_seife": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Seife."
+  },
+  "t3_w_haus": {
+   "t": 3,
+   "lang": "de",
+   "text": "Haus!"
+  },
+  "t3_s_haus": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Haus."
+  },
+  "t3_w_eis": {
+   "t": 3,
+   "lang": "de",
+   "text": "Eis!"
+  },
+  "t3_s_eis": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Eis."
+  },
+  "t3_w_bus": {
+   "t": 3,
+   "lang": "de",
+   "text": "Bus!"
+  },
+  "t3_s_bus": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Bus."
+  },
+  "t3_w_zahn": {
+   "t": 3,
+   "lang": "de",
+   "text": "Zahn!"
+  },
+  "t3_s_zahn": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Zahn."
+  },
+  "t3_w_zebra": {
+   "t": 3,
+   "lang": "de",
+   "text": "Zebra!"
+  },
+  "t3_s_zebra": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Zebra."
+  },
+  "t3_w_zitrone": {
+   "t": 3,
+   "lang": "de",
+   "text": "Zitrone!"
+  },
+  "t3_s_zitrone": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Zitrone."
+  },
+  "t3_w_zelt": {
+   "t": 3,
+   "lang": "de",
+   "text": "Zelt!"
+  },
+  "t3_s_zelt": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Zelt."
+  },
+  "t3_w_pilz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Pilz!"
+  },
+  "t3_s_pilz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Pilz."
+  },
+  "t3_w_herz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Herz!"
+  },
+  "t3_s_herz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Herz."
+  },
+  "t3_w_pizza": {
+   "t": 3,
+   "lang": "de",
+   "text": "Pizza!"
+  },
+  "t3_s_pizza": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Pizza."
+  },
+  "t3_w_gans": {
+   "t": 3,
+   "lang": "de",
+   "text": "Gans!"
+  },
+  "t3_s_gans": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Gans."
+  },
+  "t3_w_rakete": {
+   "t": 3,
+   "lang": "de",
+   "text": "Rakete!"
+  },
+  "t3_s_rakete": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Rakete."
+  },
+  "t3_w_schnecke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schnecke!"
+  },
+  "t3_s_schnecke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Schnecke."
+  },
+  "t3_w_vogel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Vogel!"
+  },
+  "t3_s_vogel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Vogel."
+  },
+  "t3_w_loewe": {
+   "t": 3,
+   "lang": "de",
+   "text": "Löwe!"
+  },
+  "t3_s_loewe": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Löwe."
+  },
+  "t3_w_licht": {
+   "t": 3,
+   "lang": "de",
+   "text": "Licht!"
+  },
+  "t3_s_licht": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Licht."
+  },
+  "t3_w_teller": {
+   "t": 3,
+   "lang": "de",
+   "text": "Teller!"
+  },
+  "t3_s_teller": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Teller."
+  },
+  "t3_w_esel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Esel!"
+  },
+  "t3_s_esel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Esel."
+  },
+  "t3_w_wolke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wolke!"
+  },
+  "t3_s_wolke": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Wolke."
+  },
+  "t3_w_rad": {
+   "t": 3,
+   "lang": "de",
+   "text": "Rad!"
+  },
+  "t3_s_rad": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Rad."
+  },
+  "t3_w_rose": {
+   "t": 3,
+   "lang": "de",
+   "text": "Rose!"
+  },
+  "t3_s_rose": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Rose."
+  },
+  "t3_w_ring": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ring!"
+  },
+  "t3_s_ring": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Ring."
+  },
+  "t3_w_birne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Birne!"
+  },
+  "t3_s_birne": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Birne."
+  },
+  "t3_w_moehre": {
+   "t": 3,
+   "lang": "de",
+   "text": "Möhre!"
+  },
+  "t3_s_moehre": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Möhre."
+  },
+  "t3_w_milch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Milch!"
+  },
+  "t3_s_milch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist Milch."
+  },
+  "t3_w_broetchen": {
+   "t": 3,
+   "lang": "de",
+   "text": "Brötchen!"
+  },
+  "t3_s_broetchen": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Brötchen."
+  },
+  "t3_w_pfirsich": {
+   "t": 3,
+   "lang": "de",
+   "text": "Pfirsich!"
+  },
+  "t3_s_pfirsich": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Pfirsich."
+  },
+  "t3_w_frosch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Frosch!"
+  },
+  "t3_s_frosch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Frosch."
+  },
+  "t3_w_fuss": {
+   "t": 3,
+   "lang": "de",
+   "text": "Fuß!"
+  },
+  "t3_s_fuss": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Fuß."
+  },
+  "t3_w_wal": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wal!"
+  },
+  "t3_s_wal": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Wal."
+  },
+  "t3_w_wurm": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wurm!"
+  },
+  "t3_s_wurm": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Wurm."
+  },
+  "t3_w_apfel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Apfel!"
+  },
+  "t3_s_apfel": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Apfel."
+  },
+  "t3_w_dose": {
+   "t": 3,
+   "lang": "de",
+   "text": "Dose!"
+  },
+  "t3_s_dose": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Dose."
+  },
+  "t3_w_dach": {
+   "t": 3,
+   "lang": "de",
+   "text": "Dach!"
+  },
+  "t3_s_dach": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Dach."
+  },
+  "t3_w_hut": {
+   "t": 3,
+   "lang": "de",
+   "text": "Hut!"
+  },
+  "t3_s_hut": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Hut."
+  },
+  "t3_w_brot": {
+   "t": 3,
+   "lang": "de",
+   "text": "Brot!"
+  },
+  "t3_s_brot": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Brot."
+  },
+  "t2_hoer_sch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein Sch? Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_sch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein Sch?"
+  },
+  "t2_ru_hoer_sch": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь в слове «ш»? Нажми на паровозик. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_sch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Für Sch machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft: Schhh!"
+  },
+  "t3_ru_laut_sch": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Губы вперёд рупором, язычок чашечкой наверху, и дуем тёплым воздухом: ш-ш-ш."
+  },
+  "t2_hoer_s": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein S? Dann tipp auf die Schlange. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_s": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein S?"
+  },
+  "t2_ru_hoer_s": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь в слове «с»? Нажми на змейку. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_s": {
+   "t": 3,
+   "lang": "de",
+   "text": "Für S lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten. Kalte Luft: Sss!"
+  },
+  "t3_ru_laut_s": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Улыбнись, зубки вместе, кончик языка за нижними зубками, дуем холодным ветерком: с-с-с."
+  },
+  "t2_hoer_z": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein Z, wie ts? Dann tipp auf den Zahn. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_z": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein Z?"
+  },
+  "t2_ru_hoer_z": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь «ц»? Нажми на зубик. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_z": {
+   "t": 3,
+   "lang": "de",
+   "text": "Z ist ganz schnell T und S zusammen: ts, ts, ts! Die Zunge tippt oben und rutscht nach unten."
+  },
+  "t3_ru_laut_z": {
+   "t": 3,
+   "lang": "ru",
+   "text": "«Ц» — это быстро «т» и «с» вместе: тс-тс-тс."
+  },
+  "t2_hoer_kg": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein K oder G? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_kg": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein K oder G?"
+  },
+  "t2_ru_hoer_kg": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь «к» или «г»? Нажми на картинку. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_kg": {
+   "t": 3,
+   "lang": "de",
+   "text": "Für K bleibt die Zungenspitze unten hinter den Zähnen. Hinten macht die Zunge einen Berg: K, k, k!"
+  },
+  "t3_ru_laut_kg": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Кончик языка остаётся внизу за зубками, а спинка поднимается горкой: к-к-к."
+  },
+  "t2_hoer_l": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein L? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_l": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein L?"
+  },
+  "t2_ru_hoer_l": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь «л»? Нажми на картинку. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_l": {
+   "t": 3,
+   "lang": "de",
+   "text": "Für L geht die Zungenspitze hoch hinter die oberen Zähne und bleibt da: La, la, la!"
+  },
+  "t3_ru_laut_l": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Кончик языка поднимается за верхние зубки и держится там: ла-ла-ла."
+  },
+  "t2_hoer_r": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein R? Dann tipp auf die Rakete. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_r": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein R?"
+  },
+  "t2_ru_hoer_r": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь «р»? Нажми на ракету. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_r": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das R brummt ganz hinten im Hals, wie beim Gurgeln: Rrrr!"
+  },
+  "t3_ru_laut_r": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Немецкий «р» рычит глубоко в горле, как будто полощем горло: р-р-р."
+  },
+  "t2_hoer_ch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein Ch, wie in ich? Dann tipp auf die Katze. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_ch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein Ch?"
+  },
+  "t2_ru_hoer_ch": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь мягкое «хь», как в слове ich? Нажми на кошку. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_ch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ch ist wie eine Katze, die faucht: Chch! Lächeln, und die Zunge macht einen Berg."
+  },
+  "t3_ru_laut_ch": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Ch как шипение кошки: хь-хь. Улыбнись, язычок горкой."
+  },
+  "t2_hoer_fw": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein F oder W? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_fw": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein F oder W?"
+  },
+  "t2_ru_hoer_fw": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь «ф» или «в»? Нажми на картинку. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_fw": {
+   "t": 3,
+   "lang": "de",
+   "text": "Für F beißen wir ganz leicht auf die Unterlippe und pusten: Fff!"
+  },
+  "t3_ru_laut_fw": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Верхние зубки слегка касаются нижней губы, и дуем: ф-ф-ф."
+  },
+  "t2_hoer_td": {
+   "t": 2,
+   "lang": "de",
+   "text": "Hörst du ein T oder D? Dann tipp auf die Trommel. Wenn nicht, tipp auf den leeren Kreis."
+  },
+  "t2_hoer2_td": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ist da ein T oder D?"
+  },
+  "t2_ru_hoer_td": {
+   "t": 2,
+   "lang": "ru",
+   "text": "Слышишь «т» или «д»? Нажми на барабан. Если нет — на пустой кружок."
+  },
+  "t3_laut_intro_td": {
+   "t": 3,
+   "lang": "de",
+   "text": "Für T tippt die Zungenspitze oben hinter die Zähne: T, t, t, wie eine Uhr!"
+  },
+  "t3_ru_laut_td": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Кончик языка стучит за верхними зубками: т-т-т, как часики."
+  },
+  "t3_laut_z": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ts, ts, ts.",
+   "say": "Tss, tss, tss.",
+   "expect": "ts ts ts"
+  },
+  "t3_laut_r": {
+   "t": 3,
+   "lang": "de",
+   "text": "Rrrr.",
+   "say": "Rrrrrr.",
+   "expect": "R"
+  },
+  "t3_laut_ch": {
+   "t": 3,
+   "lang": "de",
+   "text": "chchch (звук)",
+   "synth": "ch"
+  },
+  "t3_laut_f": {
+   "t": 3,
+   "lang": "de",
+   "text": "ffff (звук)",
+   "synth": "f"
+  },
+  "t3_r_sch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Scha, scho, schu, schi."
+  },
+  "t3_rr_sch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Asch, osch, usch, isch."
+  },
+  "t3_r_s": {
+   "t": 3,
+   "lang": "de",
+   "text": "Sa, so, su, si."
+  },
+  "t3_rr_s": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ass, oss, uss, iss."
+  },
+  "t3_r_z": {
+   "t": 3,
+   "lang": "de",
+   "text": "Za, zo, zu, zi."
+  },
+  "t3_rr_z": {
+   "t": 3,
+   "lang": "de",
+   "text": "Atz, otz, utz, itz."
+  },
+  "t3_rr_k": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ak, ok, uk, ik."
+  },
+  "t3_rr_l": {
+   "t": 3,
+   "lang": "de",
+   "text": "Al, ol, ul, il."
+  },
+  "t3_r_r": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ra, ro, ru, ri."
+  },
+  "t3_rr_r": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ara, oro, uru, iri."
+  },
+  "t3_r_ch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich, ich, mich, dich."
+  },
+  "t3_r_f": {
+   "t": 3,
+   "lang": "de",
+   "text": "Fa, fo, fu, fi."
+  },
+  "t3_rr_f": {
+   "t": 3,
+   "lang": "de",
+   "text": "Af, of, uf, if."
+  },
+  "t3_rr_t": {
+   "t": 3,
+   "lang": "de",
+   "text": "At, ot, ut, it."
+  },
+  "t3_p_sch1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das Schaf ist weiß."
+  },
+  "t3_p_sch2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Fisch schwimmt."
+  },
+  "t3_p_sch3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich habe einen Schuh."
+  },
+  "t3_p_sch4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Tasche ist rot."
+  },
+  "t3_p_s1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Sonne scheint."
+  },
+  "t3_p_s2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Maus ist klein."
+  },
+  "t3_p_s3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich esse ein Eis."
+  },
+  "t3_p_s4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Bus fährt."
+  },
+  "t3_p_z1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Zug ist lang."
+  },
+  "t3_p_z2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Katze schläft."
+  },
+  "t3_p_z3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das Zebra hat Streifen."
+  },
+  "t3_p_z4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich mag Pizza."
+  },
+  "t3_p_kg1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Kuh macht muh."
+  },
+  "t3_p_kg2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich esse einen Keks."
+  },
+  "t3_p_kg3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Gans ist groß."
+  },
+  "t3_p_kg4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Rakete fliegt."
+  },
+  "t3_p_l1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Löwe ist stark."
+  },
+  "t3_p_l2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Lampe ist hell."
+  },
+  "t3_p_l3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich spiele Ball."
+  },
+  "t3_p_l4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Teller ist leer."
+  },
+  "t3_p_r1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Rose ist rot."
+  },
+  "t3_p_r2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das Rad dreht sich."
+  },
+  "t3_p_r3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Rakete fliegt."
+  },
+  "t3_p_r4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Möhre ist lecker."
+  },
+  "t3_p_ch1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich trinke Milch."
+  },
+  "t3_p_ch2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das Licht ist an."
+  },
+  "t3_p_ch3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich esse ein Brötchen."
+  },
+  "t3_p_fw1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Fisch schwimmt."
+  },
+  "t3_p_fw2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Wolke ist weiß."
+  },
+  "t3_p_fw3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich esse einen Apfel."
+  },
+  "t3_p_fw4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Frosch springt."
+  },
+  "t3_p_td1": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Teddy ist weich."
+  },
+  "t3_p_td2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das Auto ist schnell."
+  },
+  "t3_p_td3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Ich esse Brot."
+  },
+  "t3_p_td4": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Tomate ist rot."
+  },
+  "t3_satz_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jetzt sagen wir einen ganzen Satz! Hör gut zu und sag ihn mir nach."
+  },
+  "t3_level_up": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wow! Du hast ein neues Level geschafft!"
   }
  }
 }

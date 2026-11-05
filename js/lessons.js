@@ -120,4 +120,60 @@
       {id: 'words', t: 3, icon: 'tasse', name: 'Повторяем трудные слова', run: async E => { T.face(3); await say('t3_wiederholen'); await words(hardWords)(E); }},
       {id: 'game', t: 3, icon: 'kiste', name: 'Дорожка к кладу и картинка-загадка', run: game(['weg', 'puzzle'], hardWords)}]}
   ];
+
+  /* ========== УРОК ПОД ТРУДНЫЙ ЗВУК (js/sounds.js) ==========
+     1 гимнастика именно для этого звука → 2 «слышишь звук?» (+ пары Kopf/Topf) → 3 звук отдельно / слоги → танец → 4 слова или фразы этапа → 5 игра с теми же словами.
+     Пока звук не получается отдельно и в слогах, слова — БЕЗ этого звука (словарь), чтобы не закреплять неправильный звук. */
+  const HAS = {sch: w => /sch/.test(w), s: w => /s|ß|z/.test(w.replace(/sch/g, '')), z: w => /z/.test(w), kg: w => /k|g/.test(w.replace(/ng/g, '')), l: w => /l/.test(w),
+    r: w => /r/.test(w), ch: w => /ch/.test(w.replace(/sch/g, '')), fw: w => /f|w|v/.test(w), td: w => /t|d|z/.test(w)};
+  SA.soundHas = (code, w) => HAS[code](w);
+  const ALLW = () => Object.keys(A.LINES).filter(k => k.startsWith('t3_w_')).map(k => k.slice(5)).filter(w => SA.hasPic(w) && A.LINES['t3_s_' + w]).sort();
+  const LOS3 = ['t3_los', 't3_los2', 't3_los3'];
+  SA.soundLesson = code => {
+    const S = SA.SOUNDS[code], st = P.sndStage(code), si = SA.STAGES.indexOf(st), tag = {snd: code, stage: st};
+    const lid = () => P.prog().k || 0;
+    const others = () => seeded(ALLW().filter(w => !HAS[code](w)), lid() + 3);
+    const face = () => S.face && T.img['3_face_' + S.face] ? S.face : null;
+    /* слова станций 4 и 5 (одни и те же в одном уроке) */
+    const wordList = () => st === 'anfang' ? seeded(S.start, lid()).slice(0, 6) : st === 'ende' ? seeded(S.end, lid()).slice(0, 6)
+      : st === 'satz' ? seeded([...S.start, ...S.end], lid()).slice(0, 6) : others().slice(0, 6);
+    const counted = st === 'anfang' || st === 'ende';
+    const breathFns = () => [...X.pickBreath(['pusteblume', 'kerzen'], 1), ...(S.breath || [])].map(k => o => X.BREATH[k](o));
+    const extra = (S.extra || []).map(k => o => X[k](o));
+    /* слушаем: слова с этим звуком и без, вперемешку */
+    const tgt = st === 'ende' || st === 'satz' || !S.start.length ? [...S.end, ...S.start] : S.start;
+    const hoerFns = () => { const yes = seeded(tgt, lid() + 1).slice(0, 4), no = others().slice(0, 3);
+      return seeded([...yes.map(w => [w, true]), ...no.map(w => [w, false])], lid() + 2).map(([w, h]) => () => X.hoer(code, w, h, tag)); };
+    /* станция 3: звук отдельно / слоги; объяснение «как сделать звук» — один раз, по-немецки, а русская подсказка — если не выходит */
+    const iso = (t) => () => X.syll(S.iso, {face: face(), pic: S.sym, tag: t, prompts: ['t3_jetzt_du', 't3_jetzt_du2', 't3_ru_laut_' + code]});
+    const syl = (key, t) => () => X.syll(key, {face: face(), pic: S.sym, tag: t, prompts: ['t3_jetzt_du', 't3_jetzt_du2', 't3_ru_laut_' + code]});
+    const sylls = t => [S.syl, S.syl3, S.syl2].filter(Boolean).map(k => syl(k, t));
+    const soundFns = () => st === 'hoeren' ? (S.iso ? [iso(null), syl(S.syl, null)] : [syl(S.syl, null)])
+      : st === 'allein' ? [iso(tag), iso(tag), iso(tag)] : st === 'silben' ? sylls(tag) : [...(S.iso ? [iso(null)] : []), ...sylls(null)];
+    const phrase = ([key, , pic]) => async () => { const b = X.board(); X.bigCard(b, SA.pic(pic)); if (X.once('satz')){ T.face(3); await say('t3_satz_intro'); }
+      await X.repeatItem({id: 'satz:' + key, model: key, vis: 'talk_open', words: 4, showPic: b, tag}); };
+    const name = `Звук ${S.name} — ${SA.STAGE_RU[st]}`;
+    return {n: 'snd', code, name, ex: [
+      {id: 'warmup', t: 1, icon: 'pusteblume', name: `Гимнастика для ${S.name}`, run: E => warmup(breathFns(), S.mirror, extra)(E)},
+      {id: 'listen', t: 2, icon: 'ohr', name: `Слышишь ${S.name}?`, run: E => listen([[null, hoerFns()], ...(S.pairs ? [[null, S.pairs.map(p => () => X.zeig(p))]] : [])])(E)},
+      {id: 'sounds', t: 3, icon: S.sym, name: st === 'allein' || st === 'hoeren' ? `${S.name} отдельно` : `Слоги с ${S.name}`, run: async E => {
+        T.face(3); await A.sayOne(LOS3);
+        if (X.once('laut_intro_' + code)){ const b = X.board(); if (face()) X.bigCard(b, `<img class="pic" style="object-fit:contain" src="${T.src(3, 'face_' + face())}" alt="">`); else X.bigCard(b, SA.pic(S.sym)); T.face(3); await say('t3_laut_intro_' + code); }
+        await fill(E, E.sec - 12, soundFns());
+      }},
+      {id: 'words', t: 3, icon: st === 'satz' ? 'mund' : 'ball', name: st === 'satz' ? `Фразы с ${S.name}` : counted ? `Слова с ${S.name} (${SA.STAGE_RU[st]})` : 'Слова (новые немецкие)', run: async E => {
+        if (st === 'satz'){ T.face(3); await A.sayOne(LOS3); await fill(E, E.sec - 12, seeded(S.phr, lid()).map(phrase)); return; }
+        T.face(3); await A.sayOne(LOS3);
+        const ws = wordList();
+        await fill(E, E.sec - 12, ws.map((w, i) => () => X.word(w, SA.quick() ? i === 0 : i === 2, counted ? tag : null)));
+      }},
+      {id: 'game', t: 3, icon: 'kiste', name: 'Игра с этими словами', run: async E => {
+        const ws = wordList(), ks = X.pickGames(['kiste', 'zug'], 1), t = counted ? tag : null;
+        if (SA.quick()){ await X.game(ks[0], SA.shuffle(ws).slice(0, 2), t); return; }
+        await X.game(ks[0], SA.shuffle(ws), t);
+        if (E.left() > 70) await X.game(ks[1], SA.shuffle(ws), t);
+      }}]};
+  };
+  /* какой урок сейчас: под звук (если родитель отметил звуки) или общий из уроков 1–5 */
+  SA.curLesson = (pr = P.prog()) => pr.kind === 'sound' && SA.SOUNDS[pr.snd] ? SA.soundLesson(pr.snd) : SA.LESSONS[(pr.lesson - 1) % SA.LESSONS.length];
 })();

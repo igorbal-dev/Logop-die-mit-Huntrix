@@ -174,7 +174,7 @@
   };
 
   /* одна игра: картинка-подсказка слова → образец → повтор → шаг игры */
-  X.game = async (kind, words) => {
+  X.game = async (kind, words, tag) => {
     X.earOff();
     const g = G[kind] || G.kiste, b = X.board();
     const s = g.setup(b, words);
@@ -188,7 +188,7 @@
         if (peek){ peek.style.transition = 'none'; peek.style.transform = s.peekT || 'scale(.6)'; peek.innerHTML = SA.pic(w); void peek.offsetWidth; peek.style.transition = 'transform .35s,opacity .25s'; peek.style.opacity = '1'; peek.style.transform = s.peekT || 'scale(1)'; }
         if (s.show) await s.show(w, k, peek);
         T.body(3, 'point');
-        await X.repeatItem({id: `spiel:${w}`, model: 't3_w_' + w, vis: WVIS[w], block: 'game', prompts: [k === 0 && g.sag ? g.sag : 't3_spiel_sag2', 't3_jetzt_du2', g.ru]});
+        await X.repeatItem({id: `spiel:${w}`, model: 't3_w_' + w, vis: WVIS[w], block: 'game', tag, prompts: [k === 0 && g.sag ? g.sag : 't3_spiel_sag2', 't3_jetzt_du2', g.ru]});
         A.sfx.pop();
         await s.step(w, k, peek);
         if (peek) peek.style.opacity = '0';

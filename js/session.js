@@ -3,12 +3,11 @@
    и продолжить потом с неё же. После 3-й станции — танцпауза. Все 5 → яйцо и следующий урок. */
 (function(){
   const X = SA.X, P = SA.P, T = SA.T, A = SA.A;
-  const lessonDef = n => SA.LESSONS[(n - 1) % SA.LESSONS.length];
   const icon = name => name === 'pusteblume' ? SA.dandelionSVG(10) : SA.pic(name);
   let busy = false, tipsSaid = 0, idleTimer = null;
 
   SA.openMap = () => {
-    const pr = P.prog(), L = lessonDef(pr.lesson), next = pr.done.indexOf(false);
+    const pr = P.prog(), L = SA.curLesson(pr), next = pr.done.indexOf(false);
     SA.$('#home').hidden = true; SA.$('#lesson').hidden = true; SA.$('#map').hidden = false;
     const st = SA.$('#stations'); st.innerHTML = '';
     L.ex.forEach((e, i) => {
@@ -37,20 +36,20 @@
     if (!pr.done[i] && i !== next && !SA.quick()){ A.sfx.soft(); const b = SA.$('#stations').querySelectorAll('.st')[next]; if (b){ b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); } return; }
     clearTimeout(idleTimer); A.cut();
     busy = true;
-    try { await runExercise(pr.lesson, i, !pr.done.some(Boolean) && i === 0); }
+    try { await runExercise(pr.lesson, i, pr.kind !== 'sound' && pr.lesson === 1 && pr.cycle === 0 && !pr.k && !pr.done.some(Boolean) && i === 0); }
     finally { busy = false; }
   }
 
   async function runExercise(lessonN, i, first){
-    const L = lessonDef(lessonN), e = L.ex[i], pr = P.prog();
+    const pr = P.prog(), L = SA.curLesson(pr), e = L.ex[i];
     const min = SA.clamp(+P.settings().minutes || 15, 10, 30), sec = Math.round(min*60/5);
     SA.$('#map').hidden = true; SA.$('#lesson').hidden = false;
     T.attach(SA.$('#tview')); X.board(); X.help(0, null);
     SA.stopped = false;
     const t0 = SA.now();
-    SA.E = {sec, t0, level: pr.cycle > 0 ? 1 : 0, told: new Set(), first: lessonN === 1 && pr.cycle === 0, left: () => sec - (SA.now() - t0)/1000*SA.SPEED};
-    SA.curBlock = `${lessonN}.${e.id}`;
-    P.begin(lessonN, e.id, sec);
+    SA.E = {sec, t0, level: pr.cycle > 0 ? 1 : 0, told: new Set(), first: pr.kind !== 'sound' && lessonN === 1 && pr.cycle === 0, left: () => sec - (SA.now() - t0)/1000*SA.SPEED};
+    SA.curBlock = `${L.n}.${e.id}`;
+    P.begin(L.n === 'snd' ? lessonN : L.n, e.id, sec);
     let completed = false;
     try {
       if (first) await X.ritual();
