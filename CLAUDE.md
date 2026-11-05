@@ -40,6 +40,7 @@
 
 ## Гимнастика языка (с 5.11, план 4.2а)
 - В зеркале (`X.EX` в tasks.js) кроме губ — классическая артикуляционная гимнастика: Pfannkuchen, Nadel, Tasse, Zaun, Berg, Pilz, Schaukel, Maler, Zähne putzen (+ старые Zunge raus, Nase, Kinn, Uhr, Marmelade). У каждой — схема-карточка `SA.tonguePic` (pics.js); динамичные — под тик. Комплекс в каждом уроке подобран под звуки урока.
+- Анимация: кадры Rumi сменяются наплывом (`T.faceFade`) каждые 0,7 с, схема в углу зеркала двигается в такт (SMIL, `SA.syncHint`). Часики = `tongue_left → tongue_mid → tongue_right → tongue_mid`, варенье = `lick_left → lick → lick_right → lick`; нет кадра — замена из `FRAME_FB` (tasks.js). Промпты кадров — `sprites-speech-academy.md` 3.3а.
 - Игры языком: «Pferdchen» — щелчки языком ловит микрофон (`SA.Breath.Click`, `M.clicks`; проверка `node tools/test/click_test.js`), «Fußball» — широкий язык + выдох (движок дыхания, есть в `X.BREATH`).
 
 ## Игры-закрепления (js/games.js) и разнообразие (с 5.11)

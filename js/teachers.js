@@ -11,7 +11,7 @@
   T.NEED = {   /* какие картинки нужны каждой учительнице: обязательные для занятия 1 и позже */
     1: {must: ['face_neutral', 'face_talk_half', 'face_talk_open', 'face_smell', 'face_blow', 'face_smile', 'face_kiss', 'face_open_wide', 'face_cheeks',
                'body_hello', 'body_explain', 'body_praise', 'body_support', 'body_dance', 'body_bye'],
-        later: ['face_tongue_out', 'face_tongue_up', 'face_tongue_down', 'face_tongue_left', 'face_tongue_right', 'face_lick', 'face_click', 'face_pfannkuchen', 'face_nadel', 'face_tasse', 'face_berg', 'face_pilz', 'body_point', 'body_listen', 'body_dance2']},
+        later: ['face_tongue_out', 'face_tongue_up', 'face_tongue_down', 'face_tongue_left', 'face_tongue_right', 'face_lick', 'face_lick_left', 'face_lick_right', 'face_tongue_mid', 'face_click', 'face_pfannkuchen', 'face_nadel', 'face_tasse', 'face_berg', 'face_pilz', 'body_point', 'body_listen', 'body_dance2']},
     2: {must: ['face_neutral', 'face_talk_half', 'face_talk_open', 'body_hello', 'body_listen', 'body_point', 'body_praise', 'body_support', 'body_dance', 'body_bye'],
         later: ['body_clap', 'body_think', 'body_explain', 'body_dance2']},
     3: {must: ['face_neutral', 'face_talk_half', 'face_talk_open', 'face_talk_o', 'face_talk_i', 'face_talk_u',
@@ -179,13 +179,23 @@
   }
 
   /* ---------- показ на экране занятия ---------- */
-  let view = null, imgEl = null, lastSrc = '';
-  const setSrc = s => { if (s !== lastSrc){ imgEl.src = s; lastSrc = s; } };
-  T.attach = (el) => { view = el; view.innerHTML = ''; imgEl = SA.el('img'); imgEl.alt = ''; view.appendChild(imgEl); };
+  let view = null, imgEl = null, imgB = null, lastSrc = '', fadeT = null;
+  /* fade — плавный наплыв нового кадра поверх старого (движения языка в зеркале); без fade — мгновенно (рот при речи) */
+  const setSrc = (s, fade) => {
+    if (s === lastSrc) return; lastSrc = s; clearTimeout(fadeT);
+    if (!fade || !imgB){ imgEl.src = s; if (imgB){ imgB.style.transition = 'none'; imgB.style.opacity = 0; } return; }
+    imgB.style.transition = 'none'; imgB.style.opacity = 0; imgB.src = s; void imgB.offsetWidth;
+    imgB.style.transition = 'opacity .22s ease-in-out'; imgB.style.opacity = 1;
+    fadeT = setTimeout(() => { imgEl.src = s; const done = () => { if (lastSrc === s){ imgB.style.transition = 'none'; imgB.style.opacity = 0; } };
+      (imgEl.decode ? imgEl.decode() : Promise.resolve()).then(done, done); }, 240);
+  };
+  T.attach = (el) => { view = el; view.innerHTML = ''; imgEl = SA.el('img'); imgEl.alt = ''; view.appendChild(imgEl);
+    imgB = SA.el('img'); imgB.alt = ''; imgB.style.opacity = 0; view.appendChild(imgB); };
   /* тело в позе: T.body(1, 'hello') */
   T.body = (n, pose) => { T.cur = n; T.mode = 'body'; T.pose = pose; T.fixed = null; view.className = ''; setSrc(T.src(n, 'body_' + pose)); };
   /* лицо крупно; fixed — поза рта, которую держим (упражнение), иначе — говорит/молчит */
   T.face = (n, fixed) => { T.cur = n; T.mode = 'face'; T.fixed = fixed || null; view.className = 'face'; setSrc(T.src(n, 'face_' + (fixed || 'neutral'))); };
+  T.faceFade = (n, fixed) => { T.cur = n; T.mode = 'face'; T.fixed = fixed || null; view.className = 'face'; setSrc(T.src(n, 'face_' + (fixed || 'neutral')), true); };
   T.dance = (n, on) => { if (on){ T.body(n, 'dance'); view.classList.add('dance'); } else view.classList.remove('dance'); };
   /* рот во время реплики: по громкости записи; vis — для образцов гласных (o, i, u, open) */
   SA.A.onSpeak = (n, on, key, opt) => {

@@ -325,8 +325,8 @@
     zunge_raus: {pose: 'tongue_out', say: ['t1_zunge_raus', 't1_zunge_raus2', 't1_ru_zunge_raus']},
     nase: {pose: 'tongue_up', say: ['t1_nase', 't1_nase2', 't1_ru_nase']},
     kinn: {pose: 'tongue_down', say: ['t1_kinn', 't1_kinn2', 't1_ru_kinn']},
-    uhr: {pose: 'tongue_left', alt: 'tongue_right', say: ['t1_uhr', 't1_uhr2', 't1_ru_uhr']},
-    marmelade: {pose: 'tongue_left', seq: ['tongue_left', 'lick', 'tongue_right'], say: ['t1_marmelade', 't1_marmelade2', 't1_ru_marmelade']},
+    uhr: {pose: 'tongue_left', seq: ['tongue_left', 'tongue_mid', 'tongue_right', 'tongue_mid'], tick: true, hint: 'uhr', say: ['t1_uhr', 't1_uhr2', 't1_ru_uhr']},
+    marmelade: {pose: 'lick_left', seq: ['lick_left', 'lick', 'lick_right', 'lick'], hint: 'marmelade', say: ['t1_marmelade', 't1_marmelade2', 't1_ru_marmelade']},
     /* классическая артикуляционная гимнастика (с 5.11): статичные позы держим, динамичные — под счёт (тик метронома).
        hint — схема-карточка (SA.tonguePic). Камера язык не видит — засчитывает таймер или ✓ родителя */
     pfannkuchen: {pose: 'tongue_out', hint: 'pfannkuchen', say: ['t1_pfannkuchen', 't1_pfannkuchen2', 't1_ru_pfannkuchen']},
@@ -351,13 +351,17 @@
   };
   X.mirrorStop = () => { SA.C.stop(); clearInterval(demoTimer); };
   /* учительница «двигается»: для чередований и Marmelade кадры сменяются */
-  function demo(e){
+  /* кадры, которых у Rumi пока нет, заменяются похожими (новые картинки подставятся сами, как только появятся) */
+  const FRAME_FB = {tongue_mid: 'tongue_out', lick_left: 'tongue_left', lick_right: 'tongue_right'};
+  const frame = f => T.img['1_face_' + f] ? f : FRAME_FB[f] || f;
+  function demo(e, hint){
     clearInterval(demoTimer);
     /* своя картинка Rumi для позы (teacher1_face_<имя схемы>), если Игорь её положил; иначе — похожая из имеющихся */
     const own = e.hint && !e.seq && !e.alt && T.img['1_face_' + e.hint] ? e.hint : null;
-    const frames = own ? [own] : e.seq || (e.alt ? [e.pose, e.alt] : [e.pose]);
-    let i = 0; T.face(1, frames[0]);
-    if (frames.length > 1) demoTimer = setInterval(() => { i = (i + 1) % frames.length; T.face(1, frames[i]); if (e.tick) A.sfx.tone(i % 2 ? 1200 : 900, i % 2 ? 1200 : 900, 60, 'square', .05); }, 700);
+    const frames = (own ? [own] : e.seq || (e.alt ? [e.pose, e.alt] : [e.pose])).map(frame);
+    let i = 0; T.face(1, frames[0]); SA.syncHint(hint);
+    /* кадры сменяются плавно (наплыв), в такт — тик и движение на схеме */
+    if (frames.length > 1) demoTimer = setInterval(() => { i = (i + 1) % frames.length; T.faceFade(1, frames[i]); if (e.tick) A.sfx.tone(i % 2 ? 1200 : 900, i % 2 ? 1200 : 900, 60, 'square', .05); }, 700);
   }
   /* одно упражнение: объяснение (один раз) + показ → ребёнок держит позу. Камера: держать ~1 с (смена позы — для чередований);
      без камеры/язык: старание 3,5 с засчитывается таймером. Повторов: проще 1, обычно 2, сложнее 3 */
@@ -367,7 +371,7 @@
     const hint = e.hint && mirrorEl ? SA.el('div', 'hint tg pop', SA.tonguePic(e.hint)) : null;
     if (hint){ mirrorEl.querySelectorAll('.hint').forEach(h => h.remove()); mirrorEl.appendChild(hint); }
     T.face(1); await say(e.say[0]);
-    demo(e);
+    demo(e, hint);
     const rec = P.item({block: 'mirror', id, kind: 'pose', result: null, reps: []});
     let parentOk = false; X.marks(rec, () => { parentOk = true; });
     const camOk = e.cam && SA.C.ready;

@@ -96,6 +96,9 @@
 | teacher1_face_tasse.png | широкий язык высунут, боковые края и кончик подняты («чашечка») | зеркало: Tasse (по желанию) | 1024×1024, лицо крупно | да |
 | teacher1_face_berg.png | рот открыт, кончик языка за нижними зубами, спинка языка выгнута вверх («горка») | зеркало: Berg (по желанию) | 1024×1024, лицо крупно | да |
 | teacher1_face_pilz.png | рот широко открыт, язык целиком присосан к нёбу, видна натянутая уздечка («грибок») | зеркало: Pilz (по желанию) | 1024×1024, лицо крупно | да |
+| teacher1_face_tongue_mid.png | узкий язык прямо вперёд посередине (средний кадр часиков) | зеркало: Uhr | 1024×1024, лицо крупно | да |
+| teacher1_face_lick_left.png | широкий язык на верхней губе слева (для зрителя) | зеркало: Marmelade, кадр 1 | 1024×1024, лицо крупно | да |
+| teacher1_face_lick_right.png | широкий язык на верхней губе справа (для зрителя) | зеркало: Marmelade, кадр 3 | 1024×1024, лицо крупно | да |
 | teacher1_body_point.png | показывает рукой в сторону (вправо от зрителя) | показывает на свечки, кораблик | 1024×1536, по пояс | да |
 | teacher1_body_listen.png | ладонь у уха | ждёт, когда Эмили подует или поцокает | 1024×1536, по пояс | да |
 | teacher1_body_dance2.png | второй кадр танца: другая поза, руки в стороны | танцпауза (кадры чередуются) | 1024×1536, полный рост | да |
@@ -291,6 +294,40 @@ Same character as in the attached reference image, exact same style, face, hair 
 **`teacher1_face_pilz.png`** (по желанию)
 ```
 Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "mushroom": mouth opened wide, the whole tongue sucked flat against the roof of the mouth, the thin band under the tongue visible and stretched like a mushroom stem. Draw the mouth and tongue large, simple and very clear, so a 5-year-old child can see exactly what to copy. Friendly, child-appropriate expression like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up). Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+### 3.3а. Rumi — кадры анимации языка (часики и варенье), 5.11
+
+Это кадры одной анимации: часики — `tongue_left → tongue_mid → tongue_right → tongue_mid`, варенье — `lick_left → lick → lick_right → lick`, кадры сменяются плавно каждые 0,7 с. Поэтому голова на всех кадрах должна стоять **точно так же**, как на `face_neutral` (прикладывать вторым файлом). «Лево/право» — как видит зритель (Эмили повторяет как в зеркале). Пока новых нет — подставляются старые, а точное движение показывает анимированная схема в углу зеркала.
+
+**`teacher1_face_tongue_left.png`** — ЗАМЕНИТЬ (сейчас язык спрятан во рту)
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "clock" frame 1: mouth slightly open in a smile, a narrow pointed tongue stuck out and pushed hard into the LEFT corner of the mouth (on the left side of the picture, as the viewer sees it), the tip of the tongue touching the corner of the lips. The tongue must be clearly OUTSIDE the mouth and big enough that a 5-year-old child can see exactly where it is. Draw the mouth and tongue large, simple and very clear, like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up) — this picture is one frame of an animation, so nothing except the mouth and tongue may move. Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_tongue_mid.png`** — НОВАЯ
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "clock" frame 2: mouth slightly open in a smile, a narrow pointed tongue stuck straight out in the middle, pointing forward and slightly down, tip in the center. The tongue must be clearly OUTSIDE the mouth and big enough that a 5-year-old child can see exactly where it is. Draw the mouth and tongue large, simple and very clear, like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up) — this picture is one frame of an animation, so nothing except the mouth and tongue may move. Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_tongue_right.png`** — ЗАМЕНИТЬ
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "clock" frame 3: mouth slightly open in a smile, a narrow pointed tongue stuck out and pushed hard into the RIGHT corner of the mouth (on the right side of the picture, as the viewer sees it), the tip of the tongue touching the corner of the lips. The tongue must be clearly OUTSIDE the mouth and big enough that a 5-year-old child can see exactly where it is. Draw the mouth and tongue large, simple and very clear, like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up) — this picture is one frame of an animation, so nothing except the mouth and tongue may move. Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_lick_left.png`** — НОВАЯ
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "yummy jam" frame 1: mouth open, the WIDE flat tongue lifted and lying on the upper lip, covering the LEFT part of the upper lip (left side of the picture, as the viewer sees it), happy "yummy" eyes. The tongue must be clearly OUTSIDE the mouth and big enough that a 5-year-old child can see exactly where it is. Draw the mouth and tongue large, simple and very clear, like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up) — this picture is one frame of an animation, so nothing except the mouth and tongue may move. Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_lick.png`** — ЗАМЕНИТЬ (сейчас язык чуть виден)
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "yummy jam" frame 2: mouth open, the WIDE flat tongue lifted and lying on the upper lip, covering the MIDDLE of the upper lip, tongue tip curled slightly up toward the nose, happy "yummy" eyes. The tongue must be clearly OUTSIDE the mouth and big enough that a 5-year-old child can see exactly where it is. Draw the mouth and tongue large, simple and very clear, like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up) — this picture is one frame of an animation, so nothing except the mouth and tongue may move. Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
+```
+
+**`teacher1_face_lick_right.png`** — НОВАЯ
+```
+Same character as in the attached reference image, exact same style, face, hair and outfit. Mouth exercise "yummy jam" frame 3: mouth open, the WIDE flat tongue lifted and lying on the upper lip, covering the RIGHT part of the upper lip (right side of the picture, as the viewer sees it), happy "yummy" eyes. The tongue must be clearly OUTSIDE the mouth and big enough that a 5-year-old child can see exactly where it is. Draw the mouth and tongue large, simple and very clear, like a speech therapy picture card. Keep exactly the same head size, position and angle as in the second attached image (the neutral face close-up) — this picture is one frame of an animation, so nothing except the mouth and tongue may move. Framing: close-up of the face, head and top of the shoulders, face centered and facing forward. Square image, 1024x1024 pixels. Transparent background (real PNG transparency, no checkerboard pattern, no background color). No text, no letters, no logos.
 ```
 
 ### 3.4. Позже — тело

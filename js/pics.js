@@ -155,6 +155,9 @@
      Сбоку: лицо смотрит влево, верхние зубы и нёбо сверху, нижние зубы и дно рта снизу. */
   SA.tonguePic = kind => {
     const T = '#ff7a9a', TS = 'stroke="#d94f73" stroke-width="4" stroke-linejoin="round"', A = 'stroke="#4a3550" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"';
+    /* движение на схеме (SMIL): тот же темп, что у кадров Rumi (700 мс на кадр); SA.syncHint перезапускает с начала */
+    const move = (vals, ms) => `<animateTransform attributeName="transform" type="translate" values="${vals}" dur="${ms}ms" repeatCount="indefinite" calcMode="spline" keySplines="${vals.split(';').slice(1).map(() => '.45 0 .55 1').join(';')}"/>`;
+    const blink = (vals, ms) => `<animate attributeName="opacity" values="${vals}" dur="${ms}ms" repeatCount="indefinite"/>`;
     const arrow = (d, end) => `<path d="${d}" ${A}/><path d="${end}" ${A}/>`;
     const front = (open, body) => `<ellipse cx="100" cy="100" rx="88" ry="88" fill="#ffe0c8"/>
       <path d="M40 ${100 - open} q60 -26 120 0 q-4 ${open*2 + 30} -60 ${open*2 + 34} q-56 -4 -60 -${open*2 + 34} z" fill="#6b2440" stroke="#e8667f" stroke-width="8" stroke-linejoin="round"/>
@@ -180,12 +183,17 @@
       /* грибок: язык присосан к нёбу, рот открыт */
       pilz: side(26, `<path d="M64 88 Q105 48 176 80 L176 104 Q122 96 70 104 Q60 98 64 88 z" fill="${T}" ${TS}/><path d="M80 104 v40 M150 100 v46" stroke="#d94f73" stroke-width="4" stroke-dasharray="4 5"/>`),
       /* качели: кончик вверх к верхним зубам — вниз к нижним */
-      schaukel: side(22, `<path d="M64 130 Q80 120 108 120 Q150 118 176 140 Q120 166 70 150 z" fill="${T}" opacity=".35"/><path d="M62 98 Q78 110 104 122 Q150 116 176 140 Q120 160 72 136 Q58 116 62 98 z" fill="${T}" ${TS}/>`,
+      schaukel: side(22, `<path d="M64 130 Q80 120 108 120 Q150 118 176 140 Q120 166 70 150 z" fill="${T}" ${TS}>${blink('0;1;0', 1400)}</path><path d="M62 98 Q78 110 104 122 Q150 116 176 140 Q120 160 72 136 Q58 116 62 98 z" fill="${T}" ${TS}>${blink('1;0;1', 1400)}</path>`,
         arrow('M40 104 v34', 'M32 112 l8 -10 l8 10 M32 130 l8 10 l8 -10')),
       /* маляр: кончик гладит нёбо от зубов назад */
-      maler: side(22, `<path d="M66 86 Q86 76 108 88 Q150 112 176 140 Q120 160 72 140 Q58 110 66 86 z" fill="${T}" ${TS}/>`, arrow('M80 64 Q110 48 150 60', 'M140 52 l12 8 l-12 8')),
+      maler: side(22, `<g><path d="M66 86 Q86 76 108 88 Q150 112 176 140 Q120 160 72 140 Q58 110 66 86 z" fill="${T}" ${TS}/>${move('0 0;34 -6;0 0', 1400)}</g>`, arrow('M80 64 Q110 48 150 60', 'M140 52 l12 8 l-12 8')),
       /* чистим зубки: кончик за верхними зубами, влево-вправо */
-      zaehne: front(24, `<path d="M70 112 q30 -30 60 0 q4 28 -30 30 q-34 -2 -30 -30 z" fill="${T}" ${TS}/>`) + arrow('M60 72 h80', 'M70 64 l-10 8 l10 8 M130 64 l10 8 l-10 8'),
+      zaehne: front(24, `<g><path d="M70 112 q30 -30 60 0 q4 28 -30 30 q-34 -2 -30 -30 z" fill="${T}" ${TS}/>${move('0 0;-26 0;0 0;26 0;0 0', 2800)}</g>`) + arrow('M60 72 h80', 'M70 64 l-10 8 l10 8 M130 64 l10 8 l-10 8'),
+      /* часики: узкий язык вправо-влево из уголка в уголок (слева → середина → справа → середина) */
+      uhr: front(10, `<g><path d="M90 100 q10 -4 20 0 q6 44 -10 66 q-16 -22 -10 -66 z" fill="${T}" ${TS}><animateTransform attributeName="transform" type="rotate" values="72 100 100;0 100 100;-72 100 100;0 100 100;72 100 100" dur="2800ms" repeatCount="indefinite"/></path></g>`),
+      /* вкусное варенье: широкий язык облизывает верхнюю губу слева направо и обратно */
+      marmelade: front(14, `<circle cx="62" cy="76" r="6" fill="#c9462b"/><circle cx="100" cy="66" r="6" fill="#c9462b"/><circle cx="138" cy="76" r="6" fill="#c9462b"/>
+        <g><path d="M76 104 q-6 -48 24 -54 q30 6 24 54 z" fill="${T}" ${TS}/>${move('-34 8;0 0;34 8;0 0;-34 8', 2800)}</g>`),
       /* лошадка: язык присасывается и щёлкает */
       klick: side(18, `<path d="M64 90 Q105 50 176 82 L176 110 Q122 100 70 108 Q60 100 64 90 z" fill="${T}" ${TS}/>`, `<g fill="#ffd84d" stroke="#4a3550" stroke-width="3"><path d="M150 150 l8 -14 l6 14 l14 -6 l-8 14 l14 6 l-16 4 l4 14 l-12 -10 l-10 10 l2 -14 l-14 -2 l14 -8 z"/></g>`),
       /* футбол: широкий язык на нижней губе, воздух по середине */
@@ -193,4 +201,6 @@
     };
     return svg(P[kind] || '');
   };
+  /* перезапустить движение схемы с начала (чтобы шло в такт с кадрами Rumi) */
+  SA.syncHint = el => { const v = el && el.querySelector('svg'); try { if (v && v.setCurrentTime) v.setCurrentTime(0); } catch(e){} };
 })();
