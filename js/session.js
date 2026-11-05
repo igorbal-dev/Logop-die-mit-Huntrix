@@ -69,7 +69,7 @@
         /* звезда за станцию; после 3-й — танцпауза */
         A.sfx.fanfare(); T.body(3, 'praise'); SA.starEl(SA.$('#board'));
         if (i === 2) await X.dance(3, 20);
-        else await A.say('t3_station_fertig');
+        else await A.sayOne(['t3_station_fertig', 't3_station_fertig2', 't3_station_fertig3']);
         const now = P.prog();
         if (now.done.every(Boolean)){
           const res = P.lessonDone(SA.LESSONS.length);

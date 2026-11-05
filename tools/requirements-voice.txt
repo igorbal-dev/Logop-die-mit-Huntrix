@@ -4,3 +4,4 @@ speechmos
 onnxruntime
 jiwer
 numpy
+librosa

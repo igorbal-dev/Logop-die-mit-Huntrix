@@ -17,7 +17,7 @@
   const ITEM_RU = {pusteblume: 'одуванчик', kerzen: 'свечки', kamera: 'камера', frosch: 'лягушка (улыбка)', kuss: 'трубочка', loewe: 'лев (рот широко)', hamster: 'хомяк (щёки)', hallo: '«Hallo!» в начале'};
   const RES_RU = {heard: 'сказала', none: 'промолчала', nomic: 'без микрофона', done: 'сделала', tried: 'старалась', camera: 'камера увидела', parent: 'подтвердил родитель', timer: 'по таймеру', ok: 'верно сразу', retry: 'верно не сразу',
     nocamera: 'камера не включилась', 'camera-noface': 'камера без распознавания', info: ''};
-  const itemName = it => { const [a, b] = String(it.id).split(':'); return b ? `${{wort: 'слово', tier: 'звукоподражание', vokal: 'гласная', spiel: 'игра', wer: 'кто так говорит', gleich: 'одинаковые/разные'}[a] || a}: ${b}` : (ITEM_RU[a] || a); };
+  const itemName = it => { const [a, b] = String(it.id).split(':'); return b ? `${{wort: 'слово', tier: 'звукоподражание', vokal: 'гласная', spiel: 'игра', game: 'игра', wer: 'кто так говорит', gleich: 'одинаковые/разные'}[a] || a}: ${b}` : (ITEM_RU[a] || a); };
 
   SA.openParent = () => {
     const box = SA.$('#parent'); box.hidden = false; SA.$('#home').hidden = true;

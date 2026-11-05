@@ -1821,6 +1821,246 @@
    "t": 1,
    "lang": "de",
    "text": "Wir sind beide im Ziel!"
+  },
+  "t1_los2": {
+   "t": 1,
+   "lang": "de",
+   "text": "Auf geht's!"
+  },
+  "t1_los3": {
+   "t": 1,
+   "lang": "de",
+   "text": "Bist du bereit? Dann los!"
+  },
+  "t2_los2": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ohren auf! Los geht's."
+  },
+  "t2_los3": {
+   "t": 2,
+   "lang": "de",
+   "text": "Jetzt hören wir ganz genau hin."
+  },
+  "t3_los2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Auf geht's!"
+  },
+  "t3_los3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Bist du bereit? Dann los!"
+  },
+  "t3_station_fertig2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Super! Noch ein Stern für dich!"
+  },
+  "t3_station_fertig3": {
+   "t": 3,
+   "lang": "de",
+   "text": "Toll gemacht! Der Stern gehört dir!"
+  },
+  "t3_stopptanz": {
+   "t": 3,
+   "lang": "de",
+   "text": "Stopptanz! Wenn die Musik aufhört, bleibst du stehen wie eine Statue!"
+  },
+  "t3_stopp": {
+   "t": 3,
+   "lang": "de",
+   "text": "Stopp! Nicht bewegen!"
+  },
+  "t3_stopp2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Stopp! Wie eine Statue!"
+  },
+  "t3_tanz_weiter": {
+   "t": 3,
+   "lang": "de",
+   "text": "Und weiter!"
+  },
+  "t3_tanz_weiter2": {
+   "t": 3,
+   "lang": "de",
+   "text": "Weiter tanzen!"
+  },
+  "t3_g_rakete_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Die Rakete fliegt zu den Sternen!"
+  },
+  "t3_g_zug_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wir bauen einen Zug! Jedes Wort ist ein Wagen."
+  },
+  "t3_g_zug_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и прицепим вагончик!"
+  },
+  "t3_g_zug_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tschu-tschu! Der Zug fährt los!"
+  },
+  "t3_g_turm_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wir bauen einen hohen Turm! Jedes Wort ist ein Stein."
+  },
+  "t3_g_turm_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и положим кубик!"
+  },
+  "t3_g_turm_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "So ein hoher Turm! Super!"
+  },
+  "t3_g_ballons_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jedes Wort bekommt einen Luftballon!"
+  },
+  "t3_g_ballons_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и шарик полетит!"
+  },
+  "t3_g_ballons_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Alle Ballons fliegen hoch in den Himmel!"
+  },
+  "t3_g_blumen_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wir pflanzen einen Garten! Bei jedem Wort wächst eine Blume."
+  },
+  "t3_g_blumen_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и вырастет цветок!"
+  },
+  "t3_g_blumen_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Was für ein schöner Garten!"
+  },
+  "t3_g_angeln_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wir gehen angeln! Sag das Wort, dann fängst du den Fisch."
+  },
+  "t3_g_angeln_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и поймаешь рыбку!"
+  },
+  "t3_g_angeln_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Der Eimer ist voll! Toll geangelt!"
+  },
+  "t3_g_puzzle_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Hier ist jemand versteckt! Jedes Wort zeigt ein Stück."
+  },
+  "t3_g_puzzle_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и откроется кусочек картинки!"
+  },
+  "t3_g_puzzle_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Schau mal, wer da ist!"
+  },
+  "t3_g_geschenke_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "So viele Geschenke! Was ist wohl drin?"
+  },
+  "t3_g_geschenke_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и откроем следующий подарок!"
+  },
+  "t3_g_geschenke_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Alle Geschenke sind offen!"
+  },
+  "t3_g_feuerwerk_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Jedes Wort macht ein Feuerwerk!"
+  },
+  "t3_g_feuerwerk_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и будет салют!"
+  },
+  "t3_g_feuerwerk_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Oh, wie schön! Was für ein Feuerwerk!"
+  },
+  "t3_g_schneemann_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Wir bauen einen Schneemann! Jedes Wort bringt ein Stück."
+  },
+  "t3_g_schneemann_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и снеговик подрастёт!"
+  },
+  "t3_g_schneemann_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Fertig! Der Schneemann winkt dir!"
+  },
+  "t3_g_weg_intro": {
+   "t": 3,
+   "lang": "de",
+   "text": "Hüpf über die Steine zum Schatz! Jedes Wort ist ein Sprung."
+  },
+  "t3_g_weg_ru": {
+   "t": 3,
+   "lang": "ru",
+   "text": "Скажи слово — и прыгнем на камешек!"
+  },
+  "t3_g_weg_ende": {
+   "t": 3,
+   "lang": "de",
+   "text": "Du hast den Schatz gefunden!"
+  },
+  "t3_s_tomate": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist eine Tomate."
+  },
+  "t3_w_tomate": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tomate!"
+  },
+  "t3_s_tisch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Das ist ein Tisch."
+  },
+  "t3_w_tisch": {
+   "t": 3,
+   "lang": "de",
+   "text": "Tisch!"
   }
  }
 }

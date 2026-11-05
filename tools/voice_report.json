@@ -349,6 +349,22 @@
   "tries": 2,
   "voice": "de-DE-AmalaNeural"
  },
+ "t1_los2": {
+  "cer": 0.0,
+  "dur": 0.97,
+  "hyp": "Auf geht's!",
+  "mos": 3.32,
+  "text": "Auf geht's!",
+  "tries": 1
+ },
+ "t1_los3": {
+  "cer": 0.0,
+  "dur": 2.87,
+  "hyp": "Bist du bereit? Dann los!",
+  "mos": 3.2,
+  "text": "Bist du bereit? Dann los!",
+  "tries": 1
+ },
  "t1_mach_mit": {
   "cer": 0.0,
   "dur": 0.82,
@@ -1343,6 +1359,22 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_los2": {
+  "cer": 0.0,
+  "dur": 2.94,
+  "hyp": "Ohren auf. Los geht's.",
+  "mos": 3.25,
+  "text": "Ohren auf! Los geht's.",
+  "tries": 1
+ },
+ "t2_los3": {
+  "cer": 0.0,
+  "dur": 2.13,
+  "hyp": "Jetzt hören wir ganz genau hin.",
+  "mos": 3.18,
+  "text": "Jetzt hören wir ganz genau hin.",
+  "tries": 1
+ },
  "t2_maeh": {
   "cer": 0.0,
   "dur": 0.44,
@@ -2167,6 +2199,254 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_g_angeln_ende": {
+  "cer": 0.0,
+  "dur": 3.2,
+  "hyp": "Der Eimer ist voll.  Toll geangelt.",
+  "mos": 3.31,
+  "text": "Der Eimer ist voll! Toll geangelt!",
+  "tries": 1
+ },
+ "t3_g_angeln_intro": {
+  "cer": 0.0,
+  "dur": 4.65,
+  "hyp": "Wir gehen angeln.  Sag das Wort, dann fängst du den Fisch.",
+  "mos": 3.28,
+  "text": "Wir gehen angeln! Sag das Wort, dann fängst du den Fisch.",
+  "tries": 1
+ },
+ "t3_g_angeln_ru": {
+  "cer": 0.04,
+  "dur": 2.64,
+  "hyp": "Скажи слово и поймаёшь рыбку.",
+  "mos": 3.01,
+  "text": "Скажи слово — и поймаешь рыбку!",
+  "tries": 1
+ },
+ "t3_g_ballons_ende": {
+  "cer": 0.0,
+  "dur": 2.32,
+  "hyp": "Alle Ballons fliegen hoch in den Himmel.",
+  "mos": 3.16,
+  "text": "Alle Ballons fliegen hoch in den Himmel!",
+  "tries": 1
+ },
+ "t3_g_ballons_intro": {
+  "cer": 0.0,
+  "dur": 2.37,
+  "hyp": "Jedes Wort bekommt einen Luftballon.",
+  "mos": 3.21,
+  "text": "Jedes Wort bekommt einen Luftballon!",
+  "tries": 1
+ },
+ "t3_g_ballons_ru": {
+  "cer": 0.0,
+  "dur": 2.54,
+  "hyp": "Скажи слово, и шарик полетит",
+  "mos": 3.2,
+  "text": "Скажи слово — и шарик полетит!",
+  "tries": 1
+ },
+ "t3_g_blumen_ende": {
+  "cer": 0.0,
+  "dur": 1.73,
+  "hyp": "Was für ein schöner Garten.",
+  "mos": 3.25,
+  "text": "Was für ein schöner Garten!",
+  "tries": 1
+ },
+ "t3_g_blumen_intro": {
+  "cer": 0.0,
+  "dur": 4.74,
+  "hyp": "Wir pflanzen einen Garten.  Bei jedem Wort wächst eine Blume.",
+  "mos": 3.18,
+  "text": "Wir pflanzen einen Garten! Bei jedem Wort wächst eine Blume.",
+  "tries": 1
+ },
+ "t3_g_blumen_ru": {
+  "cer": 0.0,
+  "dur": 2.61,
+  "hyp": "Скажи слово и вырастет цветок.",
+  "mos": 3.41,
+  "text": "Скажи слово — и вырастет цветок!",
+  "tries": 1
+ },
+ "t3_g_feuerwerk_ende": {
+  "cer": 0.0,
+  "dur": 3.63,
+  "hyp": "Oh, wie schön! Was für ein Feuerwerk!",
+  "mos": 3.33,
+  "text": "Oh, wie schön! Was für ein Feuerwerk!",
+  "tries": 1
+ },
+ "t3_g_feuerwerk_intro": {
+  "cer": 0.0,
+  "dur": 2.09,
+  "hyp": "Jedes Wort macht ein Feuerwerk.",
+  "mos": 3.15,
+  "text": "Jedes Wort macht ein Feuerwerk!",
+  "tries": 1
+ },
+ "t3_g_feuerwerk_ru": {
+  "cer": 0.0,
+  "dur": 2.37,
+  "hyp": "Скажи слово, и будет салют",
+  "mos": 3.31,
+  "text": "Скажи слово — и будет салют!",
+  "tries": 1
+ },
+ "t3_g_geschenke_ende": {
+  "cer": 0.0,
+  "dur": 1.61,
+  "hyp": "Alle Geschenke sind offen.",
+  "mos": 3.33,
+  "text": "Alle Geschenke sind offen!",
+  "tries": 1
+ },
+ "t3_g_geschenke_intro": {
+  "cer": 0.0,
+  "dur": 3.55,
+  "hyp": "So viele Geschenke.  Was ist wohl drin?",
+  "mos": 3.28,
+  "text": "So viele Geschenke! Was ist wohl drin?",
+  "tries": 1
+ },
+ "t3_g_geschenke_ru": {
+  "cer": 0.0,
+  "dur": 3.15,
+  "hyp": "Скажи слово, и откроем следующий подарок.",
+  "mos": 3.25,
+  "text": "Скажи слово — и откроем следующий подарок!",
+  "tries": 1
+ },
+ "t3_g_puzzle_ende": {
+  "cer": 0.0,
+  "dur": 1.65,
+  "hyp": "Schau mal, wer da ist.",
+  "mos": 3.1,
+  "text": "Schau mal, wer da ist!",
+  "tries": 1
+ },
+ "t3_g_puzzle_intro": {
+  "cer": 0.0,
+  "dur": 4.42,
+  "hyp": "Hier ist jemand versteckt.  Jedes Wort zeigt ein Stück.",
+  "mos": 3.2,
+  "text": "Hier ist jemand versteckt! Jedes Wort zeigt ein Stück.",
+  "tries": 1
+ },
+ "t3_g_puzzle_ru": {
+  "cer": 0.0,
+  "dur": 3.3,
+  "hyp": "Скажи слово, и откроется кусочек картинки.",
+  "mos": 3.24,
+  "text": "Скажи слово — и откроется кусочек картинки!",
+  "tries": 1
+ },
+ "t3_g_rakete_ende": {
+  "cer": 0.0,
+  "dur": 2.17,
+  "hyp": "Die Rakete fliegt zu den Sternen.",
+  "mos": 3.35,
+  "text": "Die Rakete fliegt zu den Sternen!",
+  "tries": 1
+ },
+ "t3_g_schneemann_ende": {
+  "cer": 0.0,
+  "dur": 3.11,
+  "hyp": "Fertig. Der Schneemann winkt dir.",
+  "mos": 3.48,
+  "text": "Fertig! Der Schneemann winkt dir!",
+  "tries": 1
+ },
+ "t3_g_schneemann_intro": {
+  "cer": 0.0,
+  "dur": 4.43,
+  "hyp": "Wir bauen einen Schneemann.  Jedes Wort bringt ein Stück.",
+  "mos": 3.15,
+  "text": "Wir bauen einen Schneemann! Jedes Wort bringt ein Stück.",
+  "tries": 1
+ },
+ "t3_g_schneemann_ru": {
+  "cer": 0.04,
+  "dur": 2.75,
+  "hyp": "Скажи слово, и снеговик подрастет.",
+  "mos": 2.97,
+  "text": "Скажи слово — и снеговик подрастёт!",
+  "tries": 1
+ },
+ "t3_g_turm_ende": {
+  "cer": 0.0,
+  "dur": 2.81,
+  "hyp": "So ein hoher Turm.  Super!",
+  "mos": 3.18,
+  "text": "So ein hoher Turm! Super!",
+  "tries": 1
+ },
+ "t3_g_turm_intro": {
+  "cer": 0.0,
+  "dur": 4.67,
+  "hyp": "Wir bauen einen hohen Turm.  Jedes Wort ist ein Stein.",
+  "mos": 3.09,
+  "text": "Wir bauen einen hohen Turm! Jedes Wort ist ein Stein.",
+  "tries": 1
+ },
+ "t3_g_turm_ru": {
+  "cer": 0.0,
+  "dur": 2.54,
+  "hyp": "Скажи слово, и положим кубик",
+  "mos": 3.1,
+  "text": "Скажи слово — и положим кубик!",
+  "tries": 1
+ },
+ "t3_g_weg_ende": {
+  "cer": 0.0,
+  "dur": 1.67,
+  "hyp": "Du hast den Schatz gefunden.",
+  "mos": 3.43,
+  "text": "Du hast den Schatz gefunden!",
+  "tries": 1
+ },
+ "t3_g_weg_intro": {
+  "cer": 0.0,
+  "dur": 4.68,
+  "hyp": "Hüpf über die Steine zum Schatz.  Jedes Wort ist ein Sprung.",
+  "mos": 3.3,
+  "text": "Hüpf über die Steine zum Schatz! Jedes Wort ist ein Sprung.",
+  "tries": 1
+ },
+ "t3_g_weg_ru": {
+  "cer": 0.0,
+  "dur": 2.71,
+  "hyp": "Скажи слово и прыгнем на камешек.",
+  "mos": 3.01,
+  "text": "Скажи слово — и прыгнем на камешек!",
+  "tries": 1
+ },
+ "t3_g_zug_ende": {
+  "cer": 0.17,
+  "dur": 2.95,
+  "hyp": "Chuchu.  Der Zug fährt los.",
+  "mos": 3.43,
+  "text": "Tschu-tschu! Der Zug fährt los!",
+  "tries": 1
+ },
+ "t3_g_zug_intro": {
+  "cer": 0.0,
+  "dur": 4.15,
+  "hyp": "Wir bauen einen Zug.  Jedes Wort ist ein Wagen.",
+  "mos": 3.14,
+  "text": "Wir bauen einen Zug! Jedes Wort ist ein Wagen.",
+  "tries": 1
+ },
+ "t3_g_zug_ru": {
+  "cer": 0.0,
+  "dur": 2.74,
+  "hyp": "Скажи слово и прицепим вагончик.",
+  "mos": 2.92,
+  "text": "Скажи слово — и прицепим вагончик!",
+  "tries": 1
+ },
  "t3_hallo_kurz": {
   "cer": 0.0,
   "dur": 0.61,
@@ -2356,6 +2636,22 @@
   "text": "Los geht's!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
+ },
+ "t3_los2": {
+  "cer": 0.0,
+  "dur": 0.87,
+  "hyp": "Auf geht's!",
+  "mos": 3.09,
+  "text": "Auf geht's!",
+  "tries": 1
+ },
+ "t3_los3": {
+  "cer": 0.0,
+  "dur": 2.62,
+  "hyp": "Bist du bereit?  Dann los!",
+  "mos": 3.13,
+  "text": "Bist du bereit? Dann los!",
+  "tries": 1
  },
  "t3_maeh": {
   "cer": 0.0,
@@ -2967,6 +3263,22 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_s_tisch": {
+  "cer": 0.0,
+  "dur": 1.17,
+  "hyp": "Das ist ein Tisch.",
+  "mos": 3.36,
+  "text": "Das ist ein Tisch.",
+  "tries": 1
+ },
+ "t3_s_tomate": {
+  "cer": 0.0,
+  "dur": 1.45,
+  "hyp": "Das ist eine Tomate.",
+  "mos": 3.47,
+  "text": "Das ist eine Tomate.",
+  "tries": 1
+ },
  "t3_s_topf": {
   "cer": 0.0,
   "dur": 1.13,
@@ -3101,6 +3413,22 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_station_fertig2": {
+  "cer": 0.0,
+  "dur": 2.88,
+  "hyp": "Super. Noch ein Stern für dich.",
+  "mos": 3.32,
+  "text": "Super! Noch ein Stern für dich!",
+  "tries": 1
+ },
+ "t3_station_fertig3": {
+  "cer": 0.0,
+  "dur": 3.28,
+  "hyp": "Toll gemacht! Der Stern gehört dir!",
+  "mos": 3.27,
+  "text": "Toll gemacht! Der Stern gehört dir!",
+  "tries": 1
+ },
  "t3_station_naechste": {
   "cer": 0.0,
   "dur": 1.65,
@@ -3110,6 +3438,30 @@
   "text": "Tipp auf das nächste Bild!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
+ },
+ "t3_stopp": {
+  "cer": 0.0,
+  "dur": 2.41,
+  "hyp": "Stopp! Nicht bewegen!",
+  "mos": 3.01,
+  "text": "Stopp! Nicht bewegen!",
+  "tries": 1
+ },
+ "t3_stopp2": {
+  "cer": 0.0,
+  "dur": 2.67,
+  "hyp": "Stopp! Wie eine Statue.",
+  "mos": 3.34,
+  "text": "Stopp! Wie eine Statue!",
+  "tries": 1
+ },
+ "t3_stopptanz": {
+  "cer": 0.0,
+  "dur": 6.42,
+  "hyp": "Stopp-Tanz.  Wenn die Musik aufhört, bleibst du stehen wie eine Statue.",
+  "mos": 3.22,
+  "text": "Stopptanz! Wenn die Musik aufhört, bleibst du stehen wie eine Statue!",
+  "tries": 2
  },
  "t3_tanz": {
   "cer": 0.0,
@@ -3130,6 +3482,22 @@
   "text": "Toll getanzt! Und jetzt weiter.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
+ },
+ "t3_tanz_weiter": {
+  "cer": 0.0,
+  "dur": 0.83,
+  "hyp": "Und weiter.",
+  "mos": 3.31,
+  "text": "Und weiter!",
+  "tries": 1
+ },
+ "t3_tanz_weiter2": {
+  "cer": 0.0,
+  "dur": 1.17,
+  "hyp": "Weiter tanzen.",
+  "mos": 3.36,
+  "text": "Weiter tanzen!",
+  "tries": 1
  },
  "t3_tiere_intro": {
   "cer": 0.0,
@@ -3460,6 +3828,22 @@
   "text": "Teddy!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
+ },
+ "t3_w_tisch": {
+  "cer": 0.0,
+  "dur": 0.5,
+  "hyp": "Tisch!",
+  "mos": 2.82,
+  "text": "Tisch!",
+  "tries": 1
+ },
+ "t3_w_tomate": {
+  "cer": 0.0,
+  "dur": 0.82,
+  "hyp": "Tomate!",
+  "mos": 3.37,
+  "text": "Tomate!",
+  "tries": 1
  },
  "t3_w_topf": {
   "cer": 0.0,

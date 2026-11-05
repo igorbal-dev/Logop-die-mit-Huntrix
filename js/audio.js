@@ -130,12 +130,18 @@
     fanfare(){ [523, 659, 784, 1046].forEach((f, i) => this.tone(f, f, 260, 'triangle', .18, i*.14)); }
   };
 
-  /* ---------- музыка для танцпаузы: весёлый бит 118 уд/мин, синтез без файлов ---------- */
-  A.music = (sec) => {
+  /* ---------- музыка для танцпаузы: весёлый бит, синтез без файлов. 4 разные песенки (style 0–3), чтобы танец не повторялся ---------- */
+  const SONGS = [
+    {bpm: 118, chords: [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]], mel: [69, 72, 76, 72, 74, 72, 69, 67]},     /* Am F C G */
+    {bpm: 128, chords: [[48, 52, 55], [55, 59, 62], [57, 60, 64], [53, 57, 60]], mel: [72, 74, 76, 79, 76, 74, 72, 67]},     /* C G Am F */
+    {bpm: 104, chords: [[50, 53, 57], [55, 59, 62], [48, 52, 55], [57, 61, 64]], mel: [74, 77, 81, 77, 76, 74, 73, 69]},     /* Dm G C A — «пиратская» */
+    {bpm: 136, chords: [[53, 57, 60], [48, 52, 55], [50, 53, 57], [46, 50, 53]], mel: [77, 76, 72, 69, 72, 74, 76, 72]}];    /* F C Dm B♭ */
+  A.SONGS = SONGS.length;
+  A.music = (sec, style = 0) => {
     if (!A.ctx) return {stop(){}};
     const c = A.ctx, master = c.createGain(); master.gain.value = .55; master.connect(c.destination);
-    const bpm = 118, beat = 60/bpm, t0 = c.currentTime + .05, bars = Math.ceil(sec/(beat*4));
-    const chords = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]];     /* Am F C G */
+    const song = SONGS[style % SONGS.length], bpm = song.bpm, beat = 60/bpm, t0 = c.currentTime + .05, bars = Math.ceil(sec/(beat*4));
+    const chords = song.chords;
     const hz = m => 440*Math.pow(2, (m - 69)/12);
     const note = (f, t, d, type, v, dest = master) => { const o = c.createOscillator(), g = c.createGain(); o.type = type; o.frequency.value = f;
       g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + .01); g.gain.exponentialRampToValueAtTime(.001, t + d); o.connect(g).connect(dest); o.start(t); o.stop(t + d + .05); };
@@ -144,7 +150,7 @@
     const hat = (t, v) => { const n = Math.round(c.sampleRate*.05), b = c.createBuffer(1, n, c.sampleRate), d = b.getChannelData(0);
       for (let i = 0; i < n; i++) d[i] = (Math.random()*2 - 1)*(1 - i/n); const s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain();
       s.buffer = b; f.type = 'highpass'; f.frequency.value = 7000; g.gain.value = v; s.connect(f).connect(g).connect(master); s.start(t); };
-    const mel = [69, 72, 76, 72, 74, 72, 69, 67];
+    const mel = song.mel;
     for (let bar = 0; bar < bars; bar++){
       const ch = chords[bar % 4], tb = t0 + bar*beat*4;
       for (let b = 0; b < 4; b++){

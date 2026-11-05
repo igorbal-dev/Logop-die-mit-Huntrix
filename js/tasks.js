@@ -234,14 +234,22 @@
 
   /* набор дыхательных игр урока; на втором круге — случайные, но не те же, что в прошлом уроке */
   X.BREATH = {pusteblume: X.dandelion, kerzen: X.candles, ballon: X.balloon, floete: X.flute, suppe: X.soup, blasen: X.bubbles, windrad: X.pinwheel, blaetter: X.leaves, wolke: X.cloud, rennen: X.boat};
-  X.pickBreath = (planned, level) => {
-    if (!level) return planned;
-    let last = []; try { last = JSON.parse(localStorage.getItem('sa-breath-last') || '[]'); } catch(e){}
-    const pool = SA.shuffle(Object.keys(X.BREATH).filter(k => !last.includes(k)));
-    const pick = pool.slice(0, planned.length);
-    try { localStorage.setItem('sa-breath-last', JSON.stringify(pick)); } catch(e){}
+  /* общий выбор «свежих» игр: на первом круге — план урока; дальше — случайные из всех, но не те, что были в прошлый раз.
+     Запоминается всегда, что сыграно, — чтобы первый урок второго круга не повторил последний урок первого. */
+  X.pickFresh = (store, all, planned, level) => {
+    let last = []; try { last = JSON.parse(localStorage.getItem(store) || '[]'); } catch(e){}
+    let pick = planned;
+    if (level){ const pool = SA.shuffle(all.filter(k => !last.includes(k))); pick = pool.length >= planned.length ? pool.slice(0, planned.length) : SA.shuffle(all).slice(0, planned.length); }
+    try { localStorage.setItem(store, JSON.stringify(pick)); } catch(e){}
     return pick;
   };
+  /* зеркало: на втором круге — к плану урока добавляется одно другое упражнение, порядок перемешан */
+  X.pickMirror = (planned, level) => {
+    if (!level) return planned;
+    const extra = SA.shuffle(Object.keys(EX).filter(k => !planned.includes(k)))[0];
+    return SA.shuffle([...planned, extra]);
+  };
+  X.pickBreath = (planned, level) => X.pickFresh('sa-breath-last', Object.keys(X.BREATH), planned, level);
 
   X.hiss = async (kind) => {
     const b = board(), c = X.bigCard(b, SA.pic(kind === 'zug' ? 'zug' : 'schlange'));
@@ -340,25 +348,46 @@
     T.face(1); await X.praise(1, null);
   };
 
-  /* ========== ТАНЦПАУЗА ========== */
+  /* ========== ТАНЦПАУЗА ==========
+     Каждый раз другая песенка; через раз — «Stopptanz»: музыка замолкает → замри, как статуя (весело и тренирует внимание на слух). */
   X.dance = async (n, sec = 20) => {
-    if (SA.quick()) sec = 5;
+    let last = {}; try { last = JSON.parse(localStorage.getItem('sa-dance-last') || '{}'); } catch(e){}
+    const style = ((last.style ?? -1) + 1) % A.SONGS, freeze = !last.freeze;
+    if (SA.quick()) sec = freeze ? 10 : 5;
+    try { localStorage.setItem('sa-dance-last', JSON.stringify({style, freeze})); } catch(e){}
     const b = board(), row = SA.el('div', 'cards');
     const others = [1, 2, 3].filter(k => k !== n);
     for (const k of others){ const c = SA.el('div', 'card'); c.style.cssText = 'background:transparent;box-shadow:none;width:44%;max-width:44%;aspect-ratio:2/3;padding:0'; c.innerHTML = `<img class="pic" style="object-fit:contain" src="${T.src(k, 'body_dance')}" alt="">`; c.classList.add('wobble'); row.appendChild(c); }
     b.appendChild(row);
-    T.body(n, 'hello'); await say(n === 1 ? 't1_tanz' : 't3_tanz');
-    T.dance(n, true);
-    const mus = A.music(sec), has2 = k => !!T.img[`${k}_body_dance2`];
-    const t0 = SA.now(); let f = 0;
-    try {
-      while (SA.now() - t0 < sec*1000/SA.SPEED){
-        await sleep(500); f++;
-        const imgs = row.querySelectorAll('img');
-        others.forEach((k, i) => { if (has2(k)) imgs[i].src = T.src(k, f % 2 ? 'body_dance2' : 'body_dance'); });
-        if (has2(n)) SA.$('#tview img').src = T.src(n, f % 2 ? 'body_dance2' : 'body_dance');
+    T.body(n, 'hello'); await say(freeze ? 't3_stopptanz' : n === 1 ? 't1_tanz' : 't3_tanz');
+    const has2 = k => !!T.img[`${k}_body_dance2`];
+    const imgs = row.querySelectorAll('img');
+    let f = 0;
+    const move = async ms => {
+      const mus = A.music(ms/1000 + .7, style), t0 = SA.now();
+      T.dance(n, true); row.querySelectorAll('.card').forEach(c => c.classList.add('wobble'));
+      try {
+        while (SA.now() - t0 < ms/SA.SPEED){
+          await sleep(500); f++;
+          others.forEach((k, i) => { if (has2(k)) imgs[i].src = T.src(k, f % 2 ? 'body_dance2' : 'body_dance'); });
+          if (has2(n)) SA.$('#tview img').src = T.src(n, f % 2 ? 'body_dance2' : 'body_dance');
+        }
+      } finally { mus.stop(); T.dance(n, false); }
+    };
+    if (!freeze) await move(sec*1000);
+    else {
+      /* 3 замирания в случайные моменты; пауза короткая, чтобы не скучно */
+      const parts = [0.22, 0.25, 0.23, 0.3].map(p => p*sec*1000*(0.8 + Math.random()*0.4));
+      for (let i = 0; i < parts.length; i++){
+        await move(parts[i]);
+        if (i === parts.length - 1) break;
+        row.querySelectorAll('.card').forEach(c => c.classList.remove('wobble'));
+        T.body(n, 'listen'); A.sfx.tone(880, 440, 260, 'triangle', .2);
+        await say(SA.pick(['t3_stopp', 't3_stopp2']));
+        await sleep(1800);
+        await say(SA.pick(['t3_tanz_weiter', 't3_tanz_weiter2']));
       }
-    } finally { mus.stop(); T.dance(n, false); }
+    }
     T.body(n, 'praise'); await say(n === 1 ? 't1_tanz_ende' : 't3_tanz_ende');
     P.item({block: 'dance', id: 'tanz', kind: 'dance', result: 'done'});
   };
@@ -554,9 +583,9 @@
     X.help(3, intro ? [intro] : null);
     await X.repeatItem({id: 'silbe:' + key.replace('t3_', ''), model: key, vis: face || 'talk_open', words: 3, showPic: b, hear});
   };
-  const WVIS = {auto: 'talk_open', ei: 'talk_open', ball: 'talk_open', baum: 'talk_open', oma: 'talk_o', puppe: 'talk_u', mama: 'talk_open', papa: 'talk_open', maus: 'talk_open', mond: 'talk_o',
+  const WVIS = X.WVIS = {auto: 'talk_open', ei: 'talk_open', ball: 'talk_open', baum: 'talk_open', oma: 'talk_o', puppe: 'talk_u', mama: 'talk_open', papa: 'talk_open', maus: 'talk_open', mond: 'talk_o',
     banane: 'talk_open', tuer: 'talk_u', teddy: 'talk_half', nase: 'talk_open', nudel: 'talk_u', loeffel: 'talk_half', lampe: 'talk_open', kuh: 'talk_u', katze: 'talk_open',
-    keks: 'talk_i', kuchen: 'talk_u', gabel: 'talk_open', gurke: 'talk_u', kopf: 'talk_o', topf: 'talk_o', kanne: 'talk_open', tanne: 'talk_open', tasche: 'talk_open', tasse: 'talk_open', schlange: 'talk_open', zug: 'talk_u'};
+    keks: 'talk_i', kuchen: 'talk_u', gabel: 'talk_open', gurke: 'talk_u', kopf: 'talk_o', topf: 'talk_o', kanne: 'talk_open', tanne: 'talk_open', tasche: 'talk_open', tasse: 'talk_open', tomate: 'talk_o', tisch: 'talk_i', schlange: 'talk_open', zug: 'talk_u'};
   /* слово: учительница называет картинку (учим слово, раз за упражнение), потом образец и повтор */
   X.word = async (w, hear) => {
     const b = board(); X.bigCard(b, SA.pic(w));
@@ -566,39 +595,7 @@
     await X.repeatItem({id: 'wort:' + w, model: 't3_w_' + w, vis: WVIS[w], showPic: b, hear});
   };
 
-  /* ========== ИГРЫ-ЗАКРЕПЛЕНИЕ (Zoey): те же слова, каждое сказанное — шаг в игре; игра не наказывает ========== */
-  X.game = async (kind, words) => {
-    X.earOff();
-    const b = board();
-    const shelf = SA.el('div', 'shelf'); b.appendChild(shelf);
-    let stage = null, rocket = null, fuel = 0;
-    const intro = {kiste: 't3_spiel_intro', rakete: 't3_rakete_intro', fuettern: 't3_fuettern_intro'}[kind];
-    const ru = {kiste: 't3_ru_spiel', rakete: 't3_ru_rakete', fuettern: 't3_ru_fuettern'}[kind];
-    if (kind === 'kiste'){ stage = SA.el('div', ''); stage.style.cssText = 'position:absolute;left:30%;width:40%;top:22%;aspect-ratio:1'; stage.innerHTML = SA.pic('kiste', false); b.appendChild(stage); }
-    if (kind === 'rakete'){ rocket = SA.el('div', ''); rocket.style.cssText = 'position:absolute;left:36%;width:28%;top:6%;aspect-ratio:1;transition:transform 1.2s cubic-bezier(.5,0,.8,.3)'; rocket.innerHTML = SA.pic('rakete', 0); b.appendChild(rocket); }
-    let pet = null;
-    if (kind === 'fuettern'){ pet = SA.el('div', ''); pet.style.cssText = 'position:absolute;left:34%;width:32%;top:10%;aspect-ratio:1'; pet.innerHTML = SA.pic(SA.pick(['hund', 'katze', 'baer'])); b.appendChild(pet); }
-    const peek = SA.el('div', ''); peek.style.cssText = 'position:absolute;left:38%;width:24%;top:14%;aspect-ratio:1;opacity:0;transition:transform .35s,opacity .25s'; b.appendChild(peek);
-    if (kind !== 'kiste') peek.style.cssText = 'position:absolute;left:4%;width:24%;top:22%;aspect-ratio:1;opacity:0;transition:transform .35s,opacity .25s';
-    X.help(3, [intro]);
-    T.body(3, 'explain'); if (X.once('game_' + kind)) await say(intro);
-    let k = 0;
-    for (const w of words){
-      if (left() < 6 && k > 2) break;
-      peek.innerHTML = SA.pic(w); peek.style.opacity = '1'; peek.style.transform = kind === 'kiste' ? 'translateY(30%) scale(.8)' : 'scale(1)';
-      if (stage){ stage.innerHTML = SA.pic('kiste', false); stage.classList.add('wobble'); await sleep(250); stage.classList.remove('wobble'); }
-      T.body(3, 'point');
-      await X.repeatItem({id: `spiel:${w}`, model: 't3_w_' + w, vis: WVIS[w], block: 'game', prompts: [k === 0 ? 't3_spiel_sag' : 't3_spiel_sag2', 't3_jetzt_du2', ru]});
-      A.sfx.pop();
-      if (kind === 'kiste'){ stage.innerHTML = SA.pic('kiste', true); peek.style.transform = 'translateY(-40%) scale(1.1)'; await sleep(300); shelf.appendChild(SA.el('div', 'pop', SA.pic(w))); }
-      if (kind === 'rakete'){ fuel = Math.min(1, fuel + 1/words.length); rocket.innerHTML = SA.pic('rakete', fuel); peek.style.transform = 'translate(150%,-40%) scale(.3)'; await sleep(300); shelf.appendChild(SA.el('div', 'pop', SA.pic(w))); }
-      if (kind === 'fuettern'){ peek.style.transform = 'translate(140%,-10%) scale(.35)'; await sleep(350); pet.classList.remove('pop'); void pet.offsetWidth; pet.classList.add('pop'); A.sfx.tone(500, 300, 180, 'triangle', .2); shelf.appendChild(SA.el('div', 'pop', SA.pic(w))); }
-      peek.style.opacity = '0'; k++;
-    }
-    X.earOff(); X.marks(null);
-    if (kind === 'rakete'){ rocket.innerHTML = SA.pic('rakete', 1); await say('t3_rakete_start'); A.sfx.whoosh(); rocket.style.transform = 'translateY(-160%)'; await sleep(1200); }
-    T.body(3, 'praise'); A.sfx.fanfare(); await say(kind === 'fuettern' ? 't3_fuettern_ende' : 't3_spiel_ende');
-  };
+  /* игры-закрепление — js/games.js */
 
   /* ========== ИТОГ УРОКА: яйцо и прощание ========== */
   X.finale = async (res) => {
