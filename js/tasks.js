@@ -296,7 +296,7 @@
   /* одно упражнение: объяснение (один раз) + показ → ребёнок держит позу. Камера: держать ~1 с (смена позы — для чередований);
      без камеры/язык: старание 3,5 с засчитывается таймером. Повторов: проще 1, обычно 2, сложнее 3 */
   X.exercise = async (id, o = {}) => {
-    const e = EX[id], reps = o.level > 0 ? 3 : o.level < 0 ? 1 : 2, holdMs = o.level > 0 ? 1500 : 900;
+    const e = EX[id], reps = SA.quick() ? 1 : o.level > 0 ? 3 : o.level < 0 ? 1 : 2, holdMs = o.level > 0 ? 1500 : 900;
     X.help(1, [e.say[0]]);
     T.face(1); await say(e.say[0]);
     demo(e);
@@ -342,6 +342,7 @@
 
   /* ========== ТАНЦПАУЗА ========== */
   X.dance = async (n, sec = 20) => {
+    if (SA.quick()) sec = 5;
     const b = board(), row = SA.el('div', 'cards');
     const others = [1, 2, 3].filter(k => k !== n);
     for (const k of others){ const c = SA.el('div', 'card'); c.style.cssText = 'background:transparent;box-shadow:none;width:44%;max-width:44%;aspect-ratio:2/3;padding:0'; c.innerHTML = `<img class="pic" style="object-fit:contain" src="${T.src(k, 'body_dance')}" alt="">`; c.classList.add('wobble'); row.appendChild(c); }

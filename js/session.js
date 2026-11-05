@@ -22,6 +22,7 @@
     /* какой по счёту урок — точками (ребёнок не читает) */
     const total = SA.LESSONS.length, dots = SA.$('#lessonDots'); dots.innerHTML = '';
     for (let i = 1; i <= total; i++) dots.appendChild(SA.el('i', i < pr.lesson ? 'on' : i === pr.lesson ? 'now' : ''));
+    SA.$('#quickBadge').hidden = !SA.quick();
     const d = P.load(); SA.$('#mapEgg').innerHTML = SA.eggSVG(Math.min(d.egg.filled, d.settings.eggTarget)/d.settings.eggTarget, d.settings.eggTarget, d.settings.rewardImg);
     /* подсказка: «нажми на следующую картинку» — первые разы и если ребёнок ничего не нажимает */
     clearTimeout(idleTimer);
@@ -33,7 +34,7 @@
     if (busy) return;
     const pr = P.prog(), next = pr.done.indexOf(false);
     /* порядок методический: можно повторить сделанное или начать следующее, но не перескакивать */
-    if (!pr.done[i] && i !== next){ A.sfx.soft(); const b = SA.$('#stations').querySelectorAll('.st')[next]; if (b){ b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); } return; }
+    if (!pr.done[i] && i !== next && !SA.quick()){ A.sfx.soft(); const b = SA.$('#stations').querySelectorAll('.st')[next]; if (b){ b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); } return; }
     clearTimeout(idleTimer); A.cut();
     busy = true;
     try { await runExercise(pr.lesson, i, !pr.done.some(Boolean) && i === 0); }
