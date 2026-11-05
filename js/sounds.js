@@ -5,7 +5,7 @@
    отметить можно и потом, послушав записи в родительском разделе. Логопедия:
    - звук в словах не требуем, пока он не получается отдельно и в слогах (иначе закрепляется неправильный);
    - перед звуком — гимнастика именно для него (комплекс mirror), и объяснение, как его сделать (по-немецки и по-русски);
-   - смычные K/G, T/D и L тренируются сразу в слогах (этап «отдельно» пропускается); у Ch (ich) нет слов «в начале». */
+   - смычные K/G, T/D, а также L и R тренируются сразу в слогах (синтезатор не может честно сказать их отдельно) (этап «отдельно» пропускается); у Ch (ich) нет слов «в начале». */
 (function(){
   const STAGES = ['hoeren', 'allein', 'silben', 'anfang', 'ende', 'satz'];
   const STAGE_RU = {hoeren: 'слушаем', allein: 'звук отдельно', silben: 'в слогах', anfang: 'в начале слова', ende: 'в середине и конце слова', satz: 'во фразе'};
@@ -28,7 +28,7 @@
       phr: [['t3_p_z1', 'Der Zug ist lang.', 'zug'], ['t3_p_z2', 'Die Katze schläft.', 'katze'], ['t3_p_z3', 'Das Zebra hat Streifen.', 'zebra'], ['t3_p_z4', 'Ich mag Pizza.', 'pizza']],
       mirror: ['zaun', 'berg', 'zaehne', 'pfannkuchen'],
       tip: 'Z — это быстро «т» и «с» вместе (тс). Сначала должен получаться S. Частая замена — просто «с» или «т».'},
-    kg: {name: 'K / G', ru: 'К / Г', sym: 'specht', face: 'snd_k', iso: null, syl: 't3_r_ka', syl3: 't3_r_ga', syl2: 't3_rr_k',
+    kg: {name: 'K / G', ru: 'К / Г', sym: 'specht', face: 'snd_k', iso: null, syl: 't3_r_ka', syl3: 't3_r_ga', syl2: null,
       start: ['kuh', 'katze', 'keks', 'kopf', 'gabel', 'gurke', 'gans'], end: ['rakete', 'socke', 'schnecke', 'vogel'],
       phr: [['t3_p_kg1', 'Die Kuh macht muh.', 'kuh'], ['t3_p_kg2', 'Ich esse einen Keks.', 'keks'], ['t3_p_kg3', 'Die Gans ist groß.', 'gans'], ['t3_p_kg4', 'Die Rakete fliegt.', 'rakete']],
       mirror: ['berg', 'kinn', 'loewe', 'zaun'], pairs: [['kopf', 'topf'], ['kanne', 'tanne']],
@@ -38,7 +38,7 @@
       phr: [['t3_p_l1', 'Der Löwe ist stark.', 'loewe'], ['t3_p_l2', 'Die Lampe ist hell.', 'lampe'], ['t3_p_l3', 'Ich spiele Ball.', 'ball'], ['t3_p_l4', 'Der Teller ist leer.', 'teller']],
       mirror: ['nadel', 'schaukel', 'zaehne', 'maler'], extra: ['pferd'],
       tip: 'Кончик языка поднят за верхние зубы и держится там. Немецкий L мягче русского «л». Частые замены — «й» или «в» (Jöwe, Wöwe).'},
-    r: {name: 'R', ru: 'Р', sym: 'rakete', iso: 't3_laut_r', syl: 't3_r_r', syl2: 't3_rr_r',
+    r: {name: 'R', ru: 'Р', sym: 'rakete', iso: null, syl: 't3_r_r', syl2: 't3_rr_r',
       start: ['rakete', 'rad', 'rose', 'ring'], end: ['birne', 'moehre', 'zebra'],
       phr: [['t3_p_r1', 'Die Rose ist rot.', 'rose'], ['t3_p_r2', 'Das Rad dreht sich.', 'rad'], ['t3_p_r3', 'Die Rakete fliegt.', 'rakete'], ['t3_p_r4', 'Die Möhre ist lecker.', 'moehre']],
       mirror: ['pilz', 'maler', 'schaukel', 'loewe'], extra: ['pferd'],
@@ -54,7 +54,7 @@
       mirror: ['zaun', 'kuss', 'wechsel', 'hamster'],
       tip: 'Верхние зубы слегка касаются нижней губы и дуем. Частая замена — P/B (Pisch вместо Fisch). Хорошо помогает «задуть свечку» звуком ффф.'},
     td: {name: 'T / D', ru: 'Т / Д', sym: 'trommel', iso: null, syl: 't3_r_ta', syl3: 't3_r_da', syl2: 't3_rr_t',
-      start: ['tisch', 'teddy', 'tomate', 'tasse', 'dose', 'dach'], end: ['auto', 'nudel', 'rakete', 'hut', 'brot'],
+      start: ['tisch', 'teddy', 'tomate', 'tasse', 'dose', 'dach'], end: ['auto', 'nudel', 'rakete', 'brot'],
       phr: [['t3_p_td1', 'Der Teddy ist weich.', 'teddy'], ['t3_p_td2', 'Das Auto ist schnell.', 'auto'], ['t3_p_td3', 'Ich esse Brot.', 'brot'], ['t3_p_td4', 'Die Tomate ist rot.', 'tomate']],
       mirror: ['nadel', 'schaukel', 'zaehne', 'pfannkuchen'], pairs: [['topf', 'kopf'], ['tanne', 'kanne']],
       tip: 'Кончик языка стучит за верхними зубами. Частая замена — K/G (Kasse вместо Tasse) или наоборот.'}

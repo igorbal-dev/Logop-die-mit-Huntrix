@@ -2687,16 +2687,6 @@
    "lang": "de",
    "text": "Das ist ein Dach."
   },
-  "t3_w_hut": {
-   "t": 3,
-   "lang": "de",
-   "text": "Hut!"
-  },
-  "t3_s_hut": {
-   "t": 3,
-   "lang": "de",
-   "text": "Das ist ein Hut."
-  },
   "t3_w_brot": {
    "t": 3,
    "lang": "de",
@@ -2715,7 +2705,7 @@
   "t2_hoer2_sch": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein Sch?"
+   "text": "Hörst du den Zug?"
   },
   "t2_ru_hoer_sch": {
    "t": 2,
@@ -2730,7 +2720,7 @@
   "t3_ru_laut_sch": {
    "t": 3,
    "lang": "ru",
-   "text": "Губы вперёд рупором, язычок чашечкой наверху, и дуем тёплым воздухом: ш-ш-ш."
+   "text": "Губы вперёд рупором, язычок чашечкой наверху, и дуем тёплым воздухом, как паровоз."
   },
   "t2_hoer_s": {
    "t": 2,
@@ -2740,7 +2730,8 @@
   "t2_hoer2_s": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein S?"
+   "text": "Ist da ein S?",
+   "say": "Ist da ein Sss?"
   },
   "t2_ru_hoer_s": {
    "t": 2,
@@ -2805,7 +2796,7 @@
   "t3_ru_laut_kg": {
    "t": 3,
    "lang": "ru",
-   "text": "Кончик языка остаётся внизу за зубками, а спинка поднимается горкой: к-к-к."
+   "text": "Кончик языка остаётся внизу за зубками, а спинка поднимается горкой. Звук идёт из горла."
   },
   "t2_hoer_l": {
    "t": 2,
@@ -2850,7 +2841,7 @@
   "t3_laut_intro_r": {
    "t": 3,
    "lang": "de",
-   "text": "Das R brummt ganz hinten im Hals, wie beim Gurgeln: Rrrr!"
+   "text": "Jetzt brummen wir ganz hinten im Hals, wie beim Gurgeln!"
   },
   "t3_ru_laut_r": {
    "t": 3,
@@ -2870,7 +2861,7 @@
   "t2_ru_hoer_ch": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь мягкое «хь», как в слове ich? Нажми на кошку. Если нет — на пустой кружок."
+   "text": "Слышишь мягкое шипение, как в слове ich? Нажми на кошку. Если нет — на пустой кружок."
   },
   "t3_laut_intro_ch": {
    "t": 3,
@@ -2880,7 +2871,7 @@
   "t3_ru_laut_ch": {
    "t": 3,
    "lang": "ru",
-   "text": "Ch как шипение кошки: хь-хь. Улыбнись, язычок горкой."
+   "text": "Немецкий звук Ch — как будто кошка тихонько шипит. Улыбнись, язычок горкой, и подуй."
   },
   "t2_hoer_fw": {
    "t": 2,
@@ -2915,7 +2906,9 @@
   "t2_hoer2_td": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein T oder D?"
+   "text": "Ist da ein T oder D?",
+   "say": "Ist da ein Te oder De?",
+   "expect": "Ist da ein T oder D?"
   },
   "t2_ru_hoer_td": {
    "t": 2,
@@ -2939,13 +2932,6 @@
    "say": "Tss, tss, tss.",
    "expect": "ts ts ts"
   },
-  "t3_laut_r": {
-   "t": 3,
-   "lang": "de",
-   "text": "Rrrr.",
-   "say": "Rrrrrr.",
-   "expect": "R"
-  },
   "t3_laut_ch": {
    "t": 3,
    "lang": "de",
@@ -2961,7 +2947,8 @@
   "t3_r_sch": {
    "t": 3,
    "lang": "de",
-   "text": "Scha, scho, schu, schi."
+   "text": "Scha, scho, schu, schi.",
+   "say": "Schaa, schoo, schuu, schii."
   },
   "t3_rr_sch": {
    "t": 3,
@@ -2971,37 +2958,37 @@
   "t3_r_s": {
    "t": 3,
    "lang": "de",
-   "text": "Sa, so, su, si."
+   "text": "Sa, so, su, si.",
+   "say": "Saa, soo, suu, sii."
   },
   "t3_rr_s": {
    "t": 3,
    "lang": "de",
-   "text": "Ass, oss, uss, iss."
+   "text": "Ass, oss, uss, iss.",
+   "say": "Ass, oss, uss, iss."
   },
   "t3_r_z": {
    "t": 3,
    "lang": "de",
-   "text": "Za, zo, zu, zi."
+   "text": "Za, zo, zu, zi.",
+   "say": "Zaa, zoo, zuu, zii."
   },
   "t3_rr_z": {
    "t": 3,
    "lang": "de",
    "text": "Atz, otz, utz, itz."
   },
-  "t3_rr_k": {
-   "t": 3,
-   "lang": "de",
-   "text": "Ak, ok, uk, ik."
-  },
   "t3_rr_l": {
    "t": 3,
    "lang": "de",
-   "text": "Al, ol, ul, il."
+   "text": "Al, ol, ul, il.",
+   "say": "All, oll, ull, ill."
   },
   "t3_r_r": {
    "t": 3,
    "lang": "de",
-   "text": "Ra, ro, ru, ri."
+   "text": "Ra, ro, ru, ri.",
+   "say": "Raa, roo, ruu, rii."
   },
   "t3_rr_r": {
    "t": 3,
@@ -3016,17 +3003,20 @@
   "t3_r_f": {
    "t": 3,
    "lang": "de",
-   "text": "Fa, fo, fu, fi."
+   "text": "Fa, fo, fu, fi.",
+   "say": "Faa, foo, fuu, fii."
   },
   "t3_rr_f": {
    "t": 3,
    "lang": "de",
-   "text": "Af, of, uf, if."
+   "text": "Af, of, uf, if.",
+   "say": "Aff, off, uff, iff."
   },
   "t3_rr_t": {
    "t": 3,
    "lang": "de",
-   "text": "At, ot, ut, it."
+   "text": "At, ot, ut, it.",
+   "say": "Att, ott, utt, itt."
   },
   "t3_p_sch1": {
    "t": 3,
