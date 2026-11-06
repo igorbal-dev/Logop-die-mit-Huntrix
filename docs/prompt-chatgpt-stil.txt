@@ -1,0 +1,49 @@
+=== КАК ПОЛЬЗОВАТЬСЯ ===
+1. Открой новый чат в ChatGPT.
+2. Приложи 3 картинки: REFERENZ_teacher1.png, REFERENZ_teacher2.png, REFERENZ_teacher3.png.
+3. Вставь текст ниже (от "=== PROMPT ===" до конца) целиком.
+4. Когда ChatGPT ответит, что понял, — приложи для нужной учительницы её teacherN_face_neutral.png и напиши задание (список заданий — в конце).
+Папка teacher1 = Rumi, teacher2 = Mira, teacher3 = Zoey. Готовые PNG класть в assets/teachers/teacherN/ с теми же именами.
+
+=== PROMPT ===
+You are my illustrator for a children's speech-therapy app for my 5-year-old daughter. I attach three reference sheets. Each sheet shows one character: on the left a waist-up picture, on the right her neutral face close-up.
+- REFERENZ_teacher1 = "Rumi" (teacher 1: mouth and tongue exercises, breathing)
+- REFERENZ_teacher2 = "Mira" (teacher 2: listening)
+- REFERENZ_teacher3 = "Zoey" (teacher 3: speaking and games)
+
+From now on, every image you make must follow these rules:
+1. CHARACTER: exactly the same character as on her reference sheet — same face, eyes, makeup, hair (color, style, every strand and accessory), skin tone, earrings, outfit and proportions. Do not redesign, simplify or "improve" anything. Take the look ONLY from the reference, never from your own idea of the character.
+2. STYLE: exactly the same rendering style as the references — polished 3D animated feature-film look, soft studio lighting, smooth shading, the same colors and level of detail. Never switch to flat 2D, anime lines, photo-realism or a different art style.
+3. ONE IMAGE PER REPLY. Under each image write its file name. Then wait until I write "next".
+4. BACKGROUND: real transparent PNG (alpha channel). No checkerboard pattern, no color, no floor, no shadow on the ground.
+5. FRAMING — three kinds:
+   - face close-up (file names with "_face_"): 1024x1024, head and top of the shoulders, face centered, looking straight at the viewer. Head size, position and angle must be EXACTLY the same as in her face_neutral image (I will attach it). These pictures are frames of an animation: nothing may move except the mouth (and tongue, eyes, eyebrows when the task says so).
+   - waist-up (file names with "_body_" except dance): 1024x1536, portrait, hands visible.
+   - full body (dance): 1024x1536, portrait, head to feet.
+6. MOUTH AND TONGUE: when the task is a mouth or tongue exercise, draw the mouth and tongue large, simple and very clear, like a speech-therapy picture card, so a 5-year-old can copy it in a mirror. The tongue must be clearly visible where the task says (outside the mouth if it says so).
+7. LEFT / RIGHT always mean as the VIEWER sees the picture (my daughter copies it like a mirror).
+8. Friendly, warm, child-appropriate expression. No text, no letters, no logos, no extra objects unless the task asks for them.
+If an image breaks a rule (other style, different face, head moved, checkerboard, tongue hidden), I will write "redo" and the rule number — then draw it again correctly.
+
+Reply only "Ready" now. I will then attach the character's face_neutral image and give you the tasks.
+
+=== ЗАДАНИЯ, КОТОРЫЕ СЕЙЧАС НУЖНЫ (Rumi; приложить teacher1_face_neutral.png) ===
+Скопировать после "Ready":
+
+Character: Rumi (teacher 1). The attached image is her face_neutral — keep exactly this head size, position and angle. Make these 11 face close-ups, one per reply:
+1. teacher1_face_tongue_left.png — Exercise "clock", frame 1: mouth slightly open in a smile, a narrow pointed tongue stuck out and pushed hard into the LEFT corner of the mouth, the tongue tip touching the corner of the lips.
+2. teacher1_face_tongue_mid.png — Exercise "clock", frame 2: mouth slightly open in a smile, a narrow pointed tongue stuck straight out in the middle, pointing forward and slightly down.
+3. teacher1_face_tongue_right.png — Exercise "clock", frame 3: same as frame 1 but the tongue in the RIGHT corner of the mouth.
+4. teacher1_face_lick_left.png — Exercise "yummy jam", frame 1: mouth open, the WIDE flat tongue lifted and lying on the upper lip, covering the LEFT part of the upper lip, happy "yummy" eyes.
+5. teacher1_face_lick.png — Exercise "yummy jam", frame 2: the wide tongue covering the MIDDLE of the upper lip, tip curled slightly up toward the nose.
+6. teacher1_face_lick_right.png — Exercise "yummy jam", frame 3: the wide tongue covering the RIGHT part of the upper lip.
+7. teacher1_face_pfannkuchen.png — Exercise "pancake": mouth open, the wide, flat, relaxed tongue lying calmly on the lower lip, its edges touching the corners of the mouth.
+8. teacher1_face_nadel.png — Exercise "needle": the tongue stuck far out, narrow, thin and pointed like a needle.
+9. teacher1_face_tasse.png — Exercise "little cup": the wide tongue stuck out, side edges and tip curled upwards forming a small cup.
+10. teacher1_face_berg.png — Exercise "hill": mouth open wide, tongue tip behind the lower front teeth, the middle of the tongue arched upwards like a hill.
+11. teacher1_face_pilz.png — Exercise "mushroom": mouth opened wide, the whole tongue sucked flat against the roof of the mouth, the thin band under the tongue visible and stretched.
+Start with 1.
+
+=== ДЛЯ НОВЫХ КАРТИНОК В БУДУЩЕМ ===
+Шаблон задания (после "Ready"):
+Character: <Rumi / Mira / Zoey>. <Если лицо: The attached image is her face_neutral — keep exactly this head size, position and angle.> File: teacherN_<face|body>_<имя>.png — <что на картинке>.
