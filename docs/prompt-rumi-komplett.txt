@@ -1,2 +1,22 @@
-Промпт для ChatGPT: весь набор Rumi (33 картинки + листы анимаций). Приложить образец Rumi, вставить текст ниже.
-(текст — в чате 07.11; ключевое: один дизайн языка, кончик всегда круглый, наборы анимаций A–E,H рисуются сначала листом 1536x1024, потом по кадрам)
+Промпт для ChatGPT: весь набор Rumi (33 картинки + листы анимаций A–E, H). Приложить образец Rumi и вставить текст ниже.
+Ключевое: один дизайн языка (кончик всегда круглый), наборы анимаций сначала листом 1536x1024, потом по кадрам; лист можно прислать Claude — он разрежет на кадры.
+Полный текст промпта — в сообщении Claude от 07.11 (тот же, что ниже кратко):
+
+I attach one reference image of the character "Rumi". You are my illustrator for a children's speech-therapy app for my 5-year-old daughter. Draw the complete set of Rumi images listed below.
+I am not available. Generate ALL images in order, one after another, without stopping, without asking me anything. Under each image write its exact file name. If you reach a limit, stop; later I will write "continue" and you go on with the next number.
+
+GENERAL RULES: 1) same character as the reference (face, hair, accessories, outfit, proportions), look only from the reference; 2) polished 3D animated feature-film style, same in all images; 3) real transparent PNG background; 4) LEFT/RIGHT as the VIEWER sees it; 5) friendly, no text/logos/extra objects.
+FACE CLOSE-UPS: 1024x1024, head and top of shoulders, centered, looking at viewer. F0 (neutral) is the ANCHOR: head size, position, angle, hair, earrings, shoulders identical in every face image; only mouth, tongue, cheeks, eyes change (animation frames).
+THE TONGUE (one design for all): realistic soft cartoon-friendly human tongue, same pink, same thickness, subtle middle line, soft highlight. TIP ALWAYS ROUNDED — never sharp, triangular or forked. "Wide" = relaxed, flat, broad (as wide as the mouth opening). "Narrow" = same tongue tensed, sides pulled in, about half as wide, a bit longer, tip still rounded like a fingertip. Large and clear like a speech-therapy picture card.
+ANIMATION SETS (A,B,C,D,E,H): first a SHEET 1536x1024 with all frames side by side (rumi_sheet_<letter>.png), same face, only the described part changes; then each frame as its own image copying head from F0 and mouth/tongue from the sheet. Frames loop every 0.7 s.
+
+F0 teacher1_face_neutral — calm face, gentle smile, mouth closed (ANCHOR).
+SET A talking F0→A1→A2: A1 talk_half — mouth half open, tongue low inside; A2 talk_open — open as on loud "aah", tongue low inside.
+SET B clock B1→B2→B3→B2: B1 tongue_left — slight smile, NARROW tongue out to the LEFT mouth corner, rounded tip touching it; B2 tongue_mid — same tongue straight out in the center, forward and a little down; B3 tongue_right — mirror of B1.
+SET C yummy jam C1→C2→C3→C2: C1 lick_left — WIDE tongue curled up onto the upper lip, covering its LEFT part, yummy eyes; C2 lick — middle of upper lip; C3 lick_right — right part.
+SET D swing D1→D2: D1 tongue_up — NARROW tongue out, stretching up toward the nose; D2 tongue_down — stretching down toward the chin.
+SET E smile↔kiss: E1 smile — very wide smile, teeth closed and visible; E2 kiss — lips pushed far forward into a round tube.
+SINGLE POSES: S1 smell (eyes closed, smelling a flower, mouth closed); S2 blow (lips small tube, cheeks slightly puffed); S3 open_wide (lion, mouth as wide as possible, tongue flat low); S4 cheeks (hamster, both cheeks puffed, lips closed); S5 tongue_out (WIDE relaxed tongue straight out and down over the lower lip); S6 pfannkuchen (WIDE flat relaxed tongue lying calmly on the lower lip, edges touching both corners); S7 nadel (NARROW tensed tongue far straight out, thin, tip rounded); S8 tasse (WIDE tongue out, side and front edges curled UP forming a shallow bowl); S9 berg (mouth open wide, tip behind lower front teeth, middle arched UP like a hill); S10 pilz (mouth wide open, whole tongue pressed flat to the roof of the mouth, stretched band under the tongue visible); S11 click (tongue tip pressed to the roof just behind upper teeth, underside visible, playful eyes).
+BODY waist-up 1024x1536, W1 anchor: W1 body_hello (waving, big smile); W2 body_explain (open palm forward); W3 body_praise (thumbs up); W4 body_support (hand on heart); W5 body_bye (waving with both hands); W6 body_point (pointing to the RIGHT); W7 body_listen (hand cupped behind ear).
+SET H dance, full body 1024x1536, sheet first: H1 body_dance (both arms up, joyful K-pop pose); H2 body_dance2 (arms out, one knee bent, same scale and feet position).
+All file names start with "teacher1_face_" or "teacher1_body_" and end with ".png". Start now with F0.
