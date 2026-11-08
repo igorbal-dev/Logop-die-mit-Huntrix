@@ -23,8 +23,11 @@
     T.cfg = await SA.fetchJSON('config/teachers.json');
     /* сначала только то, что видно на старте (три приветствия), остальное догружается в фоне: T.ready */
     await Promise.all([1, 2, 3].map(n => loadOne(n, 'body_hello')));
+    /* «aligned» (config): картинки уже выровнены художником — все кадры берут положение от образца (лицо — face_neutral,
+       танец — body_dance, остальное тело — body_hello), иначе анимация «прыгает» из-за разной причёски по краям */
+    await Promise.all([1, 2, 3].filter(n => T.cfg.teachers[n].aligned).map(n => Promise.all([loadOne(n, 'face_neutral'), loadOne(n, 'body_dance')])));
     const jobs = [];
-    for (const n of [1, 2, 3]) for (const name of [...T.NEED[n].must, ...T.NEED[n].later]) if (name !== 'body_hello') jobs.push(loadOne(n, name));
+    for (const n of [1, 2, 3]) for (const name of [...T.NEED[n].must, ...T.NEED[n].later]) if (name !== 'body_hello' && !(T.cfg.teachers[n].aligned && (name === 'face_neutral' || name === 'body_dance'))) jobs.push(loadOne(n, name));
     T.ready = Promise.all(jobs);
   };
   T.name = n => T.cfg.teachers[n].name;
@@ -37,12 +40,15 @@
     const t = T.cfg.teachers[n], base = `${t.folder}/teacher${n}_${name}`;
     for (const ext of ['png', 'webp', 'jpg']){
       const im = await tryLoad(`${base}.${ext}`);
-      if (im){ try { T.img[`${n}_${name}`] = await normalize(im, name, T.cfg.adjust[`teacher${n}_${name}`]); T.real[`${n}_${name}`] = `${base}.${ext}`; } catch(e){ console.warn(e); } return; }
+      if (im){ try { const anchor = t.aligned ? (name.startsWith('face_') ? 'face_neutral' : name === 'body_dance2' ? 'body_dance' : name.startsWith('body_') && name !== 'body_dance' ? 'body_hello' : null) : null;
+        const r = await normalize(im, name, T.cfg.adjust[`teacher${n}_${name}`], anchor && anchor !== name ? TF[`${n}_${anchor}`] : null);
+        T.img[`${n}_${name}`] = r.url; TF[`${n}_${name}`] = r.tf; T.real[`${n}_${name}`] = `${base}.${ext}`; } catch(e){ console.warn(e); } return; }
     }
   }
 
   /* выравнивание: фон -> прозрачный, обрезка, по центру головы, один размер */
-  async function normalize(im, name, adj){
+  const TF = {};          /* положение каждой загруженной картинки (для «aligned») */
+  async function normalize(im, name, adj, fixed){
     const W = im.naturalWidth, H = im.naturalHeight, c = document.createElement('canvas'); c.width = W; c.height = H;
     const g = c.getContext('2d', {willReadFrequently: true}); g.drawImage(im, 0, 0);
     const d = g.getImageData(0, 0, W, H), px = d.data;
@@ -59,15 +65,22 @@
     const cx = hx1 >= 0 ? (hx0 + hx1)/2 : (x0 + x1)/2;
     g.putImageData(d, 0, 0);
     const face = name.startsWith('face_'), OW = 1024, OH = face ? 1024 : 1536;
-    const bw = x1 - x0 + 1, bh = y1 - y0 + 1;
+    if (fixed && fixed.W === W && fixed.H === H){ x0 = 0; y0 = 0; }
+    const bw = (fixed && fixed.W === W && fixed.H === H) ? W : x1 - x0 + 1, bh = (fixed && fixed.W === W && fixed.H === H) ? H : y1 - y0 + 1;
     /* лицо: по ширине плеч и низу; тело: по высоте и низу */
     let s = face ? Math.min(OW*0.96/bw, OH*0.98/bh) : Math.min(OH*0.97/bh, OW*1.4/bw);
+    const useFixed = fixed && fixed.W === W && fixed.H === H;
+    if (useFixed){ s = fixed.s; }
     if (adj && adj.scale) s *= adj.scale;
     const o = document.createElement('canvas'); o.width = OW; o.height = OH; const og = o.getContext('2d');
     og.imageSmoothingQuality = 'high';
-    const dx = OW/2 - (cx - x0)*s + (adj && adj.dx || 0)*OW, dy = OH - bh*s + (adj && adj.dy || 0)*OH;
-    og.drawImage(c, x0, y0, bw, bh, dx, dy, bw*s, bh*s);
-    return await new Promise(res => o.toBlob(b => res(URL.createObjectURL(b)), 'image/png'));
+    /* с образцом — та же матрица, что у образца (весь кадр целиком), иначе — по своей рамке */
+    const dx = useFixed ? fixed.ox : OW/2 - (cx - x0)*s + (adj && adj.dx || 0)*OW, dy = useFixed ? fixed.oy : OH - bh*s + (adj && adj.dy || 0)*OH;
+    if (useFixed) og.drawImage(c, 0, 0, W, H, dx, dy, W*s, H*s); else og.drawImage(c, x0, y0, bw, bh, dx, dy, bw*s, bh*s);
+    /* tf — как весь исходный кадр (0,0,W,H) лёг на холст: для следующих кадров с этим образцом */
+    const tf = {W, H, s, ox: useFixed ? dx : dx - x0*s, oy: useFixed ? dy : dy - y0*s};
+    const url = await new Promise(res => o.toBlob(b => res(URL.createObjectURL(b)), 'image/png'));
+    return {url, tf};
   }
   /* ровный фон: заливка от краёв всем, что похоже на цвет углов */
   function removeBg(px, W, H){
