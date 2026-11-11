@@ -829,7 +829,9 @@
   "t2_klatsch_m": {
    "t": 2,
    "lang": "de",
-   "text": "Wenn du M hörst, klatsch auf die Hand!"
+   "text": "Wenn du Mmm hörst, klatsch auf die Hand!",
+   "say": "Wenn du Mmmm hörst, klatsch auf die Hand!",
+   "expect": "Wenn du hm hörst, klatsch auf die Hand!"
   },
   "t2_klatsch2": {
    "t": 2,
@@ -839,7 +841,9 @@
   "t2_ru_klatsch_m": {
    "t": 2,
    "lang": "ru",
-   "text": "Услышишь «М» — хлопни по ладошке!"
+   "text": "Услышишь «ммм» — хлопни по ладошке!",
+   "say": "Услышишь ммммм — хлопни по ладошке!",
+   "expect": "Услышишь м — хлопни по ладошке!"
   },
   "t2_gleich_silben": {
    "t": 2,
@@ -1560,11 +1564,7 @@
   "t3_specht": {
    "t": 3,
    "lang": "de",
-   "text": "Der Specht klopft: Kaa, kaa, kaa!",
-   "alts": [
-    "Der Specht klopft: Ka! Ka! Ka!"
-   ],
-   "expect": "Der Specht klopft ka ka ka"
+   "text": "Der Specht klopft: Kah, kah, kah!"
   },
   "t1_schlange": {
    "t": 1,
@@ -1579,7 +1579,9 @@
   "t1_ru_schlange": {
    "t": 1,
    "lang": "ru",
-   "text": "Шипи, как змея!"
+   "text": "Посвисти, как змейка: ссс!",
+   "say": "Посвисти, как змейка! {s}",
+   "expect": "Посвисти, как змейка!"
   },
   "t1_zug": {
    "t": 1,
@@ -1589,12 +1591,14 @@
   "t1_zug2": {
    "t": 1,
    "lang": "de",
-   "text": "Ganz lang, wie ein Zug!"
+   "text": "Mach es wie der Zug!"
   },
   "t1_ru_zug": {
    "t": 1,
    "lang": "ru",
-   "text": "Шипи, как поезд!"
+   "text": "Пыхти, как паровозик: ш-ш-ш!",
+   "say": "Пыхти, как паровозик! {zug}",
+   "expect": "Пыхти, как паровозик!"
   },
   "t2_schlange_zug": {
    "t": 2,
@@ -1624,12 +1628,16 @@
   "t2_klatsch_sch": {
    "t": 2,
    "lang": "de",
-   "text": "Wenn du Sch hörst, klatsch auf die Hand!"
+   "text": "Wenn du Schhh hörst, klatsch auf die Hand!",
+   "say": "Wenn du {sch} hörst, klatsch auf die Hand!",
+   "expect": "Wenn du hörst, klatsch auf die Hand!"
   },
   "t2_ru_klatsch_sch": {
    "t": 2,
    "lang": "ru",
-   "text": "Услышишь «Ш» — хлопни по ладошке!"
+   "text": "Услышишь «шшш» — хлопни по ладошке!",
+   "say": "Услышишь {sch} — хлопни по ладошке!",
+   "expect": "Услышишь — хлопни по ладошке!"
   },
   "t3_sss": {
    "t": 3,
@@ -1662,8 +1670,8 @@
   "t2_schsch": {
    "t": 2,
    "lang": "de",
-   "text": "шшшш (звук)",
-   "synth": "sch"
+   "text": "ш-ш-ш-ш (паровоз, звук)",
+   "synth": "zug"
   },
   "t1_mach_mit": {
    "t": 1,
@@ -1679,8 +1687,8 @@
   "t1_schsch": {
    "t": 1,
    "lang": "de",
-   "text": "шшшш (звук)",
-   "synth": "sch"
+   "text": "ш-ш-ш-ш (паровоз, звук)",
+   "synth": "zug"
   },
   "t1_ballon_intro": {
    "t": 1,
@@ -2700,7 +2708,9 @@
   "t2_hoer_sch": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein Sch? Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Schhh? Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis.",
+   "say": "Hörst du diesen Laut? {sch} Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis.",
+   "expect": "Hörst du diesen Laut? Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_sch": {
    "t": 2,
@@ -2710,12 +2720,16 @@
   "t2_ru_hoer_sch": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь в слове «ш»? Нажми на паровозик. Если нет — на пустой кружок."
+   "text": "Слышишь в слове «шшш»? Нажми на паровозик. Если нет — на пустой кружок.",
+   "say": "Слышишь в слове такой звук? {sch} Нажми на паровозик. Если нет — на пустой кружок.",
+   "expect": "Слышишь в слове такой звук? Нажми на паровозик. Если нет — на пустой кружок."
   },
   "t3_laut_intro_sch": {
    "t": 3,
    "lang": "de",
-   "text": "Für Sch machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft: Schhh!"
+   "text": "Für Schhh machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft: Schhh!",
+   "say": "Für diesen Laut, {sch}, machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft: {sch}",
+   "expect": "Für diesen Laut, machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft."
   },
   "t3_ru_laut_sch": {
    "t": 3,
@@ -2725,23 +2739,30 @@
   "t2_hoer_s": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein S? Dann tipp auf die Schlange. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Sss? Dann tipp auf die Schlange. Wenn nicht, tipp auf den leeren Kreis.",
+   "say": "Hörst du diesen Laut? {s} Dann tipp auf die Schlange. Wenn nicht, tipp auf den leeren Kreis.",
+   "expect": "Hörst du diesen Laut? Dann tipp auf die Schlange. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_s": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein S?",
-   "say": "Ist da ein Sss?"
+   "text": "Ist da ein Sss drin?",
+   "say": "Ist da {s} drin?",
+   "expect": "Ist da drin?"
   },
   "t2_ru_hoer_s": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь в слове «с»? Нажми на змейку. Если нет — на пустой кружок."
+   "text": "Слышишь в слове «ссс»? Нажми на змейку. Если нет — на пустой кружок.",
+   "say": "Слышишь в слове такой звук? {s} Нажми на змейку. Если нет — на пустой кружок.",
+   "expect": "Слышишь в слове такой звук? Нажми на змейку. Если нет — на пустой кружок."
   },
   "t3_laut_intro_s": {
    "t": 3,
    "lang": "de",
-   "text": "Für S lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten. Kalte Luft: Sss!"
+   "text": "Für Sss lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten. Kalte Luft: Sss!",
+   "say": "Für diesen Laut, {s}, lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten. Kalte Luft: {s}",
+   "expect": "Für diesen Laut, lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten. Kalte Luft."
   },
   "t3_ru_laut_s": {
    "t": 3,
@@ -2751,47 +2772,51 @@
   "t2_hoer_z": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein Z, wie ts? Dann tipp auf den Zahn. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Tss? Dann tipp auf den Zahn. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_z": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein Z?"
+   "text": "Ist da ein Tss drin?"
   },
   "t2_ru_hoer_z": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь «ц»? Нажми на зубик. Если нет — на пустой кружок."
+   "text": "Слышишь «тс»? Нажми на зубик. Если нет — на пустой кружок.",
+   "say": "Слышишь такой звук? {z} Нажми на зубик. Если нет — на пустой кружок.",
+   "expect": "Слышишь такой звук? Нажми на зубик. Если нет — на пустой кружок."
   },
   "t3_laut_intro_z": {
    "t": 3,
    "lang": "de",
-   "text": "Z ist ganz schnell T und S zusammen: ts, ts, ts! Die Zunge tippt oben und rutscht nach unten."
+   "text": "Die Zunge tippt oben und rutscht ganz schnell nach unten: Tss, tss, tss!"
   },
   "t3_ru_laut_z": {
    "t": 3,
    "lang": "ru",
-   "text": "«Ц» — это быстро «т» и «с» вместе: тс-тс-тс."
+   "text": "Язычок стукнул и сразу зашипел: тс, тс, тс.",
+   "say": "Язычок стукнул и сразу зашипел: {z} {z} {z}",
+   "expect": "Язычок стукнул и сразу зашипел."
   },
   "t2_hoer_kg": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein K oder G? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Kah, wie bei Kuh, oder Gah, wie bei Gans? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_kg": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein K oder G?"
+   "text": "Hörst du Kah, wie bei Kuh, oder Gah, wie bei Gans?"
   },
   "t2_ru_hoer_kg": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь «к» или «г»? Нажми на картинку. Если нет — на пустой кружок."
+   "text": "Слышишь «ка» или «га»? Нажми на картинку. Если нет — на пустой кружок."
   },
   "t3_laut_intro_kg": {
    "t": 3,
    "lang": "de",
-   "text": "Für K bleibt die Zungenspitze unten hinter den Zähnen. Hinten macht die Zunge einen Berg: K, k, k!"
+   "text": "Die Zungenspitze bleibt unten hinter den Zähnen. Hinten macht die Zunge einen Berg: Kah, kah, kah!"
   },
   "t3_ru_laut_kg": {
    "t": 3,
@@ -2801,22 +2826,23 @@
   "t2_hoer_l": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein L? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Lah, wie bei Lampe? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_l": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein L?"
+   "text": "Hörst du Lah?"
   },
   "t2_ru_hoer_l": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь «л»? Нажми на картинку. Если нет — на пустой кружок."
+   "text": "Слышишь «л», как в слове лампа? Нажми на картинку. Если нет — на пустой кружок.",
+   "say": "Слышишь звук, как в слове лампа? Нажми на картинку. Если нет — на пустой кружок."
   },
   "t3_laut_intro_l": {
    "t": 3,
    "lang": "de",
-   "text": "Für L geht die Zungenspitze hoch hinter die oberen Zähne und bleibt da: La, la, la!"
+   "text": "Die Zungenspitze geht hoch hinter die oberen Zähne und bleibt da: Lah, lah, lah!"
   },
   "t3_ru_laut_l": {
    "t": 3,
@@ -2826,17 +2852,17 @@
   "t2_hoer_r": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein R? Dann tipp auf die Rakete. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Raa, wie bei Rakete? Dann tipp auf die Rakete. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_r": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein R?"
+   "text": "Hörst du Raa, wie bei Rakete?"
   },
   "t2_ru_hoer_r": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь «р»? Нажми на ракету. Если нет — на пустой кружок."
+   "text": "Слышишь «ра»? Нажми на ракету. Если нет — на пустой кружок."
   },
   "t3_laut_intro_r": {
    "t": 3,
@@ -2851,12 +2877,16 @@
   "t2_hoer_ch": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein Ch, wie in ich? Dann tipp auf die Katze. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Chhh, wie in ich? Dann tipp auf die Katze. Wenn nicht, tipp auf den leeren Kreis.",
+   "say": "Hörst du diesen Laut? {ch} Wie in ich. Dann tipp auf die Katze. Wenn nicht, tipp auf den leeren Kreis.",
+   "expect": "Hörst du diesen Laut? Wie in ich. Dann tipp auf die Katze. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_ch": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein Ch?"
+   "text": "Ist da ein Chhh drin?",
+   "say": "Ist da {ch} drin?",
+   "expect": "Ist da drin?"
   },
   "t2_ru_hoer_ch": {
    "t": 2,
@@ -2866,32 +2896,44 @@
   "t3_laut_intro_ch": {
    "t": 3,
    "lang": "de",
-   "text": "Ch ist wie eine Katze, die faucht: Chch! Lächeln, und die Zunge macht einen Berg."
+   "text": "Dieser Laut ist wie eine Katze, die faucht: Chhh! Lächeln, und die Zunge macht einen Berg.",
+   "say": "Dieser Laut ist wie eine Katze, die faucht: {ch} Lächeln, und die Zunge macht einen Berg.",
+   "expect": "Dieser Laut ist wie eine Katze, die faucht. Lächeln, und die Zunge macht einen Berg."
   },
   "t3_ru_laut_ch": {
    "t": 3,
    "lang": "ru",
-   "text": "Немецкий звук Ch — как будто кошка тихонько шипит. Улыбнись, язычок горкой, и подуй."
+   "text": "Этот немецкий звук — как будто кошка тихонько шипит: хьхь. Улыбнись, язычок горкой, и подуй.",
+   "say": "Этот немецкий звук — как будто кошка тихонько шипит: {ch} Улыбнись, язычок горкой, и подуй.",
+   "expect": "Этот немецкий звук — как будто кошка тихонько шипит. Улыбнись, язычок горкой, и подуй."
   },
   "t2_hoer_fw": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein F oder W? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Fff oder Wah? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
+   "say": "Hörst du diesen Laut? {f} Oder Wah? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
+   "expect": "Hörst du diesen Laut? Oder Wah? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_fw": {
    "t": 2,
    "lang": "de",
-   "text": "Ist da ein F oder W?"
+   "text": "Ist da ein Fff oder Wah drin?",
+   "say": "Ist da {f} oder Wah drin?",
+   "expect": "Ist da oder Wah drin?"
   },
   "t2_ru_hoer_fw": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь «ф» или «в»? Нажми на картинку. Если нет — на пустой кружок."
+   "text": "Слышишь «ффф» или «ва»? Нажми на картинку. Если нет — на пустой кружок.",
+   "say": "Слышишь такой звук? {f} Или «ва»? Нажми на картинку. Если нет — на пустой кружок.",
+   "expect": "Слышишь такой звук? Или «ва»? Нажми на картинку. Если нет — на пустой кружок."
   },
   "t3_laut_intro_fw": {
    "t": 3,
    "lang": "de",
-   "text": "Für F beißen wir ganz leicht auf die Unterlippe und pusten: Fff!"
+   "text": "Für Fff beißen wir ganz leicht auf die Unterlippe und pusten: Fff!",
+   "say": "Für diesen Laut beißen wir ganz leicht auf die Unterlippe und pusten: {f}",
+   "expect": "Für diesen Laut beißen wir ganz leicht auf die Unterlippe und pusten."
   },
   "t3_ru_laut_fw": {
    "t": 3,
@@ -2901,7 +2943,7 @@
   "t2_hoer_td": {
    "t": 2,
    "lang": "de",
-   "text": "Hörst du ein T oder D? Dann tipp auf die Trommel. Wenn nicht, tipp auf den leeren Kreis."
+   "text": "Hörst du Tah, wie bei Tisch, oder Dah, wie bei Dose? Dann tipp auf die Trommel. Wenn nicht, tipp auf den leeren Kreis."
   },
   "t2_hoer2_td": {
    "t": 2,
@@ -2913,12 +2955,12 @@
   "t2_ru_hoer_td": {
    "t": 2,
    "lang": "ru",
-   "text": "Слышишь «т» или «д»? Нажми на барабан. Если нет — на пустой кружок."
+   "text": "Слышишь «та» или «да»? Нажми на барабан. Если нет — на пустой кружок."
   },
   "t3_laut_intro_td": {
    "t": 3,
    "lang": "de",
-   "text": "Für T tippt die Zungenspitze oben hinter die Zähne: T, t, t, wie eine Uhr!"
+   "text": "Die Zungenspitze tippt oben hinter die Zähne, wie eine Uhr: Tah, tah, tah!"
   },
   "t3_ru_laut_td": {
    "t": 3,
@@ -3202,6 +3244,441 @@
    "t": 3,
    "lang": "de",
    "text": "Wow! Du hast ein neues Level geschafft!"
+  },
+  "t3_zug_fx": {
+   "t": 3,
+   "lang": "de",
+   "text": "ш-ш-ш-ш (паровоз уезжает, звук)",
+   "synth": "zug"
+  },
+  "t2_w_auto": {
+   "t": 2,
+   "lang": "de",
+   "text": "Auto!"
+  },
+  "t2_w_ei": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ei!"
+  },
+  "t2_w_ball": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ball!"
+  },
+  "t2_w_baum": {
+   "t": 2,
+   "lang": "de",
+   "text": "Baum!"
+  },
+  "t2_w_oma": {
+   "t": 2,
+   "lang": "de",
+   "text": "Oma!"
+  },
+  "t2_w_puppe": {
+   "t": 2,
+   "lang": "de",
+   "text": "Puppe!"
+  },
+  "t2_w_mama": {
+   "t": 2,
+   "lang": "de",
+   "text": "Mama!"
+  },
+  "t2_w_papa": {
+   "t": 2,
+   "lang": "de",
+   "text": "Papa!"
+  },
+  "t2_w_maus": {
+   "t": 2,
+   "lang": "de",
+   "text": "Maus!"
+  },
+  "t2_w_mond": {
+   "t": 2,
+   "lang": "de",
+   "text": "Mond!"
+  },
+  "t2_w_banane": {
+   "t": 2,
+   "lang": "de",
+   "text": "Banane!"
+  },
+  "t2_w_tuer": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tür!"
+  },
+  "t2_w_teddy": {
+   "t": 2,
+   "lang": "de",
+   "text": "Teddy!"
+  },
+  "t2_w_nase": {
+   "t": 2,
+   "lang": "de",
+   "text": "Nase!"
+  },
+  "t2_w_nudel": {
+   "t": 2,
+   "lang": "de",
+   "text": "Nudel!"
+  },
+  "t2_w_loeffel": {
+   "t": 2,
+   "lang": "de",
+   "text": "Löffel!"
+  },
+  "t2_w_lampe": {
+   "t": 2,
+   "lang": "de",
+   "text": "Lampe!"
+  },
+  "t2_w_kuh": {
+   "t": 2,
+   "lang": "de",
+   "text": "Kuh!",
+   "alts": [
+    "Kuh.",
+    "Die Kuh!"
+   ],
+   "expect": "Kuh"
+  },
+  "t2_w_katze": {
+   "t": 2,
+   "lang": "de",
+   "text": "Katze!"
+  },
+  "t2_w_keks": {
+   "t": 2,
+   "lang": "de",
+   "text": "Keks!"
+  },
+  "t2_w_kuchen": {
+   "t": 2,
+   "lang": "de",
+   "text": "Kuchen!"
+  },
+  "t2_w_gabel": {
+   "t": 2,
+   "lang": "de",
+   "text": "Gabel!"
+  },
+  "t2_w_gurke": {
+   "t": 2,
+   "lang": "de",
+   "text": "Gurke!"
+  },
+  "t2_w_schlange": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schlange!"
+  },
+  "t2_w_zug": {
+   "t": 2,
+   "lang": "de",
+   "text": "Zug!"
+  },
+  "t2_r_ta": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tah, tah, tah."
+  },
+  "t2_r_la": {
+   "t": 2,
+   "lang": "de",
+   "text": "Lah, lah, lah."
+  },
+  "t2_r_ka": {
+   "t": 2,
+   "lang": "de",
+   "text": "Kah, koh, kuh, kih."
+  },
+  "t2_w_tomate": {
+   "t": 2,
+   "lang": "de",
+   "text": "Tomate!"
+  },
+  "t2_w_schaf": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schaf!"
+  },
+  "t2_w_schiff": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schiff!"
+  },
+  "t2_w_schuh": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schuh!"
+  },
+  "t2_w_schwein": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schwein!"
+  },
+  "t2_w_schere": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schere!"
+  },
+  "t2_w_flasche": {
+   "t": 2,
+   "lang": "de",
+   "text": "Flasche!"
+  },
+  "t2_w_sonne": {
+   "t": 2,
+   "lang": "de",
+   "text": "Sonne!"
+  },
+  "t2_w_socke": {
+   "t": 2,
+   "lang": "de",
+   "text": "Socke!"
+  },
+  "t2_w_saft": {
+   "t": 2,
+   "lang": "de",
+   "text": "Saft!"
+  },
+  "t2_w_seife": {
+   "t": 2,
+   "lang": "de",
+   "text": "Seife!"
+  },
+  "t2_w_haus": {
+   "t": 2,
+   "lang": "de",
+   "text": "Haus!"
+  },
+  "t2_w_eis": {
+   "t": 2,
+   "lang": "de",
+   "text": "Eis!"
+  },
+  "t2_w_bus": {
+   "t": 2,
+   "lang": "de",
+   "text": "Bus!"
+  },
+  "t2_w_zahn": {
+   "t": 2,
+   "lang": "de",
+   "text": "Zahn!"
+  },
+  "t2_w_zebra": {
+   "t": 2,
+   "lang": "de",
+   "text": "Zebra!"
+  },
+  "t2_w_zitrone": {
+   "t": 2,
+   "lang": "de",
+   "text": "Zitrone!"
+  },
+  "t2_w_zelt": {
+   "t": 2,
+   "lang": "de",
+   "text": "Zelt!"
+  },
+  "t2_w_pilz": {
+   "t": 2,
+   "lang": "de",
+   "text": "Pilz!"
+  },
+  "t2_w_herz": {
+   "t": 2,
+   "lang": "de",
+   "text": "Herz!"
+  },
+  "t2_w_pizza": {
+   "t": 2,
+   "lang": "de",
+   "text": "Pizza!"
+  },
+  "t2_w_gans": {
+   "t": 2,
+   "lang": "de",
+   "text": "Gans!"
+  },
+  "t2_w_rakete": {
+   "t": 2,
+   "lang": "de",
+   "text": "Rakete!"
+  },
+  "t2_w_schnecke": {
+   "t": 2,
+   "lang": "de",
+   "text": "Schnecke!"
+  },
+  "t2_w_vogel": {
+   "t": 2,
+   "lang": "de",
+   "text": "Vogel!"
+  },
+  "t2_w_loewe": {
+   "t": 2,
+   "lang": "de",
+   "text": "Löwe!"
+  },
+  "t2_w_licht": {
+   "t": 2,
+   "lang": "de",
+   "text": "Licht!"
+  },
+  "t2_w_teller": {
+   "t": 2,
+   "lang": "de",
+   "text": "Teller!"
+  },
+  "t2_w_esel": {
+   "t": 2,
+   "lang": "de",
+   "text": "Esel!"
+  },
+  "t2_w_wolke": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wolke!"
+  },
+  "t2_w_rad": {
+   "t": 2,
+   "lang": "de",
+   "text": "Rad!"
+  },
+  "t2_w_rose": {
+   "t": 2,
+   "lang": "de",
+   "text": "Rose!"
+  },
+  "t2_w_ring": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ring!"
+  },
+  "t2_w_birne": {
+   "t": 2,
+   "lang": "de",
+   "text": "Birne!"
+  },
+  "t2_w_moehre": {
+   "t": 2,
+   "lang": "de",
+   "text": "Möhre!"
+  },
+  "t2_w_milch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Milch!"
+  },
+  "t2_w_broetchen": {
+   "t": 2,
+   "lang": "de",
+   "text": "Brötchen!"
+  },
+  "t2_w_pfirsich": {
+   "t": 2,
+   "lang": "de",
+   "text": "Pfirsich!"
+  },
+  "t2_w_frosch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Frosch!"
+  },
+  "t2_w_fuss": {
+   "t": 2,
+   "lang": "de",
+   "text": "Fuß!"
+  },
+  "t2_w_wal": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wal!"
+  },
+  "t2_w_wurm": {
+   "t": 2,
+   "lang": "de",
+   "text": "Wurm!"
+  },
+  "t2_w_apfel": {
+   "t": 2,
+   "lang": "de",
+   "text": "Apfel!"
+  },
+  "t2_w_dose": {
+   "t": 2,
+   "lang": "de",
+   "text": "Dose!"
+  },
+  "t2_w_dach": {
+   "t": 2,
+   "lang": "de",
+   "text": "Dach!"
+  },
+  "t2_w_brot": {
+   "t": 2,
+   "lang": "de",
+   "text": "Brot!"
+  },
+  "t2_laut_z": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ts, ts, ts.",
+   "say": "Tss, tss, tss.",
+   "expect": "ts ts ts"
+  },
+  "t2_laut_ch": {
+   "t": 2,
+   "lang": "de",
+   "text": "chchch (звук)",
+   "synth": "ch"
+  },
+  "t2_laut_f": {
+   "t": 2,
+   "lang": "de",
+   "text": "ffff (звук)",
+   "synth": "f"
+  },
+  "t2_r_sch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Scha, scho, schu, schi.",
+   "say": "Schaa, schoo, schuu, schii."
+  },
+  "t2_r_s": {
+   "t": 2,
+   "lang": "de",
+   "text": "Sa, so, su, si.",
+   "say": "Saa, soo, suu, sii."
+  },
+  "t2_r_z": {
+   "t": 2,
+   "lang": "de",
+   "text": "Za, zo, zu, zi.",
+   "say": "Zaa, zoo, zuu, zii."
+  },
+  "t2_r_r": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ra, ro, ru, ri.",
+   "say": "Raa, roo, ruu, rii."
+  },
+  "t2_r_ch": {
+   "t": 2,
+   "lang": "de",
+   "text": "Ich, ich, mich, dich."
+  },
+  "t2_r_f": {
+   "t": 2,
+   "lang": "de",
+   "text": "Fa, fo, fu, fi.",
+   "say": "Faa, foo, fuu, fii."
   }
  }
 }

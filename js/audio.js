@@ -36,6 +36,7 @@
     }));
   };
   A.has = k => !!A.BUF[k];
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && A.ctx && A.ctx.state !== 'running') A.ctx.resume().catch(() => {}); });
 
   /* голос браузера: немецкий — Anna (iOS) / Google Deutsch (Android); русский — Milena / Google */
   function voiceFor(lang){
@@ -78,7 +79,8 @@
     try {
       const b = A.BUF[key];
       if (b && A.ctx){
-        if (A.ctx.state !== 'running') A.ctx.resume();
+        /* iPhone после звонка / блокировки: звук «спит» — сначала разбудить (до 1,5 с), иначе реплика пропадала молча */
+        if (A.ctx.state !== 'running'){ try { await Promise.race([A.ctx.resume(), new Promise(r => setTimeout(r, 1500))]); } catch(e){} }
         await new Promise(resolve => {
           const s = A.ctx.createBufferSource(); s.buffer = b; s.playbackRate.value = opt.rate || 1; s.connect(A.out);
           let done = false; const fin = () => { if (!done){ done = true; if (curStop === stopIt) curStop = null; resolve(); } };

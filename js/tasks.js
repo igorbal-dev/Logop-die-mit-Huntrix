@@ -11,16 +11,18 @@
   const X = SA.X = {};
   const board = X.board = () => { const b = SA.$('#board'); b.innerHTML = ''; return b; };
   const has = k => !!A.LINES[k];
-  const PRAISE = {1: ['t1_lob1', 't1_lob2', 't1_lob3', 't1_lob4', 't1_lob5', 't1_lob6', 't1_lob7', 't1_lob8'], 2: ['t2_lob1', 't2_lob2', 't2_lob3', 't2_lob4', 't2_lob5', 't2_lob6', 't2_lob7', 't2_lob8'],
+  /* «Prima gepustet!» / «Wow, super gepustet!» — только после дыхательных игр (BLOW), не после зеркала и лошадки */
+  const BLOW = ['t1_lob6', 't1_lob8'];
+  const PRAISE = {1: ['t1_lob1', 't1_lob2', 't1_lob3', 't1_lob4', 't1_lob5', 't1_lob7'], 2: ['t2_lob1', 't2_lob2', 't2_lob3', 't2_lob4', 't2_lob5', 't2_lob6', 't2_lob7', 't2_lob8'],
     3: ['t3_lob1', 't3_lob2', 't3_lob3', 't3_lob4', 't3_lob5', 't3_lob6', 't3_lob7', 't3_lob8', 't3_lob9', 't3_lob10']};
   const SUPPORT = {1: ['t1_mut1', 't1_mut2', 't1_mut3', 't1_mut4'], 2: ['t2_mut1', 't2_mut2', 't2_mut3', 't2_mut4'], 3: ['t3_mut1', 't3_mut2', 't3_mut3', 't3_mut4', 't3_mut5']};
   const POSES = ['praise', 'hello', 'bye'];
   let praiseN = 0;
   /* похвала: звёздочка всегда, голосом — через раз (чтобы не надоедало), поза — разная */
-  X.praise = async (n, host, force) => {
+  X.praise = async (n, host, force, blow) => {
     if (host) SA.starEl(host);
     T.body(n, SA.pick(POSES.filter(p => p !== 'bye' || n === 3)));
-    if (force || (praiseN++ % 2 === 0)) await A.sayOne(PRAISE[n].filter(has)); else await sleep(450);
+    if (force || (praiseN++ % 2 === 0)) await A.sayOne((blow ? [...PRAISE[n], ...BLOW] : PRAISE[n]).filter(has)); else await sleep(450);
   };
   X.support = async n => { T.body(n, 'support'); await A.sayOne(SUPPORT[n].filter(has)); };
   const left = () => SA.E ? SA.E.left() : 999;
@@ -116,6 +118,7 @@
     const wind = SA.el('div', 'wind', '<i></i><i></i><i></i>'); b.appendChild(wind);
     X.help(1, [intro]);
     if (X.once('b_' + id)){ T.body(1, 'explain'); await say(intro); if (demo !== false){ T.face(1, 'blow'); A.sfx.whoosh(); await sleep(500); } }
+    else { T.body(1, 'explain'); await say(again); }          /* повтор игры — короткое «дуй!», чтобы не начинать молча */
     T.face(1);
     let attempts = 0, saidPsst = false, prevBlow = 0, camWas = false, camOff = SA.now();
     for (let a = 0; a < 3 && !g.done(); a++){
@@ -123,7 +126,7 @@
       T.face(1, 'blow');
       let last = SA.now(), moved = 0;
       const st = await M.blow({ms: 6500, onTick(air, s){
-        const now = SA.now(), dt = Math.min(100, now - last); last = now;
+        const now = SA.now(), dt = Math.min(100, now - last)*(SA.AUTO ? SA.SPEED : 1); last = now;
         const pose = camOk && SA.C.sees('blow');
         if (pose && !camWas && now - camOff > 250 && g.puff && !air) g.puff();      /* «пф» губами — тоже свечка */
         if (!pose && camWas) camOff = now; camWas = pose;
@@ -141,7 +144,7 @@
     const ok = g.done();
     if (g.finish) await g.finish(ok);
     P.item({block: 'breath', id, kind: 'blow', result: ok ? 'done' : 'tried', attempts});
-    await (ok ? X.praise(1, b, true) : X.support(1));
+    await (ok ? X.praise(1, b, true, true) : X.support(1));
   }
   const svgEl = html => { const d = SA.el('div', ''); d.innerHTML = html; return d; };
   const place = (el, css) => { el.style.cssText = 'position:absolute;' + css; return el; };
@@ -300,7 +303,11 @@
     const b = board(), c = X.bigCard(b, SA.pic(kind === 'zug' ? 'zug' : 'schlange'));
     const k = kind === 'zug' ? 'zug' : 'schlange';
     X.help(1, [`t1_${k}`, kind === 'zug' ? 't1_schsch' : 't1_sss', 't1_mach_mit']);
-    T.face(1, kind === 'zug' ? 'kiss' : 'smile'); await say(`t1_${k}`); await say(kind === 'zug' ? 't1_schsch' : 't1_sss'); await say('t1_mach_mit');
+    T.face(1, kind === 'zug' ? 'kiss' : 'smile');
+    const first = X.once('hiss_' + k);                       /* объяснение — один раз; на повторе только сам звук */
+    if (first) await say(`t1_${k}`);
+    await say(kind === 'zug' ? 't1_schsch' : 't1_sss');
+    if (first) await say('t1_mach_mit');
     let ok = false, attempts = 0;
     for (let a = 0; a < 3 && !ok; a++){
       attempts++;
@@ -370,26 +377,30 @@
     X.help(1, [e.say[0]]);
     const hint = e.hint && mirrorEl ? SA.el('div', 'hint tg pop', SA.tonguePic(e.hint)) : null;
     if (hint){ mirrorEl.querySelectorAll('.hint').forEach(h => h.remove()); mirrorEl.appendChild(hint); }
-    T.face(1); await say(e.say[0]);
+    /* объяснение — один раз за станцию; на втором круге — «Und noch einmal!» и показ */
+    T.face(1); await say(X.once('ex_' + id) ? e.say[0] : 't1_nochmal');
     demo(e, hint);
     const rec = P.item({block: 'mirror', id, kind: 'pose', result: null, reps: []});
     let parentOk = false; X.marks(rec, () => { parentOk = true; });
     const camOk = e.cam && SA.C.ready;
     for (let r = 0; r < reps; r++){
-      if (r > 0) A.sfx.pop();
+      /* между повторами — пауза «расслабься», иначе камера сразу засчитывала ещё удержанную позу */
+      if (r > 0){ clearInterval(demoTimer); T.face(1); await sleep(900); A.sfx.pop(); demo(e, hint); }
       const tm = SA.el('div', 'timer', '<i></i><i></i><i></i><i></i>'); mirrorEl.appendChild(tm);
       const dots = [...tm.children];
-      const t0 = SA.now(); let caught = 0, last = SA.now(), how = null, prompt = 1, phase = 0;
+      const t0 = SA.now(); let caught = 0, last = SA.now(), how = null, prompt = 1, phase = 0, armed = false, relax = 0;
       while (!how){
         await sleep(60);
         const now = SA.now(), dt = now - last; last = now;
         if (parentOk){ how = 'parent'; break; }
-        if (SA.AUTO && now - t0 > 600){ how = 'timer'; break; }
+        if (SA.AUTO && now - t0 > 600/SA.SPEED){ how = 'timer'; break; }
         const face = camOk && SA.C.face;
         if (face){
           /* чередование: засчитываем смены поз (улыбка → трубочка → улыбка) */
           const want = e.alt && phase % 2 ? e.alt : e.pose;
-          if (SA.C.sees(want)){ caught += dt; mirrorEl.classList.add('caught'); } else { caught = Math.max(0, caught - dt*0.5); mirrorEl.classList.remove('caught'); }
+          /* засчитываем только новую позу: сначала её надо отпустить (0,25 с), если ребёнок её уже держал; через 2,5 с — как обычно */
+          if (!armed){ relax = SA.C.sees(want) ? 0 : relax + dt; if (relax >= 250 || now - t0 > 2500) armed = true; }
+          if (armed && SA.C.sees(want)){ caught += dt; mirrorEl.classList.add('caught'); } else { caught = Math.max(0, caught - dt*0.5); mirrorEl.classList.remove('caught'); }
           const need = e.alt ? 450 : holdMs;
           if (caught >= need){ if (e.alt && phase < 3){ phase++; caught = 0; A.sfx.tone(700 + phase*120, 900 + phase*120, 120, 'sine', .12); } else { how = 'camera'; break; } }
           dots.forEach((d, i) => d.classList.toggle('on', e.alt ? i < phase + (caught > 0 ? 1 : 0) : caught/need > i/4));
@@ -589,15 +600,17 @@
   X.hoer = async (code, w, has, tag) => {
     const S = SA.SOUNDS[code], b = board();
     const pic = SA.el('div', 'card pop', SA.pic(w)); pic.style.cssText = 'position:absolute;left:50%;top:3%;transform:translateX(-50%);width:auto;height:36%;max-width:none;aspect-ratio:1'; b.appendChild(pic);
-    const symHtml = S.face && T.img['3_face_' + S.face] ? `<img class="pic" style="object-fit:contain" src="${T.src(3, 'face_' + S.face)}" alt="">` : SA.pic(S.sym);
+    /* на карточке — символ звука (поезд, змея…), о нём говорит инструкция; картинка рта Zoey — в станции «звуки» */
+    const symHtml = SA.pic(S.sym);
+    const mira = k => A.LINES['t2_' + k.slice(3)] ? 't2_' + k.slice(3) : k;      /* образцы голосом Mira, а не Zoey */
     const cards = row(b, [symHtml, SA.pic('nein')], '46%');
     X.help(2, ['t2_hoer_' + code]);
     if (X.once('hoer_' + code)){
       T.body(2, 'point'); await say('t2_hoer_' + code);
-      cards[0].classList.add('glow'); if (S.iso) await say(S.iso.replace('t3_', 't3_')); else await say(S.syl); cards[0].classList.remove('glow');
+      cards[0].classList.add('glow'); await say(mira(S.iso || S.syl)); cards[0].classList.remove('glow');
     }
     T.body(2, 'listen');
-    await answer(cards, has ? 0 : 1, {cue: () => say('t3_w_' + w), prompts: [null, 't2_hoer2_' + code, 't2_ru_hoer_' + code]}, Object.assign({block: 'listen', id: `hoer:${code}:${w}`}, tag || {}));
+    await answer(cards, has ? 0 : 1, {cue: () => say(mira('t3_w_' + w)), prompts: [null, 't2_hoer2_' + code, 't2_ru_hoer_' + code]}, Object.assign({block: 'listen', id: `hoer:${code}:${w}`}, tag || {}));
   };
   X.listenBye = async () => { T.body(2, 'praise'); await say('t2_ende'); };
 
@@ -647,7 +660,7 @@
   X.vowel = async v => {
     const b = board(); faceCard(b, VOW[v]);
     X.help(3, ['t3_' + v]);
-    T.face(3); await say('t3_' + v, {vis: VOW[v]});
+    if (X.once('vokal_' + v)){ T.face(3); await say('t3_' + v, {vis: VOW[v]}); }
     await X.repeatItem({id: 'vokal:' + v, model: `t3_${v}_kurz`, vis: VOW[v], showPic: b});
   };
   const TIERE = {muh: ['kuh', 'talk_u'], maeh: ['schaf', 'talk_open'], wau: ['hund', 'talk_o'], miau: ['katze', 'talk_i']};

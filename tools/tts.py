@@ -103,6 +103,25 @@ async def synth(text, voice, rate, pitch, out):
     raise RuntimeError(f'нет звука: {text} ({last})')
 
 
+async def splice(text, voice, rate, pitch, out):
+    """фраза со вставкой звука: «Hörst du diesen Laut? {sch} Dann tipp…» — куски текста говорит голос, между ними —
+    сам звук из tools/fx.py (короткий, 0,8 с; {zug} — ритм паровоза), паузы по 0,15 с"""
+    import fx, numpy as np
+    parts, tmp = [], tempfile.mkdtemp()
+    for j, chunk in enumerate(re.split(r'(\{\w+\})', text)):
+        m = re.fullmatch(r'\{(\w+)\}', chunk)
+        if m:
+            f = os.path.join(tmp, f'{j}.mp3'); fx.write(await fx.sound(m.group(1), synth, voice, dur=0.8), f, m.group(1)); parts.append(fx.wav_of(f))
+        else:
+            chunk = chunk.strip(' ,;')
+            if not re.search(r'\w', chunk): continue
+            r, c = os.path.join(tmp, f'{j}r.mp3'), os.path.join(tmp, f'{j}.mp3')
+            await synth(chunk, voice, rate, pitch, r); ffmpeg_clean(r, c); parts.append(fx.wav_of(c))
+        parts.append(np.zeros(int(0.15*fx.SR)))
+    w = os.path.join(tmp, 'all.wav'); fx._wav(np.concatenate(parts[:-1]), w)
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', w, '-b:a', '64k', out], check=True)
+
+
 def bump(rate, d):
     v = int(re.match(r'([+-]?\d+)', rate).group(1)) + d
     return f'{v:+d}%'
@@ -131,15 +150,12 @@ async def main():
         line = L[k]; v = V[str(line['t'])][line['lang']]
         text = line.get('say', line['text'])           # say — как произносить (например «Sohi» для Zoey), text — что должно прозвучать
         if line.get('synth'):
-            # «ссс» / «шшш»: синтезатор речи читает их по буквам, поэтому делаем сам звук — шум нужной полосы
-            # (с: 4–9 кГц, ш: 1,8–5 кГц, пик ~2,8 кГц), 1,2 с, плавно начинается и затихает
-            # f: широкий мягкий шум 1–7 кГц; ch (ich): 2,8–7 кГц с пиком ~4 кГц
-            band = {'s': 'highpass=f=4200,lowpass=f=9500', 'sch': 'highpass=f=1700,lowpass=f=5200,equalizer=f=2800:t=q:w=1:g=6',
-                    'f': 'highpass=f=1000,lowpass=f=7000,volume=0.7', 'ch': 'highpass=f=2800,lowpass=f=7000,equalizer=f=4000:t=q:w=1:g=6'}[line['synth']]
-            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'anoisesrc=d=1.3:c=pink:a=0.6:r=24000', '-af',
-                            f'{band},afade=t=in:d=0.15,afade=t=out:st=1.0:d=0.3,loudnorm=I=-20:TP=-2', '-ar', '24000', '-ac', '1', '-b:a', '48k', snd(k)], check=True)
-            rep[k] = {'text': line['text'], 'hyp': '(звук)', 'cer': 0.0, 'mos': None, 'eng': 'synth'}
-            print(f'[{i + 1}/{len(todo)}] {k}: звук «{line["synth"]}» синтезирован', flush=True)
+            # «ссс» / «шшш» / «хь» / «ффф» / паровоз: синтезатор речи читает их по буквам, поэтому звук вырезается
+            # из настоящего голоса учительницы (tools/fx.py) и растягивается; громкость — как у речи
+            import fx
+            fx.write(await fx.sound(line['synth'], synth, v['voice']), snd(k), line['synth'])
+            rep[k] = {'text': line['text'], 'hyp': '(звук)', 'cer': 0.0, 'mos': None, 'eng': 'fx'}
+            print(f'[{i + 1}/{len(todo)}] {k}: звук «{line["synth"]}» из голоса', flush=True)
             continue
         if a.check:
             if os.path.exists(snd(k)) and chk: rep[k] = dict(chk(snd(k), line.get('expect', line['text']), line['lang']), text=line['text'], tries=rep.get(k, {}).get('tries', 1))
@@ -151,7 +167,7 @@ async def main():
           variants = [(text, r0), (text, bump(r0, -10)), (text, bump(r0, +6))] + [(alt, r0) for alt in line.get('alts', [])] + [(alt, bump(r0, -10)) for alt in line.get('alts', [])]
           for t, (text, rate) in enumerate(variants):
               raw, out = os.path.join(tmp, f'{k}_{t}_raw.mp3'), os.path.join(tmp, f'{k}_{t}.mp3')
-              try: await synth(text, v['voice'], rate, v.get('pitch', '+0Hz'), raw); used = v['voice']
+              try: await (splice if '{' in text else synth)(text, v['voice'], rate, v.get('pitch', '+0Hz'), raw); used = v['voice']
               except RuntimeError:
                   # голос не отвечает (бывает у Svetlana) — запасной голос
                   fb = 'de-DE-SeraphinaMultilingualNeural' if line['lang'] == 'ru' else v['voice']   # по-русски Seraphina говорит чисто
@@ -182,4 +198,5 @@ async def main():
     open(os.path.join(ROOT, 'docs', 'voice-check.md'), 'w', encoding='utf-8').write('\n'.join(md))
     print(f'готово: {len(todo)} записей, не совпало {len(bad)}, низкая чистота {len(low)}')
 
-asyncio.run(main())
+if __name__ == '__main__':
+    asyncio.run(main())

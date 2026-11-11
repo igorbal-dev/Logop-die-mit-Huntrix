@@ -8,7 +8,8 @@
   const say = k => A.say(k);
   const spent = E => E.sec - E.left();
   /* сделать каждое задание хотя бы раз, потом повторять (сложнее), пока есть время доли */
-  async function fill(E, share, fns, {min = fns.length, again = true, cap = 2} = {}){
+  /* rounds — сколько раз максимум пройти список (раньше станция крутила одно и то же до 3 минут — скучно) */
+  async function fill(E, share, fns, {min = fns.length, again = true, cap = 2, rounds = 2} = {}){
     /* быстрый режим проверки: каждое задание один раз, без повторов (из длинного списка — равномерно cap штук) */
     if (SA.quick()){
       const n = Math.min(fns.length, cap);
@@ -16,8 +17,10 @@
       return;
     }
     const t0 = SA.now(), used = () => (SA.now() - t0)/1000*SA.SPEED;
-    let i = 0;
-    while (i < min || (again && used() < share && E.left() > 15)){ await fns[i % fns.length]({level: E.level + (i >= fns.length ? 1 : 0)}); i++; if (!again && i >= fns.length) break; }
+    let i = 0, seq = fns;
+    while (i < min || (again && i < fns.length*rounds && used() < share && E.left() > 15)){
+      if (i && i % fns.length === 0 && fns.length > 2) seq = SA.shuffle(fns);      /* новый круг — другой порядок */
+      await seq[i % fns.length]({level: E.level + (i >= fns.length ? 1 : 0)}); i++; if (!again && i >= fns.length) break; }
   }
   const pairs = list => list.map(([a, b]) => () => X.sameRound('t2_s_' + a, 't2_s_' + b, 'silben'));
   const animalPairs = () => { const v = Object.values(X.ANIMALS); return [0, 1, 2, 3, 4, 5].map(k => () => { const a = SA.pick(v), b = k % 2 ? a : SA.pick(v.filter(x => x !== a)); return X.sameRound(a, b, 'tiere'); }); };
@@ -41,7 +44,7 @@
     for (let i = 0; i < parts.length; i++){
       const [pre, fns] = parts[i];
       if (pre) await pre();
-      await fill(E, (E.left() - 10)/(parts.length - i), fns, {min: Math.min(2, fns.length), cap: 1});
+      await fill(E, (E.left() - 10)/(parts.length - i), fns, {min: Math.min(2, fns.length), cap: 1, rounds: fns.length === 1 ? 6 : 2});
     }
     await X.listenBye();
   };
@@ -53,8 +56,9 @@
      Набор зависит только от круга, поэтому «слова» и «игра» одного урока берут одни и те же слова. */
   const seeded = (a, seed) => { a = a.slice(); let x = seed*9301 + 49297; for (let i = a.length - 1; i > 0; i--){ x = (x*9301 + 49297) % 233280; const j = Math.floor(x/233280*(i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const set = (base, pool) => () => { const c = P.prog().cycle; if (!c || !pool) return base; return seeded([...new Set([...base, ...pool])], c*7 + base.length).slice(0, base.length); };
-  const words = list => async E => {
-    T.face(3); await A.sayOne(['t3_los', 't3_los2', 't3_los3']);
+  const words = (list, intro) => async E => {
+    T.face(3);
+    if (intro){ X.once('woerter'); await say(intro); } else await A.sayOne(['t3_los', 't3_los2', 't3_los3']);      /* одно вступление, не три */
     const ws = typeof list === 'function' ? list() : list;
     await fill(E, E.sec - 12, ws.map((w, i) => () => X.word(w, SA.quick() ? i === 0 : i === 2)));
   };
@@ -116,8 +120,9 @@
       {id: 'listen', t: 2, icon: 'zug', name: 'Змея или поезд? Хлопни на «Ш»', run: listen([[null, [() => X.schlangeZug()]],
         [null, [() => X.klatsch('sch', SA.shuffle(['scha', 'sa', 'schu', 'su', 'ma', 'scho', 'so', 'scha']).map(s => 't2_s_' + s))]],
         [null, [() => X.zeig(['tasche', 'tasse']), () => X.zeig(['fisch', 'tisch'])]]])},
-      {id: 'sounds', t: 3, icon: 'schlange', name: 'ссс и шшш с картинкой рта', run: sounds([() => X.syll('t3_sss', {face: 'snd_s', intro: 't3_zisch_intro'}), () => X.syll('t3_schsch', {face: 'snd_sch', hear: true})])},
-      {id: 'words', t: 3, icon: 'tasse', name: 'Повторяем трудные слова', run: async E => { T.face(3); await say('t3_wiederholen'); await words(hardWords)(E); }},
+      {id: 'sounds', t: 3, icon: 'schlange', name: 'ссс и шшш с картинкой рта', run: sounds([() => X.syll('t3_sss', {face: 'snd_s', intro: 't3_zisch_intro'}), () => X.syll('t3_schsch', {face: 'snd_sch', hear: true}),
+        () => X.syll('t3_r_s', {face: 'snd_s'}), () => X.syll('t3_r_sch', {face: 'snd_sch'})])},
+      {id: 'words', t: 3, icon: 'tasse', name: 'Повторяем трудные слова', run: words(hardWords, 't3_wiederholen')},
       {id: 'game', t: 3, icon: 'kiste', name: 'Дорожка к кладу и картинка-загадка', run: game(['weg', 'puzzle'], hardWords)}]}
   ];
 
@@ -159,7 +164,7 @@
       {id: 'sounds', t: 3, icon: S.sym, name: st === 'allein' || st === 'hoeren' ? `${S.name} отдельно` : `Слоги с ${S.name}`, run: async E => {
         T.face(3); await A.sayOne(LOS3);
         if (X.once('laut_intro_' + code)){ const b = X.board(); if (face()) X.bigCard(b, `<img class="pic" style="object-fit:contain" src="${T.src(3, 'face_' + face())}" alt="">`); else X.bigCard(b, SA.pic(S.sym)); T.face(3); await say('t3_laut_intro_' + code); }
-        await fill(E, E.sec - 12, soundFns());
+        await fill(E, E.sec - 12, soundFns(), {rounds: st === 'allein' ? 1 : 2});
       }},
       {id: 'words', t: 3, icon: st === 'satz' ? 'mund' : 'ball', name: st === 'satz' ? `Фразы с ${S.name}` : counted ? `Слова с ${S.name} (${SA.STAGE_RU[st]})` : 'Слова (новые немецкие)', run: async E => {
         if (st === 'satz'){ T.face(3); await A.sayOne(LOS3); await fill(E, E.sec - 12, seeded(S.phr, lid()).map(phrase)); return; }

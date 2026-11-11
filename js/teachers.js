@@ -1,5 +1,5 @@
 /* Учительницы: настройки (config/teachers.json), картинки и заглушки, показ и «говорящий рот».
-   Картинка ищется так: <папка>/teacherN_<имя>.png, потом .webp, потом .jpg. Нет файла — заглушка, нарисованная кодом.
+   Картинка ищется так: <папка>/teacherN_<имя>.webp, потом .png, потом .jpg. Нет файла — заглушка, нарисованная кодом.
    При загрузке картинка выравнивается сама: убирается ровный фон (если он не прозрачный), обрезаются пустые края,
    фигура ставится по центру головы и приводится к одному размеру. Ручная подгонка — adjust в config/teachers.json. */
 (function(){
@@ -38,7 +38,7 @@
   }
   async function loadOne(n, name){
     const t = T.cfg.teachers[n], base = `${t.folder}/teacher${n}_${name}`;
-    for (const ext of ['png', 'webp', 'jpg']){
+    for (const ext of ['webp', 'png', 'jpg']){        /* сначала .webp — все картинки теперь такие (иначе 68 лишних запросов при старте) */
       const im = await tryLoad(`${base}.${ext}`);
       if (im){ try { const anchor = t.aligned ? (name.startsWith('face_') ? 'face_neutral' : name === 'body_dance2' ? 'body_dance' : name.startsWith('body_') && name !== 'body_dance' ? 'body_hello' : null) : null;
         const r = await normalize(im, name, T.cfg.adjust[`teacher${n}_${name}`], anchor && anchor !== name ? TF[`${n}_${anchor}`] : null);

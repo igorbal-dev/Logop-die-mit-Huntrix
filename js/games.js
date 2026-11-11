@@ -47,7 +47,7 @@
         const wg = SA.el('div', 'pop'); wg.style.cssText = 'position:relative;height:62%;aspect-ratio:1;flex:none';
         wg.innerHTML = svg(`<rect x="10" y="30" width="180" height="130" rx="14" fill="${COLORS[k % 7]}" ${S}/><circle cx="50" cy="168" r="20" fill="#4a3550"/><circle cx="150" cy="168" r="20" fill="#4a3550"/><path d="M-10 120 h20" ${S}/>`) + mini(w, 'left:22%;top:18%;width:56%;height:56%');
         peek.style.opacity = '0'; train.appendChild(wg); A.sfx.tone(300, 200, 120, 'square', .08); await sleep(350); },
-        async finish(){ for (let i = 0; i < 3; i++){ A.sfx.noise(150, 900, .2, i*.35); } A.sfx.tone(660, 660, 400, 'square', .06, 1.1); await anim(train, [{transform: 'none'}, {transform: 'translateX(130%)'}], 2200, {easing: 'ease-in'}); }};
+        async finish(){ say('t3_zug_fx').catch(() => {}); A.sfx.tone(660, 660, 400, 'square', .06, 1.8);      /* паровоз «ш-ш-ш-ш» из голоса */ await anim(train, [{transform: 'none'}, {transform: 'translateX(130%)'}], 2200, {easing: 'ease-in'}); }};
     }},
     /* 5. Башня: каждое слово — кубик сверху; в конце звезда на макушке */
     turm: {name: 'Башня', intro: 't3_g_turm_intro', ru: 't3_g_turm_ru', ende: 't3_g_turm_ende', setup(b){

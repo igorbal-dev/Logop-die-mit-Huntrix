@@ -51,9 +51,9 @@
       const have = all.filter(([x]) => T.real[`${n}_${x}`]).length;
       return `<div class="box"><b>${esc(T.name(n))}</b> — ${esc(T.cfg.teachers[n].role)} · подключено ${have} из ${all.length}
         <button class="btn light" data-mouth="${n}">проверить рот</button> <img data-prev="${n}" style="width:72px;height:72px;vertical-align:middle;object-fit:contain" src="${T.src(n, 'face_neutral')}" alt="">
-        <p class="muted">Папка: ${esc(T.cfg.teachers[n].folder)}/ · ✅ — картинка подхватилась, ⬜ — пока заглушка. Рамка «обязательно» — нужно для занятия 1.</p>
+        <p class="muted">Папка: ${esc(T.cfg.teachers[n].folder)}/ · ✅ — картинка подхватилась, ⬜ — пока заглушка. Рамка «обязательно» — без неё вместо картинки нарисованная заглушка.</p>
         <div class="grid">${all.map(([x, must]) => { const ok = !!T.real[`${n}_${x}`];
-          return `<div class="spr ${ok ? 'ok' : ''}"><img src="${T.src(n, x)}" alt="">${ok ? '✅' : '⬜'} teacher${n}_${x}.png${must ? '<br><b>обязательно</b>' : '<br>позже'}</div>`; }).join('')}</div></div>`;
+          return `<div class="spr ${ok ? 'ok' : ''}"><img src="${T.src(n, x)}" alt="">${ok ? '✅' : '⬜'} teacher${n}_${x}.webp${must ? '<br><b>обязательно</b>' : '<br>позже'}</div>`; }).join('')}</div></div>`;
     }).join('');
 
     box.innerHTML = `<h1>Speech Academy — для родителей <button class="close" id="pclose" aria-label="Закрыть">✕</button></h1>
@@ -87,7 +87,7 @@ ${soundsHtml(d)}
         <label>Награда: <input type="text" id="sName" value="${esc(st.rewardName)}" style="flex:1 1 220px"></label>
         <label>Картинка награды: <input type="file" id="sImg" accept="image/*"> ${st.rewardImg ? `<img src="${st.rewardImg}" style="height:48px;border-radius:8px"> <button class="btn light" id="sImgDel">убрать</button>` : '<span class="muted">(без картинки — рисованное яйцо)</span>'}</label>
         <p>Сейчас в яйце: <b>${d.egg.filled} из ${st.eggTarget}</b> · всего наград заработано: <b>${d.egg.earned}</b></p>
-        <p class="muted">Яйцо заполняется за каждое законченное занятие (и за законченное раньше, если прошло больше половины). Когда оно полное, учительницы говорят, что Эмили заработала настоящую награду — её выдаёте вы. Название награды в озвучке не звучит, поэтому его можно менять.</p>
+        <p class="muted">Яйцо заполняется за каждый законченный урок (все 5 станций; можно за несколько дней). Когда оно полное, учительницы говорят, что Эмили заработала настоящую награду — её выдаёте вы. Название награды в озвучке не звучит, поэтому его можно менять.</p>
       </div>
       <h2>Пройденные занятия</h2>
       <p class="muted">✓ / ~ — ваши отметки во время «говорим» и игры (кнопки внизу справа). Если Эмили просто не знает слово, ничего не нажимайте — это не ошибка произношения. Слушание отмечается само: по нажатиям картинок.</p>

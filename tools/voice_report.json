@@ -1016,12 +1016,12 @@
   "voice": "de-DE-SeraphinaMultilingualNeural"
  },
  "t1_ru_schlange": {
-  "cer": 0.0,
-  "dur": 1.69,
+  "cer": 0.06,
+  "dur": 2.74,
   "eng": "edge1",
-  "hyp": "Шипи, как змея",
-  "mos": 3.16,
-  "text": "Шипи, как змея!",
+  "hyp": "Посвести, как змейка.",
+  "mos": 2.3,
+  "text": "Посвисти, как змейка: ссс!",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
@@ -1117,11 +1117,11 @@
  },
  "t1_ru_zug": {
   "cer": 0.0,
-  "dur": 1.69,
+  "dur": 3.67,
   "eng": "edge1",
-  "hyp": "Шипи, как поезд",
-  "mos": 2.97,
-  "text": "Шипи, как поезд!",
+  "hyp": "Пыхти, как паровозик.",
+  "mos": 2.95,
+  "text": "Пыхти, как паровозик: ш-ш-ш!",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
@@ -1197,10 +1197,10 @@
  },
  "t1_schsch": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
-  "text": "шшшш (звук)"
+  "text": "ш-ш-ш-ш (паровоз, звук)"
  },
  "t1_spiegel_intro": {
   "cer": 0.0,
@@ -1214,7 +1214,7 @@
  },
  "t1_sss": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
   "text": "ssss (звук)"
@@ -1431,11 +1431,11 @@
  },
  "t1_zug2": {
   "cer": 0.0,
-  "dur": 2.03,
+  "dur": 1.41,
   "eng": "edge1",
-  "hyp": "Ganz lang, wie ein Zug.",
-  "mos": 2.8,
-  "text": "Ganz lang, wie ein Zug!",
+  "hyp": "Mach es wie der Zug.",
+  "mos": 2.75,
+  "text": "Mach es wie der Zug!",
   "tries": 1,
   "voice": "de-DE-AmalaNeural"
  },
@@ -1551,61 +1551,61 @@
  },
  "t2_hoer2_ch": {
   "cer": 0.0,
-  "dur": 1.21,
+  "dur": 2.31,
   "eng": "edge1",
-  "hyp": "Ist da ein CH?",
-  "mos": 3.0,
-  "text": "Ist da ein Ch?",
+  "hyp": "Ist da drin?",
+  "mos": 2.16,
+  "text": "Ist da ein Chhh drin?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer2_fw": {
-  "cer": 0.0,
-  "dur": 1.51,
+  "cer": 0.07,
+  "dur": 2.82,
   "eng": "edge1",
-  "hyp": "Ist da ein F oder W?",
-  "mos": 2.79,
-  "text": "Ist da ein F oder W?",
+  "hyp": "Ist da oder war drin?",
+  "mos": 2.29,
+  "text": "Ist da ein Fff oder Wah drin?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer2_kg": {
-  "cer": 0.0,
-  "dur": 1.58,
+  "cer": 0.12,
+  "dur": 4.25,
   "eng": "edge1",
-  "hyp": "Ist da ein K oder G?",
-  "mos": 2.9,
-  "text": "Ist da ein K oder G?",
+  "hyp": "Hörst du K wie bei Q oder gar wie bei Gans?",
+  "mos": 3.2,
+  "text": "Hörst du Kah, wie bei Kuh, oder Gah, wie bei Gans?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer2_l": {
   "cer": 0.0,
-  "dur": 0.99,
+  "dur": 0.81,
   "eng": "edge1",
-  "hyp": "Ist da ein L?",
-  "mos": 3.04,
-  "text": "Ist da ein L?",
+  "hyp": "Hörst du la?",
+  "mos": 2.61,
+  "text": "Hörst du Lah?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer2_r": {
-  "cer": 0.0,
-  "dur": 1.04,
+  "cer": 0.05,
+  "dur": 2.22,
   "eng": "edge1",
-  "hyp": "Ist da ein R?",
-  "mos": 3.06,
-  "text": "Ist da ein R?",
+  "hyp": "Hörst du rar, wie bei Rakete.",
+  "mos": 3.39,
+  "text": "Hörst du Raa, wie bei Rakete?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer2_s": {
-  "cer": 0.0,
-  "dur": 1.4,
+  "cer": 0.11,
+  "dur": 2.31,
   "eng": "edge1",
-  "hyp": "Ist da ein SSS?",
-  "mos": 3.35,
-  "text": "Ist da ein S?",
+  "hyp": "Ist da Sssss drin?",
+  "mos": 2.1,
+  "text": "Ist da ein Sss drin?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -1631,101 +1631,101 @@
  },
  "t2_hoer2_z": {
   "cer": 0.0,
-  "dur": 1.12,
+  "dur": 1.64,
   "eng": "edge1",
-  "hyp": "Ist da ein Z?",
-  "mos": 3.05,
-  "text": "Ist da ein Z?",
+  "hyp": "Ist da ein TSS drin?",
+  "mos": 3.03,
+  "text": "Ist da ein Tss drin?",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_ch": {
-  "cer": 0.0,
-  "dur": 8.55,
+  "cer": 0.03,
+  "dur": 9.6,
   "eng": "edge1",
-  "hyp": "Hörst du ein CH, wie in Ich?  Dann tipp auf die Katze.  Wenn nicht, tipp auf den leeren Kreis.",
-  "mos": 3.33,
-  "text": "Hörst du ein Ch, wie in ich? Dann tipp auf die Katze. Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du diesen Laut?  Wie innig.  Dann tipp auf die Katze.  Wenn nicht, tipp auf den leeren Kreis.",
+  "mos": 3.09,
+  "text": "Hörst du Chhh, wie in ich? Dann tipp auf die Katze. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_fw": {
-  "cer": 0.0,
-  "dur": 7.76,
+  "cer": 0.02,
+  "dur": 9.45,
   "eng": "edge1",
-  "hyp": "Hörst du ein F oder W?  Dann tipp auf das Bild.  Wenn nicht, tipp auf den leeren Kreis.",
-  "mos": 3.28,
-  "text": "Hörst du ein F oder W? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du diesen laut?  Oder war?  Dann tipp auf das Bild.  Wenn nicht, tipp auf den leeren Kreis.",
+  "mos": 3.05,
+  "text": "Hörst du Fff oder Wah? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_kg": {
-  "cer": 0.0,
-  "dur": 7.86,
+  "cer": 0.05,
+  "dur": 10.54,
   "eng": "edge1",
-  "hyp": "Hörst du ein K oder G?  Dann tipp auf das Bild.  Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du K wie bei Q oder gar wie bei Gans?  Dann tipp auf das Bild.  Wenn nicht, tipp auf den leeren Kreis.",
   "mos": 3.21,
-  "text": "Hörst du ein K oder G? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
+  "text": "Hörst du Kah, wie bei Kuh, oder Gah, wie bei Gans? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_l": {
   "cer": 0.0,
-  "dur": 7.28,
+  "dur": 8.39,
   "eng": "edge1",
-  "hyp": "Hörst du ein L? Dann tipp auf das Bild.  Wenn nicht, tipp auf den leeren Kreis.",
-  "mos": 3.14,
-  "text": "Hörst du ein L? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du La, wie bei Lampe?  Dann tipp auf das Bild.  Wenn nicht, tipp auf den leeren Kreis.",
+  "mos": 3.2,
+  "text": "Hörst du Lah, wie bei Lampe? Dann tipp auf das Bild. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_r": {
-  "cer": 0.0,
-  "dur": 7.39,
+  "cer": 0.02,
+  "dur": 8.58,
   "eng": "edge1",
-  "hyp": "Hörst du ein R? Dann tipp auf die Rakete.  Wenn nicht, tipp auf den leeren Kreis.",
-  "mos": 3.41,
-  "text": "Hörst du ein R? Dann tipp auf die Rakete. Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du rar, wie bei Rakete.  Dann tipp auf die Rakete.  Wenn nicht, tipp auf den leeren Kreis.",
+  "mos": 3.45,
+  "text": "Hörst du Raa, wie bei Rakete? Dann tipp auf die Rakete. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_s": {
-  "cer": 0.02,
-  "dur": 7.28,
+  "cer": 0.0,
+  "dur": 7.69,
   "eng": "edge1",
-  "hyp": "Hörst du eines? Dann tipp auf die Schlange.  Wenn nicht, tipp auf den leeren Kreis.",
-  "mos": 3.3,
-  "text": "Hörst du ein S? Dann tipp auf die Schlange. Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du diesen Laut? Dann tipp auf die Schlange.  Wenn nicht, tipp auf den leeren Kreis.",
+  "mos": 3.07,
+  "text": "Hörst du Sss? Dann tipp auf die Schlange. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_sch": {
   "cer": 0.0,
-  "dur": 7.5,
+  "dur": 7.62,
   "eng": "edge1",
-  "hyp": "Hörst du ein SCH? Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis.",
-  "mos": 3.21,
-  "text": "Hörst du ein Sch? Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du diesen Laut? Dann tipp auf den Zug.  Wenn nicht, tipp auf den leeren Kreis.",
+  "mos": 2.98,
+  "text": "Hörst du Schhh? Dann tipp auf den Zug. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_td": {
   "cer": 0.0,
-  "dur": 7.84,
+  "dur": 10.46,
   "eng": "edge1",
-  "hyp": "Hörst du ein T oder D? Dann tipp auf die Trommel.  Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du ta, wie bei Tisch, oder da, wie bei Dose?  Dann tipp auf die Trommel.  Wenn nicht, tipp auf den leeren Kreis.",
   "mos": 3.3,
-  "text": "Hörst du ein T oder D? Dann tipp auf die Trommel. Wenn nicht, tipp auf den leeren Kreis.",
+  "text": "Hörst du Tah, wie bei Tisch, oder Dah, wie bei Dose? Dann tipp auf die Trommel. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_hoer_z": {
   "cer": 0.0,
-  "dur": 8.47,
+  "dur": 7.53,
   "eng": "edge1",
-  "hyp": "Hörst du ein Z, wie TS, dann tipp auf den Zahn.  Wenn nicht, tipp auf den leeren Kreis.",
-  "mos": 3.31,
-  "text": "Hörst du ein Z, wie ts? Dann tipp auf den Zahn. Wenn nicht, tipp auf den leeren Kreis.",
+  "hyp": "Hörst du TSS? Dann tipp auf den Zahn. Wenn nicht, tipp auf den leeren Kreis.",
+  "mos": 3.3,
+  "text": "Hörst du Tss? Dann tipp auf den Zahn. Wenn nicht, tipp auf den leeren Kreis.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -1770,22 +1770,22 @@
   "voice": "de-DE-KatjaNeural"
  },
  "t2_klatsch_m": {
-  "cer": 0.04,
-  "dur": 2.71,
+  "cer": 0.0,
+  "dur": 3.44,
   "eng": "edge1",
-  "hyp": "Wenn du ihm hörst, klatsch auf die Hand.",
-  "mos": 3.14,
-  "text": "Wenn du M hörst, klatsch auf die Hand!",
+  "hyp": "Wenn du MMMM hörst, klatsch auf die Hand.",
+  "mos": 2.9,
+  "text": "Wenn du Mmm hörst, klatsch auf die Hand!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t2_klatsch_sch": {
   "cer": 0.0,
-  "dur": 3.14,
+  "dur": 3.97,
   "eng": "edge1",
-  "hyp": "Wenn du SCH hörst, klatsch auf die Hand.",
-  "mos": 3.03,
-  "text": "Wenn du Sch hörst, klatsch auf die Hand!",
+  "hyp": "Wenn du hörst, klatsch auf die Hand.",
+  "mos": 2.51,
+  "text": "Wenn du Schhh hörst, klatsch auf die Hand!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -1796,6 +1796,30 @@
   "hyp": "Das ist die Kuh.  Die Kuh macht moh.",
   "mos": 3.13,
   "text": "Das ist die Kuh. Die Kuh macht Muh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_laut_ch": {
+  "cer": 0.0,
+  "eng": "fx",
+  "hyp": "(звук)",
+  "mos": null,
+  "text": "chchch (звук)"
+ },
+ "t2_laut_f": {
+  "cer": 0.0,
+  "eng": "fx",
+  "hyp": "(звук)",
+  "mos": null,
+  "text": "ffff (звук)"
+ },
+ "t2_laut_z": {
+  "cer": 0.0,
+  "dur": 3.45,
+  "eng": "edge1",
+  "hyp": "tss, tss, tss",
+  "mos": 2.75,
+  "text": "Ts, ts, ts.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -2095,6 +2119,96 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_r_ch": {
+  "cer": 0.0,
+  "dur": 2.0,
+  "eng": "edge1",
+  "hyp": "Ich, ich, mich, dich.",
+  "mos": 2.7,
+  "text": "Ich, ich, mich, dich.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_f": {
+  "cer": 0.12,
+  "dur": 2.42,
+  "eng": "edge1",
+  "hyp": "Fa, fo, fo, fi.",
+  "mos": 3.02,
+  "text": "Fa, fo, fu, fi.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_ka": {
+  "cer": 0.12,
+  "dur": 2.16,
+  "eng": "edge1",
+  "hyp": "Ka, ko, ko, ki.",
+  "mos": 3.14,
+  "text": "Kah, koh, kuh, kih.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_la": {
+  "cer": 0.0,
+  "dur": 1.56,
+  "eng": "edge1",
+  "hyp": "Lah, lah, lah.",
+  "mos": 2.55,
+  "text": "Lah, lah, lah.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_r": {
+  "cer": 0.12,
+  "dur": 2.41,
+  "eng": "edge1",
+  "hyp": "Ra, ro, ro, ri.",
+  "mos": 2.93,
+  "text": "Ra, ro, ru, ri.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_s": {
+  "cer": 0.25,
+  "dur": 2.22,
+  "eng": "edge1",
+  "hyp": "Sa, so, so, sie.",
+  "mos": 3.03,
+  "text": "Sa, so, su, si.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_sch": {
+  "cer": 0.12,
+  "dur": 2.63,
+  "eng": "edge1",
+  "hyp": "Sche, Schu, Schu, Schi.",
+  "mos": 3.16,
+  "text": "Scha, scho, schu, schi.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_ta": {
+  "cer": 0.0,
+  "dur": 1.65,
+  "eng": "edge1",
+  "hyp": "Tah, tah, tah.",
+  "mos": 3.35,
+  "text": "Tah, tah, tah.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_r_z": {
+  "cer": 0.12,
+  "dur": 2.47,
+  "eng": "edge1",
+  "hyp": "Za, zu, zu, zi.",
+  "mos": 3.28,
+  "text": "Za, zo, zu, zi.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_ru_gleich": {
   "cer": 0.0,
   "dur": 3.76,
@@ -2116,102 +2230,102 @@
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_fw": {
-  "cer": 0.04,
-  "dur": 9.14,
+  "cer": 0.0,
+  "dur": 10.21,
   "eng": "edge1",
-  "hyp": "Слышишь, F или L?  Нажми на картинку.  Если нет, на пустой кружок.",
-  "mos": 3.15,
-  "text": "Слышишь «ф» или «в»? Нажми на картинку. Если нет — на пустой кружок.",
+  "hyp": "Слышишь такой звук?  Или «ва»?  Нажми на картинку.  Если нет, на пустой кружок.",
+  "mos": 3.18,
+  "text": "Слышишь «ффф» или «ва»? Нажми на картинку. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_kg": {
-  "cer": 0.04,
-  "dur": 9.0,
+  "cer": 0.0,
+  "dur": 9.43,
   "eng": "edge1",
-  "hyp": "Слышишь «к» или «эгэ»?  Нажми на картинку.  Если нет, на пустой кружок.",
+  "hyp": "Слышишь, «ка» или «га»?  Нажми на картинку.  Если нет, на пустой кружок.",
   "mos": 3.05,
-  "text": "Слышишь «к» или «г»? Нажми на картинку. Если нет — на пустой кружок.",
+  "text": "Слышишь «ка» или «га»? Нажми на картинку. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_l": {
-  "cer": 0.02,
-  "dur": 7.81,
+  "cer": 0.05,
+  "dur": 8.58,
   "eng": "edge1",
-  "hyp": "Слышишь, Эл?  Нажми на картинку.  Если нет, на пустой кружок.",
-  "mos": 3.3,
-  "text": "Слышишь «л»? Нажми на картинку. Если нет — на пустой кружок.",
+  "hyp": "Слышишь звук, как в слове лампа?  Нажми на картинку.  Если нет, на пустой кружок.",
+  "mos": 3.28,
+  "text": "Слышишь «л», как в слове лампа? Нажми на картинку. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_r": {
-  "cer": 0.02,
-  "dur": 7.66,
+  "cer": 0.0,
+  "dur": 7.68,
   "eng": "edge1",
-  "hyp": "Слышишь, R?  Нажми на ракету.  Если нет, на пустой кружок.",
-  "mos": 3.2,
-  "text": "Слышишь «р»? Нажми на ракету. Если нет — на пустой кружок.",
+  "hyp": "Слышишь, Ра?  Нажми на ракету.  Если нет, на пустой кружок.",
+  "mos": 3.18,
+  "text": "Слышишь «ра»? Нажми на ракету. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_s": {
   "cer": 0.0,
-  "dur": 8.23,
+  "dur": 8.14,
   "eng": "edge1",
-  "hyp": "Слышишь в слове «с».  Нажми на змейку.  Если нет, на пустой кружок.",
-  "mos": 3.04,
-  "text": "Слышишь в слове «с»? Нажми на змейку. Если нет — на пустой кружок.",
+  "hyp": "Слышишь в слове такой звук, нажми на змейку.  Если нет, на пустой кружок.",
+  "mos": 3.03,
+  "text": "Слышишь в слове «ссс»? Нажми на змейку. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_sch": {
-  "cer": 0.02,
-  "dur": 8.51,
+  "cer": 0.0,
+  "dur": 8.23,
   "eng": "edge1",
-  "hyp": "Слышишь в слове «ша»?  Нажми на паровозик.  Если нет, на пустой кружок.",
-  "mos": 3.14,
-  "text": "Слышишь в слове «ш»? Нажми на паровозик. Если нет — на пустой кружок.",
+  "hyp": "Слышишь в слове такой звук?  Нажми на паровозик.  Если нет, на пустой кружок.",
+  "mos": 3.16,
+  "text": "Слышишь в слове «шшш»? Нажми на паровозик. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_td": {
   "cer": 0.0,
-  "dur": 9.1,
+  "dur": 9.17,
   "eng": "edge1",
-  "hyp": "Слышишь, «Т» или «Д»?  Нажми на барабан.  Если нет, на пустой кружок.",
-  "mos": 3.09,
-  "text": "Слышишь «т» или «д»? Нажми на барабан. Если нет — на пустой кружок.",
+  "hyp": "Слышишь «та» или «да»?  Нажми на барабан.  Если нет, на пустой кружок.",
+  "mos": 3.17,
+  "text": "Слышишь «та» или «да»? Нажми на барабан. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_hoer_z": {
   "cer": 0.0,
-  "dur": 7.62,
+  "dur": 7.03,
   "eng": "edge1",
-  "hyp": "Слышишь, Ц?  Нажми на зубик.  Если нет, на пустой кружок.",
+  "hyp": "Слышишь такой звук?  Нажми на зубик.  Если нет, на пустой кружок.",
   "mos": 3.17,
-  "text": "Слышишь «ц»? Нажми на зубик. Если нет — на пустой кружок.",
+  "text": "Слышишь «тс»? Нажми на зубик. Если нет — на пустой кружок.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_klatsch_m": {
   "cer": 0.0,
-  "dur": 3.04,
+  "dur": 3.45,
   "eng": "edge1",
-  "hyp": "Услышишь «М» — хлопни по ладошке.",
-  "mos": 3.24,
-  "text": "Услышишь «М» — хлопни по ладошке!",
+  "hyp": "Услышишь МММММ, хлопни по ладошке.",
+  "mos": 3.14,
+  "text": "Услышишь «ммм» — хлопни по ладошке!",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t2_ru_klatsch_sch": {
-  "cer": 0.04,
-  "dur": 3.17,
+  "cer": 0.0,
+  "dur": 3.47,
   "eng": "edge1",
-  "hyp": "Услышишь, ша, хлопни по ладошке.",
-  "mos": 3.33,
-  "text": "Услышишь «Ш» — хлопни по ладошке!",
+  "hyp": "Услышишь?  Хлопни по ладошке.",
+  "mos": 2.64,
+  "text": "Услышишь «шшш» — хлопни по ладошке!",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
@@ -2477,10 +2591,10 @@
  },
  "t2_schsch": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
-  "text": "шшшш (звук)"
+  "text": "ш-ш-ш-ш (паровоз, звук)"
  },
  "t2_sil_auto": {
   "cer": 0.0,
@@ -2564,7 +2678,7 @@
  },
  "t2_sss": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
   "text": "ssss (звук)"
@@ -2599,6 +2713,146 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_w_apfel": {
+  "cer": 0.0,
+  "dur": 0.57,
+  "eng": "edge1",
+  "hyp": "Apfel!",
+  "mos": 3.18,
+  "text": "Apfel!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_auto": {
+  "cer": 0.0,
+  "dur": 0.7,
+  "eng": "edge1",
+  "hyp": "Auto!",
+  "mos": 3.28,
+  "text": "Auto!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_ball": {
+  "cer": 0.0,
+  "dur": 0.46,
+  "eng": "edge1",
+  "hyp": "Ball!",
+  "mos": 2.93,
+  "text": "Ball!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_banane": {
+  "cer": 0.0,
+  "dur": 0.8,
+  "eng": "edge1",
+  "hyp": "Banane!",
+  "mos": 3.02,
+  "text": "Banane!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_baum": {
+  "cer": 0.0,
+  "dur": 0.59,
+  "eng": "edge1",
+  "hyp": "Baum!",
+  "mos": 2.67,
+  "text": "Baum!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_birne": {
+  "cer": 0.0,
+  "dur": 0.64,
+  "eng": "edge1",
+  "hyp": "Birne!",
+  "mos": 2.96,
+  "text": "Birne!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_broetchen": {
+  "cer": 0.0,
+  "dur": 0.84,
+  "eng": "edge1",
+  "hyp": "Brötchen",
+  "mos": 3.03,
+  "text": "Brötchen!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_brot": {
+  "cer": 0.0,
+  "dur": 0.6,
+  "eng": "edge1",
+  "hyp": "Brot!",
+  "mos": 3.1,
+  "text": "Brot!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_bus": {
+  "cer": 0.0,
+  "dur": 0.52,
+  "eng": "edge1",
+  "hyp": "Bus!",
+  "mos": 2.53,
+  "text": "Bus!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_dach": {
+  "cer": 0.0,
+  "dur": 0.42,
+  "eng": "edge1",
+  "hyp": "Dach!",
+  "mos": 2.76,
+  "text": "Dach!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_dose": {
+  "cer": 0.0,
+  "dur": 0.66,
+  "eng": "edge1",
+  "hyp": "Dose!",
+  "mos": 3.39,
+  "text": "Dose!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_ei": {
+  "cer": 0.0,
+  "dur": 0.47,
+  "eng": "edge1",
+  "hyp": "Ei!",
+  "mos": 2.98,
+  "text": "Ei!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_eis": {
+  "cer": 0.0,
+  "dur": 0.52,
+  "eng": "edge1",
+  "hyp": "Eis!",
+  "mos": 2.67,
+  "text": "Eis!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_esel": {
+  "cer": 0.0,
+  "dur": 0.56,
+  "eng": "edge1",
+  "hyp": "Esel!",
+  "mos": 2.73,
+  "text": "Esel!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_w_fisch": {
   "cer": 0.0,
   "dur": 0.49,
@@ -2606,6 +2860,86 @@
   "hyp": "Fisch!",
   "mos": 2.63,
   "text": "Fisch!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_flasche": {
+  "cer": 0.0,
+  "dur": 0.71,
+  "eng": "edge1",
+  "hyp": "Flasche",
+  "mos": 2.78,
+  "text": "Flasche!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_frosch": {
+  "cer": 0.0,
+  "dur": 0.59,
+  "eng": "edge1",
+  "hyp": "Frosch!",
+  "mos": 2.31,
+  "text": "Frosch!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_fuss": {
+  "cer": 0.0,
+  "dur": 0.54,
+  "eng": "edge1",
+  "hyp": "Fuß!",
+  "mos": 2.54,
+  "text": "Fuß!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_gabel": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Gabel!",
+  "mos": 3.27,
+  "text": "Gabel!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_gans": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Gans!",
+  "mos": 3.15,
+  "text": "Gans!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_gurke": {
+  "cer": 0.0,
+  "dur": 0.79,
+  "eng": "edge1",
+  "hyp": "Gurke!",
+  "mos": 3.06,
+  "text": "Gurke!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_haus": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Haus!",
+  "mos": 3.1,
+  "text": "Haus!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_herz": {
+  "cer": 0.0,
+  "dur": 0.62,
+  "eng": "edge1",
+  "hyp": "Herz!",
+  "mos": 3.26,
+  "text": "Herz!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -2619,6 +2953,26 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_w_katze": {
+  "cer": 0.0,
+  "dur": 0.72,
+  "eng": "edge1",
+  "hyp": "Katze!",
+  "mos": 2.84,
+  "text": "Katze!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_keks": {
+  "cer": 0.0,
+  "dur": 0.73,
+  "eng": "edge1",
+  "hyp": "Keks!",
+  "mos": 3.03,
+  "text": "Keks!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_w_kopf": {
   "cer": 0.0,
   "dur": 0.52,
@@ -2626,6 +2980,346 @@
   "hyp": "Kopf!",
   "mos": 2.99,
   "text": "Kopf!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_kuchen": {
+  "cer": 0.0,
+  "dur": 0.69,
+  "eng": "edge1",
+  "hyp": "Kuchen!",
+  "mos": 2.52,
+  "text": "Kuchen!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_kuh": {
+  "cer": 0.0,
+  "dur": 0.46,
+  "eng": "edge1",
+  "hyp": "Kuh",
+  "mos": 2.76,
+  "text": "Kuh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_lampe": {
+  "cer": 0.0,
+  "dur": 0.68,
+  "eng": "edge1",
+  "hyp": "Lampe!",
+  "mos": 3.14,
+  "text": "Lampe!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_licht": {
+  "cer": 0.0,
+  "dur": 0.54,
+  "eng": "edge1",
+  "hyp": "Licht!",
+  "mos": 2.46,
+  "text": "Licht!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_loeffel": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Löffel!",
+  "mos": 3.2,
+  "text": "Löffel!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_loewe": {
+  "cer": 0.0,
+  "dur": 0.69,
+  "eng": "edge1",
+  "hyp": "Löwe!",
+  "mos": 2.99,
+  "text": "Löwe!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_mama": {
+  "cer": 0.0,
+  "dur": 0.68,
+  "eng": "edge1",
+  "hyp": "Mama!",
+  "mos": 3.2,
+  "text": "Mama!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_maus": {
+  "cer": 0.0,
+  "dur": 0.66,
+  "eng": "edge1",
+  "hyp": "Maus!",
+  "mos": 3.22,
+  "text": "Maus!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_milch": {
+  "cer": 0.0,
+  "dur": 0.64,
+  "eng": "edge1",
+  "hyp": "Milch!",
+  "mos": 2.62,
+  "text": "Milch!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_moehre": {
+  "cer": 0.0,
+  "dur": 0.67,
+  "eng": "edge1",
+  "hyp": "Möhre!",
+  "mos": 2.91,
+  "text": "Möhre!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_mond": {
+  "cer": 0.0,
+  "dur": 0.55,
+  "eng": "edge1",
+  "hyp": "Mond!",
+  "mos": 3.07,
+  "text": "Mond!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_nase": {
+  "cer": 0.0,
+  "dur": 0.75,
+  "eng": "edge1",
+  "hyp": "Nase!",
+  "mos": 2.84,
+  "text": "Nase!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_nudel": {
+  "cer": 0.0,
+  "dur": 0.58,
+  "eng": "edge1",
+  "hyp": "Nudel!",
+  "mos": 2.73,
+  "text": "Nudel!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_oma": {
+  "cer": 0.0,
+  "dur": 0.57,
+  "eng": "edge1",
+  "hyp": "Oma!",
+  "mos": 2.65,
+  "text": "Oma!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_papa": {
+  "cer": 0.0,
+  "dur": 0.63,
+  "eng": "edge1",
+  "hyp": "Papa!",
+  "mos": 3.2,
+  "text": "Papa!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_pfirsich": {
+  "cer": 0.0,
+  "dur": 0.78,
+  "eng": "edge1",
+  "hyp": "Pfirsich",
+  "mos": 3.01,
+  "text": "Pfirsich!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_pilz": {
+  "cer": 0.0,
+  "dur": 0.65,
+  "eng": "edge1",
+  "hyp": "Pilz!",
+  "mos": 3.04,
+  "text": "Pilz!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_pizza": {
+  "cer": 0.0,
+  "dur": 0.71,
+  "eng": "edge1",
+  "hyp": "Pizza!",
+  "mos": 2.96,
+  "text": "Pizza!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_puppe": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Puppe!",
+  "mos": 3.21,
+  "text": "Puppe!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_rad": {
+  "cer": 0.0,
+  "dur": 0.59,
+  "eng": "edge1",
+  "hyp": "Rad!",
+  "mos": 3.03,
+  "text": "Rad!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_rakete": {
+  "cer": 0.0,
+  "dur": 0.93,
+  "eng": "edge1",
+  "hyp": "Rakete!",
+  "mos": 3.28,
+  "text": "Rakete!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_ring": {
+  "cer": 0.0,
+  "dur": 0.48,
+  "eng": "edge1",
+  "hyp": "Ring!",
+  "mos": 2.31,
+  "text": "Ring!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_rose": {
+  "cer": 0.0,
+  "dur": 0.69,
+  "eng": "edge1",
+  "hyp": "Rose!",
+  "mos": 3.34,
+  "text": "Rose!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_saft": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Saft!",
+  "mos": 2.97,
+  "text": "Saft!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_schaf": {
+  "cer": 0.0,
+  "dur": 0.66,
+  "eng": "edge1",
+  "hyp": "Schaf!",
+  "mos": 2.98,
+  "text": "Schaf!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_schere": {
+  "cer": 0.0,
+  "dur": 0.78,
+  "eng": "edge1",
+  "hyp": "Schere!",
+  "mos": 2.8,
+  "text": "Schere!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_schiff": {
+  "cer": 0.0,
+  "dur": 0.61,
+  "eng": "edge1",
+  "hyp": "Schiff!",
+  "mos": 2.59,
+  "text": "Schiff!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_schlange": {
+  "cer": 0.0,
+  "dur": 0.76,
+  "eng": "edge1",
+  "hyp": "Schlange",
+  "mos": 2.85,
+  "text": "Schlange!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_schnecke": {
+  "cer": 0.0,
+  "dur": 0.76,
+  "eng": "edge1",
+  "hyp": "Schnecke.",
+  "mos": 2.97,
+  "text": "Schnecke!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_schuh": {
+  "cer": 0.0,
+  "dur": 0.44,
+  "eng": "edge1",
+  "hyp": "Schuh!",
+  "mos": 2.49,
+  "text": "Schuh!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_schwein": {
+  "cer": 0.0,
+  "dur": 0.67,
+  "eng": "edge1",
+  "hyp": "Schwein",
+  "mos": 3.02,
+  "text": "Schwein!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_seife": {
+  "cer": 0.0,
+  "dur": 0.79,
+  "eng": "edge1",
+  "hyp": "Seife!",
+  "mos": 3.24,
+  "text": "Seife!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_socke": {
+  "cer": 0.0,
+  "dur": 0.66,
+  "eng": "edge1",
+  "hyp": "Socke!",
+  "mos": 3.21,
+  "text": "Socke!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_sonne": {
+  "cer": 0.0,
+  "dur": 0.65,
+  "eng": "edge1",
+  "hyp": "Sonne!",
+  "mos": 3.03,
+  "text": "Sonne!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -2659,6 +3353,26 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_w_teddy": {
+  "cer": 0.0,
+  "dur": 0.62,
+  "eng": "edge1",
+  "hyp": "Teddy!",
+  "mos": 3.05,
+  "text": "Teddy!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_teller": {
+  "cer": 0.0,
+  "dur": 0.59,
+  "eng": "edge1",
+  "hyp": "Teller!",
+  "mos": 2.95,
+  "text": "Teller!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_w_tisch": {
   "cer": 0.0,
   "dur": 0.52,
@@ -2669,6 +3383,16 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t2_w_tomate": {
+  "cer": 0.0,
+  "dur": 0.88,
+  "eng": "edge1",
+  "hyp": "Tomate!",
+  "mos": 3.26,
+  "text": "Tomate!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t2_w_topf": {
   "cer": 0.0,
   "dur": 0.6,
@@ -2676,6 +3400,106 @@
   "hyp": "Topf!",
   "mos": 3.24,
   "text": "Topf!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_tuer": {
+  "cer": 0.0,
+  "dur": 0.59,
+  "eng": "edge1",
+  "hyp": "Tür!",
+  "mos": 2.8,
+  "text": "Tür!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_vogel": {
+  "cer": 0.0,
+  "dur": 0.69,
+  "eng": "edge1",
+  "hyp": "Vogel!",
+  "mos": 2.75,
+  "text": "Vogel!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_wal": {
+  "cer": 0.0,
+  "dur": 0.54,
+  "eng": "edge1",
+  "hyp": "Wal!",
+  "mos": 3.04,
+  "text": "Wal!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_wolke": {
+  "cer": 0.0,
+  "dur": 0.7,
+  "eng": "edge1",
+  "hyp": "Wolke!",
+  "mos": 3.19,
+  "text": "Wolke!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_wurm": {
+  "cer": 0.0,
+  "dur": 0.62,
+  "eng": "edge1",
+  "hyp": "Wurm!",
+  "mos": 2.79,
+  "text": "Wurm!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_zahn": {
+  "cer": 0.0,
+  "dur": 0.64,
+  "eng": "edge1",
+  "hyp": "Zahn!",
+  "mos": 3.09,
+  "text": "Zahn!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_zebra": {
+  "cer": 0.0,
+  "dur": 0.75,
+  "eng": "edge1",
+  "hyp": "Zebra!",
+  "mos": 2.77,
+  "text": "Zebra!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_zelt": {
+  "cer": 0.0,
+  "dur": 0.65,
+  "eng": "edge1",
+  "hyp": "Zelt!",
+  "mos": 2.9,
+  "text": "Zelt!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_zitrone": {
+  "cer": 0.0,
+  "dur": 0.88,
+  "eng": "edge1",
+  "hyp": "Zitrone",
+  "mos": 3.27,
+  "text": "Zitrone!",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
+ "t2_w_zug": {
+  "cer": 0.0,
+  "dur": 0.58,
+  "eng": "edge1",
+  "hyp": "Zug!",
+  "mos": 2.52,
+  "text": "Zug!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -3139,55 +3963,55 @@
  },
  "t3_laut_ch": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
   "text": "chchch (звук)"
  },
  "t3_laut_f": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
   "text": "ffff (звук)"
  },
  "t3_laut_intro_ch": {
   "cer": 0.0,
-  "dur": 7.06,
+  "dur": 6.72,
   "eng": "edge1",
-  "hyp": "CH ist wie eine Katze, die faucht, CHCH.  Lächeln, und die Zunge macht einen Berg.",
-  "mos": 3.34,
-  "text": "Ch ist wie eine Katze, die faucht: Chch! Lächeln, und die Zunge macht einen Berg.",
+  "hyp": "Dieser Laut ist wie eine Katze, die faucht.  Lächeln, und die Zunge macht einen Berg.",
+  "mos": 3.19,
+  "text": "Dieser Laut ist wie eine Katze, die faucht: Chhh! Lächeln, und die Zunge macht einen Berg.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t3_laut_intro_fw": {
   "cer": 0.0,
-  "dur": 4.51,
+  "dur": 5.0,
   "eng": "edge1",
-  "hyp": "Für F beißen wir ganz leicht auf die Unterlippe und pusten.  F F F",
-  "mos": 3.18,
-  "text": "Für F beißen wir ganz leicht auf die Unterlippe und pusten: Fff!",
+  "hyp": "Für diesen Laut beißen wir ganz leicht auf die Unterlippe und pusten.",
+  "mos": 2.69,
+  "text": "Für Fff beißen wir ganz leicht auf die Unterlippe und pusten: Fff!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t3_laut_intro_kg": {
-  "cer": 0.0,
-  "dur": 8.27,
+  "cer": 0.07,
+  "dur": 7.85,
   "eng": "edge1",
-  "hyp": "Für K bleibt die Zungenspitze unten hinter den Zähnen.  Hinten macht die Zunge einen Berg, K, K, K.",
-  "mos": 3.33,
-  "text": "Für K bleibt die Zungenspitze unten hinter den Zähnen. Hinten macht die Zunge einen Berg: K, k, k!",
+  "hyp": "Die Zungenspitze bleibt unten hinter den Zähnen.  Hinten macht die Zunge einen Berg, K, K, K.",
+  "mos": 3.35,
+  "text": "Die Zungenspitze bleibt unten hinter den Zähnen. Hinten macht die Zunge einen Berg: Kah, kah, kah!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t3_laut_intro_l": {
   "cer": 0.0,
-  "dur": 5.97,
+  "dur": 5.59,
   "eng": "edge1",
-  "hyp": "Für L geht die Zungenspitze hoch hinter die oberen Zähne und bleibt da, la, la, la.",
-  "mos": 3.27,
-  "text": "Für L geht die Zungenspitze hoch hinter die oberen Zähne und bleibt da: La, la, la!",
+  "hyp": "Die Zungenspitze geht hoch hinter die oberen Zähne und bleibt da, la, la, la.",
+  "mos": 3.43,
+  "text": "Die Zungenspitze geht hoch hinter die oberen Zähne und bleibt da: Lah, lah, lah!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -3202,42 +4026,42 @@
   "voice": "de-DE-KatjaNeural"
  },
  "t3_laut_intro_s": {
-  "cer": 0.01,
-  "dur": 8.15,
+  "cer": 0.0,
+  "dur": 9.94,
   "eng": "edge1",
-  "hyp": "Für es lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten.  Kalte Luft, SSS",
-  "mos": 3.35,
-  "text": "Für S lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten. Kalte Luft: Sss!",
+  "hyp": "Für diesen Laut lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten.  Kalte Luft.",
+  "mos": 3.33,
+  "text": "Für Sss lächeln wir, die Zähne sind zusammen, die Zungenspitze bleibt unten. Kalte Luft: Sss!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t3_laut_intro_sch": {
   "cer": 0.0,
-  "dur": 8.06,
+  "dur": 9.43,
   "eng": "edge1",
-  "hyp": "Für SCH machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft, SCH-H-H.",
-  "mos": 3.26,
-  "text": "Für Sch machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft: Schhh!",
+  "hyp": "Für diesen Laut machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft.",
+  "mos": 2.78,
+  "text": "Für Schhh machen wir die Lippen rund nach vorne, die Zunge ist eine Tasse oben, und wir pusten warme Luft: Schhh!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t3_laut_intro_td": {
-  "cer": 0.02,
-  "dur": 6.41,
+  "cer": 0.0,
+  "dur": 5.68,
   "eng": "edge1",
-  "hyp": "Für T-Tipp die Zungenspitze oben hinter die Zähne, T, T, T, wie eine Uhr.",
-  "mos": 3.38,
-  "text": "Für T tippt die Zungenspitze oben hinter die Zähne: T, t, t, wie eine Uhr!",
+  "hyp": "Die Zungenspitze tippt oben hinter die Zähne, wie eine Uhr, ta, ta, ta.",
+  "mos": 3.34,
+  "text": "Die Zungenspitze tippt oben hinter die Zähne, wie eine Uhr: Tah, tah, tah!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
  "t3_laut_intro_z": {
   "cer": 0.0,
-  "dur": 8.7,
+  "dur": 6.37,
   "eng": "edge1",
-  "hyp": "Z ist ganz schnell T und S zusammen.  TS, TS, TS.  Die Zunge tippt oben und rutscht nach unten.",
-  "mos": 3.05,
-  "text": "Z ist ganz schnell T und S zusammen: ts, ts, ts! Die Zunge tippt oben und rutscht nach unten.",
+  "hyp": "Die Zunge tippt oben und rutscht ganz schnell nach unten.  TSS, TSS, TSS.",
+  "mos": 3.41,
+  "text": "Die Zunge tippt oben und rutscht ganz schnell nach unten: Tss, tss, tss!",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
@@ -4168,12 +4992,12 @@
   "voice": "de-DE-SeraphinaMultilingualNeural"
  },
  "t3_ru_laut_ch": {
-  "cer": 0.06,
-  "dur": 7.7,
+  "cer": 0.0,
+  "dur": 7.85,
   "eng": "edge1",
-  "hyp": "Немецкий звук сеич, как будто кошка тихонько шипит.  Улыбнись, язычок горкой и подуй.",
-  "mos": 3.31,
-  "text": "Немецкий звук Ch — как будто кошка тихонько шипит. Улыбнись, язычок горкой, и подуй.",
+  "hyp": "Этот немецкий звук, как будто кошка тихонько шипит.  Улыбнись, язычок горкой и подуй.",
+  "mos": 3.15,
+  "text": "Этот немецкий звук — как будто кошка тихонько шипит: хьхь. Улыбнись, язычок горкой, и подуй.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
@@ -4248,12 +5072,12 @@
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t3_ru_laut_z": {
-  "cer": 0.04,
-  "dur": 5.5,
+  "cer": 0.0,
+  "dur": 3.53,
   "eng": "edge1",
-  "hyp": "С – это быстро Т и С вместе ТС-ТС-ТС.",
-  "mos": 2.75,
-  "text": "«Ц» — это быстро «т» и «с» вместе: тс-тс-тс.",
+  "hyp": "Язычок стукнул и сразу зашипел.",
+  "mos": 2.71,
+  "text": "Язычок стукнул и сразу зашипел: тс, тс, тс.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
  },
@@ -5095,7 +5919,7 @@
  },
  "t3_schsch": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
   "text": "шшшш (звук)"
@@ -5122,12 +5946,12 @@
  },
  "t3_specht": {
   "cer": 0.24,
-  "dur": 3.13,
+  "dur": 2.64,
   "eng": "edge1",
   "hyp": "Der Specht klopft, K, K, K.",
   "mos": 3.17,
-  "text": "Der Specht klopft: Kaa, kaa, kaa!",
-  "tries": 2,
+  "text": "Der Specht klopft: Kah, kah, kah!",
+  "tries": 3,
   "voice": "de-DE-KatjaNeural"
  },
  "t3_spiel_ende": {
@@ -5182,7 +6006,7 @@
  },
  "t3_sss": {
   "cer": 0.0,
-  "eng": "synth",
+  "eng": "fx",
   "hyp": "(звук)",
   "mos": null,
   "text": "ssss (звук)"
@@ -6168,5 +6992,12 @@
   "text": "Jetzt zischen wir: wie die Schlange und wie der Zug.",
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
+ },
+ "t3_zug_fx": {
+  "cer": 0.0,
+  "eng": "fx",
+  "hyp": "(звук)",
+  "mos": null,
+  "text": "ш-ш-ш-ш (паровоз уезжает, звук)"
  }
 }
