@@ -68,7 +68,8 @@
 
   /* Ждём, пока Эмили скажет (любой звук голоса). words — сколько слов в образце (чем больше, тем дольше ждём).
      Вернёт {ok, url} — url: запись попытки, если record. */
-  M.listen = async ({words = 1, noVoiceMs = 7000, record = false} = {}) => {
+  /* until() — родитель уже нажал ✓: попытка засчитана, дальше не ждём */
+  M.listen = async ({words = 1, noVoiceMs = 7000, record = false, until} = {}) => {
     if (SA.AUTO){ await SA.sleep(700); return {ok: true, url: null}; }
     if (!M.ok){ await SA.sleep(2500); return {ok: false, url: null, nomic: true}; }
     const SILENCE_MS = 1000, MIN_WAIT = Math.max(1200, words*650), CAP = 10000;
@@ -83,6 +84,7 @@
         if (spoke && now - t0 >= MIN_WAIT && now - V.voicedAt >= SILENCE_MS && V.run === 0){ ok = true; break; }
         if (spoke && now - t0 > CAP){ ok = true; break; }
         if (!spoke && now - t0 > noVoiceMs) break;
+        if (until && until()){ ok = true; break; }
       }
     } catch(e){ showRing(false); await recStop(false); throw e; }
     let url = null, blob = null;

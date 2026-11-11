@@ -29,8 +29,9 @@ function run(sig, sens = 1){
 }
 const snd = path.join(__dirname, '../../assets/snd');
 const LINES = JSON.parse(fs.readFileSync(path.join(__dirname, '../../content/de/lines.json'), 'utf8')).lines;
-/* синтезированные «ссс/шшш» — это и есть шум, не речь, их не считаем */
-const speech = fs.readdirSync(snd).filter(f => f.endsWith('.mp3') && !f.includes('_ru_') && !(LINES[f.slice(0, -4)] || {}).synth).sort();
+/* «ссс/шшш» (synth) и фразы со вставленным звуком ({sch} в say) — это и есть шум, не речь, их не считаем */
+const speech = fs.readdirSync(snd).filter(f => f.endsWith('.mp3') && !f.includes('_ru_') && !(LINES[f.slice(0, -4)] || {}).synth && !((LINES[f.slice(0, -4)] || {}).say || '').includes('{')).sort()
+  .filter((f, i) => process.env.FULL || i % 4 === 0);          /* быстро: каждая 4-я реплика (≈ 3 мин); FULL=1 — все (≈ 15 мин) */
 let worst = [], fp = 0, tot = 0;
 for (const db of [-30, -12, -3]) for (const f of speech){ const r = run(gain(dec(path.join(snd, f)), db)); tot++; if (r.air > 0){ fp++; worst.push([r.air, db, f]); } }
 worst.sort((a, b) => b[0] - a[0]);

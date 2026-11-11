@@ -378,7 +378,9 @@
     const hint = e.hint && mirrorEl ? SA.el('div', 'hint tg pop', SA.tonguePic(e.hint)) : null;
     if (hint){ mirrorEl.querySelectorAll('.hint').forEach(h => h.remove()); mirrorEl.appendChild(hint); }
     /* объяснение — один раз за станцию; на втором круге — «Und noch einmal!» и показ */
-    T.face(1); await say(X.once('ex_' + id) ? e.say[0] : 't1_nochmal');
+    /* на втором круге — короткое название (вторая формулировка: «Spitze Lippen, wie ein Küsschen!»), а не одно и то же «Und noch einmal!» */
+    const firstEx = X.once('ex_' + id);
+    T.face(1); await say(firstEx ? e.say[0] : e.say[1]);
     demo(e, hint);
     const rec = P.item({block: 'mirror', id, kind: 'pose', result: null, reps: []});
     let parentOk = false; X.marks(rec, () => { parentOk = true; });
@@ -388,7 +390,7 @@
       if (r > 0){ clearInterval(demoTimer); T.face(1); await sleep(900); A.sfx.pop(); demo(e, hint); }
       const tm = SA.el('div', 'timer', '<i></i><i></i><i></i><i></i>'); mirrorEl.appendChild(tm);
       const dots = [...tm.children];
-      const t0 = SA.now(); let caught = 0, last = SA.now(), how = null, prompt = 1, phase = 0, armed = false, relax = 0;
+      const t0 = SA.now(); let caught = 0, last = SA.now(), how = null, prompt = firstEx ? 1 : 2, phase = 0, armed = false, relax = 0;
       while (!how){
         await sleep(60);
         const now = SA.now(), dt = now - last; last = now;
@@ -633,20 +635,24 @@
     X.earOff();
     /* tag — {snd, stage}: попытка идёт в «паспорт звука»; model — чтобы родитель потом послушал образец и запись */
     const rec = P.item(Object.assign({block, id, kind: 'speak', result: null, attempts: 0, mark: null, model}, tag || {}));
-    X.marks(rec);
+    /* ✓ родителя = попытка засчитана (микрофон мог не расслышать тихий голос): учительница больше не просит повторить */
+    let parentOk = false; X.marks(rec, () => { parentOk = true; A.cut(); });
     const E = SA.E; if (E) E.repeats = (E.repeats || 0) + 1;
     const tell = !E || E.repeats <= 2;
     let ok = false, url = null;
     for (let a = 0; a < 3 && !ok; a++){
+      if (parentOk){ ok = true; break; }
       rec.attempts = a + 1;
       T.face(3);
       if (a > 0) await say(prompts[a]);
       await say(model, {vis});
       if (a === 0 && tell) await say(prompts[0]);
       T.body(3, 'listen');
-      const r = await M.listen({words, record: true, noVoiceMs: 6000});
+      if (parentOk){ ok = true; break; }
+      const r = await M.listen({words, record: true, noVoiceMs: 6000, until: () => parentOk});
       if (r.ok){ ok = true; url = r.url; if (r.blob && rec.at && P.settings().keepRec !== false){ rec.audio = rec.at.join(':'); SA.Rec.put(rec.audio, r.blob); } }
       else if (r.nomic){ ok = true; rec.result = 'nomic'; }
+      if (parentOk) ok = true;
     }
     rec.result = rec.result || (ok ? 'heard' : 'none'); P._flush();
     if (ok) await X.praise(3, showPic); else { T.body(3, 'support'); await say('t3_spaeter'); }

@@ -52,6 +52,21 @@ def ffmpeg_clean(src, dst):
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-af', AF, '-ar', '24000', '-ac', '1', '-b:a', '48k', dst], check=True)
 
 
+def lufs(f):
+    out = subprocess.run(['ffmpeg', '-hide_banner', '-nostats', '-i', f, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    m = re.findall(r'I:\s+(-?[\d.]+) LUFS', out)
+    return float(m[-1]) if m else None
+
+
+def level_fix(f, target=-16.0):
+    """loudnorm на коротких записях промахивается на 3–6 дБ — меряем и подтягиваем (с ограничителем пиков)"""
+    i = lufs(f)
+    if i is None or i < -60 or abs(i - target) <= 1.5: return
+    tmp = f + '.tmp.mp3'
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', f'volume={target - i:.1f}dB,alimiter=limit=0.89', '-ar', '24000', '-ac', '1', '-b:a', '48k', tmp], check=True)
+    os.replace(tmp, f)
+
+
 def pcm16k(f):
     import numpy as np
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f, '-f', 'f32le', '-ac', '1', '-ar', '16000', '-'], capture_output=True).stdout
@@ -182,6 +197,7 @@ async def main():
             print(f'[{i + 1}/{len(todo)}] {k}: ОШИБКА {e}', flush=True)
             if best is None: continue
         os.replace(best.pop('file'), snd(k))
+        level_fix(snd(k))
         rep[k] = best
         if i % 10 == 9: json.dump(rep, open(rep_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
         flag = '' if ok(line, best) else '  ⚠ послушать'

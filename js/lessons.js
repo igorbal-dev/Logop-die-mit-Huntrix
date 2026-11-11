@@ -9,7 +9,9 @@
   const spent = E => E.sec - E.left();
   /* сделать каждое задание хотя бы раз, потом повторять (сложнее), пока есть время доли */
   /* rounds — сколько раз максимум пройти список (раньше станция крутила одно и то же до 3 минут — скучно) */
-  async function fill(E, share, fns, {min = fns.length, again = true, cap = 2, rounds = 2} = {}){
+  /* сколько кругов: 10–15 мин урока — 2–3, 30 мин — 4; короткий список (1–2 задания) — не больше 2, чтобы не надоело */
+  async function fill(E, share, fns, {min = fns.length, again = true, cap = 2, rounds} = {}){
+    rounds = rounds ?? (fns.length <= 2 ? 2 : SA.clamp(Math.round(E.sec*5/60/7) + 1, 2, 4));
     /* быстрый режим проверки: каждое задание один раз, без повторов (из длинного списка — равномерно cap штук) */
     if (SA.quick()){
       const n = Math.min(fns.length, cap);
@@ -19,7 +21,7 @@
     const t0 = SA.now(), used = () => (SA.now() - t0)/1000*SA.SPEED;
     let i = 0, seq = fns;
     while (i < min || (again && i < fns.length*rounds && used() < share && E.left() > 15)){
-      if (i && i % fns.length === 0 && fns.length > 2) seq = SA.shuffle(fns);      /* новый круг — другой порядок */
+      if (i && i % fns.length === 0 && fns.length > 2){ const lastFn = seq[fns.length - 1]; do seq = SA.shuffle(fns); while (seq[0] === lastFn); }      /* новый круг — другой порядок, без того же задания два раза подряд */
       await seq[i % fns.length]({level: E.level + (i >= fns.length ? 1 : 0)}); i++; if (!again && i >= fns.length) break; }
   }
   const pairs = list => list.map(([a, b]) => () => X.sameRound('t2_s_' + a, 't2_s_' + b, 'silben'));
@@ -44,7 +46,7 @@
     for (let i = 0; i < parts.length; i++){
       const [pre, fns] = parts[i];
       if (pre) await pre();
-      await fill(E, (E.left() - 10)/(parts.length - i), fns, {min: Math.min(2, fns.length), cap: 1, rounds: fns.length === 1 ? 6 : 2});
+      await fill(E, (E.left() - 10)/(parts.length - i), fns, {min: Math.min(2, fns.length), cap: 1, rounds: fns.length === 1 ? 6 : undefined});
     }
     await X.listenBye();
   };
@@ -112,7 +114,8 @@
       {id: 'warmup', t: 1, icon: 'tasse', name: 'Суп, пузыри, язык горкой', run: warmup(['suppe', 'blasen'], ['zaun', 'berg', 'kinn', 'loewe', 'schaukel'])},
       {id: 'listen', t: 2, icon: 'ohr', name: 'ka–ta, Kopf или Topf?', run: listen([[null, pairs([['ka', 'ta'], ['ga', 'da'], ['ka', 'ka'], ['ta', 'ta'], ['ga', 'ga'], ['ka', 'ga']])],
         [null, [() => X.zeig(['kopf', 'topf']), () => X.zeig(['kanne', 'tanne'])]]])},
-      {id: 'sounds', t: 3, icon: 'specht', name: 'Дятел: ka-ko-ku, ga-go-gu', run: sounds([() => X.syll('t3_r_ka', {pic: 'specht', intro: 't3_specht'}), () => X.syll('t3_r_ga', {face: 'talk_open', hear: true})])},
+      {id: 'sounds', t: 3, icon: 'specht', name: 'Дятел: ka-ko-ku, ga-go-gu', run: sounds([() => X.syll('t3_r_ka', {pic: 'specht', intro: 't3_specht'}), () => X.syll('t3_r_ga', {face: 'talk_open', hear: true}),
+        () => X.syll('t3_rr_k', {pic: 'specht'}), () => X.syll('t3_r_kg', {face: 'talk_open'})])},
       {id: 'words', t: 3, icon: 'kuchen', name: 'Kuh, Katze, Keks, Kuchen…', run: words(W4)},
       {id: 'game', t: 3, icon: 'fisch', name: 'Рыбалка и сад', run: game(['angeln', 'blumen'], W4)}]},
     {n: 5, name: 'Шипящие на слух: S и Sch', ex: [
@@ -164,7 +167,7 @@
       {id: 'sounds', t: 3, icon: S.sym, name: st === 'allein' || st === 'hoeren' ? `${S.name} отдельно` : `Слоги с ${S.name}`, run: async E => {
         T.face(3); await A.sayOne(LOS3);
         if (X.once('laut_intro_' + code)){ const b = X.board(); if (face()) X.bigCard(b, `<img class="pic" style="object-fit:contain" src="${T.src(3, 'face_' + face())}" alt="">`); else X.bigCard(b, SA.pic(S.sym)); T.face(3); await say('t3_laut_intro_' + code); }
-        await fill(E, E.sec - 12, soundFns(), {rounds: st === 'allein' ? 1 : 2});
+        await fill(E, E.sec - 12, soundFns(), {rounds: st === 'allein' ? 1 : undefined});
       }},
       {id: 'words', t: 3, icon: st === 'satz' ? 'mund' : 'ball', name: st === 'satz' ? `Фразы с ${S.name}` : counted ? `Слова с ${S.name} (${SA.STAGE_RU[st]})` : 'Слова (новые немецкие)', run: async E => {
         if (st === 'satz'){ T.face(3); await A.sayOne(LOS3); await fill(E, E.sec - 12, seeded(S.phr, lid()).map(phrase)); return; }

@@ -4751,6 +4751,16 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_r_kg": {
+  "cer": 0.0,
+  "dur": 1.93,
+  "eng": "edge1",
+  "hyp": "Ka, ga, ka, ga.",
+  "mos": 3.11,
+  "text": "Ka, ga, ka, ga.",
+  "tries": 1,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t3_r_la": {
   "cer": 0.0,
   "dur": 1.47,
@@ -4911,6 +4921,16 @@
   "tries": 1,
   "voice": "de-DE-KatjaNeural"
  },
+ "t3_rr_k": {
+  "cer": 0.5,
+  "dur": 2.34,
+  "eng": "edge1",
+  "hyp": "Akak, ok, ok, ik.",
+  "mos": 3.08,
+  "text": "Ack, ock, uck, ick.",
+  "tries": 2,
+  "voice": "de-DE-KatjaNeural"
+ },
  "t3_rr_l": {
   "cer": 0.0,
   "dur": 2.04,
@@ -5032,11 +5052,11 @@
   "voice": "ru-RU-SvetlanaNeural"
  },
  "t3_ru_laut_r": {
-  "cer": 0.02,
-  "dur": 5.39,
+  "cer": 0.04,
+  "dur": 4.91,
   "eng": "edge1",
-  "hyp": "Немецкий «Р» рычит глубоко в горле, как будто полощем горла «РРР».",
-  "mos": 3.21,
+  "hyp": "Немецкий звук кричит глубоко в горле, как будто полощем горла «РРР».",
+  "mos": 3.35,
   "text": "Немецкий «р» рычит глубоко в горле, как будто полощем горло: р-р-р.",
   "tries": 1,
   "voice": "ru-RU-SvetlanaNeural"
